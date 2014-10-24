@@ -1,4 +1,4 @@
-package testing;
+package src.testing;
 
 import org.junit.Test;
 
