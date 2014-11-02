@@ -8,7 +8,9 @@ import java.net.Socket;
 import java.util.HashSet;
 import java.util.Set;
 
+import client.KVSocketListener.SocketStatus;
 import common.messages.KVMessage;
+import common.messages.KVMessageImpl;
 import common.messages.TextMessage;
 
 /**
@@ -35,7 +37,7 @@ public class KVStore implements KVCommInterface {
 	public KVStore(String address, int port) {
 		this.address = address;
 		this.port = port;
-		this.commModule = new KVCommModule();
+		this.commModule = new KVCommModule(output, input);
 	}
 	
 	@Override
@@ -50,20 +52,23 @@ public class KVStore implements KVCommInterface {
 	private void setRunning(boolean isRunning) {
 		running = isRunning;
 	}
+	public boolean isRunning() {
+		return running;
+	}
 
 	@Override
 	public void disconnect() {
-		// copy and adapt from previous milestone
-//		logger.info("try to close connection ...");
-		
-		try {
-			tearDownConnection();
-//			for(ClientSocketListener listener : listeners) {
-//				listener.handleStatus(SocketStatus.DISCONNECTED);
-//			}
-		} catch (IOException ioe) {
-//			logger.error("Unable to close connection!");
-		}
+		//TODO synchronized?????
+//			logger.info("try to close connection ...");
+			
+			try {
+				tearDownConnection();
+				for(KVSocketListener listener : listeners) {
+					listener.handleStatus(SocketStatus.DISCONNECTED);
+				}
+			} catch (IOException ioe) {
+//				logger.error("Unable to close connection!");
+			}
 	}
 	
 	private void tearDownConnection() throws IOException {
@@ -79,41 +84,21 @@ public class KVStore implements KVCommInterface {
 	}
 
 	@Override
-	public KVMessage put(String key, String value) throws Exception {
-		KVMessage msg = null;
+	public KVMessage put(String key, String value) throws IOException {
+		KVMessage msg = new KVMessageImpl(key, value, common.messages.KVMessage.StatusType.PUT);
 		return handleRequest(msg);
 	}
 
 	@Override
-	public KVMessage get(String key) throws Exception {
-		KVMessage msg = null;
+	public KVMessage get(String key) throws IOException {
+		KVMessage msg = new KVMessageImpl(key, null, common.messages.KVMessage.StatusType.GET);
 		return handleRequest(msg);
 	}
 
 	private KVMessage handleRequest(KVMessage request) throws IOException {
-		sendKVMessage(request);
-		return receiveKVMessage();
+		commModule.sendKVMessage(request);
+		return commModule.receiveKVMessage();
 	}
 
-	/* ex: http protocol 1.0
-	GET /page.html HTTP/1.0
-	Host: example.com
-	Referer: http://example.com/
-	User-Agent: CERN-LineMode/2.15 libwww/2.17b3 */
-
-	public void sendKVMessage(KVMessage message) throws IOException {
-		//TODO
-		// protocol: transform KVMessage into String
-		TextMessage protocText = new TextMessage("");
-		commModule.sendMessage(protocText, output);
-	}
-
-	public KVMessage receiveKVMessage() throws IOException {
-		//TODO
-		TextMessage protocText = commModule.receiveMessage(input);
-		// protocol: transform TextMessage into KVMessage
-		KVMessage received = null;
-		return received;
-	}
 
 }
