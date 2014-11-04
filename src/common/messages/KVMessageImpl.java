@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
-import common.messages.Main.Q;
+
 
 public class KVMessageImpl implements KVMessage {
 	public String key;
@@ -44,8 +44,10 @@ public class KVMessageImpl implements KVMessage {
 	public byte[] serialize() {
 		//TODO
 	
-
-		TextMessage q = new TextMessage(byte[]);
+		byte [] text= new byte[5];
+		TextMessage q = new TextMessage(text);
+		
+		
         FileOutputStream fos = new FileOutputStream("c:\\temp.out");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(q);
@@ -62,19 +64,15 @@ public class KVMessageImpl implements KVMessage {
 	
 	public String marshal() {
 		//TODO
-		static TextMessage q = new TextMessage q();
+		TextMessage q = new TextMessage ();
 		
 		{
-		    q.setTextMessage(new ArrayList<TextMessage>());
-		    //Create 1st message
-		    TextMessage q1 = new TextMessage();
-		    q1.setId(1);
-		    q1.setKey("Key");
-		    q1.setValue("Value");
-		   
-		     
-
-		   q.getTextMessage().add(q1);
+		    q1.append("<status>"+ getStatus+ "</status>");
+		    q1.append ("<key>"+getKey+"</key>");
+		    q1.append ("<value>"+getValue+"</value");
+		    
+		   q1.append 
+		
 		   
 		  return null;
 		}
