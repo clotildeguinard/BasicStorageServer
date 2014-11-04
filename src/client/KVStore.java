@@ -8,6 +8,8 @@ import java.net.Socket;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
 import client.KVSocketListener.SocketStatus;
 import common.messages.KVMessage;
 import common.messages.KVMessageImpl;
@@ -18,10 +20,12 @@ import common.messages.TextMessage;
  * @author Clotilde
  *
  */
-public class KVStore implements KVCommInterface {
+public class KVStore extends Thread implements KVCommInterface {
 	private final String address;
 	private final int port;
 	private KVCommModule commModule;
+
+	private Logger logger = Logger.getRootLogger();
 
 	private Socket clientSocket;
 	private Set<KVSocketListener> listeners;
@@ -39,6 +43,10 @@ public class KVStore implements KVCommInterface {
 		this.port = port;
 		this.commModule = new KVCommModule(output, input);
 	}
+
+	public void addListener(KVSocketListener listener){
+		listeners.add(listener);
+	}
 	
 	@Override
 	public void connect() throws Exception {
@@ -55,11 +63,50 @@ public class KVStore implements KVCommInterface {
 	public boolean isRunning() {
 		return running;
 	}
+	/**
+	 * Initializes and starts the client connection. 
+	 * Loops until the connection is closed or aborted by the client.
+	 */
+	public void run() {
+		try {
+			output = clientSocket.getOutputStream();
+			input = clientSocket.getInputStream();
+			
+			while(isRunning()) {
+				try {
+					TextMessage latestMsg = commModule.receiveMessage();
+					for(KVSocketListener listener : listeners) {
+						listener.handleNewMessage(latestMsg);
+					}
+				} catch (IOException ioe) {
+					if(isRunning()) {
+						logger.error("Connection lost!");
+						try {
+							tearDownConnection();
+							for(KVSocketListener listener : listeners) {
+								listener.handleStatus(
+										SocketStatus.CONNECTION_LOST);
+							}
+						} catch (IOException e) {
+							logger.error("Unable to close connection!");
+						}
+					}
+				}				
+			}
+		} catch (IOException ioe) {
+			logger.error("Connection could not be established!");
+			
+		} finally {
+			if(isRunning()) {
+				disconnect();
+			}
+		}
+	}
 
 	@Override
 	public void disconnect() {
 		//TODO synchronized?????
-//			logger.info("try to close connection ...");
+			logger.info("try to close connection ...");
 			
 			try {
 				tearDownConnection();
@@ -67,37 +114,34 @@ public class KVStore implements KVCommInterface {
 					listener.handleStatus(SocketStatus.DISCONNECTED);
 				}
 			} catch (IOException ioe) {
-//				logger.error("Unable to close connection!");
+				logger.error("Unable to close connection!");
 			}
 	}
 	
 	private void tearDownConnection() throws IOException {
 		setRunning(false);
-//		logger.info("tearing down the connection ...");
+		logger.info("tearing down the connection ...");
 		if (clientSocket != null) {
 			input.close();
 			output.close();
 			clientSocket.close();
 			clientSocket = null;
-//			logger.info("connection closed!");
+			logger.info("connection closed!");
 		}
 	}
 
 	@Override
 	public KVMessage put(String key, String value) throws IOException {
 		KVMessage msg = new KVMessageImpl(key, value, common.messages.KVMessage.StatusType.PUT);
-		return handleRequest(msg);
+		commModule.sendKVMessage(msg);
+		return msg;
 	}
 
 	@Override
 	public KVMessage get(String key) throws IOException {
 		KVMessage msg = new KVMessageImpl(key, null, common.messages.KVMessage.StatusType.GET);
-		return handleRequest(msg);
-	}
-
-	private KVMessage handleRequest(KVMessage request) throws IOException {
-		commModule.sendKVMessage(request);
-		return commModule.receiveKVMessage();
+		commModule.sendKVMessage(msg);
+		return msg;
 	}
 
 

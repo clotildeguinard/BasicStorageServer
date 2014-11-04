@@ -19,7 +19,7 @@ import common.messages.TextMessage;
 public class KVClient implements KVSocketListener {
 
 	private static Logger logger = Logger.getRootLogger();
-	private static final String PROMPT = "EchoClient> ";
+	private static final String PROMPT = "KVClient> ";
 	private BufferedReader stdin;
 	private KVStore kvStore = null;
 	private boolean stop = false;
@@ -83,7 +83,7 @@ public class KVClient implements KVSocketListener {
 					printError("Not connected!");
 				}
 			} else {
-				printError("No message passed!");
+				printError("Invalid number of parameters!");
 			}
 			
 		} else if (tokens[0].equals("get")) {
@@ -99,7 +99,7 @@ public class KVClient implements KVSocketListener {
 					printError("Not connected!");
 				}
 			} else {
-				printError("No message passed!");
+				printError("Invalid number of parameters!");
 			}
 			
 		} else if(tokens[0].equals("disconnect")) {
@@ -130,8 +130,8 @@ public class KVClient implements KVSocketListener {
 	private void connect(String address, int port) 
 			throws UnknownHostException, IOException {
 		kvStore = new KVStore(address, port);
-//		kvStore.addListener(this);
-//		kvStore.start();
+		kvStore.addListener(this);
+		kvStore.start();
 	}
 	
 	private void disconnect() {
@@ -143,14 +143,16 @@ public class KVClient implements KVSocketListener {
 	
 	private void printHelp() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(PROMPT).append("ECHO CLIENT HELP (Usage):\n");
+		sb.append(PROMPT).append("KV CLIENT HELP (Usage):\n");
 		sb.append(PROMPT);
 		sb.append("::::::::::::::::::::::::::::::::");
 		sb.append("::::::::::::::::::::::::::::::::\n");
 		sb.append(PROMPT).append("connect <host> <port>");
 		sb.append("\t establishes a connection to a server\n");
-		sb.append(PROMPT).append("send <text message>");
-		sb.append("\t\t sends a text message to the server \n");
+		sb.append(PROMPT).append("put <key> <value>");
+		sb.append("\t\t inserts or overwrites record in kvStore \n");
+		sb.append(PROMPT).append("get <key>");
+		sb.append("\t\t reads record from kvStore \n");
 		sb.append(PROMPT).append("disconnect");
 		sb.append("\t\t\t disconnects from the server \n");
 		
@@ -229,7 +231,7 @@ public class KVClient implements KVSocketListener {
 	}
 	
     /**
-     * Main entry point for the echo server application. 
+     * Main entry point for the kvStore application. 
      * @param args contains the port number at args[0].
      */
     public static void main(String[] args) {
