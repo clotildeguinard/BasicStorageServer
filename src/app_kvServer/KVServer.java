@@ -1,7 +1,20 @@
 package app_kvServer;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
-public class KVServer  {
+import app_kvServer.WorkerRunnable;
+
+
+public class KVServer implements Runnable {
+	
+	protected int Port = 50000;
+	protected ServerSocket serverSocket = null;
+	protected boolean isStopped = false;
+	protected Thread runningThread = null;
+	protected int cacheSize = 5;
+	protected String strategy = "FIFO";
 	
 	/**
 	 * Start KV Server at given port
@@ -14,6 +27,66 @@ public class KVServer  {
 	 *           and "LFU".
 	 */
 	public KVServer(int port, int cacheSize, String strategy) {
+		this.Port = port;
+		this.cacheSize = cacheSize;
+		this.strategy = strategy;		
+	}
+
+	@Override
+	public void run() {
+		synchronized(this){
+			this.runningThread = Thread.currentThread();
+		}
+		openServerSocket();
+		
+		while(!isStopped()){
+			Socket clientSocket = null;
+			try{
+				clientSocket = this.serverSocket.accept();
+			} catch (IOException e){
+				if(isStopped()){
+					System.out.println("Server Stopped.") ;
+                    return;
+                }
+                throw new RuntimeException(
+                    "Error accepting client connection", e);
+            }
+			new Thread(new WorkerRunnable(clientSocket, "Multithreaded Server")).start();
+		}		
+	}
+	
+	private synchronized boolean isStopped() {
+		return this.isStopped;
+	}
+	
+    public synchronized void stop(){
+        this.isStopped = true;
+        try {
+            this.serverSocket.close();
+        } catch (IOException e) {
+            throw new RuntimeException("Error closing server", e);
+        }
+    }
+
+	private void openServerSocket() {
+		try {
+            this.serverSocket = new ServerSocket(this.Port);
+        } catch (IOException e) {
+            throw new RuntimeException("Cannot open port 5000", e);
+        }
+	}
+	
+	public void main(String args[]){
+		KVServer server = new KVServer(9000, 20, "FIFO");
+		new Thread(server).start();
+
+		try {
+		    Thread.sleep(20 * 1000);
+		} catch (InterruptedException e) {
+		    e.printStackTrace();
+		}
+		System.out.println("Stopping Server");
+		server.stop();
 		
 	}
 }

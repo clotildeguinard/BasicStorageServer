@@ -2,3 +2,6 @@
 /client
 /app_kvClient
 /common
+/kvserver.zip
+/kvserver
+/app_kvServer
