@@ -20,6 +20,8 @@ public interface KVMessage {
 	 */
 	public String getKey();
 	
+	
+	
 	/**
 	 * @return the value that is associated with this message, 
 	 * 		null if not value is associated.
