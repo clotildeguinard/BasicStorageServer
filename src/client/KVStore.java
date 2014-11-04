@@ -51,8 +51,6 @@ public class KVStore extends Thread implements KVCommInterface {
 	@Override
 	public void connect() throws Exception {
 		clientSocket = new Socket(address, port);
-		input = clientSocket.getInputStream();
-		output = clientSocket.getOutputStream();
 		listeners = new HashSet<KVSocketListener>();
 		setRunning(true);
 	}
