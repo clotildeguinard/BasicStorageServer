@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 import javax.xml.bind.JAXBContext;
@@ -62,35 +63,27 @@ public class KVMessageImpl implements KVMessage {
 	}
 
 	
-	public String marshal() {
+	public TextMessage marshal() {
 		//TODO
-		TextMessage q = new TextMessage ();
 		
-		{
-		    q1.append("<status>"+ getStatus+ "</status>");
-		    q1.append ("<key>"+getKey+"</key>");
-		    q1.append ("<value>"+getValue+"</value");
-		    
-		   q1.append 
+		String s;
 		
-		   
-		  return null;
-		}
-		   private static void marshalingExample() throws JAXBException
-		   {
-		       JAXBContext jaxbContext = JAXBContext.newInstance(TextMessage.class);
-		       Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-		    
-		       jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		        
-		       //Marshal the key list in console
-		       jaxbMarshaller.marshal(q, System.out);
-		        
-		       //Marshal the keys list in file
-		       jaxbMarshaller.marshal(q, new File("c:/temp/keys.xml"));
-		   }
 
-	}
+		
+			StringBuilder q1=new StringBuilder();
+			
+			q1.append("<KVMessage>");
+		    q1.append("<status>"+ getStatus()+ "</status>");
+		    q1.append ("<key>"+getKey()+"</key>");
+		    q1.append ("<value>"+getValue()+"</value");
+		    
+		   q1.append("</KVMessage>");
+		    s=q1.toString();
+		   
+		  return new TextMessage(s);
+		  
+		}
+		   
 
 	}
 
