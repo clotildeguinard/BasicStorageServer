@@ -43,23 +43,11 @@ public class KVMessageImpl implements KVMessage {
 	}
 
 	public byte[] serialize() {
+		return null;
+		
+		
 		//TODO
 	
-		byte [] text= new byte[5];
-		TextMessage q = new TextMessage(text);
-		
-		
-        FileOutputStream fos = new FileOutputStream("c:\\temp.out");
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(q);
-        fos.close();
-
-        FileInputStream fis = new FileInputStream("c:\\temp.out");
-        ObjectInputStream oin = new ObjectInputStream(fis);
-        TextMessage q2 = (TextMessage)oin.readObject();
-        fis.close();
-        
-		return null;
 	}
 
 	
@@ -67,9 +55,7 @@ public class KVMessageImpl implements KVMessage {
 		//TODO
 		
 		String s;
-		
 
-		
 			StringBuilder q1=new StringBuilder();
 			
 			q1.append("<KVMessage>");
@@ -84,7 +70,13 @@ public class KVMessageImpl implements KVMessage {
 		  
 		}
 		   
-
+	public TextMessage unmarshal() {
+		
+		getStatus();
+		getKey();
+		getValue();
+		return null;
+		
 	}
 
 	/**
