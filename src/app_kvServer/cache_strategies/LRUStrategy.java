@@ -1,6 +1,8 @@
 package app_kvServer.cache_strategies;
 
+import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingDeque;
+
 
 
 
@@ -12,26 +14,14 @@ import common.messages.KVMessageImpl;
 import app_kvServer.DataCache;
 
 public class LRUStrategy implements DataCache {
-	private final LinkedBlockingDeque<Pair<String, String>> LRUCache;
+	private final LinkedList<Pair<String, String>> LRUCache;
+	private final int capacity;
 
 	public LRUStrategy(int capacity) {
-		LRUCache = new LinkedBlockingDeque<Pair<String, String>>(capacity);
+		LRUCache = new LinkedList<Pair<String, String>>();
+		this.capacity = capacity;
 	}
 
-	public static void main(String[] args) {
-		DataCache cache = new LRUStrategy(3);
-		cache.put("foo", "bar"); System.out.println(cache.toString());
-		cache.put("hello", "zebra"); System.out.println(cache.toString());
-		cache.put("cat", "dog"); System.out.println(cache.toString());
-		cache.put("foo", "bar"); System.out.println(cache.toString());
-		
-		cache.get("cat"); System.out.println(cache.toString());
-		
-		cache.put("cat", "mouse"); System.out.println(cache.toString());
-		cache.put("cat", "mouse"); System.out.println(cache.toString());
-		cache.put("hi", "new"); System.out.println(cache.toString());
-
-	}
 
 	/**
 	 * If cache already contains pair with same key, remove it
@@ -39,16 +29,14 @@ public class LRUStrategy implements DataCache {
 	 * Inserts new kv pair at first position
 	 */
 	@Override
-	public KVMessage put(String key, String value) {
-		StatusType status = StatusType.PUT_SUCCESS;
-		String valueInCache = getValueIfKeyInCache(key);
+	public synchronized KVMessage put(String key, String value) {
 
+		String valueInCache = getValueIfKeyInCache(key);
 		if (valueInCache != null) {
 			LRUCache.remove(new Pair<String, String>(key, valueInCache));
-			status = StatusType.PUT_UPDATE;
 		}
 		insert(key, value);
-		return new KVMessageImpl(key, value, status);
+		return null;
 	}
 
 	/**
@@ -58,10 +46,10 @@ public class LRUStrategy implements DataCache {
 	 * @param value
 	 */
 	private void insert(String key, String value) {
-		if (!LRUCache.offerFirst(new Pair<String, String>(key, value))) {
+		if (LRUCache.size() == capacity) {
 			LRUCache.removeLast();
-			put(key, value);
 		}
+		LRUCache.addFirst(new Pair<String, String>(key, value));
 	}
 
 	/**
@@ -70,7 +58,7 @@ public class LRUStrategy implements DataCache {
 	 * Else return null
 	 */
 	@Override
-	public KVMessage get(String key) {
+	public synchronized KVMessage get(String key) {
 		String value = getValueIfKeyInCache(key);
 		if (value == null) {
 			return null;

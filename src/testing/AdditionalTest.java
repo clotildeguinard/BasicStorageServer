@@ -17,6 +17,7 @@ public class AdditionalTest extends TestCase {
 	public void testLRU() {
 		KVMessage answer;
 		DataCache cache = new LRUStrategy(3);
+		cache.put("first", "kv");
 		cache.put("foo", "bar");
 		cache.put("hello", "zebra");
 		cache.put("cat", "dog");
@@ -45,17 +46,18 @@ public class AdditionalTest extends TestCase {
 	public void testLFU() {
 		KVMessage answer;
 		DataCache cache = new LFUStrategy(3);
+		cache.put("first", "kv");
 		cache.put("foo", "bar");
 		cache.put("hello", "zebra");
 		cache.put("cat", "dog");
-		assertEquals("foo - bar - 0 / hello - zebra - 0 / cat - dog - 0 / ", cache.toString());
+		assertEquals("hello - zebra - 0 / foo - bar - 0 / cat - dog - 0 / ", cache.toString());
 		
 		answer = cache.get("cattt");
 		assertNull(answer);
-		assertEquals("foo - bar - 0 / hello - zebra - 0 / cat - dog - 0 / ", cache.toString());
+		assertEquals("hello - zebra - 0 / foo - bar - 0 / cat - dog - 0 / ", cache.toString());
 		
 		cache.put("foo", "bar");
-		assertEquals("cat - dog - 0 / hello - zebra - 0 / foo - bar - 0 / ", cache.toString());
+		assertEquals("hello - zebra - 0 / cat - dog - 0 / foo - bar - 0 / ", cache.toString());
 		
 		answer = cache.get("cat");
 		assertEquals(StatusType.GET_SUCCESS, answer.getStatus());

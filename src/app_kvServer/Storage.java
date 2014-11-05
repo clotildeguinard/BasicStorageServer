@@ -6,21 +6,23 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import common.messages.KVMessage;
+import common.messages.KVMessage.StatusType;
+import common.messages.KVMessageImpl;
 
 public class Storage {
 	
-	public KVMessage put(String Key, String Value){
+	public KVMessage put(String key, String value){
 		//TODO
+		String newString = (key + " " + value);
+		Singleton.getInstance().writeToFile(newString );
 		// write to file
-		return null;
-	}
-	public KVMessage get(String Key){
-		//TODO
-		// read from file
-		return null;
+		// adapt status type (return error if exception thrown, update if overwriting) 
+		return new KVMessageImpl(key, value, StatusType.PUT_SUCCESS);
+
 	}
 	
-	public String getBIS(String key){
+	public KVMessage get(String key){
+
 		BufferedReader br;
 		String line = "";
 		try {
@@ -32,7 +34,7 @@ public class Storage {
 
 	                  if (words[0].equals(key)) {
 	                	  br.close();
-	                	  return words[1];
+	                	  return new KVMessageImpl(key, words[1], StatusType.GET_SUCCESS);
 	                }
 	            }
 	            br.close();
@@ -41,12 +43,7 @@ public class Storage {
 	        }
 	    } catch (FileNotFoundException e) {
 	        e.printStackTrace();
-	    }
-		return "No matching key in the storage server!";	
-	}
-	
-	public void putBIS(String Key, String Value){
-		String newString = (Key + " " + Value);
-		Singleton.getInstance().writeToFile(newString );	
+	    }	
+		return new KVMessageImpl(key, null, StatusType.GET_ERROR);
 	}	
 }

@@ -1,5 +1,6 @@
 package app_kvServer.cache_strategies;
 
+import java.util.PriorityQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 
 import common.messages.KVMessage;
@@ -8,28 +9,12 @@ import common.messages.KVMessageImpl;
 import app_kvServer.DataCache;
 
 public class LFUStrategy implements DataCache {
-	private final PriorityBlockingQueue<Triple<String, String, Integer>> LFUCache;
+	private final PriorityQueue<Triple<String, String, Integer>> LFUCache;
 	private final int capacity;
 
 	public LFUStrategy(int capacity) {
-		LFUCache = new PriorityBlockingQueue<>(capacity);
+		LFUCache = new PriorityQueue<>(capacity);
 		this.capacity = capacity;
-	}
-
-	public static void main(String[] args) {
-		DataCache cache = new LFUStrategy(3);
-		cache.put("foo", "bar"); System.out.println(cache.toString());
-		cache.put("hello", "zebra"); System.out.println(cache.toString());
-		cache.put("cat", "dog"); System.out.println(cache.toString());
-		
-		cache.get("cat"); System.out.println(cache.toString());
-		cache.get("cat"); System.out.println(cache.toString());
-		cache.get("cat"); System.out.println(cache.toString());
-		cache.get("hello"); System.out.println(cache.toString());
-		
-		cache.put("cat", "mouse"); System.out.println(cache.toString());
-		cache.put("hi", "new"); System.out.println(cache.toString());
-
 	}
 
 
@@ -39,7 +24,7 @@ public class LFUStrategy implements DataCache {
 	 * Else return null
 	 */
 	@Override
-	public KVMessage get(String key) {
+	public synchronized KVMessage get(String key) {
 		Triple<String, String, Integer> t = getTripleIfKeyInCache(key);
 		if (t == null) {
 			return null;
@@ -60,7 +45,7 @@ public class LFUStrategy implements DataCache {
 	 * @return 
 	 */
 	@Override
-	public KVMessage put(String key, String value) {
+	public synchronized KVMessage put(String key, String value) {
 		StatusType status = StatusType.PUT_SUCCESS;
 		Triple<String, String, Integer> tripleInCache = getTripleIfKeyInCache(key);
 		if (tripleInCache != null) {
