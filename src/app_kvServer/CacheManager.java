@@ -5,20 +5,21 @@ import common.messages.KVMessage.StatusType;
 
 public class CacheManager {
 	private DataCache dataCache;
+	private Storage storage;
 	
-	public CacheManager(DataCache dataCache) {
+	public CacheManager(DataCache dataCache, Storage storage) {
 		this.dataCache = dataCache;
+		this.storage = storage;
 	}
 
 	public KVMessage put(String key, String value)  {
-		//TODO
-		// write to file (must return a kvmessage)
-		KVMessage putAnswer = null;
 
-		if (putAnswer.getStatus() != StatusType.PUT_ERROR) {
+		KVMessage storageAnswer = storage.put(key, value);;
+
+		if (storageAnswer.getStatus() != StatusType.PUT_ERROR) {
 			dataCache.put(key, value);
 		}
-		return putAnswer;
+		return storageAnswer;
 	}
 
 
@@ -27,19 +28,12 @@ public class CacheManager {
 		if (cacheAnswer != null) {
 			return cacheAnswer;
 		} else {
-			//TODO
 
-			//read in file (must return a kvmessage)
-			KVMessage storageAnswer = null;
+			KVMessage storageAnswer = storage.get(key);
 
 			dataCache.put(storageAnswer.getKey(), storageAnswer.getValue());
 			return storageAnswer;
 		}
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

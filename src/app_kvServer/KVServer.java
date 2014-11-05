@@ -15,7 +15,7 @@ public class KVServer implements Runnable {
 	protected ServerSocket serverSocket = null;
 	protected boolean isStopped = false;
 	protected Thread runningThread = null;
-	protected CacheManager cacheManager;
+	protected final CacheManager cacheManager;
 	
 	/**
 	 * Start KV Server at given port
@@ -38,7 +38,7 @@ public class KVServer implements Runnable {
 		} else {
 			datacache = new LFUStrategy(cacheSize);
 		}
-		this.cacheManager = new CacheManager(datacache);
+		this.cacheManager = new CacheManager(datacache, new Storage());
 	}
 
 	@Override

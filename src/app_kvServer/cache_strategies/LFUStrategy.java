@@ -98,7 +98,7 @@ public class LFUStrategy implements DataCache {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		for (Triple<String, String, Integer> pair : LFUCache) {
-			sb.append(pair.getKey() + " - " + pair.getValue() + " - " + pair.getPriority() + " ///// ");
+			sb.append(pair.getKey() + " - " + pair.getValue() + " - " + pair.getPriority() + " / ");
 		}
 		return sb.toString();
 	}

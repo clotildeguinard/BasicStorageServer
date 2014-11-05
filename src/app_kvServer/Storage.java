@@ -5,9 +5,22 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import common.messages.KVMessage;
+
 public class Storage {
 	
-	public String get(String key){
+	public KVMessage put(String Key, String Value){
+		//TODO
+		// write to file
+		return null;
+	}
+	public KVMessage get(String Key){
+		//TODO
+		// read from file
+		return null;
+	}
+	
+	public String getBIS(String key){
 		BufferedReader br;
 		String line = "";
 		try {
@@ -32,7 +45,7 @@ public class Storage {
 		return "No matching key in the storage server!";	
 	}
 	
-	public void put(String Key, String Value){
+	public void putBIS(String Key, String Value){
 		String newString = (Key + " " + Value);
 		Singleton.getInstance().writeToFile(newString );	
 	}	

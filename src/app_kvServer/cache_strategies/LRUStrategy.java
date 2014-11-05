@@ -94,7 +94,7 @@ public class LRUStrategy implements DataCache {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		for (Pair<String, String> pair : LRUCache) {
-			sb.append(pair.getKey() + " - " + pair.getValue() + " ///// ");
+			sb.append(pair.getKey() + " - " + pair.getValue() + " / ");
 		}
 		return sb.toString();
 	}
