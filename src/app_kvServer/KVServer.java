@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import app_kvServer.WorkerRunnable;
+import app_kvServer.cache_strategies.FIFO;
+import app_kvServer.cache_strategies.LFUStrategy;
+import app_kvServer.cache_strategies.LRUStrategy;
 
 
 public class KVServer implements Runnable {
@@ -13,8 +15,7 @@ public class KVServer implements Runnable {
 	protected ServerSocket serverSocket = null;
 	protected boolean isStopped = false;
 	protected Thread runningThread = null;
-	protected int cacheSize = 5;
-	protected String strategy = "FIFO";
+	protected CacheManager cacheManager;
 	
 	/**
 	 * Start KV Server at given port
@@ -26,10 +27,18 @@ public class KVServer implements Runnable {
 	 *           currently not contained in the cache. Options are "FIFO", "LRU", 
 	 *           and "LFU".
 	 */
+
 	public KVServer(int port, int cacheSize, String strategy) {
 		this.Port = port;
-		this.cacheSize = cacheSize;
-		this.strategy = strategy;		
+		DataCache datacache;
+		if (strategy.equalsIgnoreCase("FIFO")) {
+			datacache = new FIFO(cacheSize);
+		} else if (strategy.equalsIgnoreCase("LRU")) {
+			datacache = new LRUStrategy(cacheSize);
+		} else {
+			datacache = new LFUStrategy(cacheSize);
+		}
+		this.cacheManager = new CacheManager(datacache);
 	}
 
 	@Override

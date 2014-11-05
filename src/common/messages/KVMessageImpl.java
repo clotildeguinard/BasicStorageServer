@@ -1,16 +1,5 @@
 package common.messages;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.PrintStream;
-import java.util.ArrayList;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-
 
 
 public class KVMessageImpl implements KVMessage {
@@ -42,26 +31,6 @@ public class KVMessageImpl implements KVMessage {
 		return value;
 	}
 
-	public byte[] serialize() {
-		//TODO
-	
-		byte [] text= new byte[5];
-		TextMessage q = new TextMessage(text);
-		
-		
-        FileOutputStream fos = new FileOutputStream("c:\\temp.out");
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(q);
-        fos.close();
-
-        FileInputStream fis = new FileInputStream("c:\\temp.out");
-        ObjectInputStream oin = new ObjectInputStream(fis);
-        TextMessage q2 = (TextMessage)oin.readObject();
-        fis.close();
-        
-		return null;
-	}
-
 	
 	public TextMessage marshal() {
 		//TODO
@@ -85,7 +54,6 @@ public class KVMessageImpl implements KVMessage {
 		}
 		   
 
-	}
 
 	/**
 	 * @return the status type that is associated with this message, 
