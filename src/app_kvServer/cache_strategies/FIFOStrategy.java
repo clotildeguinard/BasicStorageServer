@@ -8,11 +8,11 @@ import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
 import app_kvServer.DataCache;
 
-public class FIFO implements DataCache{
+public class FIFOStrategy implements DataCache{
 	private LinkedList<Pair<String, String>> FIFOCache;
 	private int capacity;
 
-	public FIFO(int capacity) {
+	public FIFOStrategy(int capacity) {
 		FIFOCache = new LinkedList<>();
 		this.capacity = capacity;
 	}
@@ -48,6 +48,14 @@ public class FIFO implements DataCache{
 	}
 	
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (Pair<String, String> pair : FIFOCache) {
+			sb.append(pair.getKey() + " - " + pair.getValue() + " / ");
+		}
+		return sb.toString();
+	}
 }
 
 

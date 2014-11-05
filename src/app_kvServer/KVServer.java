@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import app_kvServer.cache_strategies.FIFO;
+import app_kvServer.cache_strategies.FIFOStrategy;
 import app_kvServer.cache_strategies.LFUStrategy;
 import app_kvServer.cache_strategies.LRUStrategy;
 
@@ -32,7 +32,7 @@ public class KVServer implements Runnable {
 		this.Port = port;
 		DataCache datacache;
 		if (strategy.equalsIgnoreCase("FIFO")) {
-			datacache = new FIFO(cacheSize);
+			datacache = new FIFOStrategy(cacheSize);
 		} else if (strategy.equalsIgnoreCase("LRU")) {
 			datacache = new LRUStrategy(cacheSize);
 		} else {
