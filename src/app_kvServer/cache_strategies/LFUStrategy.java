@@ -42,7 +42,7 @@ public class LFUStrategy implements DataCache {
 	/**
 	 * If cache already contains pair with same key, remove it
 	 * Inserts new kv pair with priority 0
-	 * @return 
+	 * @return a kvmessage with request status, and the key and value of rejected pair (can be null)
 	 */
 	@Override
 	public synchronized KVMessage put(String key, String value) {
@@ -52,8 +52,8 @@ public class LFUStrategy implements DataCache {
 			LFUCache.remove(tripleInCache);
 			status = StatusType.PUT_UPDATE;
 		}
-		insert(new Triple<String, String, Integer>(key, value, 0));
-		return new KVMessageImpl(key, value, status);		
+		Triple<String, String, Integer> rejected = insert(new Triple<String, String, Integer>(key, value, 0));
+		return new KVMessageImpl(rejected.getKey(), rejected.getValue(), status);		
 	}
 	
 	/**
@@ -61,12 +61,15 @@ public class LFUStrategy implements DataCache {
 	 * Inserts new kv pair
 	 * @param key
 	 * @param value
+	 * @return the rejected triple if cache was full
 	 */
-	private void insert(Triple<String, String, Integer> t) {
+	private Triple<String, String, Integer> insert(Triple<String, String, Integer> t) {
+		Triple<String, String, Integer> rejected = new Triple<String, String, Integer>();
 		if (LFUCache.size() == capacity) {
-			LFUCache.poll();
+			rejected = LFUCache.poll();
 		}
 		LFUCache.add(t);
+		return rejected;
 	}
 
 	private Triple<String, String, Integer> getTripleIfKeyInCache(String key) {

@@ -5,6 +5,12 @@ public class Triple<L,R, Integer> implements Comparable<Triple<L,R, Integer>> {
 	private final R value;
 	private int priority;
 
+	public Triple() {
+		this.key = null;
+		this.value = null;
+		this.priority = 0;
+	}
+
     public Triple(L key, R value, int priority) {
       this.key = key;
       this.value = value;

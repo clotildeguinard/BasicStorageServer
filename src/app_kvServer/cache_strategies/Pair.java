@@ -3,6 +3,11 @@ package app_kvServer.cache_strategies;
 public class Pair<L,R> {
     final L key;
 	final R value;
+	
+	public Pair() {
+		this.key = null;
+		this.value = null;
+	}
 
     public Pair(L key, R value) {
       this.key = key;

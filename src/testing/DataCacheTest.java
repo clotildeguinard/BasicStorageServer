@@ -10,9 +10,9 @@ import app_kvServer.cache_strategies.LFUStrategy;
 import app_kvServer.cache_strategies.LRUStrategy;
 import junit.framework.TestCase;
 
-public class AdditionalTest extends TestCase {
+public class DataCacheTest extends TestCase {
 	
-	// TODO add your test cases, at least 3
+
 	
 	@Test
 	public void testLRU() {

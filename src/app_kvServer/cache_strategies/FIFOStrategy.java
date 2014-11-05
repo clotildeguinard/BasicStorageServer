@@ -16,7 +16,10 @@ public class FIFOStrategy implements DataCache{
 		FIFOCache = new LinkedList<>();
 		this.capacity = capacity;
 	}
-
+	
+	/**
+	 * @return kvmessage if key is in cache, null otherwise
+	 */
 	@Override
 	public synchronized KVMessage get(String key) {
 		Pair<String, String> p = getPairIfKeyInCache(key);
@@ -27,15 +30,25 @@ public class FIFOStrategy implements DataCache{
 		return null;
 	}
 
+	/**
+	 * If cache already contains pair with same key, remove it
+	 * Inserts new kv pair at first position
+	 * @return a kvmessage with request status, and the key and value of rejected pair (can be null)
+	 */
 	@Override
 	public synchronized KVMessage put(String key, String value) {
+		StatusType status = StatusType.PUT_SUCCESS;
 		Pair<String, String> p = getPairIfKeyInCache(key);
-		FIFOCache.remove(p);
+		if (p != null) {
+			FIFOCache.remove(p);
+			status = StatusType.PUT_UPDATE;
+		}
+		Pair<String, String> rejected = new Pair<>();
 		if (FIFOCache.size() == capacity) {
-			FIFOCache.removeLast();
+			rejected = FIFOCache.removeLast();
 		}
 		FIFOCache.addFirst(new Pair<String, String>(key, value));
-		return null;
+		return new KVMessageImpl(rejected.getKey(), rejected.getValue(), status);
 	}
 
 	private Pair<String, String> getPairIfKeyInCache(String key) {
