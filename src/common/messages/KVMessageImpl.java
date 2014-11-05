@@ -34,8 +34,6 @@ public class KVMessageImpl implements KVMessage {
 	public byte[] serialize() {
 		return null;
 		
-		
-		//TODO
 	
 	}
 
@@ -47,12 +45,12 @@ public class KVMessageImpl implements KVMessage {
 
 			StringBuilder q1=new StringBuilder();
 			
-			q1.append("<KVMessage>");
+			q1.append("<kvmessage>");
 		    q1.append("<status>"+ getStatus()+ "</status>");
 		    q1.append ("<key>"+getKey()+"</key>");
-		    q1.append ("<value>"+getValue()+"</value");
+		    q1.append ("<value>"+getValue()+"</value>");
 		    
-		   q1.append("</KVMessage>");
+		   q1.append("</kvmessage>");
 		    s=q1.toString();
 		   
 		  return new TextMessage(s);
@@ -62,9 +60,14 @@ public class KVMessageImpl implements KVMessage {
 	public TextMessage unmarshal() {
 		
 		getStatus();
+		
 		getKey();
+		
 		getValue();
+		
 		return null;
+		
+		
 		
 	}
 
