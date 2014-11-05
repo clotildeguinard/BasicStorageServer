@@ -5,7 +5,7 @@ package common.messages;
 public class KVMessageImpl implements KVMessage {
 	public String key;
 	public String value;
-	public StatusType statusType;
+	public static StatusType statusType;
 
 	public KVMessageImpl(String key, String value, StatusType statusType) {
 		this.key = key;
@@ -17,7 +17,6 @@ public class KVMessageImpl implements KVMessage {
 	 * @return the key that is associated with this message, 
 	 * 		null if not key is associated.
 	 */
-	@Override
 	public String getKey(){
 		return key;
 	}
@@ -31,12 +30,15 @@ public class KVMessageImpl implements KVMessage {
 		return value;
 	}
 
+<<<<<<< HEAD
 	public byte[] serialize() {
 		return null;
 		
 	
 	}
 
+=======
+>>>>>>> FETCH_HEAD
 	
 	public TextMessage marshal() {
 		//TODO
@@ -57,7 +59,8 @@ public class KVMessageImpl implements KVMessage {
 		  
 		}
 		   
-	public TextMessage unmarshal() {
+<<<<<<< HEAD
+	public static KVMessage unmarshal(TextMessage text) {
 		
 		getStatus();
 		
@@ -66,10 +69,11 @@ public class KVMessageImpl implements KVMessage {
 		getValue();
 		
 		return null;
-		
-		
-		
+			
 	}
+=======
+
+>>>>>>> FETCH_HEAD
 
 	/**
 	 * @return the status type that is associated with this message, 
