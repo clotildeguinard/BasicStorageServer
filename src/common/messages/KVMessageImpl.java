@@ -1,5 +1,7 @@
 package common.messages;
 
+import javax.xml.transform.stream.StreamResult;
+
 
 
 public class KVMessageImpl implements KVMessage {
@@ -60,14 +62,19 @@ public class KVMessageImpl implements KVMessage {
 		}
 		   
 <<<<<<< HEAD
-	public static KVMessage unmarshal(TextMessage text) {
-		
-		getStatus();
-		
-		getKey();
-		
-		getValue();
-		
+
+private static final String PARAMETERS_START_TAG = "<key>";
+private static final String PARAMETERS_END_TAG = "</key>";
+
+	public static String unmarshal(TextMessage text) {
+
+		    String xml = text.msgBytes.toString();
+		    int beginIndex = xml.indexOf(PARAMETERS_START_TAG)
+		            + msg.length;
+		   int endIndex = xml.indexOf(PARAMETERS_END_TAG);
+		    return xml.substring(beginIndex, endIndex);
+	
+
 		return null;
 			
 	}
