@@ -32,15 +32,7 @@ public class KVMessageImpl implements KVMessage {
 		return value;
 	}
 
-<<<<<<< HEAD
-	public byte[] serialize() {
-		return null;
-		
-	
-	}
 
-=======
->>>>>>> FETCH_HEAD
 	
 	public TextMessage marshal() {
 		//TODO
@@ -48,9 +40,9 @@ public class KVMessageImpl implements KVMessage {
 		String s;
 
 			StringBuilder q1=new StringBuilder();
-			
+
 			q1.append("<kvmessage>");
-		    q1.append("<status>"+ getStatus()+ "</status>");
+		    q1.append("<status>"+ getStatus().toString().toLowerCase() + "</status>");
 		    q1.append ("<key>"+getKey()+"</key>");
 		    q1.append ("<value>"+getValue()+"</value>");
 		    
@@ -60,27 +52,29 @@ public class KVMessageImpl implements KVMessage {
 		  return new TextMessage(s);
 		  
 		}
-		   
-<<<<<<< HEAD
 
-private static final String PARAMETERS_START_TAG = "<key>";
-private static final String PARAMETERS_END_TAG = "</key>";
+	public static KVMessage unmarshal(TextMessage text) {
 
-	public static String unmarshal(TextMessage text) {
+		    String xml = text.getMsg();
 
-		    String xml = text.msgBytes.toString();
-		    int beginIndex = xml.indexOf(PARAMETERS_START_TAG)
-		            + msg.length;
-		   int endIndex = xml.indexOf(PARAMETERS_END_TAG);
-		    return xml.substring(beginIndex, endIndex);
-	
+		    String key = unmarshalParameter(xml, "key");
+		    String value = unmarshalParameter(xml, "value");
+		    String status = unmarshalParameter(xml, "status");
 
-		return null;
+		StatusType statusType = StatusType.valueOf(status.toUpperCase());
+
+		return new KVMessageImpl(key, value, statusType);
 			
 	}
-=======
+	private static String unmarshalParameter(String xml, String parameter) {
+		String start_tag = "<" + parameter + ">";
+		String end_tag = "</" + parameter + ">";
+		int beginIndex = xml.indexOf(start_tag)
+	            + parameter.length() + 2;
+	   int endIndex = xml.indexOf(end_tag);
+	   return xml.substring(beginIndex, endIndex);
+	}
 
->>>>>>> FETCH_HEAD
 
 	/**
 	 * @return the status type that is associated with this message, 
