@@ -24,17 +24,12 @@ public class MarshalTest extends TestCase {
 	
 	@Test
 	public void testUnmarshal() {
-<<<<<<< Updated upstream
+
 		KVMessage unmarshalledText = KVMessageImpl.unmarshal(text);
 		assertEquals(kvMessage.getKey(), unmarshalledText.getKey());
 		assertEquals(kvMessage.getValue(), unmarshalledText.getValue());
 		assertEquals(kvMessage.getStatus(), unmarshalledText.getStatus());
-=======
-//		KVMessageImpl unmarshalledText = KVMessageImpl.unmarshall(text);
-//		assertEquals(kvMessage.getKey(), unmarshalledText.getKey());
-//		assertEquals(kvMessage.getValue(), unmarshalledText.getValue());
-//		assertEquals(kvMessage.getStatus(), unmarshalledText.getStatus());
->>>>>>> Stashed changes
+
 	}
 
 	
