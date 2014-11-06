@@ -84,4 +84,5 @@ public class KVMessageImpl implements KVMessage {
 	public StatusType getStatus() {
 		return statusType;
 	}
+
 }

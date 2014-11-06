@@ -14,7 +14,7 @@ public class Storage {
 	public KVMessage put(String key, String value){
 		//TODO
 		String newString = (key + " " + value);
-		Singleton.getInstance().writeToFile(newString );
+		SingletonWriter.getInstance().writeToFile(newString );
 		// write to file
 		// adapt status type (return error if exception thrown, update if overwriting) 
 		return new KVMessageImpl(key, value, StatusType.PUT_SUCCESS);

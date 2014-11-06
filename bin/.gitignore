@@ -1,13 +1,5 @@
-<<<<<<< Updated upstream
-/testing
-/client
+/logger
 /app_kvClient
-/common
-/kvserver.zip
-/kvserver
 /app_kvServer
-=======
-/common/
->>>>>>> Stashed changes
-/logger/
-/kvserver update
+/common
+/testing

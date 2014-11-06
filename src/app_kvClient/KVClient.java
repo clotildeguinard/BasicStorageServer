@@ -8,12 +8,9 @@ import java.net.UnknownHostException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import logger.LogSetup;
+import logger.ClientLogSetup;
 import client.KVSocketListener;
 import client.KVStore;
-import common.messages.KVMessage;
-import common.messages.KVMessage.StatusType;
-import common.messages.KVMessageImpl;
 import common.messages.TextMessage;
 
 public class KVClient implements KVSocketListener {
@@ -108,7 +105,7 @@ public class KVClient implements KVSocketListener {
 		} else if(tokens[0].equals("logLevel")) {
 			if(tokens.length == 2) {
 				String level = setLevel(tokens[1]);
-				if(level.equals(LogSetup.UNKNOWN_LEVEL)) {
+				if(level.equals(ClientLogSetup.UNKNOWN_LEVEL)) {
 					printError("No valid log level!");
 					printPossibleLogLevels();
 				} else {
@@ -197,7 +194,7 @@ public class KVClient implements KVSocketListener {
 			logger.setLevel(Level.OFF);
 			return Level.OFF.toString();
 		} else {
-			return LogSetup.UNKNOWN_LEVEL;
+			return ClientLogSetup.UNKNOWN_LEVEL;
 		}
 	}
 	
@@ -236,7 +233,7 @@ public class KVClient implements KVSocketListener {
      */
     public static void main(String[] args) {
     	try {
-			new LogSetup("logs/client.log", Level.OFF);
+			new ClientLogSetup("logs/client.log", Level.OFF);
 			KVClient app = new KVClient();
 			app.run();
 		} catch (IOException e) {

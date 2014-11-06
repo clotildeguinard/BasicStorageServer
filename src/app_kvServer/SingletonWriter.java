@@ -7,10 +7,10 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Writer;
 
-public class Singleton {
-    private static final Singleton inst= new Singleton();
+public class SingletonWriter {
+    private static final SingletonWriter inst= new SingletonWriter();
 
-    private Singleton() {
+    private SingletonWriter() {
         super();
     }
 
@@ -27,7 +27,7 @@ public class Singleton {
     	}
     }
 
-    public static Singleton getInstance() {
+    public static SingletonWriter getInstance() {
         return inst;
     }
 
