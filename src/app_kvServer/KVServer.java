@@ -86,7 +86,7 @@ public class KVServer implements Runnable {
         }
 	}
 	
-	public void main(String args[]) throws IOException{
+	public static void main(String args[]) throws IOException{
 		KVServer server = new KVServer(9000, 20, "FIFO");
 		new Thread(server).start();
 
