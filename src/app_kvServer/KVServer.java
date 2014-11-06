@@ -10,7 +10,7 @@ import app_kvServer.cache_strategies.LRUStrategy;
 
 
 public class KVServer implements Runnable {
-	
+	private final String storageLocation = "./src/app_kvServer/";
 	protected int Port = 50000;
 	protected ServerSocket serverSocket = null;
 	protected boolean isStopped = false;
@@ -26,9 +26,10 @@ public class KVServer implements Runnable {
 	 *           is full and there is a GET- or PUT-request on a key that is 
 	 *           currently not contained in the cache. Options are "FIFO", "LRU", 
 	 *           and "LFU".
+	 * @throws IOException 
 	 */
 
-	public KVServer(int port, int cacheSize, String strategy) {
+	public KVServer(int port, int cacheSize, String strategy) throws IOException {
 		this.Port = port;
 		DataCache datacache;
 		if (strategy.equalsIgnoreCase("FIFO")) {
@@ -38,7 +39,7 @@ public class KVServer implements Runnable {
 		} else {
 			datacache = new LFUStrategy(cacheSize);
 		}
-		this.cacheManager = new CacheManager(datacache, new Storage());
+		this.cacheManager = new CacheManager(datacache, new Storage(storageLocation));
 	}
 
 	@Override
@@ -85,7 +86,7 @@ public class KVServer implements Runnable {
         }
 	}
 	
-	public void main(String args[]){
+	public void main(String args[]) throws IOException{
 		KVServer server = new KVServer(9000, 20, "FIFO");
 		new Thread(server).start();
 

@@ -31,7 +31,12 @@ public class CacheManager {
 
 		KVMessage cacheAnswerWithRejectedKV = dataCache.put(key, value);
 		if (cacheAnswerWithRejectedKV.getKey() != null) {
-			storage.put(cacheAnswerWithRejectedKV.getKey(), cacheAnswerWithRejectedKV.getValue());
+			try {
+				storage.put(cacheAnswerWithRejectedKV.getKey(), cacheAnswerWithRejectedKV.getValue());
+			} catch (IOException e) {
+				logger.error("A connection error occurred when trying to write the record", e);
+				return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
+			}
 		}
 		StatusType status = cacheAnswerWithRejectedKV.getStatus();
 

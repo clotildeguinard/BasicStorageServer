@@ -1,6 +1,7 @@
 package app_kvServer;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,12 +17,13 @@ public class SingletonWriter {
     private SingletonWriter() {
         super();
     }
+    public void initializeAppendingWriter( File f) throws UnsupportedEncodingException, FileNotFoundException {
+    	 writer = new BufferedWriter(new OutputStreamWriter(
+   	          new FileOutputStream(f, true), "utf-8"));
+    }
 
-    public synchronized void appendToFile(String str) throws IOException {
-    	    writer = new BufferedWriter(new OutputStreamWriter(
-    	          new FileOutputStream("storage.txt"), "utf-8"));
-    	    writer.write(str);
-    	    writer.close();
+    public synchronized void write(String str) throws IOException {
+    	 writer.write(str);
     }
 
     public void closeWriter() throws IOException {
@@ -30,7 +32,6 @@ public class SingletonWriter {
     	}
     }
     
-
     public static SingletonWriter getInstance() {
         return inst;
     }
