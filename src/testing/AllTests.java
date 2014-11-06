@@ -27,6 +27,8 @@ public class AllTests {
 		clientSuite.addTestSuite(ConnectionTest.class);
 		clientSuite.addTestSuite(InteractionTest.class); 
 		clientSuite.addTestSuite(DataCacheTest.class); 
+		clientSuite.addTestSuite(StorageTest.class); 
+		clientSuite.addTestSuite(CacheManagerTest.class); 
 		return clientSuite;
 	}
 	
