@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 
+import app_kvServer.cache_strategies.FIFOStrategy;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
@@ -13,6 +14,7 @@ public class CacheManager {
 	private DataCache dataCache;
 	private Storage storage;
 	private Logger logger = Logger.getRootLogger();
+
 	
 	public CacheManager(DataCache dataCache, Storage storage) {
 		this.dataCache = dataCache;
@@ -70,7 +72,10 @@ public class CacheManager {
 			KVMessage storageAnswer;
 			try {
 				storageAnswer = storage.get(key);
-				dataCache.put(storageAnswer.getKey(), storageAnswer.getValue());
+				if (storageAnswer.getValue() != null) {
+					dataCache.put(storageAnswer.getKey(), storageAnswer.getValue());
+					return new KVMessageImpl(storageAnswer.getKey(), storageAnswer.getValue(), StatusType.GET_SUCCESS);
+				}
 				return storageAnswer;
 				
 			} catch (FileNotFoundException e) {
