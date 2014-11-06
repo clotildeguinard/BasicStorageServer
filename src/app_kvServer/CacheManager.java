@@ -1,5 +1,10 @@
 package app_kvServer;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
@@ -7,6 +12,7 @@ import common.messages.KVMessageImpl;
 public class CacheManager {
 	private DataCache dataCache;
 	private Storage storage;
+	private Logger logger = Logger.getRootLogger();
 	
 	public CacheManager(DataCache dataCache, Storage storage) {
 		this.dataCache = dataCache;
@@ -31,12 +37,21 @@ public class CacheManager {
 
 		if (status.equals(StatusType.PUT_SUCCESS)) {
 
-			KVMessage checkIfOverwrite = storage.get(key);
-			if (checkIfOverwrite.getStatus().equals(StatusType.GET_SUCCESS)) {
-				status = StatusType.PUT_UPDATE;
+			KVMessage checkIfOverwrite = null;
+			try {
+				checkIfOverwrite = storage.get(key);
+				if (checkIfOverwrite.getStatus().equals(StatusType.GET_SUCCESS)) {
+					status = StatusType.PUT_UPDATE;
+				}
+				
+			} catch (FileNotFoundException e) {
+				logger.error("A file was not found when trying to write the record", e);
+				return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
+			} catch (IOException e) {
+				logger.error("A connection error occurred when trying to write the record", e);
+				return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
 			}
 		}
-
 		return new KVMessageImpl(key, value, status);
 	}
 
@@ -47,10 +62,19 @@ public class CacheManager {
 			return cacheAnswer;
 		} else {
 
-			KVMessage storageAnswer = storage.get(key);
-
-			dataCache.put(storageAnswer.getKey(), storageAnswer.getValue());
-			return storageAnswer;
+			KVMessage storageAnswer;
+			try {
+				storageAnswer = storage.get(key);
+				dataCache.put(storageAnswer.getKey(), storageAnswer.getValue());
+				return storageAnswer;
+				
+			} catch (FileNotFoundException e) {
+				logger.error("A file was not found when trying to write the record", e);
+				return new KVMessageImpl(key, null, StatusType.GET_ERROR);
+			} catch (IOException e) {
+				logger.error("A connection error occurred when trying to write the record", e);
+				return new KVMessageImpl(key, null, StatusType.GET_ERROR);
+			}
 		}
 	}
 

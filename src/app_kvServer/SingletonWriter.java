@@ -21,16 +21,12 @@ public class SingletonWriter {
     	    writer = new BufferedWriter(new OutputStreamWriter(
     	          new FileOutputStream("storage.txt"), "utf-8"));
     	    writer.write(str);
+    	    writer.close();
     }
 
-    public void closeWriter() {
+    public void closeWriter() throws IOException {
     	if (writer != null) {
-    		try {
 				writer.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
     	}
     }
     
@@ -38,10 +34,5 @@ public class SingletonWriter {
     public static SingletonWriter getInstance() {
         return inst;
     }
-
-	public void overwriteInFile(String newString) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

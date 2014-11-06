@@ -20,12 +20,14 @@ public class Storage {
 		try {
 			if (get(key).getValue() != null) {
 				status = StatusType.PUT_UPDATE;
-				SingletonWriter.getInstance().overwriteInFile(newString );
+				overwriteInFile(key, newString );
 			} else {
 				SingletonWriter.getInstance().appendToFile(newString );
 			} 
 		} catch (IOException e) {
-			SingletonWriter.getInstance().closeWriter();
+			try {
+				SingletonWriter.getInstance().closeWriter();
+			} catch (IOException e1) {}
 			logger.error("A connection error occurred during writing", e); 
 			return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
 		}
@@ -33,29 +35,36 @@ public class Storage {
 
 	}
 	
-	public KVMessage get(String key){
+	private void overwriteInFile(String key, String newString) throws FileNotFoundException, IOException {
+		String line;
+		BufferedReader br = new BufferedReader(new FileReader("storage.txt"));
 
-		BufferedReader br;
-		String line = "";
-		try {
-	        br = new BufferedReader(new FileReader("as"));
-	        try {
-	            while((line = br.readLine()) != null)
-	            {
-	                String[] words = line.split(" ");
+				while((line = br.readLine()) != null) {
+					String[] words = line.split(" ");
 
-	                  if (words[0].equals(key)) {
-	                	  br.close();
-	                	  return new KVMessageImpl(key, words[1], StatusType.GET_SUCCESS);
-	                }
-	            }
-	            br.close();
-	        } catch (IOException e) {
-				logger.error("A connection error occurred during reading", e);
-	        }
-	    } catch (FileNotFoundException e) {
-			logger.error("The file could not be found", e);
-	    }	
+					if (words[0].equals(key)) {
+						SingletonWriter.getInstance().appendToFile(newString);
+					} else {
+						SingletonWriter.getInstance().appendToFile(line);
+					}
+					br.close();
+				}
+	}
+
+	public KVMessage get(String key) throws FileNotFoundException, IOException{
+
+		String line;
+		BufferedReader br = new BufferedReader(new FileReader("storage.txt"));
+		while((line = br.readLine()) != null)
+		{
+			String[] words = line.split(" ");
+
+			if (words[0].equals(key)) {
+				br.close();
+				return new KVMessageImpl(key, words[1], StatusType.GET_SUCCESS);
+			}
+		}
+		br.close();
 		return new KVMessageImpl(key, null, StatusType.GET_ERROR);
 	}	
 }
