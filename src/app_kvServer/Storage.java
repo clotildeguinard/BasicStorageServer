@@ -5,19 +5,31 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
+
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
 
 public class Storage {
+	private Logger logger = Logger.getRootLogger();
 	
 	public KVMessage put(String key, String value){
-		//TODO
+		StatusType status = StatusType.PUT_SUCCESS;
 		String newString = (key + " " + value);
-		SingletonWriter.getInstance().writeToFile(newString );
-		// write to file
-		// adapt status type (return error if exception thrown, update if overwriting) 
-		return new KVMessageImpl(key, value, StatusType.PUT_SUCCESS);
+		try {
+			if (get(key).getValue() != null) {
+				status = StatusType.PUT_UPDATE;
+				SingletonWriter.getInstance().overwriteInFile(newString );
+			} else {
+				SingletonWriter.getInstance().appendToFile(newString );
+			} 
+		} catch (IOException e) {
+			SingletonWriter.getInstance().closeWriter();
+			logger.error("A connection error occurred during writing", e); 
+			return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
+		}
+		return new KVMessageImpl(key, value, status);
 
 	}
 	
@@ -39,10 +51,10 @@ public class Storage {
 	            }
 	            br.close();
 	        } catch (IOException e) {
-	            e.printStackTrace();
+				logger.error("A connection error occurred during reading", e);
 	        }
 	    } catch (FileNotFoundException e) {
-	        e.printStackTrace();
+			logger.error("The file could not be found", e);
 	    }	
 		return new KVMessageImpl(key, null, StatusType.GET_ERROR);
 	}	
