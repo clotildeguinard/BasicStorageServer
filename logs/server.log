@@ -186,3 +186,20 @@ java.io.IOException: Stream closed
 	at app_kvServer.Storage.overwriteInFile(Storage.java:84)
 	at app_kvServer.Storage.put(Storage.java:59)
 	at app_kvServer.Storage.main(Storage.java:50)
+2014-11-07 17:03:56,891 INFO  [Thread-0] root: Initialize server ...
+2014-11-07 17:03:56,921 INFO  [Thread-0] root: Server listening on port: 9000
+2014-11-07 17:04:17,137 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64037
+2014-11-07 17:15:03,125 INFO  [Thread-0] root: Initialize server ...
+2014-11-07 17:15:03,141 INFO  [Thread-0] root: Server listening on port: 9000
+2014-11-07 17:15:20,022 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64312
+2014-11-07 17:17:39,828 INFO  [Thread-0] root: Initialize server ...
+2014-11-07 17:17:39,850 INFO  [Thread-0] root: Server listening on port: 9000
+2014-11-07 17:17:50,315 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64375
+2014-11-07 17:22:12,875 INFO  [Thread-0] root: Initialize server ...
+2014-11-07 17:22:12,891 INFO  [Thread-0] root: Server listening on port: 9000
+2014-11-07 17:22:24,824 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64476
+2014-11-07 17:23:04,685 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64493
+2014-11-07 17:23:33,266 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64504
+2014-11-07 17:23:47,569 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64513
+2014-11-07 17:24:04,828 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64526
+2014-11-07 17:25:10,016 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64587

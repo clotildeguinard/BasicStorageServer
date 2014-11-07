@@ -127,6 +127,7 @@ public class KVClient implements KVSocketListener {
 	private void connect(String address, int port) 
 			throws UnknownHostException, IOException {
 		kvStore = new KVStore(address, port);
+		kvStore.connect();
 		kvStore.addListener(this);
 		kvStore.start();
 	}

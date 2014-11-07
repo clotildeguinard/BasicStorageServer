@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,8 +31,6 @@ public class KVStore extends Thread implements KVCommInterface {
 	private Socket clientSocket;
 	private Set<KVSocketListener> listeners;
 	private boolean running = false;
-	private OutputStream output;
- 	private InputStream input;
 	
 	/**
 	 * Initialize KVStore with address and port of KVServer
@@ -41,7 +40,6 @@ public class KVStore extends Thread implements KVCommInterface {
 	public KVStore(String address, int port) {
 		this.address = address;
 		this.port = port;
-		this.commModule = new KVCommModule(output, input);
 	}
 
 	public void addListener(KVSocketListener listener){
@@ -49,7 +47,7 @@ public class KVStore extends Thread implements KVCommInterface {
 	}
 	
 	@Override
-	public void connect() throws Exception {
+	public void connect() throws UnknownHostException, IOException {
 		clientSocket = new Socket(address, port);
 		listeners = new HashSet<KVSocketListener>();
 		setRunning(true);
@@ -67,8 +65,7 @@ public class KVStore extends Thread implements KVCommInterface {
 	 */
 	public void run() {
 		try {
-			output = clientSocket.getOutputStream();
-			input = clientSocket.getInputStream();
+			commModule = new KVCommModule(clientSocket.getOutputStream(), clientSocket.getInputStream());
 			
 			while(isRunning()) {
 				try {
@@ -108,8 +105,10 @@ public class KVStore extends Thread implements KVCommInterface {
 			
 			try {
 				tearDownConnection();
-				for(KVSocketListener listener : listeners) {
-					listener.handleStatus(SocketStatus.DISCONNECTED);
+				if (listeners != null) {
+					for(KVSocketListener listener : listeners) {
+						listener.handleStatus(SocketStatus.DISCONNECTED);
+					}
 				}
 			} catch (IOException ioe) {
 				logger.error("Unable to close connection!");
@@ -120,8 +119,7 @@ public class KVStore extends Thread implements KVCommInterface {
 		setRunning(false);
 		logger.info("tearing down the connection ...");
 		if (clientSocket != null) {
-			input.close();
-			output.close();
+			commModule.closeStreams();
 			clientSocket.close();
 			clientSocket = null;
 			logger.info("connection closed!");

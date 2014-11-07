@@ -1,8 +1,14 @@
 package app_kvServer;
 
 import java.io.IOException;
+import java.net.BindException;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import logger.ServerLogSetup;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import app_kvServer.cache_strategies.FIFOStrategy;
 import app_kvServer.cache_strategies.LFUStrategy;
@@ -13,9 +19,10 @@ public class KVServer implements Runnable {
 	private final String storageLocation = "./src/app_kvServer/";
 	protected int Port = 50000;
 	protected ServerSocket serverSocket = null;
-	protected boolean isStopped = false;
+	protected boolean isStopped = true;
 	protected Thread runningThread = null;
 	protected final CacheManager cacheManager;
+	private Logger logger = Logger.getRootLogger();
 	
 	/**
 	 * Start KV Server at given port
@@ -41,32 +48,38 @@ public class KVServer implements Runnable {
 		}
 		this.cacheManager = new CacheManager(datacache, new Storage(storageLocation));
 	}
-
+	  /**
+     * Initializes and starts the server. 
+     * Loops until the the server should be closed.
+     */
 	@Override
-	public void run() {
-		synchronized(this){
-			this.runningThread = Thread.currentThread();
-		}
-		openServerSocket();
-		
-		while(!isStopped()){
-			Socket clientSocket = null;
-			try{
-				clientSocket = this.serverSocket.accept();
-			} catch (IOException e){
-				if(isStopped()){
-					System.out.println("Server Stopped.") ;
-                    return;
-                }
-                throw new RuntimeException(
-                    "Error accepting client connection", e);
-            }
-			new Thread(new WorkerRunnable(clientSocket, "Multithreaded Server")).start();
-		}		
-	}
+    public void run() {
+        
+    	isStopped = !initializeServer();
+        
+        if(serverSocket != null) {
+	        while(!isStopped()){
+	            try {
+	                Socket client = serverSocket.accept();                
+	                WorkerRunnable connection = 
+	                		new WorkerRunnable(client, "Multithreaded KVServer", cacheManager);
+	                new Thread(connection).start();
+	                
+	                logger.info("Connected to " 
+	                		+ client.getInetAddress().getHostName() 
+	                		+  " on port " + client.getPort());
+	            } catch (IOException e) {
+	            	logger.error("Error! " +
+	            			"Unable to establish connection. \n", e);
+	            }
+	        }
+        }
+        logger.info("Server stopped.");
+    }
+
 	
 	private synchronized boolean isStopped() {
-		return this.isStopped;
+		return isStopped;
 	}
 	
     public synchronized void stop(){
@@ -78,25 +91,53 @@ public class KVServer implements Runnable {
         }
     }
 
-	private void openServerSocket() {
-		try {
-            this.serverSocket = new ServerSocket(this.Port);
+    private boolean initializeServer() {
+    	logger.info("Initialize server ...");
+    	try {
+            serverSocket = new ServerSocket(Port);
+            logger.info("Server listening on port: " 
+            		+ serverSocket.getLocalPort());    
+            return true;
+        
         } catch (IOException e) {
-            throw new RuntimeException("Cannot open port 5000", e);
+        	logger.error("Error! Cannot open server socket:");
+            if(e instanceof BindException){
+            	logger.error("Port " + Port + " is already bound!");
+            }
+            return false;
         }
-	}
+    }
 	
-	public static void main(String args[]) throws IOException{
-		KVServer server = new KVServer(9000, 20, "FIFO");
-		new Thread(server).start();
-
-		try {
-		    Thread.sleep(20 * 1000);
-		} catch (InterruptedException e) {
-		    e.printStackTrace();
+	/**
+     * Main entry point for the echo server application. 
+     * @param args contains the port number at args[0].
+     */
+    public static void main(String[] args) {
+    	try {
+    		new ServerLogSetup("logs/server.log", Level.ALL);
+			if(args.length != 3) {
+				System.out.println("Error! Invalid number of arguments!");
+				System.out.println("Usage: Server <port> <cacheSize> <cacheStrategy>!");
+				System.out.println("\t <cacheStrategy>: FIFO | LRU | LFU");
+			} else {
+				int port = Integer.parseInt(args[0]);
+				int cacheSize = Integer.parseInt(args[1]);
+				String strategy = args[2];
+				
+				if (cacheSize < 0) {
+					System.out.println("Error! Invalid argument <cacheSize>! Must be positive or zero!");
+					System.exit(1);
+				}
+				new Thread(new KVServer(port, cacheSize, strategy)).start();
+			}
+		} catch (IOException e) {
+			System.out.println("Error! Unable to initialize logger!");
+			e.printStackTrace();
+			System.exit(1);
+		} catch (NumberFormatException nfe) {
+			System.out.println("Error! Invalid argument <port> or <cacheSize>! Not a number!");
+			System.out.println("Usage: Server <port>!");
+			System.exit(1);
 		}
-		System.out.println("Stopping Server");
-		server.stop();
-		
-	}
+    }
 }
