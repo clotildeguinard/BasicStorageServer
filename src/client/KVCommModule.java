@@ -30,7 +30,6 @@ public class KVCommModule {
 	 */
 	protected void sendMessage(TextMessage msg) throws IOException {
 		byte[] msgBytes = msg.getMsgBytes();
-		logger.info("i am here");
 		output.write(msgBytes, 0, msgBytes.length);
 		output.flush();
 		logger.info("Send message:\t '" + msg.getMsg() + "'");

@@ -29,7 +29,7 @@ public class CacheManager {
 	 * @param value
 	 * @return a kvmessage with status of the request
 	 */
-	public KVMessage put(String key, String value)  {
+	public synchronized KVMessage put(String key, String value)  {
 
 		KVMessage cacheAnswerWithRejectedKV = dataCache.put(key, value);
 		if (cacheAnswerWithRejectedKV.getKey() != null) {
@@ -63,7 +63,7 @@ public class CacheManager {
 	}
 
 
-	public KVMessage get(String key) {
+	public synchronized KVMessage get(String key) {
 		KVMessage cacheAnswer = dataCache.get(key);
 		if (cacheAnswer != null) {
 			return cacheAnswer;

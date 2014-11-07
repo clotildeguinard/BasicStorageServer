@@ -21,7 +21,7 @@ public class FIFOStrategy implements DataCache{
 	 * @return kvmessage if key is in cache, null otherwise
 	 */
 	@Override
-	public synchronized KVMessage get(String key) {
+	public KVMessage get(String key) {
 		Pair<String, String> p = getPairIfKeyInCache(key);
 		if (p != null) {
 			return new KVMessageImpl(key, p.getValue(), StatusType.GET_SUCCESS);
@@ -36,7 +36,7 @@ public class FIFOStrategy implements DataCache{
 	 * @return a kvmessage with request status, and the key and value of rejected pair (can be null)
 	 */
 	@Override
-	public synchronized KVMessage put(String key, String value) {
+	public KVMessage put(String key, String value) {
 		StatusType status = StatusType.PUT_SUCCESS;
 		Pair<String, String> p = getPairIfKeyInCache(key);
 		if (p != null) {

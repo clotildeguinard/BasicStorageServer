@@ -61,8 +61,8 @@ public class KVServer implements Runnable {
 	        while(!isStopped()){
 	            try {
 	                Socket client = serverSocket.accept();                
-	                WorkerRunnable connection = 
-	                		new WorkerRunnable(client, "Multithreaded KVServer", cacheManager);
+	                ServerRunnable connection = 
+	                		new ServerRunnable(client, "Multithreaded KVServer", cacheManager);
 	                new Thread(connection).start();
 	                
 	                logger.info("Connected to " 

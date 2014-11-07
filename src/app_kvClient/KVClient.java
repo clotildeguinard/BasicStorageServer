@@ -11,6 +11,8 @@ import org.apache.log4j.Logger;
 import logger.ClientLogSetup;
 import client.KVSocketListener;
 import client.KVStore;
+import common.messages.KVMessage;
+import common.messages.KVMessageImpl;
 import common.messages.TextMessage;
 
 public class KVClient implements KVSocketListener {
@@ -202,7 +204,8 @@ public class KVClient implements KVSocketListener {
 	@Override
 	public void handleNewMessage(TextMessage msg) {
 		if(!stop) {
-			System.out.println(msg.getMsg());
+			KVMessage received = KVMessageImpl.unmarshal(msg);
+			System.out.println(received.getStatus() + " " + received.getKey() + " " + received.getValue());
 			System.out.print(PROMPT);
 		}
 	}

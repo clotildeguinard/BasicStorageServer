@@ -24,7 +24,7 @@ public class LFUStrategy implements DataCache {
 	 * Else return null
 	 */
 	@Override
-	public synchronized KVMessage get(String key) {
+	public KVMessage get(String key) {
 		Triple<String, String, Integer> t = getTripleIfKeyInCache(key);
 		if (t == null) {
 			return null;
@@ -45,7 +45,7 @@ public class LFUStrategy implements DataCache {
 	 * @return a kvmessage with request status, and the key and value of rejected pair (can be null)
 	 */
 	@Override
-	public synchronized KVMessage put(String key, String value) {
+	public KVMessage put(String key, String value) {
 		StatusType status = StatusType.PUT_SUCCESS;
 		Triple<String, String, Integer> tripleInCache = getTripleIfKeyInCache(key);
 		if (tripleInCache != null) {

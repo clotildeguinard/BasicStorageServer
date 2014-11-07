@@ -203,3 +203,55 @@ java.io.IOException: Stream closed
 2014-11-07 17:23:47,569 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64513
 2014-11-07 17:24:04,828 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64526
 2014-11-07 17:25:10,016 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64587
+2014-11-07 17:59:43,192 INFO  [Thread-0] root: Initialize server ...
+2014-11-07 17:59:43,211 INFO  [Thread-0] root: Server listening on port: 9000
+2014-11-07 17:59:54,250 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49463
+2014-11-07 17:59:59,734 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>frt</key><value>null</value></kvmessage>'
+2014-11-07 17:59:59,742 INFO  [Thread-1] root: i am here
+2014-11-07 17:59:59,744 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_error</status><key>frt</key><value>null</value></kvmessage>'
+2014-11-07 18:00:26,956 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-07 18:00:26,961 INFO  [Thread-1] root: i am here
+2014-11-07 18:00:26,962 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-07 18:00:35,085 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-07 18:00:35,088 INFO  [Thread-1] root: i am here
+2014-11-07 18:00:35,089 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-07 18:14:23,890 INFO  [Thread-0] root: Initialize server ...
+2014-11-07 18:14:23,909 INFO  [Thread-0] root: Server listening on port: 9000
+2014-11-07 18:14:32,787 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49770
+2014-11-07 18:14:47,784 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>frt</key><value>null</value></kvmessage>'
+2014-11-07 18:14:47,792 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_error</status><key>frt</key><value>null</value></kvmessage>'
+2014-11-07 18:15:20,734 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>a</key><value>z</value></kvmessage>'
+2014-11-07 18:15:20,740 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>a</key><value>z</value></kvmessage>'
+2014-11-07 18:15:26,007 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>e</key><value>r</value></kvmessage>'
+2014-11-07 18:15:26,011 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>e</key><value>r</value></kvmessage>'
+2014-11-07 18:15:31,251 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>t</key><value>y</value></kvmessage>'
+2014-11-07 18:15:31,255 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>t</key><value>y</value></kvmessage>'
+2014-11-07 18:15:36,188 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>t</key><value>null</value></kvmessage>'
+2014-11-07 18:15:36,192 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_success</status><key>t</key><value>y</value></kvmessage>'
+2014-11-07 18:15:48,357 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>gre</key><value>gre</value></kvmessage>'
+2014-11-07 18:15:48,389 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>gre</key><value>gre</value></kvmessage>'
+2014-11-07 18:15:53,364 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>ht</key><value>ht</value></kvmessage>'
+2014-11-07 18:15:53,375 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>ht</key><value>ht</value></kvmessage>'
+2014-11-07 18:15:56,446 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>jh</key><value>jh</value></kvmessage>'
+2014-11-07 18:15:56,456 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>jh</key><value>jh</value></kvmessage>'
+2014-11-07 18:16:00,473 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>a</key><value>null</value></kvmessage>'
+2014-11-07 18:16:00,477 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_success</status><key>a</key><value>z</value></kvmessage>'
+2014-11-07 18:16:04,578 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>a</key><value>k</value></kvmessage>'
+2014-11-07 18:16:04,581 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_update</status><key>a</key><value>k</value></kvmessage>'
+2014-11-07 18:16:07,972 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>a</key><value>null</value></kvmessage>'
+2014-11-07 18:16:07,976 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_success</status><key>a</key><value>k</value></kvmessage>'
+2014-11-07 18:16:19,467 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>a</key><value>null</value></kvmessage>'
+2014-11-07 18:16:19,471 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_success</status><key>a</key><value>k</value></kvmessage>'
+2014-11-07 18:20:17,660 INFO  [Thread-0] root: Initialize server ...
+2014-11-07 18:20:17,680 INFO  [Thread-0] root: Server listening on port: 9000
+2014-11-07 18:20:28,751 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49887
+2014-11-07 18:20:33,866 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>gre</key><value>gre</value></kvmessage>'
+2014-11-07 18:20:33,877 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>gre</key><value>gre</value></kvmessage>'
+2014-11-07 18:20:58,991 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>gr</key><value>gr</value></kvmessage>'
+2014-11-07 18:20:58,994 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>gr</key><value>gr</value></kvmessage>'
+2014-11-07 18:21:04,704 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>jh</key><value>sef</value></kvmessage>'
+2014-11-07 18:21:04,708 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>jh</key><value>sef</value></kvmessage>'
+2014-11-07 18:21:08,012 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>dg</key><value>rt</value></kvmessage>'
+2014-11-07 18:21:08,025 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>dg</key><value>rt</value></kvmessage>'
+2014-11-07 18:21:12,092 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>sd</key><value>sdf</value></kvmessage>'
+2014-11-07 18:21:12,103 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>sd</key><value>sdf</value></kvmessage>'

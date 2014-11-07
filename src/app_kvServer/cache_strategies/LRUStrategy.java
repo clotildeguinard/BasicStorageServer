@@ -30,7 +30,7 @@ public class LRUStrategy implements DataCache {
 	 * @return kvmessage with request status, and key and value of rejected pair (can be null)
 	 */
 	@Override
-	public synchronized KVMessage put(String key, String value) {
+	public KVMessage put(String key, String value) {
 		StatusType status = StatusType.PUT_SUCCESS;
 		String valueInCache = getValueIfKeyInCache(key);
 		if (valueInCache != null) {
@@ -63,7 +63,7 @@ public class LRUStrategy implements DataCache {
 	 * Else return null
 	 */
 	@Override
-	public synchronized KVMessage get(String key) {
+	public KVMessage get(String key) {
 		String value = getValueIfKeyInCache(key);
 		if (value == null) {
 			return null;
