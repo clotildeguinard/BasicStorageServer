@@ -6,16 +6,19 @@ import java.io.OutputStream;
 
 import org.apache.log4j.Logger;
 
+import client.KVSocketListener.SocketStatus;
 import common.messages.KVMessage;
+import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
 import common.messages.TextMessage;
 
-public class KVCommModule {
+public class KVCommModule implements KVSocketListener {
 	private static Logger logger = Logger.getRootLogger();
 	private static final int BUFFER_SIZE = 1024;
 	private static final int DROP_SIZE = 1024 * BUFFER_SIZE;
 	private OutputStream output;
  	private InputStream input;
+ 	private KVMessage latest;
 
 	public KVCommModule(OutputStream output, InputStream input) {
 		this.output = output;
@@ -32,7 +35,6 @@ public class KVCommModule {
 		byte[] msgBytes = msg.getMsgBytes();
 		output.write(msgBytes, 0, msgBytes.length);
 		output.flush();
-		logger.info("Send message:\t '" + msg.getMsg() + "'");
     }
 
 	protected TextMessage receiveMessage() throws IOException {
@@ -90,11 +92,11 @@ public class KVCommModule {
 		
 		/* build final String */
 		TextMessage msg = new TextMessage(msgBytes);
-		logger.info("Receive message:\t '" + msg.getMsg() + "'");
 		return msg;
     }
 
 	public void sendKVMessage(KVMessage message) throws IOException {
+		logger.info("Send request:\t '" + message + "'");
 		TextMessage xmlText = ((KVMessageImpl) message).marshal();
 		sendMessage(xmlText);
 	}
@@ -104,11 +106,33 @@ public class KVCommModule {
 	public KVMessage receiveKVMessage() throws IOException {
 		TextMessage xmlText = receiveMessage();
 		KVMessage received = KVMessageImpl.unmarshal(xmlText);
+		logger.info("Receive answer:\t '" + received + "'");
 		return received;
 	}
 
 	public void closeStreams() throws IOException {
 		output.close();
 		input.close();
+	}
+
+	@Override
+	public void handleNewMessage(TextMessage msg) {
+		latest = KVMessageImpl.unmarshal(msg);	
+		logger.info("New received message : " + latest);
+	}
+
+	@Override
+	public void handleStatus(SocketStatus status) {}
+
+	public KVMessage getLatest() {
+		try {
+		return latest;
+		} finally {
+			latest = null;
+		}
+	}
+
+	public boolean latestIsNull() {
+		return latest == null;
 	}
 }

@@ -1,0 +1,47 @@
+2014-11-11 21:29:30,987 INFO  [main] root: Send request:	 'PUT foo bar'
+2014-11-11 21:29:31,006 INFO  [Thread-0] root: New received message : PUT_SUCCESS foo bar
+2014-11-11 21:37:37,543 INFO  [main] root: Send request:	 'GET grh null'
+2014-11-11 21:37:37,560 INFO  [Thread-0] root: New received message : GET_ERROR grh null
+2014-11-11 21:40:21,655 INFO  [main] root: Send request:	 'GET gre null'
+2014-11-11 21:40:21,676 INFO  [Thread-0] root: New received message : GET_ERROR gre null
+2014-11-11 21:40:26,147 INFO  [main] root: Send request:	 'PUT foo bar'
+2014-11-11 21:40:26,159 INFO  [Thread-0] root: New received message : PUT_SUCCESS foo bar
+2014-11-11 21:40:29,463 INFO  [main] root: Send request:	 'PUT foo gr'
+2014-11-11 21:40:29,471 INFO  [Thread-0] root: New received message : PUT_UPDATE foo gr
+2014-11-11 21:40:37,383 INFO  [main] root: Send request:	 'PUT foo null'
+2014-11-11 21:40:37,390 INFO  [Thread-0] root: New received message : PUT_UPDATE foo null
+2014-11-11 21:40:40,770 INFO  [main] root: Send request:	 'GET foo null'
+2014-11-11 21:40:40,778 INFO  [Thread-0] root: New received message : GET_SUCCESS foo null
+2014-11-11 21:40:46,136 INFO  [main] root: Send request:	 'GET foo null'
+2014-11-11 21:40:46,145 INFO  [Thread-0] root: New received message : GET_SUCCESS foo null
+2014-11-11 21:44:07,265 ERROR [Thread-0] root: Connection lost!
+2014-11-11 21:44:07,267 INFO  [Thread-0] root: tearing down the connection ...
+2014-11-11 21:44:07,270 INFO  [Thread-0] root: connection closed!
+2014-11-11 21:44:12,828 INFO  [main] root: try to close connection ...
+2014-11-11 21:44:12,829 INFO  [main] root: tearing down the connection ...
+2014-11-11 21:44:45,079 INFO  [main] root: Send request:	 'GET gre null'
+2014-11-11 21:44:45,097 INFO  [Thread-0] root: New received message : GET_ERROR gre null
+2014-11-11 21:44:52,480 INFO  [main] root: Send request:	 'PUT foo bar'
+2014-11-11 21:44:52,489 INFO  [Thread-0] root: New received message : PUT_SUCCESS foo bar
+2014-11-11 21:45:16,310 INFO  [main] root: Send request:	 'PUT foo gr'
+2014-11-11 21:45:16,318 INFO  [Thread-0] root: New received message : PUT_UPDATE foo gr
+2014-11-11 21:46:54,496 INFO  [main] root: try to close connection ...
+2014-11-11 21:46:54,497 INFO  [main] root: tearing down the connection ...
+2014-11-11 21:46:54,498 INFO  [main] root: connection closed!
+2014-11-11 21:47:26,623 INFO  [main] root: Send request:	 'GET gr null'
+2014-11-11 21:47:26,640 INFO  [Thread-0] root: New received message : GET_ERROR gr null
+2014-11-11 21:47:30,281 INFO  [main] root: Send request:	 'PUT foo bar'
+2014-11-11 21:47:30,291 INFO  [Thread-0] root: New received message : PUT_SUCCESS foo bar
+2014-11-11 21:47:35,259 INFO  [main] root: Send request:	 'PUT foo gr'
+2014-11-11 21:47:35,267 INFO  [Thread-0] root: New received message : PUT_UPDATE foo gr
+2014-11-11 21:47:41,923 INFO  [main] root: Send request:	 'GET foo null'
+2014-11-11 21:47:41,931 INFO  [Thread-0] root: New received message : GET_SUCCESS foo gr
+2014-11-11 21:48:37,510 INFO  [main] root: try to close connection ...
+2014-11-11 21:48:37,511 INFO  [main] root: tearing down the connection ...
+2014-11-11 21:48:37,513 INFO  [main] root: connection closed!
+2014-11-11 22:07:33,376 INFO  [main] root: Send request:	 'PUT foo bar'
+2014-11-11 22:07:33,394 INFO  [Thread-0] root: New received message : PUT_SUCCESS foo bar
+2014-11-11 22:07:33,429 INFO  [main] root: returning false
+2014-11-11 22:07:49,257 INFO  [main] root: try to close connection ...
+2014-11-11 22:07:49,258 INFO  [main] root: tearing down the connection ...
+2014-11-11 22:07:49,259 INFO  [main] root: connection closed!

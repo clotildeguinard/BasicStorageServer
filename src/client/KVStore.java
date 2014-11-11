@@ -49,8 +49,11 @@ public class KVStore extends Thread implements KVCommInterface {
 	@Override
 	public void connect() throws UnknownHostException, IOException {
 		clientSocket = new Socket(address, port);
+		commModule = new KVCommModule(clientSocket.getOutputStream(), clientSocket.getInputStream());
 		listeners = new HashSet<KVSocketListener>();
+		addListener(commModule);
 		setRunning(true);
+		start();
 	}
 
 	private void setRunning(boolean isRunning) {
@@ -65,7 +68,6 @@ public class KVStore extends Thread implements KVCommInterface {
 	 */
 	public void run() {
 		try {
-			commModule = new KVCommModule(clientSocket.getOutputStream(), clientSocket.getInputStream());
 			
 			while(isRunning()) {
 				try {
@@ -88,9 +90,6 @@ public class KVStore extends Thread implements KVCommInterface {
 					}
 				}				
 			}
-		} catch (IOException ioe) {
-			logger.error("Connection could not be established!");
-			
 		} finally {
 			if(isRunning()) {
 				disconnect();
@@ -127,17 +126,38 @@ public class KVStore extends Thread implements KVCommInterface {
 	}
 
 	@Override
-	public KVMessage put(String key, String value) throws IOException {
+	public KVMessage put(String key, String value) throws IOException, InterruptedException {
 		KVMessage msg = new KVMessageImpl(key, value, common.messages.KVMessage.StatusType.PUT);
 		commModule.sendKVMessage(msg);
-		return msg;
+		
+		int i = 0;
+		while (i<5 && commModule.latestIsNull()) {
+			Thread.sleep(50);
+			i++;
+		}
+		if (i == 5) {
+			return null;
+		}
+		return commModule.getLatest();
 	}
 
+	/**
+	 * returns kvmessage, or null if no kvmessage arrives within a given time interval
+	 */
 	@Override
-	public KVMessage get(String key) throws IOException {
+	public KVMessage get(String key) throws IOException, InterruptedException {
 		KVMessage msg = new KVMessageImpl(key, null, common.messages.KVMessage.StatusType.GET);
 		commModule.sendKVMessage(msg);
-		return msg;
+		
+		int i = 0;
+		while (i<5 && commModule.latestIsNull()) {
+			Thread.sleep(50);
+			i++;
+		}
+		if (i == 5) {
+			return null;
+		}
+		return commModule.getLatest();
 	}
 
 

@@ -20,27 +20,25 @@ public class ServerRunnable implements Runnable {
         this.clientSocket = clientSocket;
         this.serverText   = serverText;
         this.sharedCacheManager = cacheManager;
+    	try {
+    		commModule = new KVCommModule(clientSocket.getOutputStream(), clientSocket.getInputStream());
+        } catch (IOException e1) {
+			stop = true;
+			printError("A connection error occurred - Application terminated " + e1);
+		}
     }
     
     public void run() {
     	stop = false;
-    	try {
-			commModule = new KVCommModule(clientSocket.getOutputStream(), clientSocket.getInputStream());
-		} catch (IOException e1) {
-			stop = true;
-			printError("A connection error occurred - Application terminated " + e1);
-		}
-		
+    			
 		while(!stop) {
 			try {
 				KVMessage requestFromClient = commModule.receiveKVMessage();
-				System.out.println(PROMPT + "Requested from client : " + requestFromClient.getStatus() + 
-						" " + requestFromClient.getKey() + " " + requestFromClient.getValue());
+				System.out.println(PROMPT + "Requested from client : " + requestFromClient);
 				
 				KVMessage serverAnswer = handleCommand(requestFromClient);
 				
-				System.out.println(PROMPT + "Answer to client : " + serverAnswer.getStatus() + 
-						" " + serverAnswer.getKey() + " " + serverAnswer.getValue());
+				System.out.println(PROMPT + "Answer to client : " + serverAnswer);
 				if (serverAnswer != null) {
 					commModule.sendKVMessage(serverAnswer);
 				} else {

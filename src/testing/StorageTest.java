@@ -1,6 +1,7 @@
 package testing;
 
 import java.io.IOException;
+
 import org.apache.log4j.Level;
 import org.junit.Test;
 
@@ -8,7 +9,7 @@ import app_kvServer.Storage;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import junit.framework.TestCase;
-import logger.ServerLogSetup;
+import logger.LogSetup;
 
 public class StorageTest extends TestCase {
 	
@@ -16,7 +17,7 @@ public class StorageTest extends TestCase {
 	public void testStorage() throws IOException {
 		IOException ex = null;
 		try {
-			new ServerLogSetup("./testing/server.log", Level.ALL);
+			new LogSetup("./testing/server.log", Level.ALL);
 			Storage s = new Storage("./testing/");
 			
 			s.put("hello",  "world");

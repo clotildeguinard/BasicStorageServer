@@ -59,6 +59,12 @@ public class CacheManager {
 				return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
 			}
 		}
+		
+		if (value.equals("null") && (status.equals(StatusType.PUT_SUCCESS) || status.equals(StatusType.PUT_UPDATE))) {
+			status = StatusType.DELETE_SUCCESS;
+		} else if (value.equals("null") && status.equals(StatusType.PUT_ERROR)) {
+			status = StatusType.DELETE_ERROR;
+		}
 		return new KVMessageImpl(key, value, status);
 	}
 

@@ -11,7 +11,7 @@ import app_kvServer.cache_strategies.FIFOStrategy;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import junit.framework.TestCase;
-import logger.ServerLogSetup;
+import logger.LogSetup;
 
 public class CacheManagerTest extends TestCase {
 	
@@ -19,7 +19,7 @@ public class CacheManagerTest extends TestCase {
 	public void testCacheManager() {
 		IOException ex = null;
 		try {
-			new ServerLogSetup("./testing/server.log", Level.ALL);
+			new LogSetup("./testing/server.log", Level.ALL);
 			CacheManager c = new CacheManager(new FIFOStrategy(3), new Storage("./testing/"));
 			
 			KVMessage result = c.put("hello", "everybody");

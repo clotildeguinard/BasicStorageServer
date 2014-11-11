@@ -5,14 +5,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.UnknownHostException;
 
+import logger.LogSetup;
+
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import logger.ClientLogSetup;
 import client.KVSocketListener;
+import client.KVSocketListener.SocketStatus;
 import client.KVStore;
 import common.messages.KVMessage;
-import common.messages.KVMessageImpl;
 import common.messages.TextMessage;
 
 public class KVClient implements KVSocketListener {
@@ -73,9 +74,12 @@ public class KVClient implements KVSocketListener {
 			if(tokens.length == 3) {
 				if(kvStore != null && kvStore.isRunning()){
 					try {
-						kvStore.put(tokens[1], tokens[2]);
+						System.out.println(kvStore.put(tokens[1], tokens[2]));
 					} catch (IOException e) {
 						printError("Unable to send message!");
+						disconnect();
+					} catch (InterruptedException e) {
+						printError("Unable to receive answer!");
 						disconnect();
 					}
 				} else {
@@ -89,9 +93,12 @@ public class KVClient implements KVSocketListener {
 			if(tokens.length == 2) {
 				if(kvStore != null && kvStore.isRunning()){
 					try {
-						kvStore.get(tokens[1]);
+						System.out.println(kvStore.get(tokens[1]));
 					} catch (IOException e) {
 						printError("Unable to send message!");
+						disconnect();
+					} catch (InterruptedException e) {
+						printError("Unable to receive answer!");
 						disconnect();
 					}
 				} else {
@@ -107,7 +114,7 @@ public class KVClient implements KVSocketListener {
 		} else if(tokens[0].equals("logLevel")) {
 			if(tokens.length == 2) {
 				String level = setLevel(tokens[1]);
-				if(level.equals(ClientLogSetup.UNKNOWN_LEVEL)) {
+				if(level.equals(LogSetup.UNKNOWN_LEVEL)) {
 					printError("No valid log level!");
 					printPossibleLogLevels();
 				} else {
@@ -197,16 +204,7 @@ public class KVClient implements KVSocketListener {
 			logger.setLevel(Level.OFF);
 			return Level.OFF.toString();
 		} else {
-			return ClientLogSetup.UNKNOWN_LEVEL;
-		}
-	}
-	
-	@Override
-	public void handleNewMessage(TextMessage msg) {
-		if(!stop) {
-			KVMessage received = KVMessageImpl.unmarshal(msg);
-			System.out.println(received.getStatus() + " " + received.getKey() + " " + received.getValue());
-			System.out.print(PROMPT);
+			return LogSetup.UNKNOWN_LEVEL;
 		}
 	}
 	
@@ -227,6 +225,12 @@ public class KVClient implements KVSocketListener {
 		
 	}
 
+	@Override
+	public void handleNewMessage(TextMessage msg) {
+		System.out.println("got new message in client");
+		
+	}
+
 	private void printError(String error){
 		System.out.println(PROMPT + "Error! " +  error);
 	}
@@ -237,7 +241,7 @@ public class KVClient implements KVSocketListener {
      */
     public static void main(String[] args) {
     	try {
-			new ClientLogSetup("logs/client.log", Level.OFF);
+			new LogSetup("logs/client.log", Level.ALL);
 			KVClient app = new KVClient();
 			app.run();
 		} catch (IOException e) {

@@ -11,7 +11,7 @@ import org.apache.log4j.PatternLayout;
 /**
  * Represents the initialization for the server logging with Log4J.
  */
-public class ServerLogSetup {
+public class LogSetup {
 
 	public static final String UNKNOWN_LEVEL = "UnknownLevel";
 	private static Logger logger = Logger.getRootLogger();
@@ -26,7 +26,7 @@ public class ServerLogSetup {
 	 * 		persistent logging information.
 	 * @throws IOException if the log destination could not be found.
 	 */
-	public ServerLogSetup(String logdir, Level level) throws IOException {
+	public LogSetup(String logdir, Level level) throws IOException {
 		this.logdir = logdir;
 		initialize(level);
 	}

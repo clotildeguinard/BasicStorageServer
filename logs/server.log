@@ -255,3 +255,644 @@ java.io.IOException: Stream closed
 2014-11-07 18:21:08,025 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>dg</key><value>rt</value></kvmessage>'
 2014-11-07 18:21:12,092 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>sd</key><value>sdf</value></kvmessage>'
 2014-11-07 18:21:12,103 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>sd</key><value>sdf</value></kvmessage>'
+2014-11-10 14:32:21,868 INFO  [Thread-0] root: Initialize server ...
+2014-11-10 14:32:21,886 INFO  [Thread-0] root: Server listening on port: 9000
+2014-11-10 14:32:51,488 INFO  [Thread-0] root: Initialize server ...
+2014-11-10 14:32:51,504 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-10 14:33:06,717 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60900
+2014-11-10 14:33:06,751 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60901
+2014-11-10 14:33:06,791 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60902
+2014-11-10 14:33:06,799 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60903
+2014-11-10 14:33:06,808 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60904
+2014-11-10 14:33:06,820 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60905
+2014-11-10 14:33:06,831 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60906
+2014-11-10 14:33:06,849 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60907
+2014-11-10 14:33:06,855 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60908
+2014-11-10 14:33:06,867 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60909
+2014-11-10 14:33:06,876 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60910
+2014-11-10 14:33:06,883 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60911
+2014-11-10 14:33:06,891 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60912
+2014-11-10 14:33:06,899 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 60913
+2014-11-10 17:55:18,472 INFO  [Thread-0] root: Initialize server ...
+2014-11-10 17:55:18,492 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-10 17:55:26,177 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64267
+2014-11-10 17:55:26,196 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64268
+2014-11-10 17:55:26,203 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64269
+2014-11-10 17:55:26,210 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64270
+2014-11-10 17:55:26,220 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64271
+2014-11-10 17:55:53,343 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64281
+2014-11-10 17:55:55,796 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64283
+2014-11-10 17:55:55,836 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64284
+2014-11-10 17:55:55,845 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64285
+2014-11-10 17:55:55,855 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64286
+2014-11-10 17:55:55,864 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64287
+2014-11-10 17:55:55,877 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64288
+2014-11-10 17:55:55,885 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64289
+2014-11-10 17:55:55,895 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64290
+2014-11-10 17:55:55,905 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64291
+2014-11-10 17:55:55,914 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64292
+2014-11-10 17:55:55,922 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64293
+2014-11-10 17:57:40,227 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64326
+2014-11-10 17:57:40,295 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64327
+2014-11-10 17:57:40,307 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64328
+2014-11-10 17:57:40,318 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64329
+2014-11-10 17:57:40,329 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64330
+2014-11-10 17:59:37,253 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64374
+2014-11-10 17:59:37,289 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64375
+2014-11-10 17:59:37,296 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64376
+2014-11-10 17:59:37,306 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64377
+2014-11-10 17:59:37,314 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64378
+2014-11-10 18:00:01,624 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64391
+2014-11-10 18:00:01,661 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64392
+2014-11-10 18:00:01,667 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64393
+2014-11-10 18:00:01,674 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64394
+2014-11-10 18:00:01,680 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64395
+2014-11-10 18:00:26,178 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64413
+2014-11-10 18:00:26,214 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64414
+2014-11-10 18:00:26,221 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64415
+2014-11-10 18:00:26,234 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64416
+2014-11-10 18:00:26,254 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64417
+2014-11-10 18:02:20,534 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64465
+2014-11-10 18:02:20,551 INFO  [Thread-38] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:02:20,564 INFO  [Thread-38] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:02:20,629 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64466
+2014-11-10 18:02:20,641 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64467
+2014-11-10 18:02:20,645 INFO  [Thread-39] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:02:20,662 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64468
+2014-11-10 18:02:20,649 INFO  [Thread-40] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:02:20,690 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64469
+2014-11-10 18:02:20,700 INFO  [Thread-41] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:02:20,712 INFO  [Thread-39] root: Send message:	 '<kvmessage><status>put_success</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:02:20,697 INFO  [Thread-42] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:02:20,711 INFO  [Thread-40] root: Send message:	 '<kvmessage><status>put_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:02:20,726 INFO  [Thread-42] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:02:20,723 INFO  [Thread-41] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:13:40,101 INFO  [Thread-0] root: Initialize server ...
+2014-11-10 18:13:40,120 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-10 18:13:58,223 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64744
+2014-11-10 18:14:03,818 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>hef</key><value>null</value></kvmessage>'
+2014-11-10 18:14:03,825 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_error</status><key>hef</key><value>null</value></kvmessage>'
+2014-11-10 18:14:14,655 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:14:14,659 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:14:21,448 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-10 18:14:21,450 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:14:53,839 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64760
+2014-11-10 18:14:53,900 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64761
+2014-11-10 18:14:53,904 INFO  [Thread-3] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:14:53,908 INFO  [Thread-3] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:14:53,944 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64762
+2014-11-10 18:14:53,956 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64763
+2014-11-10 18:14:53,974 INFO  [Thread-5] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:14:53,977 INFO  [Thread-4] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:14:53,987 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64764
+2014-11-10 18:14:54,010 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64765
+2014-11-10 18:14:54,048 INFO  [Thread-7] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:14:54,043 INFO  [Thread-4] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:14:54,040 INFO  [Thread-6] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:14:54,132 INFO  [Thread-7] root: Send message:	 '<kvmessage><status>put_success</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:14:54,061 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64766
+2014-11-10 18:14:54,165 INFO  [Thread-6] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:14:54,172 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64767
+2014-11-10 18:14:54,177 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64768
+2014-11-10 18:14:54,178 INFO  [Thread-9] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:14:54,180 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64769
+2014-11-10 18:14:54,178 INFO  [Thread-10] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:14:54,187 INFO  [Thread-9] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:14:54,186 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64770
+2014-11-10 18:14:54,202 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64771
+2014-11-10 18:14:54,186 INFO  [Thread-11] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:14:54,204 INFO  [Thread-10] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:14:54,197 INFO  [Thread-12] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:14:54,211 INFO  [Thread-13] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:14:54,249 INFO  [Thread-12] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:14:54,225 INFO  [Thread-11] root: Send message:	 '<kvmessage><status>put_success</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:14:54,256 INFO  [Thread-13] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:30:23,762 INFO  [Thread-0] root: Initialize server ...
+2014-11-10 18:30:23,783 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-10 18:30:34,513 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65113
+2014-11-10 18:30:34,531 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65114
+2014-11-10 18:30:34,537 INFO  [Thread-2] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:30:34,549 INFO  [Thread-2] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:30:34,819 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65115
+2014-11-10 18:30:34,823 INFO  [Thread-3] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:30:34,829 INFO  [Thread-3] root: Send message:	 '<kvmessage><status>put_success</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:30:35,072 INFO  [Thread-3] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>updated</value></kvmessage>'
+2014-11-10 18:30:35,076 INFO  [Thread-3] root: Send message:	 '<kvmessage><status>put_update</status><key>updateTestValue</key><value>updated</value></kvmessage>'
+2014-11-10 18:30:35,330 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65117
+2014-11-10 18:30:35,336 INFO  [Thread-4] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:30:35,342 INFO  [Thread-4] root: Send message:	 '<kvmessage><status>put_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:30:35,585 INFO  [Thread-4] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-10 18:30:35,588 INFO  [Thread-4] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:30:35,845 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65118
+2014-11-10 18:30:35,876 INFO  [Thread-5] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:30:35,889 INFO  [Thread-5] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:30:36,116 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65119
+2014-11-10 18:30:36,141 INFO  [Thread-6] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:30:36,201 INFO  [Thread-6] root: Send message:	 '<kvmessage><status>put_success</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:30:36,412 INFO  [Thread-6] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:30:36,415 INFO  [Thread-6] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:30:36,757 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65120
+2014-11-10 18:30:36,762 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65121
+2014-11-10 18:30:36,811 INFO  [Thread-8] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:30:36,894 INFO  [Thread-8] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:30:37,122 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65122
+2014-11-10 18:30:37,226 INFO  [Thread-9] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:30:37,343 INFO  [Thread-9] root: Send message:	 '<kvmessage><status>put_update</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:30:37,556 INFO  [Thread-9] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>updated</value></kvmessage>'
+2014-11-10 18:30:37,560 INFO  [Thread-9] root: Send message:	 '<kvmessage><status>put_update</status><key>updateTestValue</key><value>updated</value></kvmessage>'
+2014-11-10 18:30:37,947 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65123
+2014-11-10 18:30:38,050 INFO  [Thread-10] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:30:38,190 INFO  [Thread-10] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:30:38,375 INFO  [Thread-10] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-10 18:30:38,378 INFO  [Thread-10] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:30:38,825 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65124
+2014-11-10 18:30:38,927 INFO  [Thread-11] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:30:39,104 INFO  [Thread-11] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:30:39,314 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65125
+2014-11-10 18:30:39,426 INFO  [Thread-12] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:30:39,714 INFO  [Thread-12] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:30:39,815 INFO  [Thread-12] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:30:39,817 INFO  [Thread-12] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:32:47,852 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65163
+2014-11-10 18:33:12,899 INFO  [Thread-13] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:33:13,152 INFO  [Thread-13] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:34:18,089 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65200
+2014-11-10 18:34:18,290 INFO  [Thread-14] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:34:18,599 INFO  [Thread-14] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:34:18,649 INFO  [Thread-14] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:34:18,650 INFO  [Thread-14] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:34:19,152 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65201
+2014-11-10 18:34:19,320 INFO  [Thread-15] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:34:19,637 INFO  [Thread-15] root: Send message:	 '<kvmessage><status>put_update</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:34:19,715 INFO  [Thread-15] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>updated</value></kvmessage>'
+2014-11-10 18:34:19,716 INFO  [Thread-15] root: Send message:	 '<kvmessage><status>put_update</status><key>updateTestValue</key><value>updated</value></kvmessage>'
+2014-11-10 18:34:20,278 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65202
+2014-11-10 18:34:20,441 INFO  [Thread-16] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:34:20,513 INFO  [Thread-16] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:34:31,128 INFO  [Thread-16] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-10 18:34:31,129 INFO  [Thread-16] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:35:35,638 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65224
+2014-11-10 18:37:40,103 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65295
+2014-11-10 18:37:40,274 INFO  [Thread-18] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:37:40,341 INFO  [Thread-18] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:40:28,207 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65386
+2014-11-10 18:40:28,398 INFO  [Thread-19] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:40:28,467 INFO  [Thread-19] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:40:28,511 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65388
+2014-11-10 18:40:28,734 INFO  [Thread-20] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:40:29,071 INFO  [Thread-20] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:40:29,173 INFO  [Thread-20] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:40:29,548 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65389
+2014-11-10 18:40:29,770 INFO  [Thread-21] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:40:30,375 INFO  [Thread-21] root: Send message:	 '<kvmessage><status>put_update</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:40:30,476 INFO  [Thread-21] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>updated</value></kvmessage>'
+2014-11-10 18:40:30,838 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65390
+2014-11-10 18:40:31,039 INFO  [Thread-22] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:40:31,096 INFO  [Thread-22] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:40:31,442 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65391
+2014-11-10 18:40:31,663 INFO  [Thread-23] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:40:31,728 INFO  [Thread-23] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:40:32,125 INFO  [Thread-23] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-10 18:40:32,126 INFO  [Thread-23] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:42:16,094 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65412
+2014-11-10 18:42:16,316 INFO  [Thread-24] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:42:16,651 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65413
+2014-11-10 18:42:16,817 INFO  [Thread-24] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:42:16,877 INFO  [Thread-25] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:42:17,205 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65414
+2014-11-10 18:42:17,669 INFO  [Thread-25] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:42:17,457 INFO  [Thread-26] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:42:17,754 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65415
+2014-11-10 18:42:18,096 INFO  [Thread-26] root: Send message:	 '<kvmessage><status>put_update</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:42:17,989 INFO  [Thread-27] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:42:18,131 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65416
+2014-11-10 18:42:18,364 INFO  [Thread-28] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:42:18,690 INFO  [Thread-27] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:42:18,938 INFO  [Thread-28] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:46:47,145 INFO  [Thread-0] root: Initialize server ...
+2014-11-10 18:46:47,161 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-10 18:46:53,158 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:46:53,162 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65520
+2014-11-10 18:46:53,173 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:46:53,402 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:46:53,405 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:46:53,692 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65522
+2014-11-10 18:46:53,695 INFO  [Thread-2] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:46:53,699 INFO  [Thread-2] root: Send message:	 '<kvmessage><status>put_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:46:53,945 INFO  [Thread-2] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-10 18:46:53,947 INFO  [Thread-2] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:46:54,209 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65523
+2014-11-10 18:46:54,217 INFO  [Thread-3] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:46:54,220 INFO  [Thread-3] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:46:54,479 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65524
+2014-11-10 18:46:54,483 INFO  [Thread-4] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:46:54,491 INFO  [Thread-4] root: Send message:	 '<kvmessage><status>put_success</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:46:54,739 INFO  [Thread-4] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>updated</value></kvmessage>'
+2014-11-10 18:46:54,742 INFO  [Thread-4] root: Send message:	 '<kvmessage><status>put_update</status><key>updateTestValue</key><value>updated</value></kvmessage>'
+2014-11-10 18:46:55,019 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 65525
+2014-11-10 18:46:55,090 INFO  [Thread-5] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:46:55,162 INFO  [Thread-5] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:47:51,960 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49175
+2014-11-10 18:47:52,025 INFO  [Thread-6] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:47:52,129 INFO  [Thread-6] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:47:52,245 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49176
+2014-11-10 18:47:52,324 INFO  [Thread-7] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:47:52,422 INFO  [Thread-7] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:47:52,595 INFO  [Thread-7] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-10 18:47:52,596 INFO  [Thread-7] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:47:52,942 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49177
+2014-11-10 18:47:53,014 INFO  [Thread-8] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:47:53,051 INFO  [Thread-8] root: Send message:	 '<kvmessage><status>put_update</status><key>updateTestValue</key><value>initial</value></kvmessage>'
+2014-11-10 18:47:53,326 INFO  [Thread-8] root: Receive message:	 '<kvmessage><status>put</status><key>updateTestValue</key><value>updated</value></kvmessage>'
+2014-11-10 18:47:53,327 INFO  [Thread-8] root: Send message:	 '<kvmessage><status>put_update</status><key>updateTestValue</key><value>updated</value></kvmessage>'
+2014-11-10 18:47:53,715 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49186
+2014-11-10 18:47:53,825 INFO  [Thread-9] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:47:53,936 INFO  [Thread-9] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:47:54,174 INFO  [Thread-9] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:47:54,175 INFO  [Thread-9] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:47:54,690 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49187
+2014-11-10 18:47:54,791 INFO  [Thread-10] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:47:54,931 INFO  [Thread-10] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:49:01,625 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49215
+2014-11-10 18:49:01,754 INFO  [Thread-11] root: Receive message:	 '<kvmessage><status>get</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:49:01,899 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49216
+2014-11-10 18:49:02,015 INFO  [Thread-12] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:49:02,076 INFO  [Thread-11] root: Send message:	 '<kvmessage><status>get_error</status><key>an unset value</key><value>null</value></kvmessage>'
+2014-11-10 18:49:02,216 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49217
+2014-11-10 18:49:02,310 INFO  [Thread-12] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:49:02,363 INFO  [Thread-13] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:49:02,499 INFO  [Thread-13] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>toDelete</value></kvmessage>'
+2014-11-10 18:49:02,631 INFO  [Thread-13] root: Receive message:	 '<kvmessage><status>put</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:49:02,632 INFO  [Thread-13] root: Send message:	 '<kvmessage><status>put_update</status><key>deleteTestValue</key><value>null</value></kvmessage>'
+2014-11-10 18:49:03,133 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 49218
+2014-11-10 18:49:03,295 INFO  [Thread-14] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:49:03,572 INFO  [Thread-14] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-10 18:49:03,627 INFO  [Thread-14] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-10 18:49:03,957 INFO  [Thread-14] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-11 08:40:06,118 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 08:40:06,138 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 08:40:39,131 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 59416
+2014-11-11 08:40:43,108 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>nothing</key><value>null</value></kvmessage>'
+2014-11-11 08:40:43,117 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_error</status><key>nothing</key><value>null</value></kvmessage>'
+2014-11-11 08:40:53,519 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-11 08:40:53,524 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-11 08:40:56,572 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-11 08:40:56,575 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-11 08:41:08,905 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>thing</value></kvmessage>'
+2014-11-11 08:41:08,909 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>thing</value></kvmessage>'
+2014-11-11 08:41:12,530 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-11 08:41:12,534 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>thing</value></kvmessage>'
+2014-11-11 09:36:47,505 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 09:36:47,535 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 09:37:05,045 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 62501
+2014-11-11 09:37:26,536 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>dontexist</key><value>null</value></kvmessage>'
+2014-11-11 09:37:26,544 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_error</status><key>dontexist</key><value>null</value></kvmessage>'
+2014-11-11 09:37:33,457 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-11 09:37:33,463 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-11 09:37:36,920 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-11 09:37:36,931 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>bar</value></kvmessage>'
+2014-11-11 09:37:44,135 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>foo</key><value>gra</value></kvmessage>'
+2014-11-11 09:37:44,139 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_update</status><key>foo</key><value>gra</value></kvmessage>'
+2014-11-11 09:37:51,538 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>foo</key><value>null</value></kvmessage>'
+2014-11-11 09:37:51,543 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_success</status><key>foo</key><value>gra</value></kvmessage>'
+2014-11-11 09:38:39,629 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>put</status><key>zebra</key><value>tre</value></kvmessage>'
+2014-11-11 09:38:39,634 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>put_success</status><key>zebra</key><value>tre</value></kvmessage>'
+2014-11-11 09:38:48,377 INFO  [Thread-1] root: Receive message:	 '<kvmessage><status>get</status><key>zebra</key><value>null</value></kvmessage>'
+2014-11-11 09:38:48,381 INFO  [Thread-1] root: Send message:	 '<kvmessage><status>get_success</status><key>zebra</key><value>tre</value></kvmessage>'
+2014-11-11 21:16:11,413 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 21:16:11,438 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 21:16:32,864 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 54989
+2014-11-11 21:16:37,160 INFO  [Thread-1] root: Receive message:	 'GET fgh null'
+2014-11-11 21:16:37,163 INFO  [Thread-1] root: Send message:	 'GET_ERROR fgh null'
+2014-11-11 21:19:50,587 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 21:19:50,605 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 21:19:55,630 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 55100
+2014-11-11 21:20:00,034 INFO  [Thread-1] root: Receive message:	 'GET fgh null'
+2014-11-11 21:20:00,037 INFO  [Thread-1] root: Send message:	 'GET_ERROR fgh null'
+2014-11-11 21:20:15,134 INFO  [Thread-1] root: Receive message:	 'PUT foo bar'
+2014-11-11 21:20:15,138 INFO  [Thread-1] root: Send message:	 'PUT_SUCCESS foo bar'
+2014-11-11 21:25:57,587 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 21:25:57,602 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 21:26:05,733 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 55344
+2014-11-11 21:26:09,087 INFO  [Thread-1] root: Receive message:	 'GET fgh null'
+2014-11-11 21:26:09,091 INFO  [Thread-1] root: Send message:	 'GET_ERROR fgh null'
+2014-11-11 21:26:28,216 INFO  [Thread-1] root: Receive message:	 'PUT foo bar'
+2014-11-11 21:26:28,221 INFO  [Thread-1] root: Send message:	 'PUT_SUCCESS foo bar'
+2014-11-11 21:29:20,987 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 21:29:21,008 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 21:29:26,328 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 55498
+2014-11-11 21:29:30,997 INFO  [Thread-1] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:29:31,002 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS foo bar'
+2014-11-11 21:30:01,711 INFO  [Thread-1] root: Receive answer:	 'PUT gar tre'
+2014-11-11 21:30:01,714 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS gar tre'
+2014-11-11 21:30:08,686 INFO  [Thread-1] root: Receive answer:	 'PUT gar null'
+2014-11-11 21:30:08,690 INFO  [Thread-1] root: Send request:	 'PUT_UPDATE gar null'
+2014-11-11 21:30:19,771 INFO  [Thread-1] root: Receive answer:	 'GET gar null'
+2014-11-11 21:30:19,774 INFO  [Thread-1] root: Send request:	 'GET_SUCCESS gar null'
+2014-11-11 21:37:25,505 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 21:37:25,522 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 21:37:34,006 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 55732
+2014-11-11 21:37:37,552 INFO  [Thread-1] root: Receive answer:	 'GET grh null'
+2014-11-11 21:37:37,556 INFO  [Thread-1] root: Send request:	 'GET_ERROR grh null'
+2014-11-11 21:37:54,981 INFO  [Thread-1] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:37:54,986 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS foo bar'
+2014-11-11 21:37:59,249 INFO  [Thread-1] root: Receive answer:	 'PUT foo gre'
+2014-11-11 21:37:59,252 INFO  [Thread-1] root: Send request:	 'PUT_UPDATE foo gre'
+2014-11-11 21:40:08,121 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 21:40:08,138 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 21:40:15,657 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 55800
+2014-11-11 21:40:21,667 INFO  [Thread-1] root: Receive answer:	 'GET gre null'
+2014-11-11 21:40:21,670 INFO  [Thread-1] root: Send request:	 'GET_ERROR gre null'
+2014-11-11 21:40:26,150 INFO  [Thread-1] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:40:26,156 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS foo bar'
+2014-11-11 21:40:29,465 INFO  [Thread-1] root: Receive answer:	 'PUT foo gr'
+2014-11-11 21:40:29,469 INFO  [Thread-1] root: Send request:	 'PUT_UPDATE foo gr'
+2014-11-11 21:40:37,385 INFO  [Thread-1] root: Receive answer:	 'PUT foo null'
+2014-11-11 21:40:37,388 INFO  [Thread-1] root: Send request:	 'PUT_UPDATE foo null'
+2014-11-11 21:40:40,772 INFO  [Thread-1] root: Receive answer:	 'GET foo null'
+2014-11-11 21:40:40,776 INFO  [Thread-1] root: Send request:	 'GET_SUCCESS foo null'
+2014-11-11 21:40:46,138 INFO  [Thread-1] root: Receive answer:	 'GET foo null'
+2014-11-11 21:40:46,142 INFO  [Thread-1] root: Send request:	 'GET_SUCCESS foo null'
+2014-11-11 21:44:32,254 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 21:44:32,271 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 21:44:40,548 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 55902
+2014-11-11 21:44:45,089 INFO  [Thread-1] root: Receive answer:	 'GET gre null'
+2014-11-11 21:44:45,093 INFO  [Thread-1] root: Send request:	 'GET_ERROR gre null'
+2014-11-11 21:44:52,482 INFO  [Thread-1] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:44:52,487 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS foo bar'
+2014-11-11 21:45:16,312 INFO  [Thread-1] root: Receive answer:	 'PUT foo gr'
+2014-11-11 21:45:16,315 INFO  [Thread-1] root: Send request:	 'PUT_UPDATE foo gr'
+2014-11-11 21:47:17,694 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 21:47:17,712 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 21:47:23,449 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 55951
+2014-11-11 21:47:26,632 INFO  [Thread-1] root: Receive answer:	 'GET gr null'
+2014-11-11 21:47:26,636 INFO  [Thread-1] root: Send request:	 'GET_ERROR gr null'
+2014-11-11 21:47:30,283 INFO  [Thread-1] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:47:30,288 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS foo bar'
+2014-11-11 21:47:35,261 INFO  [Thread-1] root: Receive answer:	 'PUT foo gr'
+2014-11-11 21:47:35,264 INFO  [Thread-1] root: Send request:	 'PUT_UPDATE foo gr'
+2014-11-11 21:47:41,926 INFO  [Thread-1] root: Receive answer:	 'GET foo null'
+2014-11-11 21:47:41,929 INFO  [Thread-1] root: Send request:	 'GET_SUCCESS foo gr'
+2014-11-11 21:50:32,286 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 21:50:32,304 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 21:50:41,234 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56005
+2014-11-11 21:50:41,241 INFO  [Thread-1] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:50:41,249 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS foo bar'
+2014-11-11 21:50:41,525 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56006
+2014-11-11 21:50:41,532 INFO  [Thread-2] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:50:41,539 INFO  [Thread-2] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 21:50:41,780 INFO  [Thread-2] root: Receive answer:	 'GET foo null'
+2014-11-11 21:50:41,784 INFO  [Thread-2] root: Send request:	 'GET_SUCCESS foo bar'
+2014-11-11 21:50:42,042 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56007
+2014-11-11 21:50:42,048 INFO  [Thread-3] root: Receive answer:	 'PUT deleteTestValue toDelete'
+2014-11-11 21:50:42,053 INFO  [Thread-3] root: Send request:	 'PUT_SUCCESS deleteTestValue toDelete'
+2014-11-11 21:50:42,299 INFO  [Thread-3] root: Receive answer:	 'PUT deleteTestValue null'
+2014-11-11 21:50:42,303 INFO  [Thread-3] root: Send request:	 'PUT_UPDATE deleteTestValue null'
+2014-11-11 21:50:42,563 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56008
+2014-11-11 21:50:42,571 INFO  [Thread-4] root: Receive answer:	 'PUT updateTestValue initial'
+2014-11-11 21:50:42,577 INFO  [Thread-4] root: Send request:	 'PUT_SUCCESS updateTestValue initial'
+2014-11-11 21:50:42,834 INFO  [Thread-4] root: Receive answer:	 'PUT updateTestValue updated'
+2014-11-11 21:50:42,837 INFO  [Thread-4] root: Send request:	 'PUT_UPDATE updateTestValue updated'
+2014-11-11 21:50:43,110 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56009
+2014-11-11 21:50:43,147 INFO  [Thread-5] root: Receive answer:	 'GET an unset value null'
+2014-11-11 21:50:43,221 INFO  [Thread-5] root: Send request:	 'GET_ERROR an unset value null'
+2014-11-11 21:54:10,085 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56092
+2014-11-11 21:54:10,131 INFO  [Thread-6] root: Receive answer:	 'PUT deleteTestValue toDelete'
+2014-11-11 21:54:10,167 INFO  [Thread-6] root: Send request:	 'PUT_UPDATE deleteTestValue toDelete'
+2014-11-11 21:54:10,364 INFO  [Thread-6] root: Receive answer:	 'PUT deleteTestValue null'
+2014-11-11 21:54:10,366 INFO  [Thread-6] root: Send request:	 'PUT_UPDATE deleteTestValue null'
+2014-11-11 21:54:10,625 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56093
+2014-11-11 21:54:10,682 INFO  [Thread-7] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:54:10,720 INFO  [Thread-7] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 21:54:10,879 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56095
+2014-11-11 21:54:10,972 INFO  [Thread-8] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:54:11,142 INFO  [Thread-8] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 21:54:11,178 INFO  [Thread-8] root: Receive answer:	 'GET foo null'
+2014-11-11 21:54:11,351 INFO  [Thread-8] root: Send request:	 'GET_SUCCESS foo bar'
+2014-11-11 21:54:11,402 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56096
+2014-11-11 21:54:11,491 INFO  [Thread-9] root: Receive answer:	 'PUT updateTestValue initial'
+2014-11-11 21:54:11,564 INFO  [Thread-9] root: Send request:	 'PUT_UPDATE updateTestValue initial'
+2014-11-11 21:54:11,673 INFO  [Thread-9] root: Receive answer:	 'PUT updateTestValue updated'
+2014-11-11 21:54:11,675 INFO  [Thread-9] root: Send request:	 'PUT_UPDATE updateTestValue updated'
+2014-11-11 21:54:11,987 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56097
+2014-11-11 21:54:12,095 INFO  [Thread-10] root: Receive answer:	 'GET an unset value null'
+2014-11-11 21:54:12,188 INFO  [Thread-10] root: Send request:	 'GET_ERROR an unset value null'
+2014-11-11 21:56:39,753 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56156
+2014-11-11 21:56:39,876 INFO  [Thread-11] root: Receive answer:	 'PUT updateTestValue initial'
+2014-11-11 21:56:40,094 INFO  [Thread-11] root: Send request:	 'PUT_UPDATE updateTestValue initial'
+2014-11-11 21:56:40,157 INFO  [Thread-11] root: Receive answer:	 'PUT updateTestValue updated'
+2014-11-11 21:56:40,276 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56157
+2014-11-11 21:56:40,398 INFO  [Thread-12] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:56:40,431 INFO  [Thread-11] root: Send request:	 'PUT updateTestValue updated'
+2014-11-11 21:56:40,521 INFO  [Thread-12] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 21:56:40,567 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56158
+2014-11-11 21:56:40,691 INFO  [Thread-13] root: Receive answer:	 'PUT deleteTestValue toDelete'
+2014-11-11 21:56:40,861 INFO  [Thread-13] root: Send request:	 'PUT_UPDATE deleteTestValue toDelete'
+2014-11-11 21:56:40,926 INFO  [Thread-13] root: Receive answer:	 'PUT deleteTestValue null'
+2014-11-11 21:56:41,083 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56159
+2014-11-11 21:56:41,127 INFO  [Thread-13] root: Send request:	 'PUT_UPDATE deleteTestValue null'
+2014-11-11 21:56:41,193 INFO  [Thread-14] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:56:41,528 INFO  [Thread-14] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 21:56:41,593 INFO  [Thread-14] root: Receive answer:	 'GET foo null'
+2014-11-11 21:56:41,683 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56160
+2014-11-11 21:56:41,799 INFO  [Thread-14] root: Send request:	 'GET_SUCCESS foo bar'
+2014-11-11 21:56:41,865 INFO  [Thread-15] root: Receive answer:	 'GET an unset value null'
+2014-11-11 21:56:41,916 INFO  [Thread-15] root: Send request:	 'GET_ERROR an unset value null'
+2014-11-11 21:58:43,139 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56201
+2014-11-11 21:58:43,305 INFO  [Thread-16] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:58:43,533 INFO  [Thread-16] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 21:58:43,603 INFO  [Thread-16] root: Receive answer:	 'GET foo null'
+2014-11-11 21:58:43,680 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56202
+2014-11-11 21:58:43,687 INFO  [Thread-16] root: Send request:	 'GET_SUCCESS foo bar'
+2014-11-11 21:58:43,760 INFO  [Thread-17] root: Receive answer:	 'PUT updateTestValue initial'
+2014-11-11 21:58:44,144 INFO  [Thread-17] root: Send request:	 'PUT_UPDATE updateTestValue initial'
+2014-11-11 21:58:44,211 INFO  [Thread-17] root: Receive answer:	 'PUT updateTestValue updated'
+2014-11-11 21:58:44,225 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56203
+2014-11-11 21:58:44,381 INFO  [Thread-18] root: Receive answer:	 'PUT foo bar'
+2014-11-11 21:58:44,530 INFO  [Thread-17] root: Send request:	 'PUT_UPDATE updateTestValue updated'
+2014-11-11 21:58:44,613 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56204
+2014-11-11 21:58:44,613 INFO  [Thread-19] root: Receive answer:	 'PUT deleteTestValue toDelete'
+2014-11-11 21:58:44,826 INFO  [Thread-19] root: Send request:	 'PUT_UPDATE deleteTestValue toDelete'
+2014-11-11 21:58:44,909 INFO  [Thread-19] root: Receive answer:	 'PUT deleteTestValue null'
+2014-11-11 21:58:45,270 INFO  [Thread-19] root: Send request:	 'PUT_UPDATE deleteTestValue null'
+2014-11-11 21:58:45,426 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56205
+2014-11-11 21:58:45,602 INFO  [Thread-20] root: Receive answer:	 'GET an unset value null'
+2014-11-11 21:58:45,667 INFO  [Thread-20] root: Send request:	 'GET_ERROR an unset value null'
+2014-11-11 22:01:13,602 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56255
+2014-11-11 22:01:13,751 INFO  [Thread-21] root: Receive answer:	 'GET an unset value null'
+2014-11-11 22:01:13,907 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56256
+2014-11-11 22:01:14,066 INFO  [Thread-21] root: Send request:	 'GET_ERROR an unset value null'
+2014-11-11 22:01:14,163 INFO  [Thread-22] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:01:14,429 INFO  [Thread-22] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:01:14,459 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56257
+2014-11-11 22:01:14,645 INFO  [Thread-23] root: Receive answer:	 'PUT updateTestValue initial'
+2014-11-11 22:01:15,009 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56258
+2014-11-11 22:01:15,068 INFO  [Thread-23] root: Send request:	 'PUT_UPDATE updateTestValue initial'
+2014-11-11 22:01:15,165 INFO  [Thread-24] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:01:15,330 INFO  [Thread-24] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:01:15,397 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56259
+2014-11-11 22:01:15,594 INFO  [Thread-25] root: Receive answer:	 'PUT deleteTestValue toDelete'
+2014-11-11 22:01:16,127 INFO  [Thread-25] root: Send request:	 'PUT_UPDATE deleteTestValue toDelete'
+2014-11-11 22:01:16,223 INFO  [Thread-25] root: Receive answer:	 'PUT deleteTestValue null'
+2014-11-11 22:01:16,685 INFO  [Thread-25] root: Send request:	 'PUT_UPDATE deleteTestValue null'
+2014-11-11 22:02:29,511 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56310
+2014-11-11 22:02:29,723 INFO  [Thread-26] root: Receive answer:	 'GET an unset value null'
+2014-11-11 22:02:29,792 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56311
+2014-11-11 22:02:30,284 INFO  [Thread-26] root: Send request:	 'GET_ERROR an unset value null'
+2014-11-11 22:02:30,284 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56312
+2014-11-11 22:02:30,481 INFO  [Thread-28] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:02:30,522 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56313
+2014-11-11 22:02:30,731 INFO  [Thread-29] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:02:31,104 INFO  [Thread-28] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:02:31,844 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56316
+2014-11-11 22:02:32,067 INFO  [Thread-30] root: Receive answer:	 'PUT deleteTestValue toDelete'
+2014-11-11 22:02:32,207 INFO  [Thread-30] root: Send request:	 'PUT_UPDATE deleteTestValue toDelete'
+2014-11-11 22:02:32,512 INFO  [Thread-30] root: Receive answer:	 'PUT deleteTestValue null'
+2014-11-11 22:02:32,512 INFO  [Thread-30] root: Send request:	 'PUT_UPDATE deleteTestValue null'
+2014-11-11 22:02:33,214 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56318
+2014-11-11 22:02:33,444 INFO  [Thread-31] root: Receive answer:	 'PUT updateTestValue initial'
+2014-11-11 22:02:33,512 INFO  [Thread-31] root: Send request:	 'PUT_UPDATE updateTestValue initial'
+2014-11-11 22:02:33,909 INFO  [Thread-31] root: Receive answer:	 'PUT updateTestValue updated'
+2014-11-11 22:02:33,909 INFO  [Thread-31] root: Send request:	 'PUT_UPDATE updateTestValue updated'
+2014-11-11 22:04:28,890 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56401
+2014-11-11 22:04:29,127 INFO  [Thread-32] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:04:29,199 INFO  [Thread-32] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:07:21,351 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 22:07:21,368 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 22:07:29,232 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56516
+2014-11-11 22:07:33,385 INFO  [Thread-1] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:07:33,390 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS foo bar'
+2014-11-11 22:09:17,456 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 22:09:17,476 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 22:09:24,288 INFO  [Thread-1] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:09:24,297 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS foo bar'
+2014-11-11 22:09:24,301 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56676
+2014-11-11 22:09:24,534 INFO  [Thread-1] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:09:24,536 INFO  [Thread-1] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:10:06,282 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56742
+2014-11-11 22:10:28,258 INFO  [Thread-2] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:10:28,261 INFO  [Thread-2] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:15:21,895 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 56990
+2014-11-11 22:15:21,914 INFO  [Thread-3] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:15:21,916 INFO  [Thread-3] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:20:01,134 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57126
+2014-11-11 22:20:01,135 INFO  [Thread-4] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:20:01,137 INFO  [Thread-4] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:20:25,797 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 22:20:25,814 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 22:20:38,664 INFO  [Thread-1] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:20:38,668 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57147
+2014-11-11 22:20:38,673 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS foo bar'
+2014-11-11 22:20:53,816 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57158
+2014-11-11 22:20:53,844 INFO  [Thread-2] root: Receive answer:	 'GET an unset value null'
+2014-11-11 22:20:53,849 INFO  [Thread-2] root: Send request:	 'GET_ERROR an unset value null'
+2014-11-11 22:20:53,897 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57159
+2014-11-11 22:20:53,908 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57160
+2014-11-11 22:20:53,914 INFO  [Thread-4] root: Receive answer:	 'PUT updateTestValue initial'
+2014-11-11 22:20:53,917 INFO  [Thread-4] root: Send request:	 'PUT_SUCCESS updateTestValue initial'
+2014-11-11 22:20:53,967 INFO  [Thread-4] root: Receive answer:	 'PUT updateTestValue updated'
+2014-11-11 22:20:53,968 INFO  [Thread-4] root: Send request:	 'PUT_UPDATE updateTestValue updated'
+2014-11-11 22:20:54,026 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57161
+2014-11-11 22:20:54,073 INFO  [Thread-5] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:20:54,094 INFO  [Thread-5] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:20:54,180 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57162
+2014-11-11 22:20:54,234 INFO  [Thread-6] root: Receive answer:	 'PUT deleteTestValue toDelete'
+2014-11-11 22:20:54,326 INFO  [Thread-6] root: Send request:	 'PUT_SUCCESS deleteTestValue toDelete'
+2014-11-11 22:20:54,406 INFO  [Thread-6] root: Receive answer:	 'PUT deleteTestValue null'
+2014-11-11 22:20:54,408 INFO  [Thread-6] root: Send request:	 'PUT_UPDATE deleteTestValue null'
+2014-11-11 22:20:54,493 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57164
+2014-11-11 22:20:54,550 INFO  [Thread-7] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:20:54,704 INFO  [Thread-7] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:20:54,753 INFO  [Thread-7] root: Receive answer:	 'GET foo null'
+2014-11-11 22:20:54,755 INFO  [Thread-7] root: Send request:	 'GET_SUCCESS foo bar'
+2014-11-11 22:22:01,666 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57200
+2014-11-11 22:22:01,750 INFO  [Thread-8] root: Receive answer:	 'PUT deleteTestValue toDelete'
+2014-11-11 22:22:01,882 INFO  [Thread-8] root: Send request:	 'PUT_UPDATE deleteTestValue toDelete'
+2014-11-11 22:22:01,933 INFO  [Thread-8] root: Receive answer:	 'PUT deleteTestValue null'
+2014-11-11 22:22:01,934 INFO  [Thread-8] root: Send request:	 'PUT_UPDATE deleteTestValue null'
+2014-11-11 22:22:01,951 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57202
+2014-11-11 22:22:02,025 INFO  [Thread-9] root: Receive answer:	 'PUT updateTestValue initial'
+2014-11-11 22:22:02,107 INFO  [Thread-9] root: Send request:	 'PUT_UPDATE updateTestValue initial'
+2014-11-11 22:22:02,158 INFO  [Thread-9] root: Receive answer:	 'PUT updateTestValue updated'
+2014-11-11 22:22:02,159 INFO  [Thread-9] root: Send request:	 'PUT_UPDATE updateTestValue updated'
+2014-11-11 22:22:02,268 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57203
+2014-11-11 22:22:02,375 INFO  [Thread-10] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:22:02,587 INFO  [Thread-10] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:22:02,676 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57204
+2014-11-11 22:22:02,789 INFO  [Thread-11] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:22:02,892 INFO  [Thread-11] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:22:02,978 INFO  [Thread-11] root: Receive answer:	 'GET foo null'
+2014-11-11 22:22:02,979 INFO  [Thread-11] root: Send request:	 'GET_SUCCESS foo bar'
+2014-11-11 22:22:03,069 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57205
+2014-11-11 22:22:03,077 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57206
+2014-11-11 22:22:03,229 INFO  [Thread-13] root: Receive answer:	 'GET an unset value null'
+2014-11-11 22:22:03,516 INFO  [Thread-13] root: Send request:	 'GET_ERROR an unset value null'
+2014-11-11 22:27:59,047 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 22:27:59,063 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 22:28:08,974 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57373
+2014-11-11 22:28:09,012 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57374
+2014-11-11 22:28:09,023 INFO  [Thread-2] root: Receive answer:	 'GET an unset value null'
+2014-11-11 22:28:09,028 INFO  [Thread-2] root: Send request:	 'GET_ERROR an unset value null'
+2014-11-11 22:28:09,076 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57375
+2014-11-11 22:28:09,090 INFO  [Thread-3] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:28:09,094 INFO  [Thread-3] root: Send request:	 'PUT_SUCCESS foo bar'
+2014-11-11 22:28:09,133 INFO  [Thread-3] root: Receive answer:	 'GET foo null'
+2014-11-11 22:28:09,134 INFO  [Thread-3] root: Send request:	 'GET_SUCCESS foo bar'
+2014-11-11 22:28:09,191 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57376
+2014-11-11 22:28:09,215 INFO  [Thread-4] root: Receive answer:	 'PUT updateTestValue initial'
+2014-11-11 22:28:09,265 INFO  [Thread-4] root: Send request:	 'PUT_SUCCESS updateTestValue initial'
+2014-11-11 22:28:09,307 INFO  [Thread-4] root: Receive answer:	 'PUT updateTestValue updated'
+2014-11-11 22:28:09,309 INFO  [Thread-4] root: Send request:	 'PUT_UPDATE updateTestValue updated'
+2014-11-11 22:28:09,403 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57378
+2014-11-11 22:28:09,434 INFO  [Thread-5] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:28:09,481 INFO  [Thread-5] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:28:09,564 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57379
+2014-11-11 22:28:09,625 INFO  [Thread-6] root: Receive answer:	 'PUT deleteTestValue toDelete'
+2014-11-11 22:28:09,699 INFO  [Thread-6] root: Send request:	 'PUT_SUCCESS deleteTestValue toDelete'
+2014-11-11 22:28:09,760 INFO  [Thread-6] root: Receive answer:	 'PUT deleteTestValue null'
+2014-11-11 22:28:09,762 INFO  [Thread-6] root: Send request:	 'PUT_UPDATE deleteTestValue null'
+2014-11-11 22:29:52,465 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57446
+2014-11-11 22:29:52,511 INFO  [Thread-7] root: Receive answer:	 'GET an unset value null'
+2014-11-11 22:29:52,645 INFO  [Thread-7] root: Send request:	 'GET_ERROR an unset value null'
+2014-11-11 22:29:52,691 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57447
+2014-11-11 22:29:52,694 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57448
+2014-11-11 22:29:52,778 INFO  [Thread-9] root: Receive answer:	 'PUT deleteTestValue toDelete'
+2014-11-11 22:29:52,986 INFO  [Thread-9] root: Send request:	 'PUT_UPDATE deleteTestValue toDelete'
+2014-11-11 22:29:53,029 INFO  [Thread-9] root: Receive answer:	 'PUT deleteTestValue null'
+2014-11-11 22:29:53,071 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57449
+2014-11-11 22:29:53,176 INFO  [Thread-10] root: Receive answer:	 'PUT foo1 bar1'
+2014-11-11 22:29:53,253 INFO  [Thread-9] root: Send request:	 'PUT_UPDATE deleteTestValue null'
+2014-11-11 22:29:53,336 INFO  [Thread-10] root: Receive answer:	 'GET foo1 null'
+2014-11-11 22:29:53,336 INFO  [Thread-10] root: Send request:	 'GET_ERROR foo1 null'
+2014-11-11 22:29:53,389 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57450
+2014-11-11 22:29:53,498 INFO  [Thread-11] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:29:53,645 INFO  [Thread-11] root: Send request:	 'PUT_UPDATE foo bar'
+2014-11-11 22:29:53,714 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57452
+2014-11-11 22:29:53,859 INFO  [Thread-12] root: Receive answer:	 'PUT updateTestValue initial'
+2014-11-11 22:29:53,954 INFO  [Thread-12] root: Send request:	 'PUT_UPDATE updateTestValue initial'
+2014-11-11 22:29:54,052 INFO  [Thread-12] root: Receive answer:	 'PUT updateTestValue updated'
+2014-11-11 22:29:54,053 INFO  [Thread-12] root: Send request:	 'PUT_UPDATE updateTestValue updated'
+2014-11-11 22:36:44,265 INFO  [Thread-0] root: Initialize server ...
+2014-11-11 22:36:44,285 INFO  [Thread-0] root: Server listening on port: 50000
+2014-11-11 22:37:01,990 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57735
+2014-11-11 22:37:02,006 INFO  [Thread-1] root: Receive answer:	 'PUT foo bar'
+2014-11-11 22:37:02,012 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS foo bar'
+2014-11-11 22:37:02,041 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57736
+2014-11-11 22:37:02,051 INFO  [Thread-2] root: Receive answer:	 'PUT updateTestValue initial'
+2014-11-11 22:37:02,053 INFO  [Thread-2] root: Send request:	 'PUT_SUCCESS updateTestValue initial'
+2014-11-11 22:37:02,096 INFO  [Thread-2] root: Receive answer:	 'PUT updateTestValue updated'
+2014-11-11 22:37:02,098 INFO  [Thread-2] root: Send request:	 'PUT_UPDATE updateTestValue updated'
+2014-11-11 22:37:02,152 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57737
+2014-11-11 22:37:02,157 INFO  [Thread-3] root: Receive answer:	 'PUT deleteTestValue toDelete'
+2014-11-11 22:37:02,160 INFO  [Thread-3] root: Send request:	 'PUT_SUCCESS deleteTestValue toDelete'
+2014-11-11 22:37:02,214 INFO  [Thread-3] root: Receive answer:	 'PUT deleteTestValue null'
+2014-11-11 22:37:02,215 INFO  [Thread-3] root: Send request:	 'PUT_UPDATE deleteTestValue null'
+2014-11-11 22:37:02,330 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57738
+2014-11-11 22:37:02,368 INFO  [Thread-4] root: Receive answer:	 'PUT foo1 bar1'
+2014-11-11 22:37:02,438 INFO  [Thread-4] root: Send request:	 'PUT_SUCCESS foo1 bar1'
+2014-11-11 22:37:02,473 INFO  [Thread-4] root: Receive answer:	 'GET foo1 null'
+2014-11-11 22:37:02,496 INFO  [Thread-4] root: Send request:	 'GET_SUCCESS foo1 bar1'
+2014-11-11 22:37:02,546 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57739
+2014-11-11 22:37:02,560 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 57740
+2014-11-11 22:37:02,606 INFO  [Thread-6] root: Receive answer:	 'GET an unset value null'
+2014-11-11 22:37:02,677 INFO  [Thread-6] root: Send request:	 'GET_ERROR an unset value null'

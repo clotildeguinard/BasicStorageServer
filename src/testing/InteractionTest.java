@@ -1,9 +1,11 @@
 package testing;
 
+import org.apache.log4j.Level;
 import org.junit.Test;
 
 import client.KVStore;
 import junit.framework.TestCase;
+import logger.LogSetup;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 
@@ -15,6 +17,7 @@ public class InteractionTest extends TestCase {
 	public void setUp() {
 		kvClient = new KVStore("localhost", 50000);
 		try {
+			new LogSetup("./testing/test.log", Level.ALL);
 			kvClient.connect();
 		} catch (Exception e) {
 		}
@@ -38,7 +41,8 @@ public class InteractionTest extends TestCase {
 			ex = e;
 		}
 
-		assertTrue(ex == null && response.getStatus() == StatusType.PUT_SUCCESS);
+		assertNull(ex);
+		assertEquals(StatusType.PUT_SUCCESS, response.getStatus());
 	}
 	
 	@Test
@@ -91,27 +95,28 @@ public class InteractionTest extends TestCase {
 			response = kvClient.put(key, "null");
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			ex = e;
 		}
-
-		assertTrue(ex == null && response.getStatus() == StatusType.DELETE_SUCCESS);
+		assertNull(ex);
+		assertEquals(StatusType.DELETE_SUCCESS, response.getStatus());
 	}
-	
+		
 	@Test
 	public void testGet() {
-		String key = "foo";
-		String value = "bar";
+		String key = "foo1";
+		String value = "bar1";
 		KVMessage response = null;
 		Exception ex = null;
 
-			try {
-				kvClient.put(key, value);
-				response = kvClient.get(key);
-			} catch (Exception e) {
-				ex = e;
-			}
-		
-		assertTrue(ex == null && response.getValue().equals("bar"));
+		try {
+			kvClient.put(key, value);
+			response = kvClient.get(key);
+		} catch (Exception e) {
+			ex = e;
+		}
+		assertNull(ex);
+		assertEquals("bar1", response.getValue());
 	}
 
 	@Test
@@ -123,6 +128,7 @@ public class InteractionTest extends TestCase {
 		try {
 			response = kvClient.get(key);
 		} catch (Exception e) {
+			e.printStackTrace();
 			ex = e;
 		}
 

@@ -10,8 +10,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import logger.ServerLogSetup;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
