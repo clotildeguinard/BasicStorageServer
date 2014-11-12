@@ -96,7 +96,7 @@ public class KVCommModule implements KVSocketListener {
     }
 
 	public void sendKVMessage(KVMessage message) throws IOException {
-		logger.info("Send request:\t '" + message + "'");
+		logger.info("Send :\t '" + message + "'");
 		TextMessage xmlText = ((KVMessageImpl) message).marshal();
 		sendMessage(xmlText);
 	}
@@ -106,7 +106,7 @@ public class KVCommModule implements KVSocketListener {
 	public KVMessage receiveKVMessage() throws IOException {
 		TextMessage xmlText = receiveMessage();
 		KVMessage received = KVMessageImpl.unmarshal(xmlText);
-		logger.info("Receive answer:\t '" + received + "'");
+		logger.info("Receive :\t '" + received + "'");
 		return received;
 	}
 

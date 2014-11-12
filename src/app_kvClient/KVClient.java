@@ -138,7 +138,7 @@ public class KVClient implements KVSocketListener {
 		kvStore = new KVStore(address, port);
 		kvStore.connect();
 		kvStore.addListener(this);
-		kvStore.start();
+		new Thread(kvStore).start();
 	}
 	
 	private void disconnect() {
