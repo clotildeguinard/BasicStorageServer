@@ -43,14 +43,11 @@ public class CacheManager {
 		StatusType status = cacheAnswerWithRejectedKV.getStatus();
 
 		if (status.equals(StatusType.PUT_SUCCESS)) {
-
-			KVMessage checkIfOverwrite = null;
 			try {
-				checkIfOverwrite = storage.get(key);
+				KVMessage checkIfOverwrite = storage.get(key);
 				if (checkIfOverwrite.getStatus().equals(StatusType.GET_SUCCESS)) {
 					status = StatusType.PUT_UPDATE;
 				}
-				
 			} catch (FileNotFoundException e) {
 				logger.error("A file was not found when trying to write the record", e);
 				return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
@@ -60,11 +57,14 @@ public class CacheManager {
 			}
 		}
 		
-		if (value.equals("null") && (status.equals(StatusType.PUT_SUCCESS) || status.equals(StatusType.PUT_UPDATE))) {
-			status = StatusType.DELETE_SUCCESS;
-		} else if (value.equals("null") && status.equals(StatusType.PUT_ERROR)) {
-			status = StatusType.DELETE_ERROR;
+		if (value.equals("null")) {
+			if (status.equals(StatusType.PUT_SUCCESS) || status.equals(StatusType.PUT_UPDATE)) {		
+				return new KVMessageImpl(key, value, StatusType.DELETE_SUCCESS);
+			} else if (status.equals(StatusType.PUT_ERROR)) {
+				return new KVMessageImpl(key, value, StatusType.DELETE_ERROR);
+			}
 		}
+		
 		return new KVMessageImpl(key, value, status);
 	}
 

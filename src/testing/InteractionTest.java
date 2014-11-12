@@ -95,7 +95,6 @@ public class InteractionTest extends TestCase {
 			response = kvClient.put(key, "null");
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			ex = e;
 		}
 		assertNull(ex);

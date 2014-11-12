@@ -47,6 +47,7 @@ public class KVServer implements Runnable {
 			datacache = new LFUStrategy(cacheSize);
 		}
 		this.cacheManager = new CacheManager(datacache, new Storage(storageLocation));
+		new Thread(this).start();
 	}
 	  /**
      * Initializes and starts the server. 
@@ -128,7 +129,7 @@ public class KVServer implements Runnable {
 					System.out.println("Error! Invalid argument <cacheSize>! Must be positive or zero!");
 					System.exit(1);
 				}
-				new Thread(new KVServer(port, cacheSize, strategy)).start();
+				new KVServer(port, cacheSize, strategy);
 			}
 		} catch (IOException e) {
 			System.out.println("Error! Unable to initialize logger!");
