@@ -52,5 +52,11 @@ public class MetadataHandler {
 			}
 		}
 	}
+	
+	public static String[] getServerForKey(String fileLocation, String key) throws IOException {
+		return null;
+
+// TODO
+	}
 
 }
