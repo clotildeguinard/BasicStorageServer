@@ -36,14 +36,31 @@ public class KVClient implements KVSocketListener {
 			
 			try {
 				String cmdLine = stdin.readLine();
+				//  = either PUT or GET or QUIT or HELP (no more connect/disconnect)
 				this.handleCommand(cmdLine);
-			} catch (IOException e) {
+				// rather call handleCommandBis(cmdLine)
+				} catch (IOException e) {
 				stop = true;
 				printError("CLI does not respond - Application terminated ");
 			}
 		}
 	}
 	
+	private void handleCommandBis(String cmdLine) {
+		// decode the cmdLine like in handleCommand from ms2
+//		// call the function getServerForKey to know which server to connect
+////		KVMessage answer = this.handleCommandWithServer(cmdLine, serverip, serverport);
+//		// if answer is success or eror... print it
+//		// if "not responsible": update metadata file and call handleCommandBis(cmdLine);
+//	
+	}
+	
+	private void handleCommandWithServer(String cmdLine) { // more args
+		// TODO
+		// connect, execute request, disconnect
+	}
+	
+	// good example; will not be used any more at end of ms3
 	private void handleCommand(String cmdLine) {
 		String[] tokens = cmdLine.split("\\s+");
 
