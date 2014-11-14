@@ -10,6 +10,8 @@ import logger.LogSetup;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import common.metadata.MetadataHandler;
+
 import app_kvServer.cache_strategies.FIFOStrategy;
 import app_kvServer.cache_strategies.LFUStrategy;
 import app_kvServer.cache_strategies.LRUStrategy;
@@ -17,12 +19,17 @@ import app_kvServer.cache_strategies.LRUStrategy;
 
 public class KVServer implements Runnable {
 	private final String storageLocation = "./src/app_kvServer/";
-	protected int Port = 50000;
+	private final String metadataLocation = "./src/app_kvServer/metadata.txt";
+	protected final int Port;
 	protected ServerSocket serverSocket = null;
 	protected boolean isStopped = true;
-	protected Thread runningThread = null;
-	protected final CacheManager cacheManager;
+	protected CacheManager cacheManager;
 	private Logger logger = Logger.getRootLogger();
+	private ClientConnection connection;
+	
+	public KVServer(int port) {
+		this.Port = port;
+	}
 	
 	/**
 	 * Start KV Server at given port
@@ -36,8 +43,8 @@ public class KVServer implements Runnable {
 	 * @throws IOException 
 	 */
 
-	public KVServer(int port, int cacheSize, String strategy) throws IOException {
-		this.Port = port;
+	public void initKVServer(String metadata, int cacheSize, String strategy) throws IOException {
+//		this.Port = port;
 		DataCache datacache;
 		if (strategy.equalsIgnoreCase("FIFO")) {
 			datacache = new FIFOStrategy(cacheSize);
@@ -47,6 +54,10 @@ public class KVServer implements Runnable {
 			datacache = new LFUStrategy(cacheSize);
 		}
 		this.cacheManager = new CacheManager(datacache, new Storage(storageLocation));
+		update(metadata);
+	}
+	
+	public void start() {
 		new Thread(this).start();
 	}
 	  /**
@@ -62,8 +73,9 @@ public class KVServer implements Runnable {
 	        while(!isStopped()){
 	            try {
 	                Socket client = serverSocket.accept();                
-	                ServerRunnable connection = 
-	                		new ServerRunnable(client, "Multithreaded KVServer", cacheManager);
+	                connection = 
+	                		new ClientConnection(Port, client, cacheManager);
+	                connection.updateHashKeyRange();
 	                new Thread(connection).start();
 	                
 	                logger.info("Connected to " 
@@ -77,7 +89,6 @@ public class KVServer implements Runnable {
         }
         logger.info("Server stopped.");
     }
-
 	
 	private synchronized boolean isStopped() {
 		return isStopped;
@@ -108,6 +119,32 @@ public class KVServer implements Runnable {
             return false;
         }
     }
+    
+    public void shutdown() {
+    	stop();
+    	System.exit(0);
+    }
+    
+//    public void moveData(range, server) {
+//    	// TODO
+//    	// connect to server and send data one by one
+//    }
+    
+  public void update(String metadata) throws IOException {
+	  MetadataHandler.updateFile(metadata, metadataLocation);
+	  if (connection != null) {
+		  connection.updateHashKeyRange();
+	  }
+  }
+    
+    public void lockWrite() {
+    	connection.writeLock();
+    }
+    
+    public void unLockWrite() {
+    	connection.writeUnlock();
+    }
+
 	
 	/**
      * Main entry point for the echo server application. 
@@ -129,7 +166,9 @@ public class KVServer implements Runnable {
 					System.out.println("Error! Invalid argument <cacheSize>! Must be positive or zero!");
 					System.exit(1);
 				}
-				new KVServer(port, cacheSize, strategy);
+//				new KVServer(port, cacheSize, strategy);
+				KVServer kvServer = new KVServer(50000);
+				kvServer.initKVServer("", cacheSize, strategy);
 			}
 		} catch (IOException e) {
 			System.out.println("Error! Unable to initialize logger!");

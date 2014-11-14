@@ -20,6 +20,8 @@ public class KVClient implements KVSocketListener {
 
 	private static Logger logger = Logger.getRootLogger();
 	private static final String PROMPT = "KVClient> ";
+	private static final String DEFAULT_SERVER_ADDRESS = "localhost";
+	private static final int DEFAULT_SERVER_PORT = 50000;
 	private BufferedReader stdin;
 	private KVStore kvStore = null;
 	private boolean stop = false;

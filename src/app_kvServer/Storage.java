@@ -44,33 +44,35 @@ public class Storage {
 
 	public KVMessage put(String key, String value) throws IOException{
 		StatusType status = StatusType.PUT_SUCCESS;
-		String newString = (key + " " + value + EOL);
-		SingletonWriter.getInstance().initializeAppendingWriter(file);
-		try {
-			if (get(key).getValue() != null) {
-				status = StatusType.PUT_UPDATE;
-				overwriteInFile(key, newString );
-			} else {
-				SingletonWriter.getInstance().write(newString);
-			} 
-		} catch (IOException e) {
+		if (!value.equals("null")) {
+			String newString = (key + " " + value + EOL);
+			SingletonWriter.getInstance().initializeAppendingWriter(file);
 			try {
+				if (get(key).getValue() != null) {
+					status = StatusType.PUT_UPDATE;
+					overwriteInFile(key, value );
+				} else {
+					SingletonWriter.getInstance().write(newString);
+				} 
+			} catch (IOException e) {
+				try {
+					SingletonWriter.getInstance().closeWriter();
+				} catch (IOException e1) {
+					logger.error("An io error occurred when closing writer", e1);
+				}
+				logger.error("An io error occurred during writing", e); 
+				return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
+			} finally {
 				SingletonWriter.getInstance().closeWriter();
-			} catch (IOException e1) {
-				logger.error("An io error occurred when closing writer", e1);
 			}
-			logger.error("An io error occurred during writing", e); 
-			return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
-		} finally {
-			SingletonWriter.getInstance().closeWriter();
 		}
 		return new KVMessageImpl(key, value, status);
 
 	}
 	
-	private void overwriteInFile(String key, String newString) throws FileNotFoundException, IOException {
+	private void overwriteInFile(String key, String value) throws FileNotFoundException, IOException {
 		String line;
-
+		String newString = (key + " " + value + EOL);
 		SingletonWriter.getInstance().initializeAppendingWriter(bisFile);
 		BufferedReader br = new BufferedReader(new FileReader(file));
 
@@ -79,7 +81,9 @@ public class Storage {
 			String[] words = line.split(" ");
 
 			if (words[0].equals(key)) {
-				SingletonWriter.getInstance().write(newString);
+				if (!value.equals("null")) {
+					SingletonWriter.getInstance().write(newString);
+				}
 			} else {
 				SingletonWriter.getInstance().write(line + EOL);
 			}

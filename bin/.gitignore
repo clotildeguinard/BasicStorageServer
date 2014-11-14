@@ -1,9 +1,7 @@
-/logger
 /app_kvClient
-/app_kvServer
-/common
-/testing
-/app_kvServerstorage.txt
-/app_kvServerstorage_bis.txt
-/client
 /app_kvEcs
+/app_kvServer
+/client
+/common
+/logger
+/testing
