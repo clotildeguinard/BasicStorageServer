@@ -34,7 +34,7 @@ public class MetadataHandler {
 	    	
 			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileLocation, true), "utf-8"));
 			for (String s : lines) {
-				writer.write(s + "/n");
+				writer.write(s + "\n");
 			}
 		} finally {
 			if (w != null) {
@@ -65,9 +65,7 @@ public class MetadataHandler {
 			while((line = br.readLine()) != null)
 			{
 				String[] words = line.split(fieldSeparator);
-// TODO
-				// fix this
-//				if (true) {
+
 				if (words[0].equals(serverIp) && words[1].equals(port)) {
 					br.close();
 					return new String[] {words[2], words[3]};
