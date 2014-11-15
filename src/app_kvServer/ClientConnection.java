@@ -17,6 +17,7 @@ public class ClientConnection implements Runnable {
 
 	protected Socket clientSocket;
 	private static final String PROMPT = "KVServer> ";
+	private final String metadataLocation;
 	private KVCommModule commModule;
 	private final String serverIp;
 	private final int serverPort;
@@ -35,9 +36,10 @@ public class ClientConnection implements Runnable {
 	}
 
 
-    public ClientConnection(int port, Socket clientSocket, CacheManager cacheManager) throws UnknownHostException {
+    public ClientConnection(int port, Socket clientSocket, CacheManager cacheManager, String metadataLocation) throws UnknownHostException {
         this.clientSocket = clientSocket;
         this.sharedCacheManager = cacheManager;
+        this.metadataLocation = metadataLocation;
         this.serverIp = InetAddress.getLocalHost().getHostAddress();
         this.serverPort = port;
         updateHashKeyRange();
@@ -74,6 +76,7 @@ public class ClientConnection implements Runnable {
 					if (stop) {
 						serverAnswer = new KVMessageImpl(key, value, StatusType.SERVER_STOPPED);
 					} else if (!MetadataHandler.isInRange(key, minHashKey, maxHashKey)) {
+						value = MetadataHandler.getMetadata(metadataLocation);
 						serverAnswer = new KVMessageImpl(key, value, StatusType.SERVER_NOT_RESPONSIBLE);
 						// TODO
 						// send metadata

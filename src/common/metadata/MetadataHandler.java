@@ -16,6 +16,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class MetadataHandler {
 	private final static String fieldSeparator = ";";
+	private final static String lineSeparator = "/";
 	
 	/**
 	 * overwrite metadata file with more recent metadata
@@ -25,10 +26,20 @@ public class MetadataHandler {
 	 */
 	public static void updateFile (String metadata, String fileLocation) throws IOException {
 		Writer writer = null;
+		FileOutputStream w = null;
+		String[] lines = metadata.split(lineSeparator);
 		try  {
-			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileLocation), "utf-8"));
-			writer.write(metadata);
+			w = new FileOutputStream(fileLocation);
+	    	w.write((new String()).getBytes());
+	    	
+			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileLocation, true), "utf-8"));
+			for (String s : lines) {
+				writer.write(s + "/n");
+			}
 		} finally {
+			if (w != null) {
+				w.close();
+			}
 			if (writer != null) {
 				writer.close();
 			}
@@ -87,6 +98,24 @@ public class MetadataHandler {
 			String maxHashKey) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest(key.getBytes("UTF-8"))).toString(16);
 		return hashedKey.compareTo(minHashKey) >= 0 && hashedKey.compareTo(maxHashKey) <= 0;
+	}
+
+	public static String getMetadata(String fileLocation) throws IOException {
+		StringBuilder s = new StringBuilder();
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader(fileLocation));
+			String line;
+			while((line = br.readLine()) != null)
+			{
+				s.append(line + lineSeparator);
+			}
+			return s.toString();
+		} finally {
+			if (br != null) {
+				br.close();
+			}
+		}
 	}
 
 }

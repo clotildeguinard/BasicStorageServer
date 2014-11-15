@@ -2135,3 +2135,62 @@
 2014-11-15 11:15:46,972 INFO  [main] root: Send :	 'PUT foo bar'
 2014-11-15 11:15:46,974 INFO  [main] root: try to close connection ...
 2014-11-15 11:15:46,975 INFO  [main] root: tearing down the connection ...
+2014-11-15 12:51:56,596 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64414
+2014-11-15 12:51:56,596 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-15 12:51:56,602 INFO  [Thread-6] root: Receive :	 'PUT foo bar'
+2014-11-15 12:51:56,631 INFO  [Thread-6] root: Send :	 'PUT_SUCCESS foo bar'
+2014-11-15 12:51:56,634 INFO  [Thread-5] root: New received message : PUT_SUCCESS foo bar
+2014-11-15 12:51:56,652 INFO  [main] root: try to close connection ...
+2014-11-15 12:51:56,653 INFO  [main] root: tearing down the connection ...
+2014-11-15 12:51:56,653 INFO  [main] root: connection closed!
+2014-11-15 12:51:56,664 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64415
+2014-11-15 12:51:56,665 INFO  [main] root: Send :	 'PUT deleteTestValue toDelete'
+2014-11-15 12:51:56,668 INFO  [Thread-8] root: Receive :	 'PUT deleteTestValue toDelete'
+2014-11-15 12:51:56,671 INFO  [Thread-8] root: Send :	 'PUT_SUCCESS deleteTestValue toDelete'
+2014-11-15 12:51:56,673 INFO  [Thread-7] root: New received message : PUT_SUCCESS deleteTestValue toDelete
+2014-11-15 12:51:56,717 INFO  [main] root: Send :	 'PUT deleteTestValue null'
+2014-11-15 12:51:56,719 INFO  [Thread-8] root: Receive :	 'PUT deleteTestValue null'
+2014-11-15 12:51:56,721 INFO  [Thread-8] root: Send :	 'DELETE_SUCCESS deleteTestValue null'
+2014-11-15 12:51:56,723 INFO  [Thread-7] root: New received message : DELETE_SUCCESS deleteTestValue null
+2014-11-15 12:51:56,768 INFO  [main] root: try to close connection ...
+2014-11-15 12:51:56,769 INFO  [main] root: tearing down the connection ...
+2014-11-15 12:51:56,772 INFO  [main] root: connection closed!
+2014-11-15 12:51:56,783 INFO  [main] root: Send :	 'PUT foo1 bar1'
+2014-11-15 12:51:56,791 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64417
+2014-11-15 12:51:56,804 INFO  [Thread-10] root: Receive :	 'PUT foo1 bar1'
+2014-11-15 12:51:56,808 INFO  [Thread-10] root: Send :	 'PUT_SUCCESS foo1 bar1'
+2014-11-15 12:51:56,813 INFO  [Thread-9] root: New received message : PUT_SUCCESS foo1 bar1
+2014-11-15 12:51:56,835 INFO  [main] root: Send :	 'GET foo1 null'
+2014-11-15 12:51:56,837 INFO  [Thread-10] root: Receive :	 'GET foo1 null'
+2014-11-15 12:51:56,839 INFO  [Thread-10] root: Send :	 'GET_SUCCESS foo1 bar1'
+2014-11-15 12:51:56,841 INFO  [Thread-9] root: New received message : GET_SUCCESS foo1 bar1
+2014-11-15 12:51:56,886 INFO  [main] root: try to close connection ...
+2014-11-15 12:51:56,888 INFO  [main] root: tearing down the connection ...
+2014-11-15 12:51:56,906 INFO  [main] root: connection closed!
+2014-11-15 12:51:56,915 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64418
+2014-11-15 12:51:56,915 INFO  [main] root: Send :	 'PUT updateTestValue initial'
+2014-11-15 12:51:56,919 INFO  [Thread-12] root: Receive :	 'PUT updateTestValue initial'
+2014-11-15 12:51:56,922 INFO  [Thread-12] root: Send :	 'PUT_SUCCESS updateTestValue initial'
+2014-11-15 12:51:56,924 INFO  [Thread-11] root: New received message : PUT_SUCCESS updateTestValue initial
+2014-11-15 12:51:56,969 INFO  [main] root: Send :	 'PUT updateTestValue updated'
+2014-11-15 12:51:56,973 INFO  [Thread-12] root: Receive :	 'PUT updateTestValue updated'
+2014-11-15 12:51:56,975 INFO  [Thread-12] root: Send :	 'PUT_UPDATE updateTestValue updated'
+2014-11-15 12:51:56,977 INFO  [Thread-11] root: New received message : PUT_UPDATE updateTestValue updated
+2014-11-15 12:51:57,023 INFO  [main] root: try to close connection ...
+2014-11-15 12:51:57,025 INFO  [main] root: tearing down the connection ...
+2014-11-15 12:51:57,039 INFO  [main] root: connection closed!
+2014-11-15 12:51:57,046 INFO  [main] root: Send :	 'GET an unset value null'
+2014-11-15 12:51:57,049 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64419
+2014-11-15 12:51:57,064 INFO  [Thread-14] root: Receive :	 'GET an unset value null'
+2014-11-15 12:51:57,067 INFO  [Thread-14] root: Send :	 'GET_ERROR an unset value null'
+2014-11-15 12:51:57,069 INFO  [Thread-13] root: New received message : GET_ERROR an unset value null
+2014-11-15 12:51:57,102 INFO  [main] root: try to close connection ...
+2014-11-15 12:51:57,105 INFO  [main] root: tearing down the connection ...
+2014-11-15 12:51:57,110 INFO  [main] root: connection closed!
+2014-11-15 12:51:57,116 INFO  [main] root: try to close connection ...
+2014-11-15 12:51:57,119 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 64420
+2014-11-15 12:51:57,121 INFO  [main] root: tearing down the connection ...
+2014-11-15 12:51:57,124 INFO  [main] root: connection closed!
+2014-11-15 12:51:57,126 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-15 12:51:57,128 INFO  [main] root: try to close connection ...
+2014-11-15 12:51:57,131 INFO  [main] root: tearing down the connection ...

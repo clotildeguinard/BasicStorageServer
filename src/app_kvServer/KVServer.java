@@ -76,7 +76,7 @@ public class KVServer implements Runnable {
 	            try {
 	                Socket client = serverSocket.accept();                
 	                connection = 
-	                		new ClientConnection(Port, client, cacheManager);
+	                		new ClientConnection(Port, client, cacheManager, metadataLocation);
 	                connection.updateHashKeyRange();
 	                new Thread(connection).start();
 	                
