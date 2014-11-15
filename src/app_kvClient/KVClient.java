@@ -4,22 +4,26 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.UnknownHostException;
-
 import logger.LogSetup;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-
 import client.KVSocketListener;
-import client.KVSocketListener.SocketStatus;
+
 import client.KVStore;
-import common.messages.KVMessage;
+
 import common.messages.TextMessage;
 
 public class KVClient implements KVSocketListener {
+	
+	static String command;
+
+	public enum Command {
+
+		PUT, GET, LOG, HELP, QUIT
+	}
     
     private static Logger logger = Logger.getRootLogger();
-    private static final String PROMPT = "KVClient> ";
+    private static final String PROMPT = "<KVClient> ";
     private static final String DEFAULT_SERVER_ADDRESS = "localhost";
     private static final int DEFAULT_SERVER_PORT = 50000;
     private BufferedReader stdin;
@@ -31,22 +35,61 @@ public class KVClient implements KVSocketListener {
     
     public void run() {
         while(!stop) {
+        	
+    System.out.println("\n-------------------Please select one of the commands-------------------------------------");
+    
+	System.out.println("\nPUT, GET, LOG, HELP, QUIT");
+	
             stdin = new BufferedReader(new InputStreamReader(System.in));
             System.out.print(PROMPT);
             
             try {
-                String cmdLine = stdin.readLine();
+                String command = stdin.readLine();
+                
+                Command cmdLine = null;
+
+        		try {
+        				cmdLine = Command.valueOf(command.toUpperCase());
+        		} catch (IllegalArgumentException e) {
+        				
+        			System.out.println("\nDo not recognise "
+        					+ "the input, pl. try again");
+        		
+        			continue;
+        		}
+                
+                switch (cmdLine) {
+                
+                case PUT:
+                	
+ 
+                case GET:
+                	
+
+                case LOG:
+                	
+                
+                case HELP:
+
+                
+                case QUIT:
+                	
+                }
+                
                 //  = either PUT or GET or QUIT or HELP (no more connect/disconnect)
-                this.handleCommand(cmdLine);
+                
+                this.handleCommandBis(cmdLine);
+                
                 // rather call handleCommandBis(cmdLine)
             } catch (IOException e) {
                 stop = true;
                 printError("CLI does not respond - Application terminated ");
             }
-        }
+            }   
     }
     
-    private void handleCommandBis(String cmdLine) {
+    
+    private void handleCommandBis(Command cmdLine) {
         // decode the cmdLine like in handleCommand from ms2
         // // call the function getServerForKey to know which server to connect
         //// KVMessage answer = this.handleCommandWithServer(cmdLine, serverip, serverport);
