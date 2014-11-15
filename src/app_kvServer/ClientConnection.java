@@ -67,7 +67,7 @@ public class ClientConnection implements Runnable {
 			try {
 				KVMessage request = commModule.receiveKVMessage();
 				KVMessage serverAnswer = null;
-				if (isClientMessage()) {
+
 					String key = request.getKey();
 					String value = request.getValue();
 					System.out.println(PROMPT + "Requested from client : " + request);
@@ -81,16 +81,11 @@ public class ClientConnection implements Runnable {
 						serverAnswer = handleCommand(key, value, request.getStatus());
 					}
 					System.out.println(PROMPT + "Answer to client : " + serverAnswer);
-				} else if (isEcsMessage()){
-					System.out.println(PROMPT + "Requested from ECS : " + request);
-					// TODO
-					// lock or stop
-					System.out.println(PROMPT + "Answer to ECS : " + serverAnswer);
-				}
+
 				if (serverAnswer != null) {
 					commModule.sendKVMessage(serverAnswer);
 				} else {
-					printError("Invalid request status : " + request.getStatus());	
+					printError("Invalid answer to request : " + request);	
 				}
 			} catch (IOException e){
 				stop = true;
@@ -100,16 +95,6 @@ public class ClientConnection implements Runnable {
 				printError("A hashing error occurred - Application terminated " + e);
 			}
 		}
-	}
-	
-	private boolean isEcsMessage() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	private boolean isClientMessage() {
-		// TODO Auto-generated method stub
-		return true;
 	}
 
 	private KVMessage handleCommand(String key, String value, StatusType requestStatus) {
