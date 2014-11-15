@@ -43,8 +43,8 @@ public class MetadataHandler {
 	 */
 	public static String[] getHashKeyBounds(String fileLocation, String serverIp, int serverPort) throws IOException {
 		BufferedReader br = null;
-		System.out.println(serverIp);
 		try {
+			System.out.println(serverIp);
 			String port = Integer.toString(serverPort);
 			br = new BufferedReader(new FileReader(fileLocation));
 			String line;

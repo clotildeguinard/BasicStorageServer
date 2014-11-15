@@ -1,6 +1,7 @@
 package app_kvServer;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -109,13 +110,16 @@ public class ClientConnection implements Runnable {
 		return false;
 	}
 
-	private boolean isResponsibleForKey(String key) throws NoSuchAlgorithmException {
+	private boolean isResponsibleForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		System.out.println(key);
-		String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest()).toString(16);
+		String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest(key.getBytes("UTF-8"))).toString(16);
+		while(hashedKey.length() < 32 ){
+			hashedKey = hashedKey + "0";
+			}
 		System.out.println(hashedKey);
 		System.out.println(minHashKey);
 		System.out.println(maxHashKey);
-		return hashedKey.compareTo(minHashKey) > 0 && hashedKey.compareTo(maxHashKey) <= 0;
+		return hashedKey.compareTo(minHashKey) >= 0 && hashedKey.compareTo(maxHashKey) <= 0;
 	}
 
 	private boolean isClientMessage() {
