@@ -111,14 +111,7 @@ public class ClientConnection implements Runnable {
 	}
 
 	private boolean isResponsibleForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		System.out.println(key);
 		String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest(key.getBytes("UTF-8"))).toString(16);
-		while(hashedKey.length() < 32 ){
-			hashedKey = hashedKey + "0";
-			}
-		System.out.println(hashedKey);
-		System.out.println(minHashKey);
-		System.out.println(maxHashKey);
 		return hashedKey.compareTo(minHashKey) >= 0 && hashedKey.compareTo(maxHashKey) <= 0;
 	}
 
