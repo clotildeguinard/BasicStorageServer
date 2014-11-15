@@ -1,8 +1,6 @@
 package app_kvServer;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -13,7 +11,6 @@ import common.messages.KVMessageImpl;
 import common.metadata.MetadataHandler;
 import client.KVCommModule;
 
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class ClientConnection implements Runnable {
@@ -76,7 +73,7 @@ public class ClientConnection implements Runnable {
 					System.out.println(PROMPT + "Requested from client : " + request);
 					if (stop) {
 						serverAnswer = new KVMessageImpl(key, value, StatusType.SERVER_STOPPED);
-					} else if (!isResponsibleForKey(key)) {
+					} else if (!MetadataHandler.isInRange(key, minHashKey, maxHashKey)) {
 						serverAnswer = new KVMessageImpl(key, value, StatusType.SERVER_NOT_RESPONSIBLE);
 						// TODO
 						// send metadata
@@ -108,11 +105,6 @@ public class ClientConnection implements Runnable {
 	private boolean isEcsMessage() {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
-	private boolean isResponsibleForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest(key.getBytes("UTF-8"))).toString(16);
-		return hashedKey.compareTo(minHashKey) >= 0 && hashedKey.compareTo(maxHashKey) <= 0;
 	}
 
 	private boolean isClientMessage() {

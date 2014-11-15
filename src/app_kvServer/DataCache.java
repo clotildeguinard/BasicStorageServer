@@ -1,9 +1,11 @@
 package app_kvServer;
 
+
+import app_kvServer.cache_strategies.Pair;
 import common.messages.KVMessage;
 
 
-public interface DataCache {
+public interface DataCache extends Iterable<Pair<String, String>> {
 		
 
 	/**
@@ -20,4 +22,6 @@ public interface DataCache {
 	 * @return A kvmessage containing the relevant pair, null if key not in cache
 	 */
 	public KVMessage get(String Key);
+
+	public void erase();
 }

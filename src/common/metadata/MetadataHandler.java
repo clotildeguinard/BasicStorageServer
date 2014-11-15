@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class MetadataHandler {
 	private final static String fieldSeparator = ";";
@@ -78,6 +81,12 @@ public class MetadataHandler {
 		return null;
 
 // TODO
+	}
+
+	public static boolean isInRange(String key, String minHashKey,
+			String maxHashKey) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest(key.getBytes("UTF-8"))).toString(16);
+		return hashedKey.compareTo(minHashKey) >= 0 && hashedKey.compareTo(maxHashKey) <= 0;
 	}
 
 }

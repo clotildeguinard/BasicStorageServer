@@ -1,7 +1,10 @@
 package app_kvServer.cache_strategies;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingDeque;
+
+
 
 
 
@@ -93,6 +96,16 @@ public class LRUStrategy implements DataCache {
 	}
 
 
+	@Override
+	public Iterator<Pair<String, String>> iterator() {
+		return LRUCache.iterator();
+	}
 
+
+
+	@Override
+	public void erase() {
+		LRUCache.clear();
+	}
 
 }

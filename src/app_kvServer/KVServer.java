@@ -4,17 +4,19 @@ import java.io.IOException;
 import java.net.BindException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.security.NoSuchAlgorithmException;
 
 import logger.LogSetup;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import client.KVStore;
 import common.metadata.MetadataHandler;
-
 import app_kvServer.cache_strategies.FIFOStrategy;
 import app_kvServer.cache_strategies.LFUStrategy;
 import app_kvServer.cache_strategies.LRUStrategy;
+import app_kvServer.cache_strategies.Pair;
 
 
 public class KVServer implements Runnable {
@@ -125,11 +127,39 @@ public class KVServer implements Runnable {
     	System.exit(0);
     }
     
-//    public void moveData(range, server) {
-//    	// TODO
-//    	// connect to server and send data one by one
-//    }
+    /**
+     * 
+     * @param rangeToMove contains min and max hash to move
+     * @param destinationServer contains ip and port
+     * @throws IOException
+     */
+    public void moveData(String[] rangeToMove, String[] destinationServer) throws IOException {
+    	cacheManager.flushCache();
+    	KVStore kvStore = new KVStore(destinationServer[0], Integer.valueOf(destinationServer[1]));
+    	try {
+    		kvStore.connect();
+    		for (Pair<String, String> pair : cacheManager) {
+    			if (MetadataHandler.isInRange(pair.getKey(), rangeToMove[0], rangeToMove[1])) {
+    				kvStore.put(pair.getKey(), pair.getValue());
+    				cacheManager.put(pair.getKey(), "null");
+    			}
+    		}
+    	} catch (InterruptedException e) {
+			stop();
+			logger.error("An error occurred during connection to other server", e);
+		} catch (NoSuchAlgorithmException e) {
+			stop();
+			logger.error("An error occurred during hashing", e);
+		} finally {
+    		kvStore.disconnect();
+    	}
+    }
     
+    /**
+     * Write the metadata to the known location and update responsability range
+     * @param metadata
+     * @throws IOException
+     */
   public void update(String metadata) throws IOException {
 	  MetadataHandler.updateFile(metadata, metadataLocation);
 	  if (connection != null) {

@@ -1,5 +1,6 @@
 package app_kvServer.cache_strategies;
 
+import java.util.Iterator;
 import java.util.PriorityQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -89,6 +90,35 @@ public class LFUStrategy implements DataCache {
 			sb.append(pair.getKey() + " - " + pair.getValue() + " - " + pair.getPriority() + " / ");
 		}
 		return sb.toString();
+	}
+
+
+	@Override
+	public Iterator<Pair<String, String>> iterator() {
+		return new Iterator<Pair<String,String>>() {
+			Iterator<Triple<String, String, Integer>> it = LFUCache.iterator();
+			@Override
+			public boolean hasNext() {
+				return it.hasNext();
+			}
+
+			@Override
+			public Pair<String, String> next() {
+				return new Pair<String, String>(it.next().getKey(), it.next().getValue());
+			}
+
+			@Override
+			public void remove() {
+				it.remove();
+			}
+		};
+	}
+	
+
+
+	@Override
+	public void erase() {
+		LFUCache.clear();
 	}
 
 }

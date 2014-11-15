@@ -2,15 +2,17 @@ package app_kvServer;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
 import app_kvServer.cache_strategies.FIFOStrategy;
+import app_kvServer.cache_strategies.Pair;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
 
-public class CacheManager {
+public class CacheManager implements Iterable<Pair<String, String>> {
 	private DataCache dataCache;
 	private Storage storage;
 	private Logger logger = Logger.getRootLogger();
@@ -92,6 +94,20 @@ public class CacheManager {
 				return new KVMessageImpl(key, null, StatusType.GET_ERROR);
 			}
 		}
+	}
+	
+
+    
+    public void flushCache() throws IOException {
+    	for (Pair<String, String> kv : dataCache) {
+    		storage.put(kv.getKey(), kv.getValue());
+    	}
+    	dataCache.erase();
+    }
+
+	@Override
+	public Iterator<Pair<String, String>> iterator() {
+		return storage.iterator();
 	}
 
 }

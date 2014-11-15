@@ -1,5 +1,6 @@
 package app_kvServer.cache_strategies;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingDeque;
 
@@ -68,6 +69,16 @@ public class FIFOStrategy implements DataCache{
 			sb.append(pair.getKey() + " - " + pair.getValue() + " / ");
 		}
 		return sb.toString();
+	}
+
+	@Override
+	public Iterator<Pair<String, String>> iterator() {
+		return FIFOCache.iterator();
+	}
+
+	@Override
+	public void erase() {
+		FIFOCache.clear();
 	}
 }
 

@@ -9,15 +9,17 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Iterator;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import app_kvServer.cache_strategies.Pair;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
 
-public class Storage {
+public class Storage implements Iterable<Pair<String, String>>{
 	private Logger logger = Logger.getRootLogger();
     private File file;
     private File bisFile;
@@ -111,5 +113,46 @@ public class Storage {
 		}
 		br.close();
 		return new KVMessageImpl(key, null, StatusType.GET_ERROR);
+	}
+
+	@Override
+	public Iterator<Pair<String, String>> iterator() {
+		try {
+			return new Iterator<Pair<String,String>>() {
+				String line;
+				BufferedReader br = new BufferedReader(new FileReader(file));
+				
+				@Override
+				public boolean hasNext() {
+						try {
+							return ((line = br.readLine()) != null);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+						try {
+							br.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+						return false;
+				}
+				
+				@Override
+				public Pair<String, String> next() {
+					String[] words = line.split(" ");
+					return new Pair<String, String>(words[0], words[1]);
+				}
+				
+				@Override
+				public void remove() {
+					// TODO Auto-generated method stub
+					
+				}
+			};
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}	
 }
