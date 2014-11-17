@@ -1,2 +1,2 @@
-10.180.35.71;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff
-a;3;0;0
+10.180.46.145;50000;00000000000000000000000000000000;fffffffffffffffffffffffffffffff0
+10.180.46.145;50000;fffffffffffffffffffffffffffffff1;ffffffffffffffffffffffffffffffff

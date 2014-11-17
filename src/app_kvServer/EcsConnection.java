@@ -67,9 +67,8 @@ public class EcsConnection implements Runnable {
 			kvServer.lockWrite();
 			break;
 		case MOVE_DATA:
-			String[] rangeToMove = key.split(";");
 			String[] destinationServer = value.split(";");
-			kvServer.moveData(rangeToMove, destinationServer);
+//			kvServer.moveData(key, destinationServer); // key is the hash of the new server
 			break;
 		case SHUTDOWN:
 			kvServer.shutdown();
