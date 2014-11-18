@@ -8,13 +8,14 @@ import java.net.UnknownHostException;
 import common.messages.KVAdminMessage;
 import common.messages.KVMessage;
 import common.messages.KVAdminMessage.StatusType;
+import client.KVAdminCommModule;
 import client.KVCommModule;
 
 public class EcsConnection implements Runnable {
 	private final KVServer kvServer;
 	protected Socket ecsSocket;
 	private static final String PROMPT = "KVServer> ";
-	private KVCommModule commModule;
+	private KVAdminCommModule commModule;
 	private final String serverIp;
 	private final int serverPort;
 	
@@ -28,7 +29,7 @@ public class EcsConnection implements Runnable {
         this.serverIp = InetAddress.getLocalHost().getHostAddress();
         this.serverPort = port;
     	try {
-    		commModule = new KVCommModule(ecsSocket.getOutputStream(), ecsSocket.getInputStream());
+    		commModule = new KVAdminCommModule(ecsSocket.getOutputStream(), ecsSocket.getInputStream());
         } catch (IOException e1) {
 			stop = true;
 			printError("A connection error occurred - Application terminated " + e1);
@@ -40,8 +41,7 @@ public class EcsConnection implements Runnable {
     			
 		while(!stop) {
 			try {
-//				KVAdminMessage request = commModule.receiveKVMessage();
-				KVAdminMessage request = null;
+				KVAdminMessage request = commModule.receiveKVAdminMessage();
 				System.out.println(PROMPT + "Requested from ECS : " + request);
 				
 				String key = request.getKey();
@@ -50,7 +50,7 @@ public class EcsConnection implements Runnable {
 				System.out.println(PROMPT + "Answer to ECS : " + serverAnswer);
 				
 				if (serverAnswer != null) {
-//					commModule.sendKVMessage(serverAnswer);
+					commModule.sendKVAdminMessage(serverAnswer);
 				} else {
 					printError("Invalid answer to request : " + request);	
 				}
@@ -68,7 +68,7 @@ public class EcsConnection implements Runnable {
 			break;
 		case MOVE_DATA:
 			String[] destinationServer = value.split(";");
-//			kvServer.moveData(key, destinationServer); // key is the hash of the new server
+			kvServer.moveData(key, destinationServer); // key is the maxHashKey of the new server
 			break;
 		case SHUTDOWN:
 			kvServer.shutdown();
@@ -83,12 +83,11 @@ public class EcsConnection implements Runnable {
 			kvServer.unLockWrite();
 			break;
 		case UPDATE_METADATA:
-			kvServer.update(value);;
+			kvServer.update(value); // value contains the metadata
 			break;
 		default:
-			return null;
+			printError("The instruction has an unknown status : " + statusType);
 		}
-		// TODO
 		return null;	
 	}
 	

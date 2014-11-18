@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
-import common.metadata.MetadataHandler;
+import common.metadata.MetadataHandlerBis;
 import client.KVCommModule;
 
 import java.security.NoSuchAlgorithmException;
@@ -17,12 +17,10 @@ public class ClientConnection implements Runnable {
 
 	protected Socket clientSocket;
 	private static final String PROMPT = "KVServer> ";
-	private final String metadataLocation;
+	private final MetadataHandlerBis metadataHandler;
 	private KVCommModule commModule;
 	private final String serverIp;
 	private final int serverPort;
-	private String minHashKey;
-	private String maxHashKey;
 	private final CacheManager sharedCacheManager;
 	
 	private boolean stop = true;
@@ -36,29 +34,17 @@ public class ClientConnection implements Runnable {
 	}
 
 
-    public ClientConnection(int port, Socket clientSocket, CacheManager cacheManager, String metadataLocation) throws UnknownHostException {
+    public ClientConnection(int port, Socket clientSocket, CacheManager cacheManager, MetadataHandlerBis metadataHandler) throws UnknownHostException {
         this.clientSocket = clientSocket;
         this.sharedCacheManager = cacheManager;
-        this.metadataLocation = metadataLocation;
+        this.metadataHandler = metadataHandler;
         this.serverIp = InetAddress.getLocalHost().getHostAddress();
         this.serverPort = port;
-        updateHashKeyRange();
     	try {
     		commModule = new KVCommModule(clientSocket.getOutputStream(), clientSocket.getInputStream());
         } catch (IOException e1) {
 			stop = true;
 			printError("A connection error occurred - Application terminated " + e1);
-		}
-    }
-    
-    public void updateHashKeyRange() {
-    	try {
-			String[] hashKeyBounds = MetadataHandler.getHashKeyBounds("./src/app_kvServer/metadata.txt", serverIp, serverPort);
-			minHashKey = hashKeyBounds[0];
-			maxHashKey = hashKeyBounds[1];
-        } catch (IOException e2) {
-			stop = true;
-			printError("An error occurred when trying to read metadata - Application terminated " + e2);
 		}
     }
     
@@ -75,8 +61,8 @@ public class ClientConnection implements Runnable {
 					System.out.println(PROMPT + "Requested from client : " + request);
 					if (stop) {
 						serverAnswer = new KVMessageImpl(key, value, StatusType.SERVER_STOPPED);
-					} else if (!MetadataHandler.isInRange(key, minHashKey, maxHashKey)) {
-						value = MetadataHandler.getMetadata(metadataLocation);
+					} else if (!metadataHandler.isResponsibleFor(key)) {
+						value = metadataHandler.toString();
 						serverAnswer = new KVMessageImpl(key, value, StatusType.SERVER_NOT_RESPONSIBLE);
 						// TODO
 						// send metadata

@@ -6,41 +6,43 @@ import java.io.OutputStream;
 
 import org.apache.log4j.Logger;
 
-import common.messages.KVMessage;
-import common.messages.KVMessageImpl;
+import common.messages.KVAdminMessage;
+import common.messages.KVAdminMessageImpl;
 import common.messages.TextMessage;
 
-public class KVCommModule extends CommModule implements KVSocketListener {
+public class KVAdminCommModule extends CommModule implements KVSocketListener {
 	private static Logger logger = Logger.getRootLogger();
- 	private KVMessage latest;
+ 	private KVAdminMessage latest;
 
-	public KVCommModule(OutputStream output, InputStream input) {
+	public KVAdminCommModule(OutputStream output, InputStream input) {
 		super(output, input);
 	}
 
-	public void sendKVMessage(KVMessage message) throws IOException {
+	
+	public void sendKVAdminMessage(KVAdminMessage message) throws IOException {
 		logger.info("Send :\t '" + message + "'");
-		TextMessage xmlText = ((KVMessageImpl) message).marshal();
+		TextMessage xmlText = ((KVAdminMessageImpl) message).marshal();
 		sendMessage(xmlText);
 	}
 
-	public KVMessage receiveKVMessage() throws IOException {
+
+	public KVAdminMessage receiveKVAdminMessage() throws IOException {
 		TextMessage xmlText = receiveMessage();
-		KVMessage received = KVMessageImpl.unmarshal(xmlText);
+		KVAdminMessage received = KVAdminMessageImpl.unmarshal(xmlText);
 		logger.info("Receive :\t '" + received + "'");
 		return received;
 	}
 
 	@Override
 	public void handleNewMessage(TextMessage msg) {
-		latest = KVMessageImpl.unmarshal(msg);	
+		latest = KVAdminMessageImpl.unmarshal(msg);	
 		logger.info("New received message : " + latest);
 	}
 
 	@Override
 	public void handleStatus(SocketStatus status) {}
 
-	public KVMessage getLatest() {
+	public KVAdminMessage getLatest() {
 		try {
 		return latest;
 		} finally {

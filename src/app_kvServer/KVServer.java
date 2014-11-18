@@ -12,7 +12,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import client.KVStore;
-import common.metadata.MetadataHandler;
+import common.metadata.MetadataHandlerBis;
 import app_kvServer.cache_strategies.FIFOStrategy;
 import app_kvServer.cache_strategies.LFUStrategy;
 import app_kvServer.cache_strategies.LRUStrategy;
@@ -21,7 +21,7 @@ import app_kvServer.cache_strategies.Pair;
 
 public class KVServer implements Runnable {
 	private final String storageLocation = "./src/app_kvServer/";
-	private final String metadataLocation = "./src/app_kvServer/metadata.txt";
+	private MetadataHandlerBis metadataHandler;
 	protected final int Port;
 	protected ServerSocket serverSocket = null;
 	protected boolean isStopped = true;
@@ -56,6 +56,7 @@ public class KVServer implements Runnable {
 			datacache = new LFUStrategy(cacheSize);
 		}
 		this.cacheManager = new CacheManager(datacache, new Storage(storageLocation));
+		metadataHandler = new MetadataHandlerBis("", 0);
 		update(metadata);
 	}
 	
@@ -76,8 +77,7 @@ public class KVServer implements Runnable {
 	            try {
 	                Socket client = serverSocket.accept();                
 	                connection = 
-	                		new ClientConnection(Port, client, cacheManager, metadataLocation);
-	                connection.updateHashKeyRange();
+	                		new ClientConnection(Port, client, cacheManager, metadataHandler);
 	                new Thread(connection).start();
 	                
 	                logger.info("Connected to " 
@@ -133,13 +133,13 @@ public class KVServer implements Runnable {
      * @param destinationServer contains ip and port
      * @throws IOException
      */
-    public void moveData(String[] rangeToMove, String[] destinationServer) throws IOException {
+    public void moveData(String hashOfNewServer, String[] destinationServer) throws IOException {
     	cacheManager.flushCache();
     	KVStore kvStore = new KVStore(destinationServer[0], Integer.valueOf(destinationServer[1]));
     	try {
     		kvStore.connect();
     		for (Pair<String, String> pair : cacheManager) {
-    			if (MetadataHandler.isInRange(pair.getKey(), rangeToMove[0], rangeToMove[1])) {
+    			if (metadataHandler.hasToMove(pair.getKey(), hashOfNewServer)) {
     				kvStore.put(pair.getKey(), pair.getValue());
     				cacheManager.put(pair.getKey(), "null");
     			}
@@ -161,10 +161,7 @@ public class KVServer implements Runnable {
      * @throws IOException
      */
   public void update(String metadata) throws IOException {
-	  MetadataHandler.updateFile(metadata, metadataLocation);
-	  if (connection != null) {
-		  connection.updateHashKeyRange();
-	  }
+	  metadataHandler.update(metadata);
   }
     
     public void lockWrite() {

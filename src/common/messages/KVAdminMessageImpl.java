@@ -1,11 +1,11 @@
 package common.messages;
 
-public class KVMessageImpl implements KVMessage {
+public class KVAdminMessageImpl implements KVAdminMessage {
 	public String key;
 	public String value;
 	public static StatusType statusType;
 
-	public KVMessageImpl(String key, String value, StatusType statusType) {
+	public KVAdminMessageImpl(String key, String value, StatusType statusType) {
 		this.key = key;
 		this.value = value;
 		this.statusType = statusType;
@@ -37,8 +37,6 @@ public class KVMessageImpl implements KVMessage {
 	public StatusType getStatus() {
 		return statusType;
 	}
-
-
 	
 	public TextMessage marshal() {
 		//TODO
@@ -47,19 +45,19 @@ public class KVMessageImpl implements KVMessage {
 
 			StringBuilder q1=new StringBuilder();
 
-			q1.append("<kvmessage>");
+			q1.append("<kvadminmessage>");
 		    q1.append("<status>"+ getStatus().toString().toLowerCase() + "</status>");
 		    q1.append ("<key>"+getKey()+"</key>");
 		    q1.append ("<value>"+getValue()+"</value>");
 		    
-		   q1.append("</kvmessage>");
+		   q1.append("</kvadminmessage>");
 		    s=q1.toString();
 		   
 		  return new TextMessage(s);
 		  
 		}
 
-	public static KVMessage unmarshal(TextMessage text) {
+	public static KVAdminMessage unmarshal(TextMessage text) {
 
 		    String xml = text.getMsg();
 
@@ -69,7 +67,7 @@ public class KVMessageImpl implements KVMessage {
 
 		StatusType statusType = StatusType.valueOf(status.toUpperCase());
 
-		return new KVMessageImpl(key, value, statusType);
+		return new KVAdminMessageImpl(key, value, statusType);
 			
 	}
 	
@@ -81,6 +79,7 @@ public class KVMessageImpl implements KVMessage {
 	   int endIndex = xml.indexOf(end_tag);
 	   return xml.substring(beginIndex, endIndex);
 	}
+
 	
 	@Override
 	public String toString() {
