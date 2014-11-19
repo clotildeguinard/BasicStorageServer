@@ -3,7 +3,6 @@ package app_kvClient;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
 
 import logger.LogSetup;
