@@ -50,9 +50,22 @@ public class MetadataHandler {
 	 * @param fileLocation : the location of the metadata
 	 * @param key : the key we are interested in
 	 * @return array with server ip and port responsible for key
+	 * @throws UnsupportedEncodingException 
+	 * @throws NoSuchAlgorithmException 
 	 * @throws IOException
 	 */
-	public static String[] getServerForKey(String fileLocation, String key) {
+	public String[] getServerForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		
+		for (NodeData e: metadata){
+			
+			boolean b=isInRange(key, e.getMinHashKey(), e.getMaxHashKey());
+			
+			if (b==true){
+			return new String []{e.getIpAddress(), Integer.toString(e.getPortNumber())
+					};
+			}
+
+		}
 		return null;
 
 // TODO

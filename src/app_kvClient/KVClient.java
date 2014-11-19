@@ -4,23 +4,25 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.UnknownHostException;
+import java.security.NoSuchAlgorithmException;
+
 import logger.LogSetup;
+
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+
 import client.KVSocketListener;
-
 import client.KVStore;
-
 import common.messages.TextMessage;
 
 public class KVClient implements KVSocketListener {
 	
 	static String command;
 
-	public enum Command {
-
-		PUT, GET, LOG, HELP, QUIT
-	}
+//	public enum Command {
+//
+//		PUT, GET, LOG, HELP, QUIT
+//	}
     
     private static Logger logger = Logger.getRootLogger();
     private static final String PROMPT = "<KVClient> ";
@@ -33,54 +35,96 @@ public class KVClient implements KVSocketListener {
     private String serverAddress;
     private int serverPort;
     
-    public void run() {
+    public void run() throws NoSuchAlgorithmException {
         while(!stop) {
         	
-    System.out.println("\n-------------------Please select one of the commands-------------------------------------");
-    
-	System.out.println("\nPUT, GET, LOG, HELP, QUIT");
-	
+//    System.out.println("\n-------------------Please select one of the commands-------------------------------------");
+//    
+//	System.out.println("\nPUT, GET, LOG, HELP, QUIT");
+//	
             stdin = new BufferedReader(new InputStreamReader(System.in));
             System.out.print(PROMPT);
             
             try {
                 String command = stdin.readLine();
                 
-                Command cmdLine = null;
+               // Command cmdLine = null;
+                
+                //private void handleCommand(String cmdLine) {
+                
+                    String[] tokens = command.split("\\s+");
+                    
+                    if(tokens[0].equals("quit")) {
+                        stop = true;
+                        disconnect();
+                        System.out.println(PROMPT + "Application exit!");
+                      
+                        
+                    } else if (tokens[0].equals("put")) {
+                        if(tokens.length == 3) {
+                            if(kvStore != null && kvStore.isRunning()){
+                                try {
+                                    System.out.println(kvStore.put(tokens[1], tokens[2]));
+                                } catch (IOException e) {
+                                    printError("Unable to send message!");
+                                    disconnect();
+                                } catch (InterruptedException e) {
+                                    printError("Unable to receive answer!");
+                                    disconnect();
+                                }
+                            } else {
+                                printError("Not connected!");
+                            }
+                        } else {
+                            printError("Invalid number of parameters!");
+                        }
+                        
+                    } else if (tokens[0].equals("get")) {
+                        if(tokens.length == 2) {
+                            if(kvStore != null && kvStore.isRunning()){
+                                try {
+                                    System.out.println(kvStore.get(tokens[1]));
+                                } catch (IOException e) {
+                                    printError("Unable to send message!");
+                                    disconnect();
+                                } catch (InterruptedException e) {
+                                    printError("Unable to receive answer!");
+                                    disconnect();
+                                }
+                            } else {
+                                printError("Not connected!");
+                            }
+                        } else {
+                            printError("Invalid number of parameters!");
+                        }
+                        
 
-        		try {
-        				cmdLine = Command.valueOf(command.toUpperCase());
-        		} catch (IllegalArgumentException e) {
-        				
-        			System.out.println("\nDo not recognise "
-        					+ "the input, pl. try again");
-        		
+                        
+                    } else if(tokens[0].equals("logLevel")) {
+                        if(tokens.length == 2) {
+                            String level = setLevel(tokens[1]);
+                            if(level.equals(LogSetup.UNKNOWN_LEVEL)) {
+                                printError("No valid log level!");
+                                printPossibleLogLevels();
+                            } else {
+                                System.out.println(PROMPT +
+                                                   "Log level changed to level " + level);
+                            }
+                        } else {
+                            printError("Invalid number of parameters!");
+                        }
+                        
+                    } else if(tokens[0].equals("help")) {
+                        printHelp();
+                    } else {
+                        printError("Unknown command");
+                        printHelp();
+                    
+  
         			continue;
-        		}
-                
-                switch (cmdLine) {
-                
-                case PUT:
-                	
- 
-                case GET:
-                	
-
-                case LOG:
-                	
-                
-                case HELP:
-
-                
-                case QUIT:
-                	
-                }
-                
-                //  = either PUT or GET or QUIT or HELP (no more connect/disconnect)
-                
-                this.handleCommandBis(cmdLine);
-                
-                // rather call handleCommandBis(cmdLine)
+        	
+            }
+        
             } catch (IOException e) {
                 stop = true;
                 printError("CLI does not respond - Application terminated ");
@@ -89,20 +133,7 @@ public class KVClient implements KVSocketListener {
     }
     
     
-    private void handleCommandBis(Command cmdLine) {
-        // decode the cmdLine like in handleCommand from ms2
-        // // call the function getServerForKey to know which server to connect
-        //// KVMessage answer = this.handleCommandWithServer(cmdLine, serverip, serverport);
-        // // if answer is success or eror... print it
-        // // if "not responsible": update metadata file and call handleCommandBis(cmdLine);
-        //
-    }
-    
-    private void handleCommandWithServer(String cmdLine) { // more args
-        // TODO
-        // connect, execute request, disconnect
-    }
-    
+   
     // good example; will not be used any more at end of ms3
     private void handleCommand(String cmdLine) {
         String[] tokens = cmdLine.split("\\s+");
@@ -112,97 +143,37 @@ public class KVClient implements KVSocketListener {
             disconnect();
             System.out.println(PROMPT + "Application exit!");
             
-        } else if (tokens[0].equals("connect")){
-            if(tokens.length == 3) {
-                try{
-                    serverAddress = tokens[1];
-                    serverPort = Integer.parseInt(tokens[2]);
-                    connect(serverAddress, serverPort);
-                } catch(NumberFormatException nfe) {
-                    printError("No valid address. Port must be a number!");
-                    logger.info("Unable to parse argument <port>", nfe);
-                } catch (UnknownHostException e) {
-                    printError("Unknown Host!");
-                    logger.info("Unknown Host!", e);
-                } catch (IOException e) {
-                    printError("Could not establish connection!");
-                    logger.warn("Could not establish connection!", e);
-                }
+//        } else if (tokens[0].equals("connect")){
+//            if(tokens.length == 3) {
+//                try{
+//                    serverAddress = tokens[1];
+//                    serverPort = Integer.parseInt(tokens[2]);
+//                    connect(serverAddress, serverPort);
+//                } catch(NumberFormatException nfe) {
+//                    printError("No valid address. Port must be a number!");
+//                    logger.info("Unable to parse argument <port>", nfe);
+//                } catch (UnknownHostException e) {
+//                    printError("Unknown Host!");
+//                    logger.info("Unknown Host!", e);
+//                } catch (IOException e) {
+//                    printError("Could not establish connection!");
+//                    logger.warn("Could not establish connection!", e);
+//                }
             } else {
                 printError("Invalid number of parameters!");
             }
-            
-        } else if (tokens[0].equals("put")) {
-            if(tokens.length == 3) {
-                if(kvStore != null && kvStore.isRunning()){
-                    try {
-                        System.out.println(kvStore.put(tokens[1], tokens[2]));
-                    } catch (IOException e) {
-                        printError("Unable to send message!");
-                        disconnect();
-                    } catch (InterruptedException e) {
-                        printError("Unable to receive answer!");
-                        disconnect();
-                    }
-                } else {
-                    printError("Not connected!");
-                }
-            } else {
-                printError("Invalid number of parameters!");
-            }
-            
-        } else if (tokens[0].equals("get")) {
-            if(tokens.length == 2) {
-                if(kvStore != null && kvStore.isRunning()){
-                    try {
-                        System.out.println(kvStore.get(tokens[1]));
-                    } catch (IOException e) {
-                        printError("Unable to send message!");
-                        disconnect();
-                    } catch (InterruptedException e) {
-                        printError("Unable to receive answer!");
-                        disconnect();
-                    }
-                } else {
-                    printError("Not connected!");
-                }
-            } else {
-                printError("Invalid number of parameters!");
-            }
-            
-        } else if(tokens[0].equals("disconnect")) {
-            disconnect();
-            
-        } else if(tokens[0].equals("logLevel")) {
-            if(tokens.length == 2) {
-                String level = setLevel(tokens[1]);
-                if(level.equals(LogSetup.UNKNOWN_LEVEL)) {
-                    printError("No valid log level!");
-                    printPossibleLogLevels();
-                } else {
-                    System.out.println(PROMPT +
-                                       "Log level changed to level " + level);
-                }
-            } else {
-                printError("Invalid number of parameters!");
-            }
-            
-        } else if(tokens[0].equals("help")) {
-            printHelp();
-        } else {
-            printError("Unknown command");
-            printHelp();
-        }
-    }
+
+        } 
     
-    private void connect(String address, int port)
-    throws UnknownHostException, IOException {
-        kvStore = new KVStore(address, port);
-        kvStore.connect();
-        kvStore.addListener(this);
-        new Thread(kvStore).start();
-    }
     
+//    private void connect(String address, int port)
+//    throws UnknownHostException, IOException {
+//        kvStore = new KVStore(address, port);
+//        kvStore.connect();
+//        kvStore.addListener(this);
+//        new Thread(kvStore).start();
+//    }
+//    
     private void disconnect() {
         if(kvStore != null) {
             kvStore.disconnect();
@@ -300,8 +271,9 @@ public class KVClient implements KVSocketListener {
     /**
      * Main entry point for the kvStore application. 
      * @param args contains the port number at args[0].
+     * @throws NoSuchAlgorithmException 
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
         try {
             new LogSetup("logs/client.log", Level.ALL);
             KVClient app = new KVClient();

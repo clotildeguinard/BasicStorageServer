@@ -1,1 +1,5 @@
 /client/
+/app_kvServer/
+/common/
+/app_kvClient/
+/testing/
