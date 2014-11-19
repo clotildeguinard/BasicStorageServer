@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
-import common.metadata.MetadataHandlerBis;
+import common.metadata.MetadataHandler;
 import client.KVCommModule;
 
 import java.security.NoSuchAlgorithmException;
@@ -17,7 +17,7 @@ public class ClientConnection implements Runnable {
 
 	protected Socket clientSocket;
 	private static final String PROMPT = "KVServer> ";
-	private final MetadataHandlerBis metadataHandler;
+	private final MetadataHandler metadataHandler;
 	private KVCommModule commModule;
 	private final String serverIp;
 	private final int serverPort;
@@ -34,7 +34,7 @@ public class ClientConnection implements Runnable {
 	}
 
 
-    public ClientConnection(int port, Socket clientSocket, CacheManager cacheManager, MetadataHandlerBis metadataHandler) throws UnknownHostException {
+    public ClientConnection(int port, Socket clientSocket, CacheManager cacheManager, MetadataHandler metadataHandler) throws UnknownHostException {
         this.clientSocket = clientSocket;
         this.sharedCacheManager = cacheManager;
         this.metadataHandler = metadataHandler;

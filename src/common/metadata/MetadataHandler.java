@@ -1,82 +1,48 @@
 package common.metadata;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
-import java.io.Writer;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.LinkedList;
 
 public class MetadataHandler {
+	private LinkedList<NodeData> metadata = new LinkedList<>();
 	private final static String fieldSeparator = ";";
 	private final static String lineSeparator = "/";
+	private String minHashKey;
+	private String maxHashKey;
+	private final String ip;
+	private final int port;
 	
+	
+	public MetadataHandler(String ip, int port) {
+		this.ip = ip;
+		this.port = port;
+	}
+
 	/**
 	 * overwrite metadata file with more recent metadata
 	 * @param metadata
 	 * @param fileLocation
 	 * @throws IOException
 	 */
-	public static void updateFile (String metadata, String fileLocation) throws IOException {
-		Writer writer = null;
-		FileOutputStream w = null;
-		String[] lines = metadata.split(lineSeparator);
-		try  {
-			w = new FileOutputStream(fileLocation);
-	    	w.write((new String()).getBytes());
-	    	
-			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileLocation, true), "utf-8"));
-			for (String s : lines) {
-				writer.write(s + "\n");
+	public void update(String metadata) {
+		LinkedList<NodeData> tmpMetadata = new LinkedList<>();
+		String[] nodes = metadata.split(lineSeparator);
+		String[] data = null;
+		for (String n : nodes) {
+			data = n.split(fieldSeparator);
+			String ipAddress = data[0];
+			int port = Integer.parseInt(data[1]);
+			if (this.ip.equals(ipAddress) && this.port == port) {
+				minHashKey = data[2];
+				maxHashKey = data[3];
 			}
-		} finally {
-			if (w != null) {
-				w.close();
-			}
-			if (writer != null) {
-				writer.close();
-			}
+			NodeData nodeData = new NodeData(data[0], Integer.parseInt(data[1]), data[2], data[3]);
+			tmpMetadata.add(nodeData);
 		}
-				
-	}
-		
-	/**
-	 * 
-	 * @param fileLocation
-	 * @param serverIp
-	 * @param serverPort
-	 * @return the hashkey bounds for the given server
-	 * @throws IOException
-	 */
-	public static String[] getHashKeyBounds(String fileLocation, String serverIp, int serverPort) throws IOException {
-		BufferedReader br = null;
-		try {
-			System.out.println(serverIp);
-			String port = Integer.toString(serverPort);
-			br = new BufferedReader(new FileReader(fileLocation));
-			String line;
-			while((line = br.readLine()) != null)
-			{
-				String[] words = line.split(fieldSeparator);
-
-				if (words[0].equals(serverIp) && words[1].equals(port)) {
-					br.close();
-					return new String[] {words[2], words[3]};
-				}
-			}
-			return null;
-		} finally {
-			if (br != null) {
-				br.close();
-			}
-		}
+		this.metadata = tmpMetadata;	
 	}
 	
 	/**
@@ -86,34 +52,39 @@ public class MetadataHandler {
 	 * @return array with server ip and port responsible for key
 	 * @throws IOException
 	 */
-	public static String[] getServerForKey(String fileLocation, String key) throws IOException {
+	public static String[] getServerForKey(String fileLocation, String key) {
 		return null;
 
 // TODO
 	}
 
-	public static boolean isInRange(String key, String minHashKey,
-			String maxHashKey) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest(key.getBytes("UTF-8"))).toString(16);
-		return hashedKey.compareTo(minHashKey) >= 0 && hashedKey.compareTo(maxHashKey) <= 0;
+	public boolean isResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		return isInRange(key, minHashKey, maxHashKey);
 	}
 
-	public static String getMetadata(String fileLocation) throws IOException {
+	public String toString() {
 		StringBuilder s = new StringBuilder();
-		BufferedReader br = null;
-		try {
-			br = new BufferedReader(new FileReader(fileLocation));
-			String line;
-			while((line = br.readLine()) != null)
-			{
-				s.append(line + lineSeparator);
-			}
-			return s.toString();
-		} finally {
-			if (br != null) {
-				br.close();
-			}
+		for (NodeData n : metadata) {
+			s.append(n.getIpAddress() + fieldSeparator);
+			s.append(n.getPortNumber() + fieldSeparator);
+			s.append(n.getMinHashKey() + fieldSeparator);
+			s.append(n.getMaxHashKey() + lineSeparator);
 		}
+			return s.toString();
+	}
+	
+	private boolean isInRange(String key, String minHash, String maxHash) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest(key.getBytes("UTF-8"))).toString(16);
+		boolean b = hashedKey.compareTo(minHash) >= 0 && hashedKey.compareTo(maxHash) <= 0;
+		if (minHash.compareTo(maxHash) <= 0) {
+			return b;
+		} else {
+			return !b;
+		}		
+	}
+
+	public boolean hasToMove(String key, String hashOfNewServer) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		return !isInRange(key, minHashKey, hashOfNewServer);
 	}
 
 }

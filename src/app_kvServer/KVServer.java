@@ -12,7 +12,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import client.KVStore;
-import common.metadata.MetadataHandlerBis;
+import common.metadata.MetadataHandler;
 import app_kvServer.cache_strategies.FIFOStrategy;
 import app_kvServer.cache_strategies.LFUStrategy;
 import app_kvServer.cache_strategies.LRUStrategy;
@@ -21,7 +21,7 @@ import app_kvServer.cache_strategies.Pair;
 
 public class KVServer implements Runnable {
 	private final String storageLocation = "./src/app_kvServer/";
-	private MetadataHandlerBis metadataHandler;
+	private MetadataHandler metadataHandler;
 	protected final int Port;
 	protected ServerSocket serverSocket = null;
 	protected boolean isStopped = true;
@@ -56,7 +56,7 @@ public class KVServer implements Runnable {
 			datacache = new LFUStrategy(cacheSize);
 		}
 		this.cacheManager = new CacheManager(datacache, new Storage(storageLocation));
-		metadataHandler = new MetadataHandlerBis("", 0);
+		metadataHandler = new MetadataHandler("", 0);
 		update(metadata);
 	}
 	
