@@ -54,6 +54,7 @@ public class MetadataHandler {
 	 * @throws NoSuchAlgorithmException 
 	 * @throws IOException
 	 */
+
 	public String[] getServerForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		
 		for (NodeData e: metadata){
@@ -68,7 +69,6 @@ public class MetadataHandler {
 		}
 		return null;
 
-// TODO
 	}
 
 	public boolean isResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
