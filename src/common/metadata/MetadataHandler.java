@@ -54,7 +54,6 @@ public class MetadataHandler {
 	 * @throws NoSuchAlgorithmException 
 	 * @throws IOException
 	 */
-<<<<<<< HEAD
 
 	public String[] getServerForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		
@@ -68,12 +67,9 @@ public class MetadataHandler {
 			}
 
 		}
-=======
-	public static String[] getServerForKey(String fileLocation, String key) {
->>>>>>> FETCH_HEAD
 		return null;
-
 	}
+
 
 	public boolean isResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		return isInRange(key, minHashKey, maxHashKey);
