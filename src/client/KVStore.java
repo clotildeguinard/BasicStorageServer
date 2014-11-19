@@ -11,6 +11,7 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import app_kvClient.Command;
 import client.KVSocketListener.SocketStatus;
 import common.messages.KVMessage;
 import common.messages.KVMessageImpl;
@@ -124,9 +125,23 @@ public class KVStore extends Thread implements KVCommInterface {
 			logger.info("connection closed!");
 		}
 	}
-
-	@Override
-	public KVMessage put(String key, String value) throws IOException, InterruptedException {
+	
+	
+	 private void handleCommandBis(Command cmdLine) {
+	       
+	        // // call the function getServerForKey to know which server to connect
+		 //connect
+	        //// KVMessage answer = this.handleCommandWithServer(cmdLine, serverip, serverport);
+		 //diconnect
+	        // // if answer is success or eror... print it
+	        // // if "not responsible": update metadata file and call handleCommandBis(cmdLine);
+	        //
+	    }
+	    
+	
+	   
+	
+	public KVMessage putBis(String key, String value) throws IOException, InterruptedException {
 		KVMessage msg = new KVMessageImpl(key, value, common.messages.KVMessage.StatusType.PUT);
 		commModule.sendKVMessage(msg);
 		
@@ -140,12 +155,25 @@ public class KVStore extends Thread implements KVCommInterface {
 		}
 		return commModule.getLatest();
 	}
+	
+	
+	@Override
+	public KVMessage put(String key, String value) throws IOException, InterruptedException {
+		
+		
+		// connect, execute request, disconnect
+		
+		 //execute request, check if the relevant server
+	}
+	
+	
+	
 
 	/**
 	 * returns kvmessage, or null if no kvmessage arrives within a given time interval
 	 */
-	@Override
-	public KVMessage get(String key) throws IOException, InterruptedException {
+	
+	public KVMessage getBis(String key) throws IOException, InterruptedException {
 		KVMessage msg = new KVMessageImpl(key, null, common.messages.KVMessage.StatusType.GET);
 		commModule.sendKVMessage(msg);
 		
@@ -159,6 +187,16 @@ public class KVStore extends Thread implements KVCommInterface {
 		}
 		return commModule.getLatest();
 	}
+	
+	
+	@Override
+	public KVMessage get(String key) throws IOException, InterruptedException {
+		// connect, execute request, disconnect
+		
+		
+		
+	}
+
 
 
 }
