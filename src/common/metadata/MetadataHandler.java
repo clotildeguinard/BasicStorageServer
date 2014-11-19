@@ -52,7 +52,7 @@ public class MetadataHandler {
 	 * @return array with server ip and port responsible for key
 	 * @throws IOException
 	 */
-	public String[] getServerForKey(String key) {
+	public static String[] getServerForKey(String fileLocation, String key) {
 		return null;
 
 // TODO
