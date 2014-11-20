@@ -37,8 +37,10 @@ public class CacheManager implements Iterable<Pair<String, String>> {
 		if (cacheAnswerWithRejectedKV.getKey() != null) {
 			try {
 				storage.put(cacheAnswerWithRejectedKV.getKey(), cacheAnswerWithRejectedKV.getValue());
+			} catch (FileNotFoundException fnfe) {
+				logger.fatal("The storage file could not be found", fnfe);
 			} catch (IOException e) {
-				logger.error("A connection error occurred when trying to write the record", e);
+				logger.error("A connection error occurred when trying to write some record", e);
 				return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
 			}
 		}

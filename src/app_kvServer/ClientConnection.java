@@ -13,14 +13,14 @@ import client.KVCommModule;
 
 import java.security.NoSuchAlgorithmException;
 
+import org.apache.log4j.Logger;
+
 public class ClientConnection implements Runnable {
 
 	protected Socket clientSocket;
 	private static final String PROMPT = "KVServer> ";
 	private final MetadataHandler metadataHandler;
 	private KVCommModule commModule;
-	private final String serverIp;
-	private final int serverPort;
 	private final CacheManager sharedCacheManager;
 	
 	private boolean stop = true;
@@ -38,8 +38,6 @@ public class ClientConnection implements Runnable {
         this.clientSocket = clientSocket;
         this.sharedCacheManager = cacheManager;
         this.metadataHandler = metadataHandler;
-        this.serverIp = InetAddress.getLocalHost().getHostAddress();
-        this.serverPort = port;
     	try {
     		commModule = new KVCommModule(clientSocket.getOutputStream(), clientSocket.getInputStream());
         } catch (IOException e1) {
@@ -64,8 +62,7 @@ public class ClientConnection implements Runnable {
 					} else if (!metadataHandler.isResponsibleFor(key)) {
 						value = metadataHandler.toString();
 						serverAnswer = new KVMessageImpl(key, value, StatusType.SERVER_NOT_RESPONSIBLE);
-						// TODO
-						// send metadata
+
 					} else {
 						serverAnswer = handleCommand(key, value, request.getStatus());
 					}

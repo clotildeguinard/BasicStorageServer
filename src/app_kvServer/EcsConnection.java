@@ -5,6 +5,8 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import org.apache.log4j.Logger;
+
 import common.messages.KVAdminMessage;
 import common.messages.KVMessage;
 import common.messages.KVAdminMessage.StatusType;
@@ -14,25 +16,19 @@ import client.KVCommModule;
 public class EcsConnection implements Runnable {
 	private final KVServer kvServer;
 	protected Socket ecsSocket;
-	private static final String PROMPT = "KVServer> ";
 	private KVAdminCommModule commModule;
-	private final String serverIp;
-	private final int serverPort;
+	private Logger logger = Logger.getRootLogger();
 	
 	private boolean stop = true;
-
-
 
     public EcsConnection(int port, Socket ecsSocket, KVServer kvServer) throws UnknownHostException {
     	this.kvServer = kvServer;
         this.ecsSocket = ecsSocket;
-        this.serverIp = InetAddress.getLocalHost().getHostAddress();
-        this.serverPort = port;
     	try {
     		commModule = new KVAdminCommModule(ecsSocket.getOutputStream(), ecsSocket.getInputStream());
         } catch (IOException e1) {
 			stop = true;
-			printError("A connection error occurred - Application terminated " + e1);
+			logger.error("A connection error occurred - Application terminated " + e1);
 		}
     }
     
@@ -42,21 +38,21 @@ public class EcsConnection implements Runnable {
 		while(!stop) {
 			try {
 				KVAdminMessage request = commModule.receiveKVAdminMessage();
-				System.out.println(PROMPT + "Requested from ECS : " + request);
+				logger.info("Requested from ECS : " + request);
 				
 				String key = request.getKey();
 				String value = request.getValue();
 				KVAdminMessage serverAnswer = handleCommand(key, value, request.getStatus());
-				System.out.println(PROMPT + "Answer to ECS : " + serverAnswer);
+				logger.info("Answer to ECS : " + serverAnswer);
 				
 				if (serverAnswer != null) {
 					commModule.sendKVAdminMessage(serverAnswer);
 				} else {
-					printError("Invalid answer to request : " + request);	
+					logger.warn("Invalid answer to request : " + request);	
 				}
 			} catch (IOException e){
 				stop = true;
-				printError("A connection error occurred - Application terminated " + e);
+				logger.fatal("A connection error occurred - Application terminated " + e);
 			}
 		}
 	}
@@ -86,13 +82,9 @@ public class EcsConnection implements Runnable {
 			kvServer.update(value); // value contains the metadata
 			break;
 		default:
-			printError("The instruction has an unknown status : " + statusType);
+			logger.warn("The instruction has an unknown status : " + statusType);
 		}
 		return null;	
-	}
-	
-	private void printError(String error){
-		System.out.println(PROMPT + "Error! " +  error);
 	}
 
 }

@@ -44,9 +44,11 @@ public class Storage implements Iterable<Pair<String, String>>{
     	writer.close();
     }
 
-	public KVMessage put(String key, String value) throws IOException{
+	public KVMessage put(String key, String value) throws FileNotFoundException, IOException{
 		StatusType status = StatusType.PUT_SUCCESS;
-		if (!value.equals("null")) {
+		if (value.equals("null")) {
+			return new KVMessageImpl(key, value, status);
+		} else {
 			String newString = (key + " " + value + EOL);
 			SingletonWriter.getInstance().initializeAppendingWriter(file);
 			try {
@@ -56,19 +58,11 @@ public class Storage implements Iterable<Pair<String, String>>{
 				} else {
 					SingletonWriter.getInstance().write(newString);
 				} 
-			} catch (IOException e) {
-				try {
-					SingletonWriter.getInstance().closeWriter();
-				} catch (IOException e1) {
-					logger.error("An io error occurred when closing writer", e1);
-				}
-				logger.error("An io error occurred during writing", e); 
-				return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
+				return new KVMessageImpl(key, value, status);
 			} finally {
 				SingletonWriter.getInstance().closeWriter();
 			}
 		}
-		return new KVMessageImpl(key, value, status);
 
 	}
 	

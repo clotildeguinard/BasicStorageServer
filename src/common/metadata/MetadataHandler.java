@@ -12,13 +12,13 @@ public class MetadataHandler {
 	private final static String lineSeparator = "/";
 	private String minHashKey;
 	private String maxHashKey;
-	private final String ip;
-	private final int port;
+	private final String clientIp;
+	private final int clientPort;
 	
 	
-	public MetadataHandler(String ip, int port) {
-		this.ip = ip;
-		this.port = port;
+	public MetadataHandler(String clientIp, int clientPort) {
+		this.clientIp = clientIp;
+		this.clientPort = clientPort;
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class MetadataHandler {
 			data = n.split(fieldSeparator);
 			String ipAddress = data[0];
 			int port = Integer.parseInt(data[1]);
-			if (this.ip.equals(ipAddress) && this.port == port) {
+			if (this.clientIp.equals(ipAddress) && this.clientPort == port) {
 				minHashKey = data[2];
 				maxHashKey = data[3];
 			}
@@ -98,6 +98,10 @@ public class MetadataHandler {
 
 	public boolean hasToMove(String key, String hashOfNewServer) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		return !isInRange(key, minHashKey, hashOfNewServer);
+	}
+
+	public NodeData getRandom() {
+		return metadata.getFirst();
 	}
 
 }

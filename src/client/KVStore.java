@@ -14,6 +14,7 @@ import common.messages.KVMessage;
 import common.messages.KVMessageImpl;
 import common.messages.TextMessage;
 import common.metadata.MetadataHandler;
+import common.metadata.NodeData;
 
 /**
  * send requests to the server, requires call to the defined communication
@@ -40,12 +41,25 @@ public class KVStore extends Thread implements KVCommInterface {
 	 * @param port
 	 *            the port of the KVServer
 	 */
+	public KVStore(String defaultIp, int defaultPort) {
+	// TODO
+	}
 	public KVStore(MetadataHandler metadataHandler) {
 		this.metadataHandler= metadataHandler;
 	}
 
 	public void addListener(KVSocketListener listener) {
 		listeners.add(listener);
+	}
+	
+	/**
+	 * Connect to any known server
+	 * @throws IOException 
+	 * @throws UnknownHostException 
+	 */
+	public void connect() throws UnknownHostException, IOException {
+		NodeData n = metadataHandler.getRandom();
+		connect(n.getIpAddress(), n.getPortNumber());
 	}
 
 
@@ -103,7 +117,6 @@ public class KVStore extends Thread implements KVCommInterface {
 
 	
 	public void disconnect() {
-		// TODO synchronized?????
 		logger.info("try to close connection ...");
 
 		try {

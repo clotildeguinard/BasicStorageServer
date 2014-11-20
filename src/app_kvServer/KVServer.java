@@ -28,6 +28,7 @@ public class KVServer implements Runnable {
 	protected CacheManager cacheManager;
 	private Logger logger = Logger.getRootLogger();
 	private ClientConnection connection;
+//  this.serverIp = InetAddress.getLocalHost().getHostAddress();
 	
 	public KVServer(int port) {
 		this.Port = port;
@@ -148,8 +149,8 @@ public class KVServer implements Runnable {
 			stop();
 			logger.error("An error occurred during connection to other server", e);
 		} catch (NoSuchAlgorithmException e) {
-			stop();
-			logger.error("An error occurred during hashing", e);
+			logger.fatal("An error occurred during hashing", e);
+			shutdown();
 		} finally {
     		kvStore.disconnect();
     	}
@@ -158,18 +159,19 @@ public class KVServer implements Runnable {
     /**
      * Write the metadata to the known location and update responsability range
      * @param metadata
-     * @throws IOException
      */
-  public void update(String metadata) throws IOException {
+  public void update(String metadata) {
 	  metadataHandler.update(metadata);
   }
     
     public void lockWrite() {
     	connection.writeLock();
+    	logger.info("Server write-locked");
     }
     
     public void unLockWrite() {
     	connection.writeUnlock();
+    	logger.info("Server write-unlocked");
     }
 
 	
