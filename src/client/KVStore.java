@@ -172,12 +172,10 @@ public class KVStore extends Thread implements KVCommInterface {
     
 		// // call the function getServerForKey to know which server to connect
 		// connect
-		// // KVMessage answer = this.handleCommandWithServer(cmdLine, serverip,
-		// serverport);
+		// // KVMessage answer = this.putBis(key, value);
 		// diconnect
 		// // if answer is success or eror... print it
-		// // if "not responsible": update metadata file and call
-		// handleCommandBis(cmdLine);
+		// // if "not responsible": update metadata file and return result of put(key, value);
 		//
 	}
 
@@ -210,14 +208,12 @@ public class KVStore extends Thread implements KVCommInterface {
 		
 
 		// // call the function getServerForKey to know which server to connect
-		// connect
-		// // KVMessage answer = this.handleCommandWithServer(cmdLine, serverip,
-		// serverport);
-		// diconnect
-		// // if answer is success or eror... print it
-		// // if "not responsible": update metadata file and call
-		// handleCommandBis(cmdLine);
-		//
+				// connect
+				// // KVMessage answer = this.getBis(key, value);
+				// diconnect
+				// // if answer is success or eror... print it
+				// // if "not responsible": update metadata file and return result of get(key, value);
+				//
 
 	}
 
