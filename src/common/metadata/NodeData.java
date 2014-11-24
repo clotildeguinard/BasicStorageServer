@@ -5,6 +5,7 @@ public class NodeData {
 	private int portNumber;
 	private String minHashKey;
 	private String maxHashKey;
+	private String name;
 	
 	public NodeData(String ipAddress, int portNumber, String minHashKey,
 			String maxHashKey) {
@@ -13,6 +14,12 @@ public class NodeData {
 		this.portNumber = portNumber;
 		this.minHashKey = minHashKey;
 		this.maxHashKey = maxHashKey;
+	}
+	
+	public NodeData(String name, String ipAddress, int portNumber, String minHashKey,
+			String maxHashKey) {
+		this(ipAddress, portNumber, minHashKey, maxHashKey);
+		this.name = name;
 	}
 
 	public String getIpAddress() {
@@ -29,6 +36,10 @@ public class NodeData {
 
 	public String getMaxHashKey() {
 		return maxHashKey;
+	}
+	
+	public String getName() {
+		return name;
 	}
 
 	public void setMinHashKey(String minHashKey) {
