@@ -6,9 +6,7 @@ import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
 import java.util.Set;
-
 import org.apache.log4j.Logger;
-
 import client.KVSocketListener.SocketStatus;
 import common.messages.KVMessage;
 import common.messages.KVMessageImpl;
@@ -166,9 +164,17 @@ public class KVStore extends Thread implements KVCommInterface {
 			InterruptedException, NoSuchAlgorithmException {
 		
 		String[] serverData= metadataHandler.getServerForKey(key);
-		
-		return null;
 
+		connect(serverData[0], serverData[1].getPortNumber());
+				
+		KVMessage answer = this.putBis(key, value);
+
+		disconnect();	
+		
+		if (answer!=null){
+			System.out.println();
+		}
+		
     
 		// // call the function getServerForKey to know which server to connect
 		// connect
@@ -203,16 +209,28 @@ public class KVStore extends Thread implements KVCommInterface {
 
 	@Override
 	public KVMessage get(String key) throws IOException, InterruptedException {
-		return null;
+	
+		
+		 try {
+			String[] serverForKey = metadataHandler.getServerForKey(key);
+			
+			
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+			return null;
+		 
 		// connect, execute request, disconnect
 		
 
 		// // call the function getServerForKey to know which server to connect
 				// connect
-				// // KVMessage answer = this.getBis(key, value);
+				// // KVMessage answer = this.getBis(key);
 				// diconnect
 				// // if answer is success or eror... print it
-				// // if "not responsible": update metadata file and return result of get(key, value);
+				// // if "not responsible": update metadata file and return result of get(key);
 				//
 
 	}
