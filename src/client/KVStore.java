@@ -6,9 +6,12 @@ import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
 import java.util.Set;
+
 import org.apache.log4j.Logger;
+
 import client.KVSocketListener.SocketStatus;
 import common.messages.KVMessage;
+import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
 import common.messages.TextMessage;
 import common.metadata.MetadataHandler;
@@ -23,7 +26,7 @@ import common.metadata.NodeData;
  */
 
 public class KVStore extends Thread implements KVCommInterface {
-	
+
 	private KVCommModule commModule;
 	private Logger logger = Logger.getRootLogger();
 	private Socket clientSocket;
@@ -40,28 +43,30 @@ public class KVStore extends Thread implements KVCommInterface {
 	 *            the port of the KVServer
 	 */
 	public KVStore(String defaultIp, int defaultPort) {
-	// TODO
+		// TODO
 	}
+
 	public KVStore(MetadataHandler metadataHandler) {
-		this.metadataHandler= metadataHandler;
+		this.metadataHandler = metadataHandler;
 	}
 
 	public void addListener(KVSocketListener listener) {
 		listeners.add(listener);
 	}
-	
+
 	/**
 	 * Connect to any known server
-	 * @throws IOException 
-	 * @throws UnknownHostException 
+	 * 
+	 * @throws IOException
+	 * @throws UnknownHostException
 	 */
 	public void connect() throws UnknownHostException, IOException {
 		NodeData n = metadataHandler.getRandom();
 		connect(n.getIpAddress(), n.getPortNumber());
 	}
 
-
-	private void connect(String address, int port) throws UnknownHostException, IOException {
+	private void connect(String address, int port) throws UnknownHostException,
+			IOException {
 		clientSocket = new Socket(address, port);
 		commModule = new KVCommModule(clientSocket.getOutputStream(),
 				clientSocket.getInputStream());
@@ -113,7 +118,6 @@ public class KVStore extends Thread implements KVCommInterface {
 		}
 	}
 
-	
 	public void disconnect() {
 		logger.info("try to close connection ...");
 
@@ -140,8 +144,6 @@ public class KVStore extends Thread implements KVCommInterface {
 		}
 	}
 
-	
-
 	public KVMessage putBis(String key, String value) throws IOException,
 			InterruptedException {
 		KVMessage msg = new KVMessageImpl(key, value,
@@ -162,27 +164,26 @@ public class KVStore extends Thread implements KVCommInterface {
 	@Override
 	public KVMessage put(String key, String value) throws IOException,
 			InterruptedException, NoSuchAlgorithmException {
-		
-		String[] serverData= metadataHandler.getServerForKey(key);
 
-		connect(serverData[0], serverData[1].getPortNumber());
-				
+		String[] serverData = metadataHandler.getServerForKey(key);
+
+		int getPortNumber = Integer.valueOf(serverData[1]).intValue();
+
+		connect(serverData[0], getPortNumber);
+
 		KVMessage answer = this.putBis(key, value);
 
-		disconnect();	
-		
-		if (answer!=null){
-			System.out.println();
+		disconnect();
+		if (answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
+			return answer;
 		}
-		
-    
-		// // call the function getServerForKey to know which server to connect
-		// connect
-		// // KVMessage answer = this.putBis(key, value);
-		// diconnect
-		// // if answer is success or eror... print it
-		// // if "not responsible": update metadata file and return result of put(key, value);
-		//
+
+		String metadata = answer.getValue();
+
+		metadataHandler.update(metadata);
+
+		return put(key, value);
+
 	}
 
 	/**
@@ -208,30 +209,29 @@ public class KVStore extends Thread implements KVCommInterface {
 	}
 
 	@Override
-	public KVMessage get(String key) throws IOException, InterruptedException {
-	
-		
-		 try {
-			String[] serverForKey = metadataHandler.getServerForKey(key);
-			
-			
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		 
-			return null;
-		 
-		// connect, execute request, disconnect
-		
+	public KVMessage get(String key) throws IOException, InterruptedException,
+			NoSuchAlgorithmException {
 
-		// // call the function getServerForKey to know which server to connect
-				// connect
-				// // KVMessage answer = this.getBis(key);
-				// diconnect
-				// // if answer is success or eror... print it
-				// // if "not responsible": update metadata file and return result of get(key);
-				//
+		String[] serverForKey;
+
+		serverForKey = metadataHandler.getServerForKey(key);
+
+		int getPortNumber = Integer.valueOf(serverForKey[1]).intValue();
+
+		connect(serverForKey[0], getPortNumber);
+
+		KVMessage answer = this.getBis(key);
+
+		disconnect();
+		if (answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
+			return answer;
+		}
+
+		String metadata = answer.getValue();
+
+		metadataHandler.update(metadata);
+
+		return get(key);
 
 	}
 
