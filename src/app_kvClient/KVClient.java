@@ -17,8 +17,8 @@ import common.messages.TextMessage;
 public class KVClient implements KVSocketListener {
 	
 	static String command;
-    
-    private static Logger logger = Logger.getRootLogger();
+
+	private Logger logger = Logger.getLogger(getClass().getSimpleName());
     private static final String PROMPT = "<KVClient> ";
     private static final String DEFAULT_SERVER_ADDRESS = "localhost";
     private static final int DEFAULT_SERVER_PORT = 50000;

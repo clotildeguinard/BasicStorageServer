@@ -26,7 +26,7 @@ public class KVServer implements Runnable {
 	protected ServerSocket serverSocket = null;
 	protected boolean isStopped = true;
 	protected CacheManager cacheManager;
-	private Logger logger = Logger.getRootLogger();
+	private Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private ClientConnection connection;
 //  this.serverIp = InetAddress.getLocalHost().getHostAddress();
 	
@@ -57,7 +57,7 @@ public class KVServer implements Runnable {
 			datacache = new LFUStrategy(cacheSize);
 		}
 		this.cacheManager = new CacheManager(datacache, new Storage(storageLocation));
-		metadataHandler = new MetadataHandler("", 0);
+		metadataHandler = new MetadataHandler("127.0.0.1", 50000);
 		update(metadata);
 	}
 	

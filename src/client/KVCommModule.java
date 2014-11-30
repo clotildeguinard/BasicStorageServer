@@ -11,7 +11,7 @@ import common.messages.KVMessageImpl;
 import common.messages.TextMessage;
 
 public class KVCommModule extends CommModule implements KVSocketListener {
-	private static Logger logger = Logger.getRootLogger();
+	private Logger logger = Logger.getLogger(getClass().getSimpleName());
  	private KVMessage latest;
 
 	public KVCommModule(OutputStream output, InputStream input) {

@@ -92,6 +92,11 @@ public class MetadataHandler {
 		String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest(key.getBytes("UTF-8"))).toString(16);
 		try {
 			boolean b = hashedKey.compareTo(minHash) >= 0 && hashedKey.compareTo(maxHash) <= 0;
+			System.out.println(hashedKey);
+			System.out.println(hashedKey.compareTo(minHash));
+			System.out.println(hashedKey.compareTo(maxHash));
+			System.out.println(b);
+			
 			if (minHash.compareTo(maxHash) <= 0) {
 				return b;
 			} else {

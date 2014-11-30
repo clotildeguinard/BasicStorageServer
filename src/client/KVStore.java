@@ -1,6 +1,7 @@
 package client;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
@@ -28,11 +29,12 @@ import common.metadata.NodeData;
 public class KVStore extends Thread implements KVCommInterface {
 
 	private KVCommModule commModule;
-	private Logger logger = Logger.getRootLogger();
+	private Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private Socket clientSocket;
 	private Set<KVSocketListener> listeners;
 	private boolean running = false;
 	private MetadataHandler metadataHandler;
+	private static final int MAX_TRIALS = 3;
 
 	/**
 	 * Initialize KVStore with address and port of KVServer
@@ -47,6 +49,7 @@ public class KVStore extends Thread implements KVCommInterface {
 		metadataHandler.update("node0;" + defaultIp + ";" + defaultPort + ";'';''");
 		// TODO
 	}
+
 
 	public void addListener(KVSocketListener listener) {
 		listeners.add(listener);
@@ -72,7 +75,7 @@ public class KVStore extends Thread implements KVCommInterface {
 		listeners = new HashSet<KVSocketListener>();
 		addListener(commModule);
 		setRunning(true);
-		start();
+		new Thread(this).start();
 	}
 
 	private void setRunning(boolean isRunning) {
@@ -82,6 +85,35 @@ public class KVStore extends Thread implements KVCommInterface {
 	public boolean isRunning() {
 		return running;
 	}
+	
+
+	public void disconnect() {
+		logger.info("try to close connection ...");
+
+		try {
+			tearDownConnection();
+			if (listeners != null) {
+				for (KVSocketListener listener : listeners) {
+					listener.handleStatus(SocketStatus.DISCONNECTED);
+				}
+			}
+		} catch (IOException ioe) {
+			logger.error("Unable to close connection!");
+		}
+	}
+
+	private void tearDownConnection() throws IOException {
+		setRunning(false);
+		logger.info("tearing down the connection ...");
+
+		if (clientSocket != null) {
+			commModule.closeStreams();
+			clientSocket.close();
+			clientSocket = null;
+			logger.info("connection closed!");
+		}
+	}
+
 
 	/**
 	 * Initializes and starts the client connection. Loops until the connection
@@ -119,35 +151,10 @@ public class KVStore extends Thread implements KVCommInterface {
 		}
 	}
 
-	public void disconnect() {
-		logger.info("try to close connection ...");
-
-		try {
-			tearDownConnection();
-			if (listeners != null) {
-				for (KVSocketListener listener : listeners) {
-					listener.handleStatus(SocketStatus.DISCONNECTED);
-				}
-			}
-		} catch (IOException ioe) {
-			logger.error("Unable to close connection!");
-		}
-	}
-
-	private void tearDownConnection() throws IOException {
-		setRunning(false);
-		logger.info("tearing down the connection ...");
-
-		if (clientSocket != null) {
-			commModule.closeStreams();
-			clientSocket.close();
-			clientSocket = null;
-			logger.info("connection closed!");
-		}
-	}
-
-	public KVMessage putBis(String key, String value) throws IOException,
+	
+	public KVMessage putComm(String key, String value) throws IOException,
 	InterruptedException {
+		
 		KVMessage msg = new KVMessageImpl(key, value,
 				common.messages.KVMessage.StatusType.PUT);
 		commModule.sendKVMessage(msg);
@@ -162,10 +169,14 @@ public class KVStore extends Thread implements KVCommInterface {
 		}
 		return commModule.getLatest();
 	}
-
-	@Override
-	public KVMessage put(String key, String value) throws IOException,
-	InterruptedException, NoSuchAlgorithmException {
+	
+	public KVMessage putBis(String key, String value, int nbTrials)
+			throws NoSuchAlgorithmException, UnknownHostException, IOException, InterruptedException {
+		if (nbTrials > MAX_TRIALS) {
+			logger.warn("Responsible server for key " + key + " could not be found after "  + MAX_TRIALS + " trials.");
+			return new KVMessageImpl(key, null, StatusType.PUT_ERROR);
+		}
+		
 		String[] serverForKey = metadataHandler.getServerForKey(key);
 
 		if (serverForKey != null) {
@@ -174,7 +185,8 @@ public class KVStore extends Thread implements KVCommInterface {
 		} else {
 			connect();
 		}
-		KVMessage answer = this.putBis(key, value);
+
+		KVMessage answer = this.putComm(key, value);
 
 		disconnect();
 		if (answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
@@ -185,8 +197,14 @@ public class KVStore extends Thread implements KVCommInterface {
 
 		metadataHandler.update(metadata);
 
-		return put(key, value);
+		return putBis(key, value, nbTrials + 1);
 
+	}
+
+	@Override
+	public KVMessage put(String key, String value) throws IOException,
+	InterruptedException, NoSuchAlgorithmException {
+		return putBis(key, value, 1);
 	}
 
 	/**
@@ -194,8 +212,9 @@ public class KVStore extends Thread implements KVCommInterface {
 	 * interval
 	 */
 
-	public KVMessage getBis(String key) throws IOException,
+	public KVMessage getComm(String key) throws IOException,
 	InterruptedException {
+		
 		KVMessage msg = new KVMessageImpl(key, null,
 				common.messages.KVMessage.StatusType.GET);
 		commModule.sendKVMessage(msg);
@@ -211,23 +230,25 @@ public class KVStore extends Thread implements KVCommInterface {
 		return commModule.getLatest();
 	}
 
-	@Override
-	public KVMessage get(String key) throws IOException, InterruptedException,
-	NoSuchAlgorithmException {
-
+	public KVMessage getBis(String key, int nbTrials)
+			throws NoSuchAlgorithmException, UnknownHostException, IOException, InterruptedException {
+		if (nbTrials > MAX_TRIALS) {
+			logger.warn("Responsible server for key " + key + " could not be found after "  + MAX_TRIALS + " trials.");
+			return new KVMessageImpl(key, null, StatusType.GET_ERROR);
+		}
+		
 		String[] serverForKey = metadataHandler.getServerForKey(key);
-
 
 		if (serverForKey != null) {
 			int portNumber = Integer.parseInt(serverForKey[1]);
-
 			connect(serverForKey[0], portNumber);
 		} else {
 			connect();
 		}
-		KVMessage answer = this.getBis(key);
 
+		KVMessage answer = this.getComm(key);
 		disconnect();
+		
 		if (answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
 			return answer;
 		}
@@ -237,8 +258,14 @@ public class KVStore extends Thread implements KVCommInterface {
 
 		metadataHandler.update(metadata);
 
-		return get(key);
+		return getBis(key, nbTrials + 1);
+	}
+	
+	@Override
+	public KVMessage get(String key) throws IOException, InterruptedException,
+	NoSuchAlgorithmException {
+
+		return getBis(key, 1);
 
 	}
-
 }

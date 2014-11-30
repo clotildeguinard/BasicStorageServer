@@ -12,13 +12,15 @@ import client.KVCommModule;
 
 import java.security.NoSuchAlgorithmException;
 
+import org.apache.log4j.Logger;
+
 public class ClientConnection implements Runnable {
 
 	protected Socket clientSocket;
-	private static final String PROMPT = "KVServer> ";
 	private final MetadataHandler metadataHandler;
 	private KVCommModule commModule;
 	private final CacheManager sharedCacheManager;
+	private Logger logger = Logger.getLogger(getClass().getSimpleName());
 
 	private boolean stop = true;
 	private boolean writeLock = false;
@@ -42,7 +44,7 @@ public class ClientConnection implements Runnable {
 					clientSocket.getInputStream());
 		} catch (IOException e1) {
 			stop = true;
-			printError("A connection error occurred - Application terminated "
+			logger.error("A connection error occurred - Application terminated "
 					+ e1);
 		}
 	}
@@ -57,7 +59,7 @@ public class ClientConnection implements Runnable {
 
 				String key = request.getKey();
 				String value = request.getValue();
-				System.out.println(PROMPT + "Requested from client : "
+				logger.debug("Requested from client : "
 						+ request);
 				if (stop) {
 					serverAnswer = new KVMessageImpl(key, value,
@@ -71,21 +73,21 @@ public class ClientConnection implements Runnable {
 					serverAnswer = handleCommand(key, value,
 							request.getStatus());
 				}
-				System.out.println(PROMPT + "Answer to client : "
+				logger.debug("Answer to client : "
 						+ serverAnswer);
 
 				if (serverAnswer != null) {
 					commModule.sendKVMessage(serverAnswer);
 				} else {
-					printError("Invalid answer to request : " + request);
+					logger.error("Invalid answer to request : " + request);
 				}
 			} catch (IOException e) {
 				stop = true;
-				printError("A connection error occurred - Application terminated "
+				logger.error("A connection error occurred - Application terminated "
 						+ e);
 			} catch (NoSuchAlgorithmException e) {
 				stop = true;
-				printError("A hashing error occurred - Application terminated "
+				logger.fatal("A hashing error occurred - Application terminated "
 						+ e);
 			}
 		}
@@ -106,10 +108,6 @@ public class ClientConnection implements Runnable {
 		default:
 			return null;
 		}
-	}
-
-	private void printError(String error) {
-		System.out.println(PROMPT + "Error! " + error);
 	}
 
 }

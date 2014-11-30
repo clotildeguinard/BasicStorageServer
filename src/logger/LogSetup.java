@@ -29,6 +29,7 @@ public class LogSetup {
 	public LogSetup(String logdir, Level level) throws IOException {
 		this.logdir = logdir;
 		initialize(level);
+		logger.setAdditivity(false);
 	}
 
 	private void initialize(Level level) throws IOException {
