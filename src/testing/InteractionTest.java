@@ -18,7 +18,7 @@ public class InteractionTest extends TestCase {
 		kvClient = new KVStore("localhost", 50000);
 		try {
 			new LogSetup("./testing/test.log", Level.ALL);
-			kvClient.connect();
+//			kvClient.connect();
 		} catch (Exception e) {
 		}
 	}
@@ -41,6 +41,9 @@ public class InteractionTest extends TestCase {
 			ex = e;
 		}
 		System.out.println(response);
+		if (ex!= null) {
+			ex.printStackTrace();
+		}
 		assertNull(ex);
 		assertEquals(StatusType.PUT_SUCCESS, response.getStatus());
 	}
@@ -77,7 +80,9 @@ public class InteractionTest extends TestCase {
 		} catch (Exception e) {
 			ex = e;
 		}
-
+		if (ex!= null) {
+			ex.printStackTrace();
+		}
 		assertTrue(ex == null && response.getStatus() == StatusType.PUT_UPDATE
 				&& response.getValue().equals(updatedValue));
 	}
@@ -97,6 +102,9 @@ public class InteractionTest extends TestCase {
 		} catch (Exception e) {
 			ex = e;
 		}
+		if (ex!= null) {
+			ex.printStackTrace();
+		}
 		assertNull(ex);
 		assertEquals(StatusType.DELETE_SUCCESS, response.getStatus());
 	}
@@ -114,6 +122,9 @@ public class InteractionTest extends TestCase {
 		} catch (Exception e) {
 			ex = e;
 		}
+		if (ex!= null) {
+			ex.printStackTrace();
+		}
 		assertNull(ex);
 		assertEquals("bar1", response.getValue());
 	}
@@ -130,7 +141,9 @@ public class InteractionTest extends TestCase {
 			e.printStackTrace();
 			ex = e;
 		}
-
+if (ex!= null) {
+	ex.printStackTrace();
+}
 		assertTrue(ex == null && response.getStatus() == StatusType.GET_ERROR);
 	}
 	

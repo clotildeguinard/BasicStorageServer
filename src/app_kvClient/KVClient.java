@@ -17,11 +17,6 @@ import common.messages.TextMessage;
 public class KVClient implements KVSocketListener {
 	
 	static String command;
-
-//	public enum Command {
-//
-//		PUT, GET, LOG, HELP, QUIT
-//	}
     
     private static Logger logger = Logger.getRootLogger();
     private static final String PROMPT = "<KVClient> ";
@@ -36,20 +31,12 @@ public class KVClient implements KVSocketListener {
     
     public void run() throws NoSuchAlgorithmException {
         while(!stop) {
-        	
-//    System.out.println("\n-------------------Please select one of the commands-------------------------------------");
-//    
-//	System.out.println("\nPUT, GET, LOG, HELP, QUIT");
-//	
+
             stdin = new BufferedReader(new InputStreamReader(System.in));
             System.out.print(PROMPT);
             
             try {
                 String command = stdin.readLine();
-                
-               // Command cmdLine = null;
-                
-                //private void handleCommand(String cmdLine) {
                 
                     String[] tokens = command.split("\\s+");
                     
@@ -131,48 +118,8 @@ public class KVClient implements KVSocketListener {
             }   
     }
     
-    
-   
-    // good example; will not be used any more at end of ms3
-    private void handleCommand(String cmdLine) {
-        String[] tokens = cmdLine.split("\\s+");
-        
-        if(tokens[0].equals("quit")) {
-            stop = true;
-            disconnect();
-            System.out.println(PROMPT + "Application exit!");
-            
-//        } else if (tokens[0].equals("connect")){
-//            if(tokens.length == 3) {
-//                try{
-//                    serverAddress = tokens[1];
-//                    serverPort = Integer.parseInt(tokens[2]);
-//                    connect(serverAddress, serverPort);
-//                } catch(NumberFormatException nfe) {
-//                    printError("No valid address. Port must be a number!");
-//                    logger.info("Unable to parse argument <port>", nfe);
-//                } catch (UnknownHostException e) {
-//                    printError("Unknown Host!");
-//                    logger.info("Unknown Host!", e);
-//                } catch (IOException e) {
-//                    printError("Could not establish connection!");
-//                    logger.warn("Could not establish connection!", e);
-//                }
-            } else {
-                printError("Invalid number of parameters!");
-            }
-
-        } 
-    
-    
-//    private void connect(String address, int port)
-//    throws UnknownHostException, IOException {
-//        kvStore = new KVStore(address, port);
-//        kvStore.connect();
-//        kvStore.addListener(this);
-//        new Thread(kvStore).start();
-//    }
-//    
+ 
+  
     private void disconnect() {
         if(kvStore != null) {
             kvStore.disconnect();

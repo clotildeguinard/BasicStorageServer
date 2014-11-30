@@ -42,12 +42,10 @@ public class KVStore extends Thread implements KVCommInterface {
 	 * @param port
 	 *            the port of the KVServer
 	 */
-	public KVStore(String defaultIp, int defaultPort) {
+	public KVStore(String defaultIp, int defaultPort) throws IllegalArgumentException {
+		this.metadataHandler = new MetadataHandler(defaultIp, defaultPort);
+		metadataHandler.update("node0;" + defaultIp + ";" + defaultPort + ";'';''");
 		// TODO
-	}
-
-	public KVStore(MetadataHandler metadataHandler) {
-		this.metadataHandler = metadataHandler;
 	}
 
 	public void addListener(KVSocketListener listener) {
@@ -66,7 +64,8 @@ public class KVStore extends Thread implements KVCommInterface {
 	}
 
 	private void connect(String address, int port) throws UnknownHostException,
-			IOException {
+	IOException {
+		logger.debug("Trying to connect to ip " + address + " , port " + port);
 		clientSocket = new Socket(address, port);
 		commModule = new KVCommModule(clientSocket.getOutputStream(),
 				clientSocket.getInputStream());
@@ -92,6 +91,7 @@ public class KVStore extends Thread implements KVCommInterface {
 		try {
 
 			while (isRunning()) {
+
 				try {
 					TextMessage latestMsg = commModule.receiveMessage();
 					for (KVSocketListener listener : listeners) {
@@ -111,6 +111,7 @@ public class KVStore extends Thread implements KVCommInterface {
 					}
 				}
 			}
+			logger.info("KVStore stopped");
 		} finally {
 			if (isRunning()) {
 				disconnect();
@@ -136,6 +137,7 @@ public class KVStore extends Thread implements KVCommInterface {
 	private void tearDownConnection() throws IOException {
 		setRunning(false);
 		logger.info("tearing down the connection ...");
+
 		if (clientSocket != null) {
 			commModule.closeStreams();
 			clientSocket.close();
@@ -145,7 +147,7 @@ public class KVStore extends Thread implements KVCommInterface {
 	}
 
 	public KVMessage putBis(String key, String value) throws IOException,
-			InterruptedException {
+	InterruptedException {
 		KVMessage msg = new KVMessageImpl(key, value,
 				common.messages.KVMessage.StatusType.PUT);
 		commModule.sendKVMessage(msg);
@@ -163,14 +165,15 @@ public class KVStore extends Thread implements KVCommInterface {
 
 	@Override
 	public KVMessage put(String key, String value) throws IOException,
-			InterruptedException, NoSuchAlgorithmException {
+	InterruptedException, NoSuchAlgorithmException {
+		String[] serverForKey = metadataHandler.getServerForKey(key);
 
-		String[] serverData = metadataHandler.getServerForKey(key);
-
-		int getPortNumber = Integer.valueOf(serverData[1]).intValue();
-
-		connect(serverData[0], getPortNumber);
-
+		if (serverForKey != null) {
+			int portNumber = Integer.parseInt(serverForKey[1]);
+			connect(serverForKey[0], portNumber);
+		} else {
+			connect();
+		}
 		KVMessage answer = this.putBis(key, value);
 
 		disconnect();
@@ -192,7 +195,7 @@ public class KVStore extends Thread implements KVCommInterface {
 	 */
 
 	public KVMessage getBis(String key) throws IOException,
-			InterruptedException {
+	InterruptedException {
 		KVMessage msg = new KVMessageImpl(key, null,
 				common.messages.KVMessage.StatusType.GET);
 		commModule.sendKVMessage(msg);
@@ -210,22 +213,25 @@ public class KVStore extends Thread implements KVCommInterface {
 
 	@Override
 	public KVMessage get(String key) throws IOException, InterruptedException,
-			NoSuchAlgorithmException {
+	NoSuchAlgorithmException {
 
-		String[] serverForKey;
+		String[] serverForKey = metadataHandler.getServerForKey(key);
 
-		serverForKey = metadataHandler.getServerForKey(key);
 
-		int getPortNumber = Integer.valueOf(serverForKey[1]).intValue();
+		if (serverForKey != null) {
+			int portNumber = Integer.parseInt(serverForKey[1]);
 
-		connect(serverForKey[0], getPortNumber);
-
+			connect(serverForKey[0], portNumber);
+		} else {
+			connect();
+		}
 		KVMessage answer = this.getBis(key);
 
 		disconnect();
 		if (answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
 			return answer;
 		}
+
 
 		String metadata = answer.getValue();
 

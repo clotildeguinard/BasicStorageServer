@@ -16,7 +16,7 @@ public class AllTests {
 		try {
 			new LogSetup("logs/testing/test.log", Level.ERROR);
 			KVServer kvserver = new KVServer(50000);
-			kvserver.initKVServer("10.180.46.145;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff", 10, "FIFO");
+			kvserver.initKVServer("node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff", 10, "FIFO");
 			kvserver.start();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -26,11 +26,11 @@ public class AllTests {
 	
 	public static Test suite() {
 		TestSuite clientSuite = new TestSuite("Basic Storage ServerTest-Suite");
-		clientSuite.addTestSuite(ConnectionTest.class);
+//		clientSuite.addTestSuite(ConnectionTest.class);
 		clientSuite.addTestSuite(InteractionTest.class); 
-		clientSuite.addTestSuite(DataCacheTest.class); 
-		clientSuite.addTestSuite(StorageTest.class); 
-		clientSuite.addTestSuite(CacheManagerTest.class); 
+//		clientSuite.addTestSuite(DataCacheTest.class); 
+//		clientSuite.addTestSuite(StorageTest.class); 
+//		clientSuite.addTestSuite(CacheManagerTest.class); 
 		return clientSuite;
 	}
 	

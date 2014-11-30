@@ -2472,3 +2472,2038 @@
 2014-11-15 11:21:54,828 INFO  [main] root: connection closed!
 >>>>>>> Stashed changes
 >>>>>>> origin/master
+2014-11-29 20:28:00,990 INFO  [main] root: try to close connection ...
+2014-11-29 20:28:01,021 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:28:01,022 INFO  [main] root: try to close connection ...
+2014-11-29 20:28:01,023 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:28:01,032 INFO  [main] root: try to close connection ...
+2014-11-29 20:28:01,033 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:28:01,040 INFO  [main] root: try to close connection ...
+2014-11-29 20:28:01,042 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:28:01,051 INFO  [main] root: try to close connection ...
+2014-11-29 20:28:01,055 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:28:01,063 INFO  [main] root: try to close connection ...
+2014-11-29 20:28:01,067 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:28:01,078 INFO  [main] root: try to close connection ...
+2014-11-29 20:28:01,080 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:37:34,647 DEBUG [main] root: Trying to connect to ip localhost , port 540
+2014-11-29 20:37:35,679 INFO  [main] root: try to close connection ...
+2014-11-29 20:37:35,680 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:37:35,686 DEBUG [main] root: Trying to connect to ip localhost , port 540
+2014-11-29 20:37:36,697 INFO  [main] root: try to close connection ...
+2014-11-29 20:37:36,698 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:37:36,703 DEBUG [main] root: Trying to connect to ip localhost , port 540
+2014-11-29 20:37:37,715 INFO  [main] root: try to close connection ...
+2014-11-29 20:37:37,716 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:37:37,722 DEBUG [main] root: Trying to connect to ip localhost , port 540
+2014-11-29 20:37:38,722 INFO  [main] root: try to close connection ...
+2014-11-29 20:37:38,723 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:37:38,731 DEBUG [main] root: Trying to connect to ip localhost , port 540
+2014-11-29 20:37:39,733 INFO  [main] root: try to close connection ...
+2014-11-29 20:37:39,735 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:37:39,740 DEBUG [main] root: Trying to connect to ip localhost , port 540
+2014-11-29 20:37:40,744 INFO  [main] root: try to close connection ...
+2014-11-29 20:37:40,746 INFO  [main] root: tearing down the connection ...
+2014-11-29 20:37:40,747 INFO  [main] root: try to close connection ...
+2014-11-29 20:37:40,749 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:32:31,952 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:32:31,958 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51025
+2014-11-30 14:32:32,015 INFO  [main] root: try to close connection ...
+2014-11-30 14:32:32,016 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:32:32,017 INFO  [main] root: connection closed!
+2014-11-30 14:32:32,054 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:32:32,059 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51026
+2014-11-30 14:32:32,061 INFO  [main] root: try to close connection ...
+2014-11-30 14:32:32,062 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:32:32,064 INFO  [main] root: connection closed!
+2014-11-30 14:32:32,066 INFO  [main] root: try to close connection ...
+2014-11-30 14:32:32,071 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:32:32,087 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:32:32,103 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51027
+2014-11-30 14:32:32,103 INFO  [main] root: try to close connection ...
+2014-11-30 14:32:32,118 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:32:32,120 INFO  [main] root: connection closed!
+2014-11-30 14:32:32,126 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:32:32,137 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51028
+2014-11-30 14:32:32,141 INFO  [main] root: try to close connection ...
+2014-11-30 14:32:32,146 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:32:32,149 INFO  [main] root: connection closed!
+2014-11-30 14:32:32,162 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:32:32,202 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51029
+2014-11-30 14:32:32,204 INFO  [main] root: try to close connection ...
+2014-11-30 14:32:32,206 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:32:32,208 INFO  [main] root: connection closed!
+2014-11-30 14:32:32,220 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:32:32,224 INFO  [main] root: try to close connection ...
+2014-11-30 14:32:32,224 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51030
+2014-11-30 14:32:32,225 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:32:32,265 INFO  [main] root: connection closed!
+2014-11-30 14:34:44,118 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:34:44,145 INFO  [main] root: try to close connection ...
+2014-11-30 14:34:44,147 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:34:44,149 INFO  [main] root: connection closed!
+2014-11-30 14:34:44,152 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51114
+2014-11-30 14:34:44,209 INFO  [main] root: try to close connection ...
+2014-11-30 14:34:44,210 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:34:44,217 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:34:44,220 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51115
+2014-11-30 14:34:44,239 INFO  [main] root: try to close connection ...
+2014-11-30 14:34:44,241 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:34:44,247 INFO  [main] root: connection closed!
+2014-11-30 14:34:44,271 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:34:44,277 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51116
+2014-11-30 14:34:44,279 INFO  [main] root: try to close connection ...
+2014-11-30 14:34:44,281 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:34:44,286 INFO  [main] root: connection closed!
+2014-11-30 14:34:44,330 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:34:44,346 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51117
+2014-11-30 14:34:44,349 INFO  [main] root: try to close connection ...
+2014-11-30 14:34:44,354 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:34:44,361 INFO  [main] root: connection closed!
+2014-11-30 14:34:44,368 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:34:44,373 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51118
+2014-11-30 14:34:44,374 INFO  [main] root: try to close connection ...
+2014-11-30 14:34:44,377 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:34:44,378 INFO  [main] root: connection closed!
+2014-11-30 14:34:44,417 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:34:44,421 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51119
+2014-11-30 14:34:44,423 INFO  [main] root: try to close connection ...
+2014-11-30 14:34:44,425 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:34:44,427 INFO  [main] root: connection closed!
+2014-11-30 14:36:23,259 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:36:23,288 INFO  [main] root: try to close connection ...
+2014-11-30 14:36:23,290 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:36:23,294 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51179
+2014-11-30 14:36:23,295 INFO  [main] root: connection closed!
+2014-11-30 14:36:23,340 INFO  [main] root: try to close connection ...
+2014-11-30 14:36:23,341 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:36:23,346 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:36:23,350 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51180
+2014-11-30 14:36:23,367 INFO  [main] root: try to close connection ...
+2014-11-30 14:36:23,369 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:36:23,372 INFO  [main] root: connection closed!
+2014-11-30 14:36:23,406 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:36:23,411 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51181
+2014-11-30 14:36:23,414 INFO  [main] root: try to close connection ...
+2014-11-30 14:36:23,416 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:36:23,440 INFO  [main] root: connection closed!
+2014-11-30 14:36:23,464 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:36:23,506 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51182
+2014-11-30 14:36:23,509 INFO  [main] root: try to close connection ...
+2014-11-30 14:36:23,512 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:36:23,521 INFO  [main] root: connection closed!
+2014-11-30 14:36:23,526 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:36:23,529 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51183
+2014-11-30 14:36:23,531 INFO  [main] root: try to close connection ...
+2014-11-30 14:36:23,533 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:36:23,535 INFO  [main] root: connection closed!
+2014-11-30 14:36:23,541 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:36:23,547 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51184
+2014-11-30 14:36:23,548 INFO  [main] root: try to close connection ...
+2014-11-30 14:36:23,550 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:36:23,552 INFO  [main] root: connection closed!
+2014-11-30 14:38:47,211 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:38:47,249 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51260
+2014-11-30 14:38:47,273 INFO  [main] root: try to close connection ...
+2014-11-30 14:38:47,274 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:38:47,275 INFO  [main] root: connection closed!
+2014-11-30 14:38:47,300 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:38:47,306 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51261
+2014-11-30 14:38:47,308 INFO  [main] root: try to close connection ...
+2014-11-30 14:38:47,313 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:38:47,316 INFO  [main] root: connection closed!
+2014-11-30 14:38:47,327 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:38:47,335 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51262
+2014-11-30 14:38:47,337 INFO  [main] root: try to close connection ...
+2014-11-30 14:38:47,338 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:38:47,341 INFO  [main] root: connection closed!
+2014-11-30 14:38:47,355 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:38:47,360 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51263
+2014-11-30 14:38:47,396 INFO  [main] root: try to close connection ...
+2014-11-30 14:38:47,398 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:38:47,413 INFO  [main] root: connection closed!
+2014-11-30 14:38:47,430 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:38:47,436 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51264
+2014-11-30 14:38:47,438 INFO  [main] root: try to close connection ...
+2014-11-30 14:38:47,441 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:38:47,443 INFO  [main] root: connection closed!
+2014-11-30 14:38:47,444 INFO  [main] root: try to close connection ...
+2014-11-30 14:38:47,446 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:38:47,449 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:38:47,452 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:38:47,453 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51265
+2014-11-30 14:38:47,457 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51266
+2014-11-30 14:38:47,490 INFO  [main] root: try to close connection ...
+2014-11-30 14:38:47,492 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:38:47,498 INFO  [main] root: connection closed!
+2014-11-30 14:48:20,918 INFO  [main] root: try to close connection ...
+2014-11-30 14:48:20,922 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:48:20,951 INFO  [main] root: try to close connection ...
+2014-11-30 14:48:20,953 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:48:20,963 INFO  [main] root: try to close connection ...
+2014-11-30 14:48:20,965 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:48:20,973 INFO  [main] root: try to close connection ...
+2014-11-30 14:48:20,975 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:48:20,985 INFO  [main] root: try to close connection ...
+2014-11-30 14:48:20,994 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:48:20,997 INFO  [main] root: try to close connection ...
+2014-11-30 14:48:21,001 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:48:21,008 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:48:21,033 INFO  [main] root: Send :	 'GET an unset value null'
+2014-11-30 14:48:21,034 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51593
+2014-11-30 14:48:21,045 INFO  [Thread-7] root: Receive :	 'GET an unset value null'
+2014-11-30 14:48:21,294 INFO  [main] root: try to close connection ...
+2014-11-30 14:48:21,297 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:48:21,299 INFO  [main] root: connection closed!
+2014-11-30 14:48:21,310 INFO  [main] root: try to close connection ...
+2014-11-30 14:48:21,312 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:52:39,194 INFO  [main] root: try to close connection ...
+2014-11-30 14:52:39,198 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:52:39,217 INFO  [main] root: try to close connection ...
+2014-11-30 14:52:39,218 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:52:39,225 INFO  [main] root: try to close connection ...
+2014-11-30 14:52:39,226 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:52:39,232 INFO  [main] root: try to close connection ...
+2014-11-30 14:52:39,234 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:52:39,240 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:52:39,269 INFO  [main] root: Send :	 'GET an unset value null'
+2014-11-30 14:52:39,270 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51786
+2014-11-30 14:52:39,277 INFO  [Thread-6] root: Receive :	 'GET an unset value null'
+2014-11-30 14:52:39,282 INFO  [Thread-6] root: Send :	 'SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 14:52:39,290 INFO  [Thread-5] root: New received message : SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 14:52:39,326 INFO  [main] root: try to close connection ...
+2014-11-30 14:52:39,328 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:52:39,331 INFO  [main] root: connection closed!
+2014-11-30 14:52:39,341 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:52:39,347 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 51787
+2014-11-30 14:52:39,374 INFO  [main] root: try to close connection ...
+2014-11-30 14:52:39,376 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:52:39,379 INFO  [main] root: connection closed!
+2014-11-30 14:52:39,394 INFO  [main] root: try to close connection ...
+2014-11-30 14:52:39,431 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:52:39,435 INFO  [main] root: try to close connection ...
+2014-11-30 14:52:39,437 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:59:21,866 INFO  [main] root: try to close connection ...
+2014-11-30 14:59:21,869 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:59:21,892 INFO  [main] root: try to close connection ...
+2014-11-30 14:59:21,894 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:59:21,906 INFO  [main] root: try to close connection ...
+2014-11-30 14:59:21,907 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:59:21,921 INFO  [main] root: try to close connection ...
+2014-11-30 14:59:21,923 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:59:21,935 INFO  [main] root: try to close connection ...
+2014-11-30 14:59:21,937 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:59:21,940 INFO  [main] root: try to close connection ...
+2014-11-30 14:59:21,945 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:59:21,951 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:59:21,985 INFO  [main] root: Send :	 'GET an unset value null'
+2014-11-30 14:59:21,986 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52000
+2014-11-30 14:59:21,991 INFO  [Thread-7] root: Receive :	 'GET an unset value null'
+2014-11-30 14:59:21,994 INFO  [Thread-7] root: Send :	 'SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 14:59:21,998 INFO  [Thread-6] root: New received message : SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 14:59:22,039 INFO  [main] root: try to close connection ...
+2014-11-30 14:59:22,041 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:59:22,043 INFO  [main] root: connection closed!
+2014-11-30 14:59:22,057 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 14:59:22,071 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52001
+2014-11-30 14:59:22,104 INFO  [main] root: try to close connection ...
+2014-11-30 14:59:22,106 INFO  [main] root: tearing down the connection ...
+2014-11-30 14:59:22,114 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,066 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:39,090 INFO  [main] root: Send :	 'GET foo1 null'
+2014-11-30 15:00:39,093 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52035
+2014-11-30 15:00:39,095 INFO  [Thread-2] root: Receive :	 'GET foo1 null'
+2014-11-30 15:00:39,097 INFO  [Thread-2] root: Send :	 'SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:00:39,100 INFO  [Thread-1] root: New received message : SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:00:39,144 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,144 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,146 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,150 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:39,157 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52036
+2014-11-30 15:00:39,189 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,194 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,197 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,236 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:39,241 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52037
+2014-11-30 15:00:39,243 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:00:39,266 INFO  [Thread-5] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:00:39,269 INFO  [Thread-5] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:00:39,273 INFO  [Thread-4] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:00:39,311 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,313 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,318 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,326 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:39,329 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52038
+2014-11-30 15:00:39,336 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,337 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,338 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,346 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:39,349 INFO  [main] root: Send :	 'GET foo null'
+2014-11-30 15:00:39,350 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52039
+2014-11-30 15:00:39,390 INFO  [Thread-8] root: Receive :	 'GET foo null'
+2014-11-30 15:00:39,393 INFO  [Thread-8] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:00:39,397 INFO  [Thread-7] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:00:39,423 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,424 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,426 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,430 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:39,434 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52040
+2014-11-30 15:00:39,442 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,445 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,446 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,453 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:39,457 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:00:39,458 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52041
+2014-11-30 15:00:39,491 INFO  [Thread-11] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:00:39,494 INFO  [Thread-11] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:00:39,498 INFO  [Thread-10] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:00:39,533 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,535 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,537 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,546 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:39,550 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52042
+2014-11-30 15:00:39,557 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,559 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,560 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,576 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:39,582 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52043
+2014-11-30 15:00:39,582 INFO  [main] root: Send :	 'GET an unset value null'
+2014-11-30 15:00:39,648 INFO  [Thread-14] root: Receive :	 'GET an unset value null'
+2014-11-30 15:00:39,652 INFO  [Thread-14] root: Send :	 'SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:00:39,657 INFO  [Thread-13] root: New received message : SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:00:39,690 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,693 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,696 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,699 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:39,710 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52044
+2014-11-30 15:00:39,735 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,737 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,740 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,760 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,762 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,853 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:39,858 INFO  [main] root: Send :	 'GET foo null'
+2014-11-30 15:00:39,859 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52045
+2014-11-30 15:00:39,941 INFO  [Thread-17] root: Receive :	 'GET foo null'
+2014-11-30 15:00:39,945 INFO  [Thread-17] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:00:39,949 INFO  [Thread-16] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:00:39,992 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:39,993 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:39,994 INFO  [main] root: connection closed!
+2014-11-30 15:00:39,997 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:00:40,000 INFO  [main] root: try to close connection ...
+2014-11-30 15:00:40,001 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52046
+2014-11-30 15:00:40,002 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:00:40,070 INFO  [main] root: connection closed!
+2014-11-30 15:05:17,112 INFO  [main] root: try to close connection ...
+2014-11-30 15:05:17,115 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:05:17,154 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:05:17,172 INFO  [main] root: Send :	 'GET foo null'
+2014-11-30 15:05:17,174 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52135
+2014-11-30 15:05:17,175 INFO  [main] root: try to close connection ...
+2014-11-30 15:05:17,176 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:05:17,176 INFO  [Thread-2] root: Receive :	 'GET foo null'
+2014-11-30 15:05:17,176 INFO  [main] root: connection closed!
+2014-11-30 15:05:17,178 INFO  [Thread-2] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:05:17,184 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:05:17,186 INFO  [main] root: Send :	 'GET an unset value null'
+2014-11-30 15:05:17,187 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52136
+2014-11-30 15:05:17,188 INFO  [Thread-4] root: Receive :	 'GET an unset value null'
+2014-11-30 15:05:17,190 INFO  [Thread-4] root: Send :	 'SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:05:17,192 INFO  [Thread-3] root: New received message : SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:05:17,200 INFO  [main] root: try to close connection ...
+2014-11-30 15:05:17,201 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:05:17,202 INFO  [main] root: connection closed!
+2014-11-30 15:05:17,263 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:05:17,270 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52138
+2014-11-30 15:05:17,272 INFO  [main] root: Send :	 'GET foo1 null'
+2014-11-30 15:05:17,275 INFO  [Thread-6] root: Receive :	 'GET foo1 null'
+2014-11-30 15:05:17,279 INFO  [Thread-6] root: Send :	 'SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:05:17,282 INFO  [Thread-5] root: New received message : SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:05:17,295 INFO  [main] root: try to close connection ...
+2014-11-30 15:05:17,297 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:05:17,299 INFO  [main] root: connection closed!
+2014-11-30 15:05:17,310 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:05:17,314 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52139
+2014-11-30 15:05:17,317 INFO  [main] root: Send :	 'GET foo null'
+2014-11-30 15:05:17,327 INFO  [main] root: try to close connection ...
+2014-11-30 15:05:17,328 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:05:17,330 INFO  [main] root: connection closed!
+2014-11-30 15:05:17,333 INFO  [Thread-8] root: Receive :	 'GET foo null'
+2014-11-30 15:05:17,337 INFO  [Thread-8] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:05:17,340 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:05:17,344 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52140
+2014-11-30 15:05:17,347 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:05:17,350 INFO  [Thread-10] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:05:17,353 INFO  [main] root: try to close connection ...
+2014-11-30 15:05:17,358 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:05:17,359 INFO  [main] root: connection closed!
+2014-11-30 15:05:17,363 INFO  [Thread-10] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:05:17,367 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:05:17,371 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:05:17,371 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52141
+2014-11-30 15:05:17,380 INFO  [main] root: try to close connection ...
+2014-11-30 15:05:17,382 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:05:17,384 INFO  [main] root: connection closed!
+2014-11-30 15:05:17,391 INFO  [Thread-12] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:05:17,395 INFO  [Thread-12] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:07:59,070 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:07:59,095 INFO  [main] root: Send :	 'GET an unset value null'
+2014-11-30 15:07:59,099 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52219
+2014-11-30 15:07:59,100 INFO  [Thread-2] root: Receive :	 'GET an unset value null'
+2014-11-30 15:07:59,102 INFO  [Thread-2] root: Send :	 'SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:07:59,106 INFO  [Thread-1] root: New received message : SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:07:59,148 INFO  [main] root: try to close connection ...
+2014-11-30 15:07:59,148 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:07:59,150 INFO  [main] root: connection closed!
+2014-11-30 15:07:59,171 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:07:59,179 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52220
+2014-11-30 15:07:59,229 INFO  [main] root: try to close connection ...
+2014-11-30 15:07:59,230 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:07:59,234 INFO  [main] root: connection closed!
+2014-11-30 15:07:59,278 INFO  [main] root: try to close connection ...
+2014-11-30 15:07:59,280 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:07:59,284 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:07:59,289 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52221
+2014-11-30 15:07:59,293 INFO  [main] root: Send :	 'GET foo null'
+2014-11-30 15:07:59,313 INFO  [Thread-5] root: Receive :	 'GET foo null'
+2014-11-30 15:07:59,317 INFO  [Thread-5] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:07:59,325 INFO  [Thread-4] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:07:59,345 INFO  [main] root: try to close connection ...
+2014-11-30 15:07:59,346 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:07:59,349 INFO  [main] root: connection closed!
+2014-11-30 15:07:59,352 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:07:59,356 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52222
+2014-11-30 15:07:59,359 INFO  [main] root: try to close connection ...
+2014-11-30 15:07:59,360 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:07:59,361 INFO  [main] root: connection closed!
+2014-11-30 15:07:59,366 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:07:59,372 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52223
+2014-11-30 15:07:59,375 INFO  [main] root: Send :	 'GET foo1 null'
+2014-11-30 15:07:59,409 INFO  [Thread-8] root: Receive :	 'GET foo1 null'
+2014-11-30 15:07:59,412 INFO  [Thread-8] root: Send :	 'SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:07:59,417 INFO  [Thread-7] root: New received message : SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:07:59,443 INFO  [main] root: try to close connection ...
+2014-11-30 15:07:59,445 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:07:59,447 INFO  [main] root: connection closed!
+2014-11-30 15:07:59,451 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:07:59,458 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52224
+2014-11-30 15:07:59,467 INFO  [main] root: try to close connection ...
+2014-11-30 15:07:59,468 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:07:59,471 INFO  [main] root: connection closed!
+2014-11-30 15:07:59,484 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:07:59,490 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52225
+2014-11-30 15:07:59,490 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:07:59,517 INFO  [Thread-11] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:07:59,541 INFO  [Thread-11] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:07:59,547 INFO  [Thread-10] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:07:59,595 INFO  [main] root: try to close connection ...
+2014-11-30 15:07:59,596 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:07:59,598 INFO  [main] root: connection closed!
+2014-11-30 15:07:59,601 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:07:59,608 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52226
+2014-11-30 15:07:59,619 INFO  [main] root: try to close connection ...
+2014-11-30 15:07:59,622 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:07:59,624 INFO  [main] root: connection closed!
+2014-11-30 15:07:59,631 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:07:59,653 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52227
+2014-11-30 15:07:59,653 INFO  [main] root: Send :	 'GET foo null'
+2014-11-30 15:07:59,739 INFO  [Thread-14] root: Receive :	 'GET foo null'
+2014-11-30 15:07:59,741 INFO  [Thread-14] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:07:59,744 INFO  [Thread-13] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:07:59,829 INFO  [main] root: try to close connection ...
+2014-11-30 15:07:59,831 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:07:59,833 INFO  [main] root: connection closed!
+2014-11-30 15:07:59,835 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:07:59,841 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52229
+2014-11-30 15:07:59,843 INFO  [main] root: try to close connection ...
+2014-11-30 15:07:59,844 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:07:59,845 INFO  [main] root: connection closed!
+2014-11-30 15:07:59,861 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:07:59,869 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:07:59,869 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52230
+2014-11-30 15:07:59,987 INFO  [Thread-17] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:07:59,990 INFO  [Thread-17] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:07:59,995 INFO  [Thread-16] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:08:00,019 INFO  [main] root: try to close connection ...
+2014-11-30 15:08:00,020 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:08:00,022 INFO  [main] root: connection closed!
+2014-11-30 15:08:00,028 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:08:00,031 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52231
+2014-11-30 15:08:00,136 INFO  [main] root: try to close connection ...
+2014-11-30 15:08:00,137 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:08:00,139 INFO  [main] root: connection closed!
+2014-11-30 15:10:32,080 INFO  [main] root: try to close connection ...
+2014-11-30 15:10:32,084 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:10:32,134 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:10:32,159 INFO  [main] root: Send :	 'GET foo null'
+2014-11-30 15:10:32,159 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52323
+2014-11-30 15:10:32,165 INFO  [Thread-2] root: Receive :	 'GET foo null'
+2014-11-30 15:10:32,168 INFO  [Thread-2] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:10:32,170 INFO  [Thread-1] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:10:32,214 INFO  [main] root: try to close connection ...
+2014-11-30 15:10:32,214 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:35,393 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:35,420 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:35,421 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52415
+2014-11-30 15:15:35,426 INFO  [Thread-2] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:35,428 INFO  [Thread-2] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:35,431 INFO  [Thread-3] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:35,474 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:35,474 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:35,477 INFO  [main] root: connection closed!
+2014-11-30 15:15:35,484 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:35,488 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52416
+2014-11-30 15:15:35,489 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:35,497 INFO  [Thread-4] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:35,502 INFO  [Thread-4] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:35,507 INFO  [Thread-5] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:35,545 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:35,546 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:35,547 INFO  [main] root: connection closed!
+2014-11-30 15:15:35,551 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:35,554 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52417
+2014-11-30 15:15:35,555 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:35,581 INFO  [Thread-7] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:35,584 INFO  [Thread-7] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:35,587 INFO  [Thread-6] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:35,614 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:35,615 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:35,617 INFO  [main] root: connection closed!
+2014-11-30 15:15:35,622 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:35,625 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52418
+2014-11-30 15:15:35,626 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:35,644 INFO  [Thread-9] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:35,645 INFO  [Thread-9] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:35,648 INFO  [Thread-8] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:35,699 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:35,699 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:35,701 INFO  [main] root: connection closed!
+2014-11-30 15:15:35,703 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:35,708 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52419
+2014-11-30 15:15:35,709 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:35,757 INFO  [Thread-10] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:35,759 INFO  [Thread-10] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:35,761 INFO  [Thread-11] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:35,802 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:35,802 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:35,803 INFO  [main] root: connection closed!
+2014-11-30 15:15:35,807 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:35,809 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52420
+2014-11-30 15:15:35,811 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:35,831 INFO  [Thread-12] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:35,833 INFO  [Thread-12] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:35,836 INFO  [Thread-13] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:35,872 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:35,875 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:35,893 INFO  [main] root: connection closed!
+2014-11-30 15:15:35,895 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:35,898 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52421
+2014-11-30 15:15:35,898 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:35,947 INFO  [Thread-15] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:35,948 INFO  [Thread-15] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:35,950 INFO  [Thread-14] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:35,989 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:35,989 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:35,992 INFO  [main] root: connection closed!
+2014-11-30 15:15:35,995 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:36,002 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52422
+2014-11-30 15:15:36,017 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:36,056 INFO  [Thread-16] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:36,066 INFO  [Thread-16] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:36,082 INFO  [Thread-17] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:36,106 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:36,106 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:36,107 INFO  [main] root: connection closed!
+2014-11-30 15:15:36,109 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:36,111 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:36,112 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52423
+2014-11-30 15:15:36,189 INFO  [Thread-19] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:36,191 INFO  [Thread-19] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:36,193 INFO  [Thread-18] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:36,227 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:36,228 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:36,230 INFO  [main] root: connection closed!
+2014-11-30 15:15:36,232 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:36,237 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52424
+2014-11-30 15:15:36,238 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:36,320 INFO  [Thread-20] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:36,324 INFO  [Thread-20] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:36,326 INFO  [Thread-21] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:36,334 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:36,335 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:36,336 INFO  [main] root: connection closed!
+2014-11-30 15:15:36,338 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:36,341 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52425
+2014-11-30 15:15:36,414 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:36,415 INFO  [Thread-22] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:36,416 INFO  [Thread-22] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:36,522 INFO  [Thread-23] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:36,549 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:36,550 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:36,551 INFO  [main] root: connection closed!
+2014-11-30 15:15:36,553 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:36,555 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52426
+2014-11-30 15:15:36,556 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:36,631 INFO  [Thread-25] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:36,632 INFO  [Thread-25] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:36,634 INFO  [Thread-24] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:36,702 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:36,702 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:36,705 INFO  [main] root: connection closed!
+2014-11-30 15:15:36,708 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:36,710 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52427
+2014-11-30 15:15:36,711 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:36,808 INFO  [Thread-27] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:36,810 INFO  [Thread-27] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:36,812 INFO  [Thread-26] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:36,846 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:36,846 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:36,848 INFO  [main] root: connection closed!
+2014-11-30 15:15:36,848 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:36,850 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:36,850 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52428
+2014-11-30 15:15:36,974 INFO  [Thread-29] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:36,976 INFO  [Thread-29] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:36,978 INFO  [Thread-28] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:37,011 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:37,012 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:37,013 INFO  [main] root: connection closed!
+2014-11-30 15:15:37,014 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:37,016 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52429
+2014-11-30 15:15:37,016 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:37,159 INFO  [Thread-30] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:37,161 INFO  [Thread-30] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:37,163 INFO  [Thread-31] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:37,224 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:37,224 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:37,224 INFO  [main] root: connection closed!
+2014-11-30 15:15:37,226 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:37,228 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52430
+2014-11-30 15:15:37,229 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:37,400 INFO  [Thread-33] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:37,402 INFO  [Thread-33] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:37,403 INFO  [Thread-32] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:37,404 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:37,404 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:37,405 INFO  [main] root: connection closed!
+2014-11-30 15:15:37,407 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:37,409 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52431
+2014-11-30 15:15:37,409 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:37,543 INFO  [Thread-34] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:37,545 INFO  [Thread-34] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:37,547 INFO  [Thread-35] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:37,569 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:37,570 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:37,571 INFO  [main] root: connection closed!
+2014-11-30 15:15:37,572 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:37,573 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52432
+2014-11-30 15:15:37,574 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:37,710 INFO  [Thread-37] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:37,711 INFO  [Thread-37] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:37,712 INFO  [Thread-36] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:37,754 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:37,754 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:37,755 INFO  [main] root: connection closed!
+2014-11-30 15:15:37,756 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:37,757 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:37,757 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52433
+2014-11-30 15:15:37,894 INFO  [Thread-39] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:37,895 INFO  [Thread-39] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:37,896 INFO  [Thread-38] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:37,930 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:37,932 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:37,933 INFO  [main] root: connection closed!
+2014-11-30 15:15:37,934 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:37,936 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52434
+2014-11-30 15:15:37,937 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:38,085 INFO  [Thread-40] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:38,086 INFO  [Thread-40] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:38,091 INFO  [Thread-41] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:38,140 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:38,140 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:38,140 INFO  [main] root: connection closed!
+2014-11-30 15:15:38,141 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:38,142 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:38,143 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52435
+2014-11-30 15:15:38,462 INFO  [Thread-43] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:38,463 INFO  [Thread-43] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:38,464 INFO  [Thread-42] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:38,646 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:38,668 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:38,668 INFO  [main] root: connection closed!
+2014-11-30 15:15:38,670 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:38,671 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52436
+2014-11-30 15:15:38,671 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:38,917 INFO  [Thread-45] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:38,919 INFO  [Thread-45] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:38,920 INFO  [Thread-44] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:39,111 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:39,111 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:39,112 INFO  [main] root: connection closed!
+2014-11-30 15:15:39,113 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:39,115 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52437
+2014-11-30 15:15:39,115 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:39,283 INFO  [Thread-46] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:39,284 INFO  [Thread-46] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:39,286 INFO  [Thread-47] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:39,450 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:39,450 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:39,451 INFO  [main] root: connection closed!
+2014-11-30 15:15:39,635 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:39,637 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52438
+2014-11-30 15:15:39,637 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:39,837 INFO  [Thread-48] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:39,838 INFO  [Thread-48] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:39,996 INFO  [Thread-49] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:40,193 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:40,193 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:40,194 INFO  [main] root: connection closed!
+2014-11-30 15:15:40,194 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:40,203 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52439
+2014-11-30 15:15:40,203 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:40,393 INFO  [Thread-50] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:40,393 INFO  [Thread-50] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:40,565 INFO  [Thread-51] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:40,783 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:40,783 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:40,783 INFO  [main] root: connection closed!
+2014-11-30 15:15:40,977 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:40,978 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:40,978 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52441
+2014-11-30 15:15:41,348 INFO  [Thread-53] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:41,348 INFO  [Thread-53] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:41,349 INFO  [Thread-52] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:41,583 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:45,209 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:45,210 INFO  [main] root: connection closed!
+2014-11-30 15:15:45,211 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:45,212 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:45,418 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52443
+2014-11-30 15:15:45,603 INFO  [Thread-55] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:45,604 INFO  [Thread-55] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:45,605 INFO  [Thread-54] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:45,843 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:45,843 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:45,844 INFO  [main] root: connection closed!
+2014-11-30 15:15:45,845 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:45,846 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:46,058 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52444
+2014-11-30 15:15:46,266 INFO  [Thread-57] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:46,266 INFO  [Thread-57] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:46,267 INFO  [Thread-56] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:46,524 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:46,524 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:46,525 INFO  [main] root: connection closed!
+2014-11-30 15:15:46,525 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:46,526 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:46,728 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52445
+2014-11-30 15:15:46,950 INFO  [Thread-59] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:46,950 INFO  [Thread-59] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:46,951 INFO  [Thread-58] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:47,202 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:47,202 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:47,202 INFO  [main] root: connection closed!
+2014-11-30 15:15:47,418 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:47,420 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52446
+2014-11-30 15:15:47,420 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:47,646 INFO  [Thread-60] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:47,647 INFO  [Thread-60] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:47,660 INFO  [Thread-61] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:47,859 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:47,859 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:47,861 INFO  [main] root: connection closed!
+2014-11-30 15:15:47,863 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:47,864 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52447
+2014-11-30 15:15:47,865 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:48,106 INFO  [Thread-62] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:48,108 INFO  [Thread-62] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:48,319 INFO  [Thread-63] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:48,589 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:48,589 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:48,589 INFO  [main] root: connection closed!
+2014-11-30 15:15:48,830 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:48,831 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:48,831 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52448
+2014-11-30 15:15:49,295 INFO  [Thread-65] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:49,296 INFO  [Thread-65] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:49,297 INFO  [Thread-64] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:49,569 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:49,569 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:49,572 INFO  [main] root: connection closed!
+2014-11-30 15:15:49,573 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:49,574 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:49,824 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52449
+2014-11-30 15:15:50,057 INFO  [Thread-67] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:50,059 INFO  [Thread-67] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:50,060 INFO  [Thread-66] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:50,060 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:50,060 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:50,314 INFO  [main] root: connection closed!
+2014-11-30 15:15:50,315 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:50,316 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52450
+2014-11-30 15:15:50,334 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:50,567 INFO  [Thread-69] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:50,568 INFO  [Thread-69] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:50,807 INFO  [Thread-68] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:51,171 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:51,171 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:51,171 INFO  [main] root: connection closed!
+2014-11-30 15:15:51,437 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:51,438 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52451
+2014-11-30 15:15:51,438 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:51,673 INFO  [Thread-70] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:51,673 INFO  [Thread-70] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:51,941 INFO  [Thread-71] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:52,248 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:52,248 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:52,255 INFO  [main] root: connection closed!
+2014-11-30 15:15:52,257 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:52,257 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:52,538 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52452
+2014-11-30 15:15:52,816 INFO  [Thread-73] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:52,816 INFO  [Thread-73] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:52,817 INFO  [Thread-72] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:53,132 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:53,132 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:53,132 INFO  [main] root: connection closed!
+2014-11-30 15:15:53,422 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:53,424 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52453
+2014-11-30 15:15:53,424 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:53,978 INFO  [Thread-75] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:53,978 INFO  [Thread-75] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:53,979 INFO  [Thread-74] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:54,307 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:54,307 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:54,309 INFO  [main] root: connection closed!
+2014-11-30 15:15:54,309 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:54,310 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:54,594 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52454
+2014-11-30 15:15:54,887 INFO  [Thread-77] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:54,888 INFO  [Thread-77] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:54,889 INFO  [Thread-76] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:55,225 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:55,225 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:55,228 INFO  [main] root: connection closed!
+2014-11-30 15:15:55,539 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:55,540 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:55,540 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52455
+2014-11-30 15:15:56,101 INFO  [Thread-79] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:56,101 INFO  [Thread-79] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:56,102 INFO  [Thread-78] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:56,454 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:56,454 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:56,456 INFO  [main] root: connection closed!
+2014-11-30 15:15:56,762 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:56,763 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:56,764 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52457
+2014-11-30 15:15:57,369 INFO  [Thread-81] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:57,369 INFO  [Thread-81] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:57,370 INFO  [Thread-80] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:57,713 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:57,713 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:57,714 INFO  [main] root: connection closed!
+2014-11-30 15:15:57,715 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:57,716 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:58,038 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52459
+2014-11-30 15:15:58,349 INFO  [Thread-83] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:58,349 INFO  [Thread-83] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:58,350 INFO  [Thread-82] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:15:58,700 INFO  [main] root: try to close connection ...
+2014-11-30 15:15:58,700 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:15:58,700 INFO  [main] root: connection closed!
+2014-11-30 15:15:59,017 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:15:59,018 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:15:59,018 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52460
+2014-11-30 15:15:59,660 INFO  [Thread-85] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:15:59,661 INFO  [Thread-85] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:15:59,662 INFO  [Thread-84] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:16:00,027 INFO  [main] root: try to close connection ...
+2014-11-30 15:16:00,027 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:16:00,027 INFO  [main] root: connection closed!
+2014-11-30 15:16:00,029 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:16:00,030 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:16:00,369 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52461
+2014-11-30 15:16:00,738 INFO  [Thread-87] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:16:00,738 INFO  [Thread-87] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:16:00,739 INFO  [Thread-86] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:16:00,739 INFO  [main] root: try to close connection ...
+2014-11-30 15:16:00,740 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:17:35,001 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:17:35,021 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52485
+2014-11-30 15:19:44,567 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:44,592 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,594 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52547
+2014-11-30 15:19:44,596 INFO  [Thread-2] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,598 INFO  [Thread-2] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:44,601 INFO  [Thread-3] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:44,645 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:44,645 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:44,647 INFO  [main] root: connection closed!
+2014-11-30 15:19:44,654 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:44,657 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,658 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52548
+2014-11-30 15:19:44,661 INFO  [Thread-5] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,664 INFO  [Thread-5] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:44,667 INFO  [Thread-4] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:44,709 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:44,710 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:44,713 INFO  [main] root: connection closed!
+2014-11-30 15:19:44,715 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:44,718 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,718 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52549
+2014-11-30 15:19:44,770 INFO  [Thread-7] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,777 INFO  [Thread-7] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:44,781 INFO  [Thread-6] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:44,786 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:44,787 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:44,800 INFO  [main] root: connection closed!
+2014-11-30 15:19:44,802 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:44,806 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52550
+2014-11-30 15:19:44,807 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,819 INFO  [Thread-8] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,822 INFO  [Thread-8] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:44,825 INFO  [Thread-9] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:44,860 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:44,866 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:44,872 INFO  [main] root: connection closed!
+2014-11-30 15:19:44,874 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:44,878 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52551
+2014-11-30 15:19:44,879 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,897 INFO  [Thread-10] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,898 INFO  [Thread-10] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:44,901 INFO  [Thread-11] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:44,935 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:44,935 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:44,936 INFO  [main] root: connection closed!
+2014-11-30 15:19:44,937 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:44,940 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52552
+2014-11-30 15:19:44,941 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,975 INFO  [Thread-13] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:44,978 INFO  [Thread-13] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:44,981 INFO  [Thread-12] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:45,007 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:45,007 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:45,014 INFO  [main] root: connection closed!
+2014-11-30 15:19:45,016 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:45,018 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52553
+2014-11-30 15:19:45,019 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,073 INFO  [Thread-15] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,074 INFO  [Thread-15] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:45,076 INFO  [Thread-14] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:45,106 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:45,107 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:45,110 INFO  [main] root: connection closed!
+2014-11-30 15:19:45,112 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:45,115 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52554
+2014-11-30 15:19:45,115 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,178 INFO  [Thread-16] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,188 INFO  [Thread-16] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:45,190 INFO  [Thread-17] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:45,206 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:45,206 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:45,207 INFO  [main] root: connection closed!
+2014-11-30 15:19:45,210 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:45,213 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52555
+2014-11-30 15:19:45,214 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,260 INFO  [Thread-18] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,261 INFO  [Thread-18] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:45,263 INFO  [Thread-19] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:45,326 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:45,326 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:45,327 INFO  [main] root: connection closed!
+2014-11-30 15:19:45,329 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:45,332 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52556
+2014-11-30 15:19:45,333 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,401 INFO  [Thread-21] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,402 INFO  [Thread-21] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:45,405 INFO  [Thread-20] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:45,441 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:45,442 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:45,443 INFO  [main] root: connection closed!
+2014-11-30 15:19:45,445 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:45,448 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52557
+2014-11-30 15:19:45,449 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,517 INFO  [Thread-23] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,518 INFO  [Thread-23] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:45,520 INFO  [Thread-22] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:45,559 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:45,559 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:45,560 INFO  [main] root: connection closed!
+2014-11-30 15:19:45,561 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:45,564 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52558
+2014-11-30 15:19:45,565 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,667 INFO  [Thread-25] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,670 INFO  [Thread-25] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:45,673 INFO  [Thread-24] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:45,691 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:45,691 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:45,693 INFO  [main] root: connection closed!
+2014-11-30 15:19:45,695 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:45,698 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52559
+2014-11-30 15:19:45,699 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,781 INFO  [Thread-26] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,782 INFO  [Thread-26] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:45,784 INFO  [Thread-27] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:45,827 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:45,827 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:45,828 INFO  [main] root: connection closed!
+2014-11-30 15:19:45,829 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:45,831 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,831 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52560
+2014-11-30 15:19:45,934 INFO  [Thread-29] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:45,935 INFO  [Thread-29] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:45,937 INFO  [Thread-28] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:45,961 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:45,961 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:45,962 INFO  [main] root: connection closed!
+2014-11-30 15:19:45,964 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:45,966 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52561
+2014-11-30 15:19:45,967 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,074 INFO  [Thread-30] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,076 INFO  [Thread-30] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:46,078 INFO  [Thread-31] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:46,110 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:46,110 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:46,110 INFO  [main] root: connection closed!
+2014-11-30 15:19:46,112 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:46,114 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52562
+2014-11-30 15:19:46,115 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,235 INFO  [Thread-32] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,237 INFO  [Thread-32] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:46,244 INFO  [Thread-33] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:46,278 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:46,278 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:46,278 INFO  [main] root: connection closed!
+2014-11-30 15:19:46,280 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:46,282 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52563
+2014-11-30 15:19:46,283 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,409 INFO  [Thread-35] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,411 INFO  [Thread-35] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:46,413 INFO  [Thread-34] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:46,447 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:46,447 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:46,448 INFO  [main] root: connection closed!
+2014-11-30 15:19:46,449 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:46,451 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,451 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52564
+2014-11-30 15:19:46,579 INFO  [Thread-37] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,581 INFO  [Thread-37] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:46,584 INFO  [Thread-36] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:46,600 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:46,600 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:46,632 INFO  [main] root: connection closed!
+2014-11-30 15:19:46,633 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:46,635 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,635 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52565
+2014-11-30 15:19:46,771 INFO  [Thread-38] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,772 INFO  [Thread-38] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:46,774 INFO  [Thread-39] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:46,806 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:46,807 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:46,807 INFO  [main] root: connection closed!
+2014-11-30 15:19:46,808 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:46,810 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52567
+2014-11-30 15:19:46,810 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,968 INFO  [Thread-41] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:46,969 INFO  [Thread-41] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:46,971 INFO  [Thread-40] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:47,001 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:47,002 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:47,003 INFO  [main] root: connection closed!
+2014-11-30 15:19:47,004 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:47,006 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52568
+2014-11-30 15:19:47,007 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:47,297 INFO  [Thread-43] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:47,298 INFO  [Thread-43] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:47,300 INFO  [Thread-42] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:47,486 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:47,494 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:47,495 INFO  [main] root: connection closed!
+2014-11-30 15:19:47,496 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:47,498 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52569
+2014-11-30 15:19:47,499 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:47,669 INFO  [Thread-44] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:47,670 INFO  [Thread-44] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:47,677 INFO  [Thread-45] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:47,709 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:47,709 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:47,709 INFO  [main] root: connection closed!
+2014-11-30 15:19:47,710 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:47,712 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:47,712 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52570
+2014-11-30 15:19:47,878 INFO  [Thread-47] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:47,880 INFO  [Thread-47] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:47,881 INFO  [Thread-46] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:47,915 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:47,915 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:47,923 INFO  [main] root: connection closed!
+2014-11-30 15:19:47,923 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:47,925 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:47,925 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52571
+2014-11-30 15:19:48,157 INFO  [Thread-49] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:48,158 INFO  [Thread-49] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:48,161 INFO  [Thread-48] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:48,378 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:48,378 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:48,379 INFO  [main] root: connection closed!
+2014-11-30 15:19:48,380 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:48,552 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52572
+2014-11-30 15:19:48,552 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:48,747 INFO  [Thread-50] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:48,748 INFO  [Thread-50] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:48,750 INFO  [Thread-51] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:48,921 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:48,921 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:48,922 INFO  [main] root: connection closed!
+2014-11-30 15:19:48,924 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:48,926 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:49,130 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52573
+2014-11-30 15:19:49,349 INFO  [Thread-53] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:49,350 INFO  [Thread-53] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:49,351 INFO  [Thread-52] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:49,595 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:49,595 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:49,595 INFO  [main] root: connection closed!
+2014-11-30 15:19:49,802 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:49,804 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52574
+2014-11-30 15:19:49,804 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:50,009 INFO  [Thread-54] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:50,010 INFO  [Thread-54] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:50,231 INFO  [Thread-55] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:50,475 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:50,477 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:50,480 INFO  [main] root: connection closed!
+2014-11-30 15:19:50,481 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:50,482 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:50,713 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52575
+2014-11-30 15:19:50,915 INFO  [Thread-57] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:19:50,916 INFO  [Thread-57] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:19:50,916 INFO  [Thread-56] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:19:51,165 INFO  [main] root: try to close connection ...
+2014-11-30 15:19:51,165 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:19:51,167 INFO  [main] root: connection closed!
+2014-11-30 15:19:51,167 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:19:51,168 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:19:51,412 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52576
+2014-11-30 15:20:33,852 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:33,875 INFO  [main] root: Send :	 'GET updateTestValue null'
+2014-11-30 15:20:33,876 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52590
+2014-11-30 15:20:33,879 INFO  [Thread-2] root: Receive :	 'GET updateTestValue null'
+2014-11-30 15:20:33,881 INFO  [Thread-2] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:20:33,884 INFO  [Thread-1] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:20:33,927 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:33,927 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:33,930 INFO  [main] root: connection closed!
+2014-11-30 15:20:33,935 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:33,939 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52591
+2014-11-30 15:20:33,955 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:33,957 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:33,990 INFO  [main] root: connection closed!
+2014-11-30 15:20:34,024 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:34,029 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52592
+2014-11-30 15:20:34,029 INFO  [main] root: Send :	 'GET foo1 null'
+2014-11-30 15:20:34,043 INFO  [Thread-5] root: Receive :	 'GET foo1 null'
+2014-11-30 15:20:34,046 INFO  [Thread-5] root: Send :	 'SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:20:34,054 INFO  [Thread-4] root: New received message : SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:20:34,072 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:34,074 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:34,088 INFO  [main] root: connection closed!
+2014-11-30 15:20:34,090 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:34,093 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52593
+2014-11-30 15:20:34,120 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:34,122 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:34,123 INFO  [main] root: connection closed!
+2014-11-30 15:20:34,139 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:34,143 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52594
+2014-11-30 15:20:34,147 INFO  [main] root: Send :	 'GET deleteTestValue null'
+2014-11-30 15:20:34,152 INFO  [Thread-8] root: Receive :	 'GET deleteTestValue null'
+2014-11-30 15:20:34,160 INFO  [Thread-8] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:20:34,163 INFO  [Thread-7] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:20:34,205 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:34,206 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:34,219 INFO  [main] root: connection closed!
+2014-11-30 15:20:34,221 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:34,225 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52595
+2014-11-30 15:20:34,230 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:34,231 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:34,234 INFO  [main] root: connection closed!
+2014-11-30 15:20:34,242 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:34,247 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52596
+2014-11-30 15:20:34,249 INFO  [main] root: Send :	 'GET foo null'
+2014-11-30 15:20:34,358 INFO  [Thread-11] root: Receive :	 'GET foo null'
+2014-11-30 15:20:34,362 INFO  [Thread-11] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:20:34,365 INFO  [Thread-10] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:20:34,382 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:34,383 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:34,401 INFO  [main] root: connection closed!
+2014-11-30 15:20:34,412 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:34,417 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52597
+2014-11-30 15:20:34,427 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:34,430 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:34,432 INFO  [main] root: connection closed!
+2014-11-30 15:20:34,443 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:34,452 INFO  [main] root: Send :	 'GET an unset value null'
+2014-11-30 15:20:34,452 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52598
+2014-11-30 15:20:34,624 INFO  [Thread-14] root: Receive :	 'GET an unset value null'
+2014-11-30 15:20:34,628 INFO  [Thread-14] root: Send :	 'SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:20:34,631 INFO  [Thread-13] root: New received message : SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:20:34,633 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:34,635 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:34,639 INFO  [main] root: connection closed!
+2014-11-30 15:20:34,641 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:34,645 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52599
+2014-11-30 15:20:34,658 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:34,660 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:34,661 INFO  [main] root: connection closed!
+2014-11-30 15:20:34,668 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:34,675 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:34,791 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:34,797 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52600
+2014-11-30 15:20:34,799 INFO  [main] root: Send :	 'GET foo null'
+2014-11-30 15:20:34,876 INFO  [Thread-17] root: Receive :	 'GET foo null'
+2014-11-30 15:20:34,882 INFO  [Thread-17] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:20:34,885 INFO  [Thread-16] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:20:34,966 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:34,967 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:34,970 INFO  [main] root: connection closed!
+2014-11-30 15:20:34,974 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:20:34,979 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52601
+2014-11-30 15:20:34,979 INFO  [main] root: try to close connection ...
+2014-11-30 15:20:35,101 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:20:35,104 INFO  [main] root: connection closed!
+2014-11-30 15:22:39,721 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:39,741 INFO  [main] root: Send :	 'PUT foo1 bar1'
+2014-11-30 15:22:39,743 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52629
+2014-11-30 15:22:39,745 INFO  [Thread-2] root: Receive :	 'PUT foo1 bar1'
+2014-11-30 15:22:39,746 INFO  [Thread-2] root: Send :	 'SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:22:39,749 INFO  [Thread-1] root: New received message : SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:22:39,794 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:39,795 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:39,797 INFO  [main] root: connection closed!
+2014-11-30 15:22:39,810 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:39,814 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52630
+2014-11-30 15:22:39,843 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:39,848 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:39,849 INFO  [main] root: connection closed!
+2014-11-30 15:22:39,889 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:39,892 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:22:39,893 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52631
+2014-11-30 15:22:39,897 INFO  [Thread-5] root: Receive :	 'PUT foo bar'
+2014-11-30 15:22:39,899 INFO  [Thread-5] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:22:39,907 INFO  [Thread-4] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:22:39,945 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:39,946 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:39,948 INFO  [main] root: connection closed!
+2014-11-30 15:22:39,951 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:39,954 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52632
+2014-11-30 15:22:39,962 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:39,963 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:39,964 INFO  [main] root: connection closed!
+2014-11-30 15:22:39,971 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:39,974 INFO  [main] root: Send :	 'PUT updateTestValue initial'
+2014-11-30 15:22:39,974 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52633
+2014-11-30 15:22:40,007 INFO  [Thread-8] root: Receive :	 'PUT updateTestValue initial'
+2014-11-30 15:22:40,009 INFO  [Thread-8] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:22:40,012 INFO  [Thread-7] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:22:40,042 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:40,043 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:40,044 INFO  [main] root: connection closed!
+2014-11-30 15:22:40,045 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:40,048 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52634
+2014-11-30 15:22:40,055 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:40,056 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:40,058 INFO  [main] root: connection closed!
+2014-11-30 15:22:40,065 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:40,069 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52635
+2014-11-30 15:22:40,070 INFO  [main] root: Send :	 'PUT deleteTestValue toDelete'
+2014-11-30 15:22:40,109 INFO  [Thread-11] root: Receive :	 'PUT deleteTestValue toDelete'
+2014-11-30 15:22:40,111 INFO  [Thread-11] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:22:40,114 INFO  [Thread-10] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:22:40,149 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:40,150 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:40,152 INFO  [main] root: connection closed!
+2014-11-30 15:22:40,159 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:40,162 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52636
+2014-11-30 15:22:40,170 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:40,175 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:40,176 INFO  [main] root: connection closed!
+2014-11-30 15:22:40,184 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:40,189 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52637
+2014-11-30 15:22:40,190 INFO  [main] root: Send :	 'GET an unset value null'
+2014-11-30 15:22:40,267 INFO  [Thread-14] root: Receive :	 'GET an unset value null'
+2014-11-30 15:22:40,269 INFO  [Thread-14] root: Send :	 'SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:22:40,272 INFO  [Thread-13] root: New received message : SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:22:40,284 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:40,285 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:40,286 INFO  [main] root: connection closed!
+2014-11-30 15:22:40,288 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:40,291 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52638
+2014-11-30 15:22:40,296 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:40,298 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:40,299 INFO  [main] root: connection closed!
+2014-11-30 15:22:40,306 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:40,308 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:40,318 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:40,322 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52639
+2014-11-30 15:22:40,401 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:22:40,404 INFO  [Thread-17] root: Receive :	 'PUT foo bar'
+2014-11-30 15:22:40,407 INFO  [Thread-17] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:22:40,455 INFO  [Thread-16] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:22:40,539 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:40,541 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:40,545 INFO  [main] root: connection closed!
+2014-11-30 15:22:40,551 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:22:40,553 INFO  [main] root: try to close connection ...
+2014-11-30 15:22:40,554 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52640
+2014-11-30 15:22:40,556 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:22:40,634 INFO  [main] root: connection closed!
+2014-11-30 15:29:34,014 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:34,045 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:29:34,045 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52738
+2014-11-30 15:29:34,050 INFO  [Thread-2] root: Receive :	 'PUT foo bar'
+2014-11-30 15:29:34,052 INFO  [Thread-2] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:29:34,055 INFO  [Thread-1] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:29:34,098 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:34,099 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:34,101 INFO  [main] root: connection closed!
+2014-11-30 15:29:34,101 INFO  [Thread-1] root: KVStore stopped
+2014-11-30 15:29:34,113 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:34,122 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52739
+2014-11-30 15:29:34,143 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:34,145 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:34,149 INFO  [main] root: connection closed!
+2014-11-30 15:29:34,212 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:34,215 INFO  [main] root: Send :	 'PUT updateTestValue initial'
+2014-11-30 15:29:34,216 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52740
+2014-11-30 15:29:34,222 INFO  [Thread-5] root: Receive :	 'PUT updateTestValue initial'
+2014-11-30 15:29:34,229 INFO  [Thread-5] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:29:34,238 INFO  [Thread-4] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:29:34,279 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:34,282 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:34,283 INFO  [Thread-4] root: KVStore stopped
+2014-11-30 15:29:34,288 INFO  [main] root: connection closed!
+2014-11-30 15:29:34,323 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:34,326 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52741
+2014-11-30 15:29:34,336 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:34,337 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:34,338 INFO  [main] root: connection closed!
+2014-11-30 15:29:34,344 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:34,348 INFO  [main] root: Send :	 'PUT foo1 bar1'
+2014-11-30 15:29:34,348 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52742
+2014-11-30 15:29:34,372 INFO  [Thread-8] root: Receive :	 'PUT foo1 bar1'
+2014-11-30 15:29:34,375 INFO  [Thread-8] root: Send :	 'SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:29:34,393 INFO  [Thread-7] root: New received message : SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:29:34,412 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:34,413 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:34,416 INFO  [Thread-7] root: KVStore stopped
+2014-11-30 15:29:34,417 INFO  [main] root: connection closed!
+2014-11-30 15:29:34,420 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:34,427 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52743
+2014-11-30 15:29:34,440 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:34,445 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:34,447 INFO  [main] root: connection closed!
+2014-11-30 15:29:34,455 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:34,460 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52744
+2014-11-30 15:29:34,464 INFO  [main] root: Send :	 'PUT deleteTestValue toDelete'
+2014-11-30 15:29:34,504 INFO  [Thread-11] root: Receive :	 'PUT deleteTestValue toDelete'
+2014-11-30 15:29:34,506 INFO  [Thread-11] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:29:34,509 INFO  [Thread-10] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:29:34,554 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:34,556 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:34,562 INFO  [Thread-10] root: KVStore stopped
+2014-11-30 15:29:34,564 INFO  [main] root: connection closed!
+2014-11-30 15:29:34,572 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:34,575 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52745
+2014-11-30 15:29:34,579 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:34,581 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:34,586 INFO  [main] root: connection closed!
+2014-11-30 15:29:34,593 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:34,596 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52746
+2014-11-30 15:29:34,598 INFO  [main] root: Send :	 'GET an unset value null'
+2014-11-30 15:29:34,685 INFO  [Thread-14] root: Receive :	 'GET an unset value null'
+2014-11-30 15:29:34,692 INFO  [Thread-14] root: Send :	 'SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:29:34,702 INFO  [Thread-13] root: New received message : SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:29:34,725 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:34,729 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:34,731 INFO  [Thread-13] root: KVStore stopped
+2014-11-30 15:29:34,734 INFO  [main] root: connection closed!
+2014-11-30 15:29:34,740 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:34,745 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52747
+2014-11-30 15:29:34,761 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:34,762 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:34,764 INFO  [main] root: connection closed!
+2014-11-30 15:29:34,780 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:34,876 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:34,887 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:34,892 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:29:34,892 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52748
+2014-11-30 15:29:34,973 INFO  [Thread-17] root: Receive :	 'PUT foo bar'
+2014-11-30 15:29:34,976 INFO  [Thread-17] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:29:34,979 INFO  [Thread-16] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:29:35,005 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:35,006 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:35,008 INFO  [main] root: connection closed!
+2014-11-30 15:29:35,008 INFO  [Thread-16] root: KVStore stopped
+2014-11-30 15:29:35,046 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:29:35,050 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52749
+2014-11-30 15:29:35,052 INFO  [main] root: try to close connection ...
+2014-11-30 15:29:35,054 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:29:35,056 INFO  [main] root: connection closed!
+2014-11-30 15:35:30,954 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:30,978 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:30,979 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52831
+2014-11-30 15:35:30,983 INFO  [Thread-1] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:30,985 INFO  [Thread-1] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:30,987 INFO  [Thread-2] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:31,033 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:31,033 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:31,035 INFO  [main] root: connection closed!
+2014-11-30 15:35:31,035 INFO  [Thread-2] root: KVStore stopped
+2014-11-30 15:35:31,039 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:31,045 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:31,045 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52832
+2014-11-30 15:35:31,048 INFO  [Thread-4] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:31,055 INFO  [Thread-4] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:31,062 INFO  [Thread-3] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:31,097 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:31,098 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:31,101 INFO  [Thread-3] root: KVStore stopped
+2014-11-30 15:35:31,102 INFO  [main] root: connection closed!
+2014-11-30 15:35:31,105 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:31,113 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52833
+2014-11-30 15:35:31,114 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:31,153 INFO  [Thread-6] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:31,165 INFO  [Thread-6] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:31,171 INFO  [Thread-5] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:31,179 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:31,181 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:31,213 INFO  [main] root: connection closed!
+2014-11-30 15:35:31,213 INFO  [Thread-5] root: KVStore stopped
+2014-11-30 15:35:31,216 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:31,220 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52834
+2014-11-30 15:35:31,221 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:31,231 INFO  [Thread-7] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:31,242 INFO  [Thread-7] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:31,245 INFO  [Thread-8] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:31,281 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:31,281 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:31,286 INFO  [Thread-8] root: KVStore stopped
+2014-11-30 15:35:31,286 INFO  [main] root: connection closed!
+2014-11-30 15:35:31,331 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:31,336 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52835
+2014-11-30 15:35:31,337 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:31,348 INFO  [Thread-10] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:31,349 INFO  [Thread-10] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:31,351 INFO  [Thread-9] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:31,400 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:31,400 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:31,401 INFO  [main] root: connection closed!
+2014-11-30 15:35:31,401 INFO  [Thread-9] root: KVStore stopped
+2014-11-30 15:35:31,404 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:31,407 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52836
+2014-11-30 15:35:31,407 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:31,434 INFO  [Thread-11] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:31,435 INFO  [Thread-11] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:31,438 INFO  [Thread-12] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:31,474 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:31,474 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:31,475 INFO  [main] root: connection closed!
+2014-11-30 15:35:31,475 INFO  [Thread-12] root: KVStore stopped
+2014-11-30 15:35:31,477 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:31,479 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:31,480 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52837
+2014-11-30 15:35:31,503 INFO  [Thread-14] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:31,506 INFO  [Thread-14] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:31,509 INFO  [Thread-13] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:31,556 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:31,561 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:31,574 INFO  [main] root: connection closed!
+2014-11-30 15:35:31,574 INFO  [Thread-13] root: KVStore stopped
+2014-11-30 15:35:31,575 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:31,578 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52838
+2014-11-30 15:35:31,580 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:31,620 INFO  [Thread-15] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:31,631 INFO  [Thread-15] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:31,634 INFO  [Thread-16] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:31,683 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:31,683 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:31,684 INFO  [main] root: connection closed!
+2014-11-30 15:35:31,684 INFO  [Thread-16] root: KVStore stopped
+2014-11-30 15:35:31,685 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:31,689 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52839
+2014-11-30 15:35:31,690 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:31,750 INFO  [Thread-17] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:31,751 INFO  [Thread-17] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:31,753 INFO  [Thread-18] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:31,801 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:31,801 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:31,802 INFO  [main] root: connection closed!
+2014-11-30 15:35:31,802 INFO  [Thread-18] root: KVStore stopped
+2014-11-30 15:35:31,804 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:31,807 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52840
+2014-11-30 15:35:31,808 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:31,887 INFO  [Thread-19] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:31,888 INFO  [Thread-19] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:31,891 INFO  [Thread-20] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:31,904 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:31,904 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:31,905 INFO  [Thread-20] root: KVStore stopped
+2014-11-30 15:35:31,906 INFO  [main] root: connection closed!
+2014-11-30 15:35:31,907 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:31,911 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52841
+2014-11-30 15:35:31,912 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:31,973 INFO  [Thread-21] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:31,974 INFO  [Thread-21] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:31,982 INFO  [Thread-22] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:32,039 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:32,039 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:32,040 INFO  [Thread-22] root: KVStore stopped
+2014-11-30 15:35:32,041 INFO  [main] root: connection closed!
+2014-11-30 15:35:32,042 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:32,045 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52842
+2014-11-30 15:35:32,045 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:32,156 INFO  [Thread-24] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:32,159 INFO  [Thread-24] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:32,161 INFO  [Thread-23] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:32,194 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:32,195 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:32,196 INFO  [Thread-23] root: KVStore stopped
+2014-11-30 15:35:32,197 INFO  [main] root: connection closed!
+2014-11-30 15:35:32,198 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:32,201 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52843
+2014-11-30 15:35:32,202 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:32,303 INFO  [Thread-26] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:32,304 INFO  [Thread-26] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:32,306 INFO  [Thread-25] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:32,340 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:32,340 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:32,341 INFO  [Thread-25] root: KVStore stopped
+2014-11-30 15:35:32,342 INFO  [main] root: connection closed!
+2014-11-30 15:35:32,344 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:32,347 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52844
+2014-11-30 15:35:32,347 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:32,444 INFO  [Thread-28] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:32,445 INFO  [Thread-28] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:32,449 INFO  [Thread-27] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:32,478 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:32,478 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:32,479 INFO  [main] root: connection closed!
+2014-11-30 15:35:32,479 INFO  [Thread-27] root: KVStore stopped
+2014-11-30 15:35:32,481 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:32,483 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52845
+2014-11-30 15:35:32,484 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:32,571 INFO  [Thread-30] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:32,572 INFO  [Thread-30] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:32,574 INFO  [Thread-29] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:32,610 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:32,610 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:32,624 INFO  [main] root: connection closed!
+2014-11-30 15:35:32,624 INFO  [Thread-29] root: KVStore stopped
+2014-11-30 15:35:32,625 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:32,627 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52846
+2014-11-30 15:35:32,629 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:32,753 INFO  [Thread-31] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:32,757 INFO  [Thread-31] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:32,759 INFO  [Thread-32] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:32,802 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:32,802 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:32,803 INFO  [main] root: connection closed!
+2014-11-30 15:35:32,803 INFO  [Thread-32] root: KVStore stopped
+2014-11-30 15:35:32,804 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:32,807 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52847
+2014-11-30 15:35:32,807 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:32,925 INFO  [Thread-33] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:32,938 INFO  [Thread-33] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:32,940 INFO  [Thread-34] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:32,985 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:32,985 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:32,986 INFO  [main] root: connection closed!
+2014-11-30 15:35:32,986 INFO  [Thread-34] root: KVStore stopped
+2014-11-30 15:35:32,986 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:32,988 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:32,989 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52848
+2014-11-30 15:35:33,114 INFO  [Thread-36] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:33,121 INFO  [Thread-36] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:33,123 INFO  [Thread-35] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:33,179 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:33,179 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:33,179 INFO  [main] root: connection closed!
+2014-11-30 15:35:33,179 INFO  [Thread-35] root: KVStore stopped
+2014-11-30 15:35:33,181 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:33,183 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:33,183 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52849
+2014-11-30 15:35:33,341 INFO  [Thread-37] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:33,342 INFO  [Thread-37] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:33,344 INFO  [Thread-38] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:33,378 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:33,379 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:33,380 INFO  [main] root: connection closed!
+2014-11-30 15:35:33,380 INFO  [Thread-38] root: KVStore stopped
+2014-11-30 15:35:33,381 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:33,383 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52850
+2014-11-30 15:35:33,547 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:33,549 INFO  [Thread-39] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:33,550 INFO  [Thread-39] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:33,667 INFO  [Thread-40] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:33,713 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:33,713 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:33,713 INFO  [main] root: connection closed!
+2014-11-30 15:35:33,713 INFO  [Thread-40] root: KVStore stopped
+2014-11-30 15:35:33,714 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:33,716 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52851
+2014-11-30 15:35:33,716 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:34,030 INFO  [Thread-42] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:34,031 INFO  [Thread-42] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:34,033 INFO  [Thread-41] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:34,224 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:34,224 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:34,225 INFO  [main] root: connection closed!
+2014-11-30 15:35:34,225 INFO  [Thread-41] root: KVStore stopped
+2014-11-30 15:35:34,226 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:34,228 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52852
+2014-11-30 15:35:34,228 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:34,540 INFO  [Thread-43] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:34,541 INFO  [Thread-43] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:34,543 INFO  [Thread-44] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:34,748 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:34,748 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:34,749 INFO  [Thread-44] root: KVStore stopped
+2014-11-30 15:35:34,749 INFO  [main] root: connection closed!
+2014-11-30 15:35:34,750 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:34,752 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52853
+2014-11-30 15:35:34,752 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:34,898 INFO  [Thread-45] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:34,899 INFO  [Thread-45] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:34,905 INFO  [Thread-46] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:35,070 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:35,071 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:35,093 INFO  [main] root: connection closed!
+2014-11-30 15:35:35,093 INFO  [Thread-46] root: KVStore stopped
+2014-11-30 15:35:35,095 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:35,096 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:35,280 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52854
+2014-11-30 15:35:35,478 INFO  [Thread-48] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:35,479 INFO  [Thread-48] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:35,481 INFO  [Thread-47] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:35,698 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:35,698 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:35,699 INFO  [main] root: connection closed!
+2014-11-30 15:35:35,699 INFO  [Thread-47] root: KVStore stopped
+2014-11-30 15:35:35,903 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:35,904 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:35,905 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52855
+2014-11-30 15:35:36,252 INFO  [Thread-50] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:36,253 INFO  [Thread-50] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:36,254 INFO  [Thread-49] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:36,489 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:36,489 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:36,491 INFO  [main] root: connection closed!
+2014-11-30 15:35:36,491 INFO  [Thread-49] root: KVStore stopped
+2014-11-30 15:35:36,493 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:36,495 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52856
+2014-11-30 15:35:36,495 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:36,699 INFO  [Thread-51] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:36,699 INFO  [Thread-51] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:36,889 INFO  [Thread-52] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:37,130 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:37,130 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:37,131 INFO  [Thread-52] root: KVStore stopped
+2014-11-30 15:35:37,132 INFO  [main] root: connection closed!
+2014-11-30 15:35:37,132 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:37,133 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:37,339 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52858
+2014-11-30 15:35:37,553 INFO  [Thread-54] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:37,554 INFO  [Thread-54] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:37,555 INFO  [Thread-53] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:37,794 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:37,794 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:37,794 INFO  [Thread-53] root: KVStore stopped
+2014-11-30 15:35:37,794 INFO  [main] root: connection closed!
+2014-11-30 15:35:38,025 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:38,026 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:38,027 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52859
+2014-11-30 15:35:38,439 INFO  [Thread-56] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:38,439 INFO  [Thread-56] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:38,440 INFO  [Thread-55] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:38,695 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:38,695 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:38,695 INFO  [main] root: connection closed!
+2014-11-30 15:35:38,695 INFO  [Thread-55] root: KVStore stopped
+2014-11-30 15:35:38,697 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:35:38,698 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:35:38,932 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52860
+2014-11-30 15:35:39,160 INFO  [Thread-58] root: Receive :	 'PUT foo bar'
+2014-11-30 15:35:39,163 INFO  [Thread-58] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:35:39,164 INFO  [Thread-57] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:35:39,416 INFO  [main] root: try to close connection ...
+2014-11-30 15:35:39,416 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:35:39,417 INFO  [main] root: connection closed!
+2014-11-30 15:35:39,417 INFO  [Thread-57] root: KVStore stopped
+2014-11-30 15:38:59,515 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:38:59,535 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:38:59,536 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52909
+2014-11-30 15:38:59,539 INFO  [Thread-1] root: Receive :	 'PUT foo bar'
+2014-11-30 15:38:59,541 INFO  [Thread-1] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:38:59,543 INFO  [Thread-2] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:38:59,589 INFO  [main] root: try to close connection ...
+2014-11-30 15:38:59,589 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:38:59,591 INFO  [main] root: connection closed!
+2014-11-30 15:38:59,591 INFO  [Thread-2] root: KVStore stopped
+2014-11-30 15:38:59,595 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:38:59,598 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:38:59,598 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52910
+2014-11-30 15:38:59,602 INFO  [Thread-3] root: Receive :	 'PUT foo bar'
+2014-11-30 15:38:59,604 INFO  [Thread-3] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:38:59,607 INFO  [Thread-4] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:38:59,651 INFO  [main] root: try to close connection ...
+2014-11-30 15:38:59,652 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:38:59,653 INFO  [main] root: connection closed!
+2014-11-30 15:38:59,653 INFO  [Thread-4] root: KVStore stopped
+2014-11-30 15:38:59,655 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:38:59,659 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52911
+2014-11-30 15:38:59,660 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:38:59,663 INFO  [Thread-6] root: Receive :	 'PUT foo bar'
+2014-11-30 15:38:59,672 INFO  [Thread-6] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:38:59,714 INFO  [Thread-5] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:38:59,762 INFO  [main] root: try to close connection ...
+2014-11-30 15:38:59,762 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:38:59,763 INFO  [main] root: connection closed!
+2014-11-30 15:38:59,763 INFO  [Thread-5] root: KVStore stopped
+2014-11-30 15:38:59,776 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:38:59,780 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52912
+2014-11-30 15:38:59,780 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:38:59,791 INFO  [Thread-7] root: Receive :	 'PUT foo bar'
+2014-11-30 15:38:59,800 INFO  [Thread-7] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:38:59,802 INFO  [Thread-8] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:38:59,837 INFO  [main] root: try to close connection ...
+2014-11-30 15:38:59,838 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:38:59,849 INFO  [Thread-8] root: KVStore stopped
+2014-11-30 15:38:59,850 INFO  [main] root: connection closed!
+2014-11-30 15:38:59,851 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:38:59,854 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52913
+2014-11-30 15:38:59,855 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:38:59,890 INFO  [Thread-9] root: Receive :	 'PUT foo bar'
+2014-11-30 15:38:59,892 INFO  [Thread-9] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:38:59,894 INFO  [Thread-10] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:38:59,922 INFO  [main] root: try to close connection ...
+2014-11-30 15:38:59,922 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:38:59,923 INFO  [main] root: connection closed!
+2014-11-30 15:38:59,923 INFO  [Thread-10] root: KVStore stopped
+2014-11-30 15:38:59,924 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:38:59,925 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:38:59,926 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52914
+2014-11-30 15:38:59,935 INFO  [Thread-12] root: Receive :	 'PUT foo bar'
+2014-11-30 15:38:59,936 INFO  [Thread-12] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:38:59,938 INFO  [Thread-11] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:00,005 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:00,006 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:00,007 INFO  [Thread-11] root: KVStore stopped
+2014-11-30 15:39:00,008 INFO  [main] root: connection closed!
+2014-11-30 15:39:00,009 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:00,012 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52915
+2014-11-30 15:39:00,012 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:00,048 INFO  [Thread-13] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:00,051 INFO  [Thread-13] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:00,054 INFO  [Thread-14] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:00,071 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:00,072 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:00,072 INFO  [main] root: connection closed!
+2014-11-30 15:39:00,072 INFO  [Thread-14] root: KVStore stopped
+2014-11-30 15:39:00,074 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:00,076 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52916
+2014-11-30 15:39:00,077 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:00,134 INFO  [Thread-16] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:00,144 INFO  [Thread-16] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:00,147 INFO  [Thread-15] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:00,172 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:00,173 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:00,179 INFO  [main] root: connection closed!
+2014-11-30 15:39:00,179 INFO  [Thread-15] root: KVStore stopped
+2014-11-30 15:39:00,180 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:00,182 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:00,183 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52917
+2014-11-30 15:39:00,241 INFO  [Thread-18] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:00,243 INFO  [Thread-18] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:00,246 INFO  [Thread-17] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:00,284 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:00,285 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:00,286 INFO  [Thread-17] root: KVStore stopped
+2014-11-30 15:39:00,287 INFO  [main] root: connection closed!
+2014-11-30 15:39:00,289 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:00,292 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52918
+2014-11-30 15:39:00,292 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:00,362 INFO  [Thread-19] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:00,364 INFO  [Thread-19] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:00,366 INFO  [Thread-20] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:00,402 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:00,402 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:00,403 INFO  [Thread-20] root: KVStore stopped
+2014-11-30 15:39:00,404 INFO  [main] root: connection closed!
+2014-11-30 15:39:00,405 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:00,410 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52919
+2014-11-30 15:39:00,410 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:00,491 INFO  [Thread-22] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:00,492 INFO  [Thread-22] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:00,562 INFO  [Thread-21] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:00,641 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:00,641 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:00,642 INFO  [Thread-21] root: KVStore stopped
+2014-11-30 15:39:00,643 INFO  [main] root: connection closed!
+2014-11-30 15:39:00,644 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:00,647 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52920
+2014-11-30 15:39:00,647 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:00,739 INFO  [Thread-24] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:00,741 INFO  [Thread-24] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:00,743 INFO  [Thread-23] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:00,758 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:00,758 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:00,758 INFO  [main] root: connection closed!
+2014-11-30 15:39:00,758 INFO  [Thread-23] root: KVStore stopped
+2014-11-30 15:39:00,760 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:00,762 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52921
+2014-11-30 15:39:00,763 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:00,850 INFO  [Thread-25] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:00,851 INFO  [Thread-25] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:00,853 INFO  [Thread-26] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:00,882 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:00,882 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:00,887 INFO  [main] root: connection closed!
+2014-11-30 15:39:00,887 INFO  [Thread-26] root: KVStore stopped
+2014-11-30 15:39:00,888 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:00,890 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:00,891 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52922
+2014-11-30 15:39:00,979 INFO  [Thread-28] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:00,980 INFO  [Thread-28] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:00,981 INFO  [Thread-27] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:01,028 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:01,029 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:01,029 INFO  [Thread-27] root: KVStore stopped
+2014-11-30 15:39:01,030 INFO  [main] root: connection closed!
+2014-11-30 15:39:01,031 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:01,033 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52923
+2014-11-30 15:39:01,034 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:01,147 INFO  [Thread-29] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:01,150 INFO  [Thread-29] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:01,152 INFO  [Thread-30] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:01,187 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:01,187 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:01,190 INFO  [Thread-30] root: KVStore stopped
+2014-11-30 15:39:01,190 INFO  [main] root: connection closed!
+2014-11-30 15:39:01,191 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:01,193 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:01,193 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52924
+2014-11-30 15:39:01,321 INFO  [Thread-32] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:01,323 INFO  [Thread-32] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:01,325 INFO  [Thread-31] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:01,348 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:01,348 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:01,348 INFO  [main] root: connection closed!
+2014-11-30 15:39:01,348 INFO  [Thread-31] root: KVStore stopped
+2014-11-30 15:39:01,349 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:01,351 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:01,351 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52925
+2014-11-30 15:39:01,443 INFO  [Thread-34] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:01,445 INFO  [Thread-34] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:01,446 INFO  [Thread-33] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:01,494 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:01,494 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:01,494 INFO  [main] root: connection closed!
+2014-11-30 15:39:01,494 INFO  [Thread-33] root: KVStore stopped
+2014-11-30 15:39:01,495 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:01,496 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:01,497 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52926
+2014-11-30 15:39:01,624 INFO  [Thread-36] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:01,626 INFO  [Thread-36] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:01,627 INFO  [Thread-35] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:01,666 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:01,666 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:01,667 INFO  [main] root: connection closed!
+2014-11-30 15:39:01,667 INFO  [Thread-35] root: KVStore stopped
+2014-11-30 15:39:01,669 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:01,671 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52927
+2014-11-30 15:39:01,671 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:01,807 INFO  [Thread-37] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:01,808 INFO  [Thread-37] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:01,810 INFO  [Thread-38] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:01,842 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:01,842 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:01,843 INFO  [Thread-38] root: KVStore stopped
+2014-11-30 15:39:01,843 INFO  [main] root: connection closed!
+2014-11-30 15:39:01,844 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:01,846 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52928
+2014-11-30 15:39:01,846 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:01,988 INFO  [Thread-40] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:01,990 INFO  [Thread-40] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:01,992 INFO  [Thread-39] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:02,028 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:02,028 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:02,029 INFO  [main] root: connection closed!
+2014-11-30 15:39:02,029 INFO  [Thread-39] root: KVStore stopped
+2014-11-30 15:39:02,030 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:02,034 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52929
+2014-11-30 15:39:02,035 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:02,212 INFO  [Thread-41] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:02,214 INFO  [Thread-41] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:02,340 INFO  [Thread-42] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:02,355 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:02,355 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:02,355 INFO  [main] root: connection closed!
+2014-11-30 15:39:02,355 INFO  [Thread-42] root: KVStore stopped
+2014-11-30 15:39:02,356 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:02,358 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:02,358 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52930
+2014-11-30 15:39:02,523 INFO  [Thread-44] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:02,524 INFO  [Thread-44] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:02,526 INFO  [Thread-43] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:02,581 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:02,586 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:02,586 INFO  [main] root: connection closed!
+2014-11-30 15:39:02,586 INFO  [Thread-43] root: KVStore stopped
+2014-11-30 15:39:02,588 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:02,590 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52931
+2014-11-30 15:39:02,591 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:02,779 INFO  [Thread-45] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:02,780 INFO  [Thread-45] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:02,782 INFO  [Thread-46] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:02,806 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:02,807 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:02,823 INFO  [Thread-46] root: KVStore stopped
+2014-11-30 15:39:02,824 INFO  [main] root: connection closed!
+2014-11-30 15:39:02,827 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:02,829 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52932
+2014-11-30 15:39:02,829 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:39:03,155 INFO  [Thread-47] root: Receive :	 'PUT foo bar'
+2014-11-30 15:39:03,156 INFO  [Thread-47] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:39:03,158 INFO  [Thread-48] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:39:03,369 INFO  [main] root: try to close connection ...
+2014-11-30 15:39:03,369 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:39:03,395 INFO  [Thread-48] root: KVStore stopped
+2014-11-30 15:39:03,395 INFO  [main] root: connection closed!
+2014-11-30 15:39:03,396 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:39:03,398 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52933
+2014-11-30 15:39:03,398 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:42:18,887 INFO  [main] root: try to close connection ...
+2014-11-30 15:42:18,893 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:42:18,962 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:42:18,984 INFO  [main] root: try to close connection ...
+2014-11-30 15:42:18,985 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:42:18,987 INFO  [main] root: connection closed!
+2014-11-30 15:42:18,993 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52980
+2014-11-30 15:42:19,014 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:42:19,021 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52981
+2014-11-30 15:42:19,060 INFO  [main] root: try to close connection ...
+2014-11-30 15:42:19,061 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:42:19,072 INFO  [main] root: connection closed!
+2014-11-30 15:42:19,095 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:42:19,102 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52982
+2014-11-30 15:42:19,135 INFO  [main] root: try to close connection ...
+2014-11-30 15:42:19,136 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:42:19,138 INFO  [main] root: connection closed!
+2014-11-30 15:42:19,157 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:42:19,160 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52983
+2014-11-30 15:42:19,177 INFO  [main] root: try to close connection ...
+2014-11-30 15:42:19,178 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:42:19,180 INFO  [main] root: connection closed!
+2014-11-30 15:42:19,187 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:42:19,191 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52984
+2014-11-30 15:42:19,196 INFO  [main] root: try to close connection ...
+2014-11-30 15:42:19,198 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:42:19,200 INFO  [main] root: connection closed!
+2014-11-30 15:42:19,249 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:42:19,253 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52985
+2014-11-30 15:42:19,256 INFO  [main] root: try to close connection ...
+2014-11-30 15:42:19,257 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:42:19,259 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,035 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,056 INFO  [main] root: Send :	 'GET an unset value null'
+2014-11-30 15:43:07,057 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52998
+2014-11-30 15:43:07,061 INFO  [Thread-2] root: Receive :	 'GET an unset value null'
+2014-11-30 15:43:07,062 INFO  [Thread-2] root: Send :	 'SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:43:07,064 INFO  [Thread-1] root: New received message : SERVER_NOT_RESPONSIBLE an unset value node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:43:07,109 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,109 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,110 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,111 INFO  [Thread-1] root: KVStore stopped
+2014-11-30 15:43:07,114 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,120 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 52999
+2014-11-30 15:43:07,143 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,148 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,162 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,196 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,197 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,202 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,209 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 53000
+2014-11-30 15:43:07,211 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:43:07,241 INFO  [Thread-5] root: Receive :	 'PUT foo bar'
+2014-11-30 15:43:07,248 INFO  [Thread-5] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:43:07,251 INFO  [Thread-4] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:43:07,267 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,268 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,269 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,269 INFO  [Thread-4] root: KVStore stopped
+2014-11-30 15:43:07,275 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,276 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,277 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 53001
+2014-11-30 15:43:07,278 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,279 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,282 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,286 INFO  [main] root: Send :	 'PUT foo bar'
+2014-11-30 15:43:07,286 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 53002
+2014-11-30 15:43:07,314 INFO  [Thread-8] root: Receive :	 'PUT foo bar'
+2014-11-30 15:43:07,317 INFO  [Thread-8] root: Send :	 'SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:43:07,319 INFO  [Thread-7] root: New received message : SERVER_NOT_RESPONSIBLE foo node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:43:07,343 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,344 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,346 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,346 INFO  [Thread-7] root: KVStore stopped
+2014-11-30 15:43:07,349 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,355 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 53003
+2014-11-30 15:43:07,366 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,368 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,369 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,375 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,378 INFO  [main] root: Send :	 'PUT updateTestValue initial'
+2014-11-30 15:43:07,379 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 53004
+2014-11-30 15:43:07,427 INFO  [Thread-11] root: Receive :	 'PUT updateTestValue initial'
+2014-11-30 15:43:07,432 INFO  [Thread-11] root: Send :	 'SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:43:07,435 INFO  [Thread-10] root: New received message : SERVER_NOT_RESPONSIBLE updateTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:43:07,471 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,472 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,474 INFO  [Thread-10] root: KVStore stopped
+2014-11-30 15:43:07,476 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,478 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,483 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 53005
+2014-11-30 15:43:07,493 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,494 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,495 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,503 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,507 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 53006
+2014-11-30 15:43:07,509 INFO  [main] root: Send :	 'PUT foo1 bar1'
+2014-11-30 15:43:07,572 INFO  [Thread-14] root: Receive :	 'PUT foo1 bar1'
+2014-11-30 15:43:07,574 INFO  [Thread-14] root: Send :	 'SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:43:07,585 INFO  [Thread-13] root: New received message : SERVER_NOT_RESPONSIBLE foo1 node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:43:07,619 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,620 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,621 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,621 INFO  [Thread-13] root: KVStore stopped
+2014-11-30 15:43:07,624 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,628 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 53007
+2014-11-30 15:43:07,631 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,632 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,633 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,646 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,648 INFO  [main] root: Send :	 'PUT deleteTestValue toDelete'
+2014-11-30 15:43:07,649 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 53008
+2014-11-30 15:43:07,733 INFO  [Thread-17] root: Receive :	 'PUT deleteTestValue toDelete'
+2014-11-30 15:43:07,737 INFO  [Thread-17] root: Send :	 'SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/'
+2014-11-30 15:43:07,741 INFO  [Thread-16] root: New received message : SERVER_NOT_RESPONSIBLE deleteTestValue node0;localhost;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff/
+2014-11-30 15:43:07,810 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,811 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,812 INFO  [main] root: connection closed!
+2014-11-30 15:43:07,812 INFO  [Thread-16] root: KVStore stopped
+2014-11-30 15:43:07,817 DEBUG [main] root: Trying to connect to ip localhost , port 50000
+2014-11-30 15:43:07,823 INFO  [Thread-0] root: Connected to 127.0.0.1 on port 53009
+2014-11-30 15:43:07,828 INFO  [main] root: try to close connection ...
+2014-11-30 15:43:07,829 INFO  [main] root: tearing down the connection ...
+2014-11-30 15:43:07,830 INFO  [main] root: connection closed!

@@ -20,7 +20,7 @@ public class ConnectionTest extends TestCase {
 		} catch (Exception e) {
 			ex = e;
 		}	
-		
+
 		assertNull(ex);
 	}
 	
@@ -34,7 +34,7 @@ public class ConnectionTest extends TestCase {
 		} catch (Exception e) {
 			ex = e; 
 		}
-		
+
 		assertTrue(ex instanceof UnknownHostException);
 	}
 	
@@ -48,7 +48,7 @@ public class ConnectionTest extends TestCase {
 		} catch (Exception e) {
 			ex = e; 
 		}
-		
+
 		assertTrue(ex instanceof IllegalArgumentException);
 	}
 	
