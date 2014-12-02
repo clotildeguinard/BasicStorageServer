@@ -212,7 +212,7 @@ public class KVClient implements KVSocketListener {
     
     @Override
     public void handleNewMessage(TextMessage msg) {
-        System.out.println("got new message in client");
+        System.out.println("Got new message in client");
         
     }
     

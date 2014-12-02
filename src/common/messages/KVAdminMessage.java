@@ -10,7 +10,8 @@ public interface KVAdminMessage {
 		STOP,
 		SHUTDOWN,
 		UPDATE_METADATA,
-		MOVE_DATA
+		MOVE_DATA,
+		INIT_KVSERVER
 	}
 
 	/**

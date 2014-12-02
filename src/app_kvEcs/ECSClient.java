@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
@@ -14,154 +13,282 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
-import javax.swing.text.Utilities;
+import logger.LogSetup;
 
-import app_kvServer.KVServer;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
-public class ECSClient {
-	
+import app_kvServer.cache_strategies.Strategy;
+import common.messages.TextMessage;
+import common.metadata.MetadataHandler;
+import common.metadata.NodeData;
+import client.KVAdminCommModule;
+import client.KVSocketListener;
+import client.KVSocketListener.SocketStatus;
+
+public class ECSClient implements KVSocketListener {
+
 	protected InputStream    fis;
 	protected BufferedReader br;
 	protected String         line;
-	private final String metadataLocation = "./src/app_kvServer/metadata.txt";
-	private List<String> List = new ArrayList<String>(); 
+	private List<String> sortedNodeHashes = new ArrayList<String>();
+	private List<ConfigStore> sortedConfigStores = new ArrayList<ConfigStore>();
+
 	private int numberOfUsedNodes = 0;
-	
-	public void initService(int numberOfNodes) throws IOException, NoSuchAlgorithmException{
-		fis = new FileInputStream("ecs.config.txt");
+	private MetadataHandler metadataHandler;
+	private Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private final static String configLocation = "./src/app_kvEcs/ecs.config.txt";
+
+	protected void initService(int numberOfNodes, int cacheSize, Strategy displacementStrategy)
+			throws NoSuchAlgorithmException{
+		logger.debug("Initiating the service...");
+		
+		try {
+			fis = new FileInputStream(configLocation);
 		br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
-		
-		
-		while ((line = br.readLine()) != null && numberOfNodes != 0) {
-			String[] words = line.split(" ");
-			
-			int Port = Integer.parseInt(words[2]);
-			String IpAndPort = new StringBuilder(words[1]).append(";").append(words[2]).toString();
+		int added = 0;
 
-			//combine ip and port and convert to hash.
-			String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest(IpAndPort.getBytes("UTF-8"))).toString(16);
-			List.add(words[0]);
-		    List.add(words[1]);
-		    List.add(words[2]);
-			List.add(hashedKey);	
-
-//			KVServer words[0] = new KVServer(Port);
-//			kvServer.initKVServer("", cacheSize, strategy);			
+		while ((line = br.readLine()) != null && numberOfNodes > added) {
+			logger.info("Adding node " + line);
+			addNodeToLists(line.split(" "));
+			added ++;		
 		}
-		
-		Sort();
-		createMetaData();
-	
-		numberOfUsedNodes = numberOfNodes + 1;
 		br.close();		
 		br = null;
 		fis = null;
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sortNodeLists();
+		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
+
+		// TODO launch nodes via SSH with arg <port>
+
+		String metadata = metadataHandler.toString();
+		for (ConfigStore cs : sortedConfigStores) {
+			cs.addListener(this);
+			cs.initKVServer(metadata, cacheSize, displacementStrategy);
+		}
+
+		numberOfUsedNodes = numberOfNodes;
 	}
-	
-	public void start(){
-		
+
+	private java.util.List<NodeData> getMetadata(java.util.List<String> sortedList) {
+		LinkedList<NodeData> list = new LinkedList<>();
+		int size = sortedList.size();
+		for (int i=0; i<size; i+=4) {
+			String minHashKey = sortedList.get((i-1 + size) % size);
+			list.add(new NodeData(sortedList.get(i), sortedList.get(i+1), Integer.valueOf(sortedList.get(i+2)), minHashKey, sortedList.get(i+3)));
+		}
+		return list;
 	}
-	
-	public void stop(){
-		
+
+	protected void start(){
+		for (ConfigStore cs : sortedConfigStores) {
+			cs.startServer();
+		}
 	}
-	
-	public void shutdown(){
-		
+
+	protected void stop(){
+		for (ConfigStore cs : sortedConfigStores) {
+			cs.stopServer();
+		}
 	}
-	
-	public void addNode() throws IOException, NoSuchAlgorithmException{
-		fis = new FileInputStream("ecs.config.txt");
+
+	protected void shutdown(){
+		stop();
+		for (ConfigStore cs : sortedConfigStores) {
+			cs.shutdown();
+		}
+	}
+
+	protected void addNode(int cacheSize, Strategy displacementStrategy) throws IOException, NoSuchElementException, NoSuchAlgorithmException{
+
+		fis = new FileInputStream(configLocation);
 		br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
+
+		for(int i = 0; i <= numberOfUsedNodes; ++i) {
+			line = br.readLine();
+		}		
+		br.close();		
+		br = null;
+		fis = null;
+
+		if (line == null) {
+			throw new NoSuchElementException("There is no more node to add.");
+		}
+		logger.debug("Adding node " + line);
+		String[] params = line.split(" ");
+		addNodeToLists(params);
+		String nodeName = params[0];
+
+		sortNodeLists();
+		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
+
+		// TODO launch node via SSH with arg <port>
+
+		// TODO connect via socket to this node
+		int index = findCsIndex(nodeName);
+		ConfigStore newNodeCS = sortedConfigStores.get(index);
+		newNodeCS.addListener(this);
+
+		String updatedMetadata = metadataHandler.toString();
+		newNodeCS.initKVServer(updatedMetadata, cacheSize, displacementStrategy);
+		newNodeCS.startServer();
 		
-		for(int i = 0; i <= numberOfUsedNodes; ++i)
-			  br.readLine();
+		ConfigStore nextNodeCS = sortedConfigStores.get((index + 1) % sortedConfigStores.size());
+		String hashOfNewNode = sortedNodeHashes.get(index*4 +3);
+		String[] newNodeAddress = new String[] {params[1], params[2]};
 		
-		String[] words = br.readLine().split(" ");
-		String IpAndPort = new StringBuilder(words[1]).append(";").append(words[2]).toString();
+		nextNodeCS.lockWrite();
+		nextNodeCS.moveData(hashOfNewNode, newNodeAddress);
+		
+		for (ConfigStore c : sortedConfigStores) {
+			try {
+				c.updateMetadata(updatedMetadata);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		nextNodeCS.unlockWrite();
+		// TODO remove stale data on nextNode????
+		numberOfUsedNodes++;
+	}
+
+	private int findCsIndex(String nodeName) {
+		int max = sortedNodeHashes.size();
+		for (int i=0; i<max; i += 4) {
+			if (sortedNodeHashes.get(i).equals(nodeName)) {
+				return i/4;
+			}
+		}
+		return -1;
+	}
+
+	protected void removeNode() throws IOException{
+		if (numberOfUsedNodes == 0) {
+			throw new NoSuchElementException("There is no more node to remove.");
+		}
+		fis = new FileInputStream(configLocation);
+
+		br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
+		for(int i = 0; i < numberOfUsedNodes; ++i) {
+			line = br.readLine();
+		}		
+		br.close();		
+		br = null;
+		fis = null;
+
+		// TODO invoke movedata on relevant node
+		// TODO update metadata of all remaining nodes
+		// TODO shutdown node
+
+		removeNodeFromLists(line.split(" ")[0]);
+		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
+		numberOfUsedNodes--;
+	}
+
+
+	private void removeNodeFromLists(String nodeName) {
+		int size = sortedNodeHashes.size();		
+		List<String> removedList = new ArrayList<String>();
+		int index = 0;
+		for(int i = 0; i < size; i++){
+			if(nodeName.equals(sortedNodeHashes.get(i))){
+				index = i;
+				removedList.add(sortedNodeHashes.get(i));
+				removedList.add(sortedNodeHashes.get(i+1));
+				removedList.add(sortedNodeHashes.get(i+2));
+				removedList.add(sortedNodeHashes.get(i+3));
+				break;
+			}
+		}		
+		sortedNodeHashes.removeAll(removedList);
+		sortedConfigStores.remove(index/4);
+	}
+
+	private void addNodeToLists(String[] nodeData) throws NoSuchAlgorithmException, IllegalArgumentException, IOException {
+		sortedConfigStores.add(new ConfigStore(nodeData[1], Integer.parseInt(nodeData[2])));
+
+		String IpAndPort = new StringBuilder(nodeData[1]).append(";").append(nodeData[2]).toString();
 
 		//combine ip and port and convert to hash.
 		String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest(IpAndPort.getBytes("UTF-8"))).toString(16);
-		List.add(words[0]);
-	    List.add(words[1]);
-	    List.add(words[2]);
-		List.add(hashedKey);
-		
-		Sort();
-		createMetaData();
-		
-		br.close();		
-		br = null;
-		fis = null;
-	}
-	
-	public void removeNode(int whichOne) throws IOException{
-		fis = new FileInputStream("ecs.config.txt");
-		
-		br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
-		for(int i = 0; i <= whichOne; ++i)
-			  br.readLine();
-		
-		String[] words = br.readLine().split(" ");
-		int Size = List.size();		
-		List<String> removedList = new ArrayList<String>();
+		sortedNodeHashes.add(nodeData[0]);
+		sortedNodeHashes.add(nodeData[1]);
+		sortedNodeHashes.add(nodeData[2]);
+		sortedNodeHashes.add(hashedKey);
 
-		for(int i = 0; i < Size; i++){
-			if(words[0].equals(List.get(i))){
-				removedList.add(List.get(i));
-				removedList.add(List.get(i+1));
-				removedList.add(List.get(i+2));
-				removedList.add(List.get(i+3));
-			}
-		}
-		
-		List.removeAll(removedList);
-		Sort();
-		createMetaData();
-		
-		br.close();		
-		br = null;
-		fis = null;
 	}
-	
-	private void Sort(){
-		int Size = List.size();
+
+	private void sortNodeLists(){
+		logger.debug("Sorting the nodes...");
+		int size = sortedNodeHashes.size();
+		if (size <= 4) {
+			logger.debug("No sorting: only one node.");
+			return;
+		}
 		String current;
-		
-		for (int i = 0; i < Size ; i+=4){
-			String max = List.get(1);
+
+		for (int i = 0; i < size ; i+=4){
+			String max = sortedNodeHashes.get(1);
 			int indexOfMax = 0;
-			for (int j = 3; j < Size-i; j+=4){
-				current = List.get(i);
+			for (int j = 3; j < size-i; j+=4){
+				current = sortedNodeHashes.get(i);
 				if(current.compareTo(max) >= 0){
 					max = current;
 					indexOfMax = j;
 				}
 			}
-			Collections.swap(List, indexOfMax, Size-i);
-			Collections.swap(List, indexOfMax-1, Size-(i+1));
-			Collections.swap(List, indexOfMax-2, Size-(i+2));
-			Collections.swap(List, indexOfMax-3, Size-(i+3));
+			Collections.swap(sortedNodeHashes, indexOfMax, size-i);
+			Collections.swap(sortedNodeHashes, indexOfMax-1, size-(i+1));
+			Collections.swap(sortedNodeHashes, indexOfMax-2, size-(i+2));
+			Collections.swap(sortedNodeHashes, indexOfMax-3, size-(i+3));
+
+			Collections.swap(sortedConfigStores, indexOfMax/4, (size-i)/4);
 		}				
 	}
-	
-	private void createMetaData() throws FileNotFoundException, UnsupportedEncodingException{
-		int Size = List.size();
-		int n = 4;
-		PrintWriter writer = new PrintWriter(metadataLocation, "UTF-8");
-		writer.println("Name,      IP,            PORT,        StartIndex,             EndIndex" );
-		writer.println(List.get(0) + " ; " + List.get(1) + " ; " + List.get(2) +  " ; 0000000000000000" + " ; " + List.get(3));
-		while (Size != n){
-			writer.println(List.get(n) + " ; " + List.get(n+1) + " ; " + List.get(n+2) + " ; " + List.get(n-1) + " ; " + List.get(n+3));
-			n+=4;
-		}		
-		writer.close();
+
+    
+    @Override
+    public void handleStatus(SocketStatus status) {
+        
+    }
+    
+    @Override
+    public void handleNewMessage(TextMessage msg) {
+        System.out.println("Got new message in ECS");
+        
+    }
+    
+
+	/**
+	 * Main entry point for the ECSClient application. 
+	 * @param args contains the loglevel at args[0].
+	 * @throws NoSuchAlgorithmException 
+	 */
+	public static void main(String[] args) {
+		try {
+			if(args.length != 1) {
+				System.out.println("Error! Invalid number of arguments!");
+				System.out.println("Usage: ECS <loglevel> !");
+			} else {
+				new LogSetup("logs/ecs.log", Level.toLevel(args[0]));
+				ECSInterface app = new ECSInterface();
+				app.run();
+			}
+		} catch (IOException e) {
+			System.out.println("Error! Unable to initialize logger!");
+			e.printStackTrace();
+			System.exit(1);
+		}
 	}
-	
-	
-	
-	
+
 }

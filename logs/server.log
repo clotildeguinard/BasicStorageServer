@@ -1227,3 +1227,58 @@ java.io.IOException: Stream closed
 2014-11-12 13:10:41,960 INFO  [Thread-1] root: Send request:	 'PUT_SUCCESS foo bar'
 2014-11-12 13:10:58,889 INFO  [Thread-1] root: Receive answer:	 'GET foo null'
 2014-11-12 13:10:58,891 INFO  [Thread-1] root: Send request:	 'GET_SUCCESS foo bar'
+2014-12-02 21:52:43,496 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 21:56:54,770 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 21:58:30,129 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 21:59:21,013 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:05:27,789 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:07:05,919 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:11:44,721 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:13:12,320 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:14:18,814 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:18:53,463 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:18:57,949 INFO  [Thread-1] KVServer: Connected to 127.0.0.1 on port 62085
+2014-12-02 22:18:57,950 INFO  [Thread-1] KVServer: ECS - Server communication initialized ...
+2014-12-02 22:19:29,835 FATAL [Thread-2] EcsConnection: A connection error occurred - Application terminated java.net.SocketException: Connection reset
+2014-12-02 22:21:44,059 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:21:50,437 INFO  [Thread-1] KVServer: Connected to 127.0.0.1 on port 62138
+2014-12-02 22:21:50,438 INFO  [Thread-1] KVServer: ECS - Server communication initialized ...
+2014-12-02 22:21:53,892 FATAL [Thread-2] EcsConnection: A connection error occurred - Application terminated java.net.SocketException: Connection reset
+2014-12-02 22:22:07,422 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:22:12,453 INFO  [Thread-1] KVServer: Connected to 127.0.0.1 on port 62148
+2014-12-02 22:22:12,454 INFO  [Thread-1] KVServer: ECS - Server communication initialized ...
+2014-12-02 22:22:21,288 FATAL [Thread-2] EcsConnection: A connection error occurred - Application terminated java.net.SocketException: Connection reset
+2014-12-02 22:22:45,331 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:22:49,905 INFO  [Thread-1] KVServer: Connected to 127.0.0.1 on port 62190
+2014-12-02 22:22:49,905 INFO  [Thread-1] KVServer: ECS - Server communication initialized ...
+2014-12-02 22:22:59,165 FATAL [Thread-2] EcsConnection: A connection error occurred - Application terminated java.net.SocketException: Connection reset
+2014-12-02 22:24:08,704 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:24:12,364 INFO  [Thread-1] KVServer: Connected to 127.0.0.1 on port 62252
+2014-12-02 22:24:12,365 INFO  [Thread-1] KVServer: ECS - Server communication initialized ...
+2014-12-02 22:24:12,374 INFO  [Thread-2] root: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-02 22:24:12,375 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-02 22:24:12,382 INFO  [Thread-2] KVServer: Server metadata updated
+2014-12-02 22:24:12,383 WARN  [Thread-2] EcsConnection: The instruction has an unknown status : INIT_KVSERVER
+2014-12-02 22:24:12,383 INFO  [Thread-2] EcsConnection: Answer to ECS : null
+2014-12-02 22:24:12,383 WARN  [Thread-2] EcsConnection: Invalid answer to request : UPDATE_METADATA node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-02 22:27:39,891 FATAL [Thread-2] EcsConnection: A connection error occurred - Application terminated java.net.SocketException: Connection reset
+2014-12-02 22:29:37,315 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:29:41,236 INFO  [Thread-1] KVServer: Connected to 127.0.0.1 on port 62367
+2014-12-02 22:29:41,236 INFO  [Thread-1] KVServer: ECS - Server communication initialized ...
+2014-12-02 22:29:41,241 DEBUG [Thread-2] root: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-02 22:29:41,241 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-02 22:29:41,248 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-02 22:29:41,249 WARN  [Thread-2] EcsConnection: The instruction has an unknown status : INIT_KVSERVER
+2014-12-02 22:29:41,249 INFO  [Thread-2] EcsConnection: Answer to ECS : null
+2014-12-02 22:29:41,250 WARN  [Thread-2] EcsConnection: Invalid answer to request : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-02 22:36:59,418 FATAL [Thread-2] EcsConnection: A connection error occurred - Application terminated java.net.SocketException: Connection reset
+2014-12-02 22:36:59,597 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:37:20,507 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-02 22:37:24,738 INFO  [Thread-1] KVServer: Connected to 127.0.0.1 on port 62582
+2014-12-02 22:37:24,739 INFO  [Thread-1] KVServer: ECS - Server communication initialized ...
+2014-12-02 22:37:24,743 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-02 22:37:24,744 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-02 22:37:24,752 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-02 22:37:24,753 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-02 22:37:24,753 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-02 22:37:59,123 FATAL [Thread-2] EcsConnection: A connection error occurred - Application terminated java.net.SocketException: Connection reset

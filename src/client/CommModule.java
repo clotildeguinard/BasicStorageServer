@@ -23,13 +23,13 @@ public class CommModule {
 	 * @param output 
 	 * @throws IOException some I/O error regarding the output stream 
 	 */
-	protected void sendMessage(TextMessage msg) throws IOException {
+	public void sendMessage(TextMessage msg) throws IOException {
 		byte[] msgBytes = msg.getMsgBytes();
 		output.write(msgBytes, 0, msgBytes.length);
 		output.flush();
     }
 
-	protected TextMessage receiveMessage() throws IOException {
+	public TextMessage receiveMessage() throws IOException {
 		int index = 0;
 		byte[] msgBytes = null, tmp = null;
 		byte[] bufferBytes = new byte[BUFFER_SIZE];

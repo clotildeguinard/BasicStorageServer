@@ -12,6 +12,9 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import client.KVStore;
+import common.messages.KVAdminMessage;
+import common.messages.KVAdminMessage.StatusType;
+import common.messages.KVAdminMessageImpl;
 import common.metadata.MetadataHandler;
 import app_kvServer.cache_strategies.FIFOStrategy;
 import app_kvServer.cache_strategies.LFUStrategy;
@@ -67,81 +70,76 @@ public class KVServer implements Runnable {
 		metadataHandler = new MetadataHandler("127.0.0.1", port);
 		update(metadata);
 
-		initializeSockets();
-	}
-
-	/**
-	 * Initiate communication loop with ECS
-	 * Instanciate socket for future client connections
-	 * @return true if succeeded
-	 */
-	private boolean initializeSockets() {
-
-		try {
-			Socket ecs = serverSocket.accept();                
-			ecsConnection = 
-					new EcsConnection(port, ecs, this);
-			new Thread(ecsConnection).start();
-
-			logger.info("Connected to " 
-					+ ecs.getInetAddress().getHostName() 
-					+  " on port " + ecs.getPort());
-
-		} catch (IOException e) {
-			logger.error("Error! " +
-					"Unable to establish connection. \n", e);
-			return false;
-		}
-		logger.info("ECS - Server communication initialized ...");
-
-
-		try {
-			serverSocket = new ServerSocket(port);
-			logger.info("Server listening on port: " 
-					+ serverSocket.getLocalPort()); 
-			return true;
-		} catch (IOException e) {
-			logger.error("Error! Cannot open server socket:");
-			if(e instanceof BindException){
-				logger.error("Port " + port + " is already bound!");
-			}
-			return false;
-		}
-
 	}
 
 	public void start() {
 		new Thread(this).start();
 	}
+
+	private class ECSSocketLoop extends Thread {
 		/**
-		 * Initializes and starts the server. 
-		 * Loops until the the server should be closed.
+		 * Instanciate socket for future connections
+		 * Initiate communication loop with ECS
+		 * @return true if succeeded
 		 */
-		@Override
-		public void run() {
-
-			isStopped = !initialized;
-
-			if(serverSocket != null) {
-				while(!isStopped()){
-					try {
-						Socket client = serverSocket.accept();                
-						clientConnection = 
-								new ClientConnection(port, client, cacheManager, metadataHandler);
-						new Thread(clientConnection).start();
-
-						logger.info("Connected to " 
-								+ client.getInetAddress().getHostName() 
-								+  " on port " + client.getPort());
-					} catch (IOException e) {
-						logger.error("Error! " +
-								"Unable to establish connection. \n", e);
+		public void run(){
+			
+				try {
+					serverSocket = new ServerSocket(port);
+					logger.info("Server listening on port: " 
+							+ serverSocket.getLocalPort());
+				} catch (IOException e) {
+					logger.error("Error! Cannot open server socket:");
+					if(e instanceof BindException){
+						logger.error("Port " + port + " is already bound!");
 					}
 				}
+				try {
+				Socket ecs = serverSocket.accept();                
+				ecsConnection = 
+						new EcsConnection(port, ecs, KVServer.this);
+				new Thread(ecsConnection).start();
+
+				logger.info("Connected to " 
+						+ ecs.getInetAddress().getHostName() 
+						+  " on port " + ecs.getPort());
+
+			} catch (IOException e) {
+				logger.error("Error! " +
+						"Unable to establish connection. \n", e);
 			}
-			logger.info("Server stopped.");
+			logger.info("ECS - Server communication initialized ...");
 		}
-	
+	}
+	/**
+	 * Initializes and starts the server. 
+	 * Loops until the the server should be closed.
+	 */
+	@Override
+	public void run() {
+
+		isStopped = !initialized;
+
+		if(serverSocket != null) {
+			while(!isStopped()){
+				try {
+					Socket client = serverSocket.accept();                
+					clientConnection = 
+							new ClientConnection(port, client, cacheManager, metadataHandler);
+					new Thread(clientConnection).start();
+
+					logger.info("Connected to " 
+							+ client.getInetAddress().getHostName() 
+							+  " on port " + client.getPort());
+				} catch (IOException e) {
+					logger.error("Error! " +
+							"Unable to establish connection. \n", e);
+				}
+			}
+		}
+		logger.info("Server stopped.");
+	}
+
 
 	private synchronized boolean isStopped() {
 		return isStopped;
@@ -156,8 +154,6 @@ public class KVServer implements Runnable {
 			throw new RuntimeException("Error closing server", e);
 		}
 	}
-
-
 
 	public void shutdown() {
 		stop();
@@ -199,6 +195,7 @@ public class KVServer implements Runnable {
 	 */
 	public void update(String metadata) {
 		metadataHandler.update(metadata);
+		logger.info("Server metadata updated.");
 	}
 
 	public void lockWrite() {
@@ -222,18 +219,17 @@ public class KVServer implements Runnable {
 				System.out.println("Error! Invalid number of arguments!");
 				System.out.println("Usage: Server <port> <loglevel> !");
 			} else {
-				new LogSetup("logs/server.log", Level.toLevel(args[0]));
-				KVServer kvServer = new KVServer(Integer.parseInt(args[1]));
-
+				new LogSetup("logs/server.log", Level.toLevel(args[1]));
+				KVServer kvServer = new KVServer(Integer.parseInt(args[0]));
+				new Thread(kvServer.new ECSSocketLoop()).start();
 			}
 		} catch (IOException e) {
 			System.out.println("Error! Unable to initialize logger!");
 			e.printStackTrace();
 			System.exit(1);
 		} catch (NumberFormatException nfe) {
-			System.out.println("Error! Invalid argument <cacheSize>! Not a number!");
-			System.out.println("Usage: Server <metadata> <cacheSize> <cacheStrategy>!");
-			System.out.println("\t <cacheStrategy>: FIFO | LRU | LFU");
+			System.out.println("Error! Invalid argument <port>! Not a number!");
+			System.out.println("Usage: Server <port> <loglevel> !");
 			System.exit(1);
 		}
 	}

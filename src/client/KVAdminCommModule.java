@@ -11,7 +11,7 @@ import common.messages.KVAdminMessageImpl;
 import common.messages.TextMessage;
 
 public class KVAdminCommModule extends CommModule implements KVSocketListener {
-	private static Logger logger = Logger.getRootLogger();
+	private Logger logger = Logger.getLogger(getClass().getSimpleName());
  	private KVAdminMessage latest;
 
 	public KVAdminCommModule(OutputStream output, InputStream input) {
@@ -20,7 +20,7 @@ public class KVAdminCommModule extends CommModule implements KVSocketListener {
 
 	
 	public void sendKVAdminMessage(KVAdminMessage message) throws IOException {
-		logger.info("Send :\t '" + message + "'");
+		logger.debug("Send :\t '" + message + "'");
 		TextMessage xmlText = ((KVAdminMessageImpl) message).marshal();
 		sendMessage(xmlText);
 	}
@@ -29,7 +29,7 @@ public class KVAdminCommModule extends CommModule implements KVSocketListener {
 	public KVAdminMessage receiveKVAdminMessage() throws IOException {
 		TextMessage xmlText = receiveMessage();
 		KVAdminMessage received = KVAdminMessageImpl.unmarshal(xmlText);
-		logger.info("Receive :\t '" + received + "'");
+		logger.debug("Receive :\t '" + received + "'");
 		return received;
 	}
 
