@@ -23,9 +23,9 @@ public class InteractionTest extends TestCase {
 		}
 	}
 
-	public void tearDown() {
-		kvClient.disconnect();
-	}
+//	public void tearDown() {
+//		kvClient.disconnect();
+//	}
 	
 	
 	@Test

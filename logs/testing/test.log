@@ -7451,3 +7451,99 @@
 2014-11-30 18:49:16,476 INFO  [main] KVStore: connection closed!
 2014-11-30 18:49:16,478 INFO  [main] KVStore: try to close connection ...
 2014-11-30 18:49:16,479 INFO  [main] KVStore: tearing down the connection ...
+2014-12-01 09:12:56,873 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-01 09:12:56,878 INFO  [Thread-0] KVServer: Connected to 127.0.0.1 on port 51318
+2014-12-01 09:12:56,897 INFO  [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-01 09:12:56,909 INFO  [Thread-8] KVCommModule: Receive :	 'PUT foo bar'
+2014-12-01 09:12:56,909 DEBUG [Thread-8] ClientConnection: Requested from client : PUT foo bar
+2014-12-01 09:12:56,920 DEBUG [Thread-8] ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2014-12-01 09:12:56,920 INFO  [Thread-8] KVCommModule: Send :	 'PUT_SUCCESS foo bar'
+2014-12-01 09:12:56,922 INFO  [Thread-7] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-01 09:12:56,957 INFO  [main] KVStore: try to close connection ...
+2014-12-01 09:12:56,957 INFO  [main] KVStore: tearing down the connection ...
+2014-12-01 09:12:56,958 INFO  [main] KVStore: connection closed!
+2014-12-01 09:12:56,958 INFO  [Thread-7] KVStore: KVStore stopped
+2014-12-01 09:12:56,994 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-01 09:12:56,999 INFO  [main] KVCommModule: Send :	 'PUT foo1 bar1'
+2014-12-01 09:12:57,000 INFO  [Thread-0] KVServer: Connected to 127.0.0.1 on port 51320
+2014-12-01 09:12:57,002 INFO  [Thread-11] KVCommModule: Receive :	 'PUT foo1 bar1'
+2014-12-01 09:12:57,004 DEBUG [Thread-11] ClientConnection: Requested from client : PUT foo1 bar1
+2014-12-01 09:12:57,021 DEBUG [Thread-11] ClientConnection: Answer to client : PUT_SUCCESS foo1 bar1
+2014-12-01 09:12:57,022 INFO  [Thread-11] KVCommModule: Send :	 'PUT_SUCCESS foo1 bar1'
+2014-12-01 09:12:57,024 INFO  [Thread-10] KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2014-12-01 09:12:57,055 INFO  [main] KVStore: try to close connection ...
+2014-12-01 09:12:57,058 INFO  [main] KVStore: tearing down the connection ...
+2014-12-01 09:12:57,059 INFO  [Thread-10] KVStore: KVStore stopped
+2014-12-01 09:12:57,073 INFO  [main] KVStore: connection closed!
+2014-12-01 09:12:57,084 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-01 09:12:57,096 INFO  [Thread-0] KVServer: Connected to 127.0.0.1 on port 51321
+2014-12-01 09:12:57,098 INFO  [main] KVCommModule: Send :	 'GET foo1 null'
+2014-12-01 09:12:57,115 INFO  [Thread-12] KVCommModule: Receive :	 'GET foo1 null'
+2014-12-01 09:12:57,117 DEBUG [Thread-12] ClientConnection: Requested from client : GET foo1 null
+2014-12-01 09:12:57,118 DEBUG [Thread-12] ClientConnection: Answer to client : GET_SUCCESS foo1 bar1
+2014-12-01 09:12:57,119 INFO  [Thread-12] KVCommModule: Send :	 'GET_SUCCESS foo1 bar1'
+2014-12-01 09:12:57,120 INFO  [Thread-13] KVCommModule: New received message : GET_SUCCESS foo1 bar1
+2014-12-01 09:12:57,149 INFO  [main] KVStore: try to close connection ...
+2014-12-01 09:12:57,150 INFO  [main] KVStore: tearing down the connection ...
+2014-12-01 09:12:57,151 INFO  [main] KVStore: connection closed!
+2014-12-01 09:12:57,151 INFO  [Thread-13] KVStore: KVStore stopped
+2014-12-01 09:12:57,160 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-01 09:12:57,162 INFO  [Thread-0] KVServer: Connected to 127.0.0.1 on port 51323
+2014-12-01 09:12:57,164 INFO  [main] KVCommModule: Send :	 'PUT updateTestValue initial'
+2014-12-01 09:12:57,172 INFO  [Thread-15] KVCommModule: Receive :	 'PUT updateTestValue initial'
+2014-12-01 09:12:57,173 DEBUG [Thread-15] ClientConnection: Requested from client : PUT updateTestValue initial
+2014-12-01 09:12:57,175 DEBUG [Thread-15] ClientConnection: Answer to client : PUT_SUCCESS updateTestValue initial
+2014-12-01 09:12:57,175 INFO  [Thread-15] KVCommModule: Send :	 'PUT_SUCCESS updateTestValue initial'
+2014-12-01 09:12:57,178 INFO  [Thread-16] KVCommModule: New received message : PUT_SUCCESS updateTestValue initial
+2014-12-01 09:12:57,217 INFO  [main] KVStore: try to close connection ...
+2014-12-01 09:12:57,218 INFO  [main] KVStore: tearing down the connection ...
+2014-12-01 09:12:57,225 INFO  [Thread-16] KVStore: KVStore stopped
+2014-12-01 09:12:57,226 INFO  [main] KVStore: connection closed!
+2014-12-01 09:12:57,228 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-01 09:12:57,231 INFO  [Thread-0] KVServer: Connected to 127.0.0.1 on port 51326
+2014-12-01 09:12:57,232 INFO  [main] KVCommModule: Send :	 'PUT updateTestValue updated'
+2014-12-01 09:12:57,267 INFO  [Thread-18] KVCommModule: Receive :	 'PUT updateTestValue updated'
+2014-12-01 09:12:57,269 DEBUG [Thread-18] ClientConnection: Requested from client : PUT updateTestValue updated
+2014-12-01 09:12:57,271 DEBUG [Thread-18] ClientConnection: Answer to client : PUT_UPDATE updateTestValue updated
+2014-12-01 09:12:57,272 INFO  [Thread-18] KVCommModule: Send :	 'PUT_UPDATE updateTestValue updated'
+2014-12-01 09:12:57,274 INFO  [Thread-17] KVCommModule: New received message : PUT_UPDATE updateTestValue updated
+2014-12-01 09:12:57,290 INFO  [main] KVStore: try to close connection ...
+2014-12-01 09:12:57,290 INFO  [main] KVStore: tearing down the connection ...
+2014-12-01 09:12:57,292 INFO  [Thread-17] KVStore: KVStore stopped
+2014-12-01 09:12:57,293 INFO  [main] KVStore: connection closed!
+2014-12-01 09:12:57,298 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-01 09:12:57,302 INFO  [Thread-0] KVServer: Connected to 127.0.0.1 on port 51327
+2014-12-01 09:12:57,302 INFO  [main] KVCommModule: Send :	 'PUT deleteTestValue toDelete'
+2014-12-01 09:12:57,321 INFO  [Thread-20] KVCommModule: Receive :	 'PUT deleteTestValue toDelete'
+2014-12-01 09:12:57,322 DEBUG [Thread-20] ClientConnection: Requested from client : PUT deleteTestValue toDelete
+2014-12-01 09:12:57,324 DEBUG [Thread-20] ClientConnection: Answer to client : PUT_SUCCESS deleteTestValue toDelete
+2014-12-01 09:12:57,325 INFO  [Thread-20] KVCommModule: Send :	 'PUT_SUCCESS deleteTestValue toDelete'
+2014-12-01 09:12:57,327 INFO  [Thread-21] KVCommModule: New received message : PUT_SUCCESS deleteTestValue toDelete
+2014-12-01 09:12:57,394 INFO  [main] KVStore: try to close connection ...
+2014-12-01 09:12:57,397 INFO  [main] KVStore: tearing down the connection ...
+2014-12-01 09:12:57,399 INFO  [Thread-21] KVStore: KVStore stopped
+2014-12-01 09:12:57,400 INFO  [main] KVStore: connection closed!
+2014-12-01 09:12:57,402 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-01 09:12:57,405 INFO  [Thread-0] KVServer: Connected to 127.0.0.1 on port 51328
+2014-12-01 09:12:57,407 INFO  [main] KVCommModule: Send :	 'PUT deleteTestValue null'
+2014-12-01 09:12:57,450 INFO  [Thread-22] KVCommModule: Receive :	 'PUT deleteTestValue null'
+2014-12-01 09:12:57,457 DEBUG [Thread-22] ClientConnection: Requested from client : PUT deleteTestValue null
+2014-12-01 09:12:57,460 DEBUG [Thread-22] ClientConnection: Answer to client : DELETE_SUCCESS deleteTestValue null
+2014-12-01 09:12:57,462 INFO  [Thread-22] KVCommModule: Send :	 'DELETE_SUCCESS deleteTestValue null'
+2014-12-01 09:12:57,504 INFO  [Thread-23] KVCommModule: New received message : DELETE_SUCCESS deleteTestValue null
+2014-12-01 09:12:57,571 INFO  [main] KVStore: try to close connection ...
+2014-12-01 09:12:57,572 INFO  [main] KVStore: tearing down the connection ...
+2014-12-01 09:12:57,573 INFO  [main] KVStore: connection closed!
+2014-12-01 09:12:57,573 INFO  [Thread-23] KVStore: KVStore stopped
+2014-12-01 09:12:57,644 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-01 09:12:57,653 INFO  [Thread-0] KVServer: Connected to 127.0.0.1 on port 51329
+2014-12-01 09:12:57,653 INFO  [main] KVCommModule: Send :	 'GET an unset value null'
+2014-12-01 09:12:57,736 INFO  [Thread-25] KVCommModule: Receive :	 'GET an unset value null'
+2014-12-01 09:12:57,739 DEBUG [Thread-25] ClientConnection: Requested from client : GET an unset value null
+2014-12-01 09:12:57,813 DEBUG [Thread-25] ClientConnection: Answer to client : GET_ERROR an unset value null
+2014-12-01 09:12:57,814 INFO  [Thread-25] KVCommModule: Send :	 'GET_ERROR an unset value null'
+2014-12-01 09:12:57,816 INFO  [Thread-26] KVCommModule: New received message : GET_ERROR an unset value null
+2014-12-01 09:12:57,901 INFO  [main] KVStore: try to close connection ...
+2014-12-01 09:12:57,902 INFO  [main] KVStore: tearing down the connection ...
+2014-12-01 09:12:57,904 INFO  [Thread-26] KVStore: KVStore stopped
+2014-12-01 09:12:57,906 INFO  [main] KVStore: connection closed!

@@ -47,7 +47,6 @@ public class KVStore extends Thread implements KVCommInterface {
 	public KVStore(String defaultIp, int defaultPort) throws IllegalArgumentException {
 		this.metadataHandler = new MetadataHandler(defaultIp, defaultPort);
 		metadataHandler.update("node0;" + defaultIp + ";" + defaultPort + ";'';''");
-		// TODO
 	}
 
 
@@ -66,8 +65,7 @@ public class KVStore extends Thread implements KVCommInterface {
 		connect(n.getIpAddress(), n.getPortNumber());
 	}
 
-	private void connect(String address, int port) throws UnknownHostException,
-	IOException {
+	private void connect(String address, int port) throws IOException {
 		logger.debug("Trying to connect to ip " + address + " , port " + port);
 		clientSocket = new Socket(address, port);
 		commModule = new KVCommModule(clientSocket.getOutputStream(),

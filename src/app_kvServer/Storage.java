@@ -6,12 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.Iterator;
 
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import app_kvServer.cache_strategies.Pair;
@@ -20,12 +16,27 @@ import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
 
 public class Storage implements Iterable<Pair<String, String>>{
-	private Logger logger = Logger.getRootLogger();
+	private Logger logger = Logger.getLogger(getClass().getSimpleName());
     private File file;
     private File bisFile;
     private final static String EOL = System.getProperty("line.separator");
+    private final static int MAX_TRIALS = 3;
     
     public Storage(String rootPath) throws IOException {
+    	IOException ex = null;
+    	for (int i=0 ; i<MAX_TRIALS ; i++) {
+    		try {
+    			initStorage(rootPath);
+    			return;
+    		} catch (IOException e) {
+    			ex = e;
+    		}
+    	}
+    	logger.fatal("Storage could not be initialized after " + MAX_TRIALS + " trials.");
+    	throw(ex);
+    }
+    
+    private void initStorage(String rootPath) throws IOException {
     	String storageFile = rootPath + "storage.txt";
     	String storageFileBis = rootPath + "storage_bis.txt";
     	
@@ -139,13 +150,11 @@ public class Storage implements Iterable<Pair<String, String>>{
 				
 				@Override
 				public void remove() {
-					// TODO Auto-generated method stub
-					
+					// do nothing
 				}
 			};
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.fatal("Storage file could not be found in its location.");
 		}
 		return null;
 	}	

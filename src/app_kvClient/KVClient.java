@@ -20,8 +20,6 @@ public class KVClient implements KVSocketListener {
 
 	private Logger logger = Logger.getLogger(getClass().getSimpleName());
     private static final String PROMPT = "<KVClient> ";
-    private static final String DEFAULT_SERVER_ADDRESS = "localhost";
-    private static final int DEFAULT_SERVER_PORT = 50000;
     private BufferedReader stdin;
     private KVStore kvStore = null;
     private boolean stop = false;
@@ -29,7 +27,7 @@ public class KVClient implements KVSocketListener {
     private String serverAddress;
     private int serverPort;
     
-    public void run() throws NoSuchAlgorithmException {
+    public void run() {
         while(!stop) {
 
             stdin = new BufferedReader(new InputStreamReader(System.in));
@@ -51,6 +49,10 @@ public class KVClient implements KVSocketListener {
                             if(kvStore != null && kvStore.isRunning()){
                                 try {
                                     System.out.println(kvStore.put(tokens[1], tokens[2]));
+                                } catch (NoSuchAlgorithmException e) {
+                                    printError("A fatal error occurred!");
+                                    disconnect();
+                                    stop = true;
                                 } catch (IOException e) {
                                     printError("Unable to send message!");
                                     disconnect();
@@ -70,6 +72,10 @@ public class KVClient implements KVSocketListener {
                             if(kvStore != null && kvStore.isRunning()){
                                 try {
                                     System.out.println(kvStore.get(tokens[1]));
+                                } catch (NoSuchAlgorithmException e) {
+                                    printError("A fatal error occurred!");
+                                    disconnect();
+                                    stop = true;
                                 } catch (IOException e) {
                                     printError("Unable to send message!");
                                     disconnect();
@@ -219,7 +225,7 @@ public class KVClient implements KVSocketListener {
      * @param args contains the port number at args[0].
      * @throws NoSuchAlgorithmException 
      */
-    public static void main(String[] args) throws NoSuchAlgorithmException {
+    public static void main(String[] args) {
         try {
             new LogSetup("logs/client.log", Level.ALL);
             KVClient app = new KVClient();
