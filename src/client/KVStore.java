@@ -86,7 +86,7 @@ public class KVStore extends Thread implements KVCommInterface {
 	
 
 	public void disconnect() {
-		logger.info("try to close connection ...");
+		logger.debug("try to close connection ...");
 
 		try {
 			tearDownConnection();
@@ -102,7 +102,7 @@ public class KVStore extends Thread implements KVCommInterface {
 
 	private void tearDownConnection() throws IOException {
 		setRunning(false);
-		logger.info("tearing down the connection ...");
+		logger.debug("tearing down the connection ...");
 
 		if (clientSocket != null) {
 			commModule.closeStreams();
@@ -187,7 +187,7 @@ public class KVStore extends Thread implements KVCommInterface {
 		KVMessage answer = this.putComm(key, value);
 
 		disconnect();
-		if (answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
+		if (answer == null || answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
 			return answer;
 		}
 
@@ -247,7 +247,7 @@ public class KVStore extends Thread implements KVCommInterface {
 		KVMessage answer = this.getComm(key);
 		disconnect();
 		
-		if (answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
+		if (answer == null || answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
 			return answer;
 		}
 

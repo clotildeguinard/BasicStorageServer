@@ -34,8 +34,9 @@ public class ClientConnection implements Runnable {
 	}
 
 	public ClientConnection(int port, Socket clientSocket,
-			CacheManager cacheManager, MetadataHandler metadataHandler)
+			CacheManager cacheManager, MetadataHandler metadataHandler, boolean writeLocked)
 			throws UnknownHostException {
+		this.writeLock = writeLocked;
 		this.clientSocket = clientSocket;
 		this.sharedCacheManager = cacheManager;
 		this.metadataHandler = metadataHandler;

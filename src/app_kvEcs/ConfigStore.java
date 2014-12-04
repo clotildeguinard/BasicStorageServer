@@ -26,13 +26,14 @@ import common.messages.TextMessage;
 public class ConfigStore extends Thread implements ConfigCommInterface {
 
 	private KVAdminCommModule commModule;
-	private Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private Socket ecsSocket;
 	private Set<KVSocketListener> listeners;
-	private boolean running = false;
-	private static final int MAX_TRIALS = 3;
+	private boolean csRunning = false;
 	private final String serverIp;
 	private final int serverPort;
+	
+	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private static final int MAX_TRIALS = 3;
 
 	/**
 	 * Initialize KVStore with address and port of KVServer
@@ -45,8 +46,12 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	 */
 	public ConfigStore(String ip, int port) throws IllegalArgumentException, IOException {
 		this.serverIp = ip;
-				this.serverPort = port;
-				connect();
+		this.serverPort = port;
+		connect();
+	}
+	
+	public String[] getIpAndPort() {
+		return new String[] {serverIp, Integer.toString(serverPort)};
 	}
 
 
@@ -59,20 +64,21 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		ecsSocket = new Socket(serverIp, serverPort);
 		commModule = new KVAdminCommModule(ecsSocket.getOutputStream(),
 				ecsSocket.getInputStream());
+		logger.debug("Connected to ip " + serverIp + " , port " + serverPort);
 		listeners = new HashSet<KVSocketListener>();
 		addListener(commModule);
 		setRunning(true);
 		new Thread(this).start();
 	}
 
-	private void setRunning(boolean isRunning) {
-		running = isRunning;
+	public void setRunning(boolean isRunning) {
+		csRunning = isRunning;
 	}
 
 	public boolean isRunning() {
-		return running;
+		return csRunning;
 	}
-	
+
 
 	public void disconnect() {
 		logger.info("try to close connection with " + serverIp + ":" + serverPort + " ...");
@@ -130,14 +136,14 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 					}
 				}
 			}
-			logger.info("KVStore stopped");
+			logger.info("Connection with server stopped");
 		} finally {
 			if (isRunning()) {
 				disconnect();
 			}
 		}
 	}
-	
+
 	public KVAdminMessage sendAndWaitAnswer(KVAdminMessage request) {
 		try {
 			commModule.sendKVAdminMessage(request);
@@ -165,7 +171,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	@Override
 	public KVAdminMessage updateMetadata(String metadata) throws IOException,
 	InterruptedException {
-		
+
 		KVAdminMessage msg = new KVAdminMessageImpl(null, metadata,
 				common.messages.KVAdminMessage.StatusType.UPDATE_METADATA);
 		return sendAndWaitAnswer(msg);
@@ -190,9 +196,13 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 
 	@Override
 	public KVAdminMessage shutdown() {
-		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
-				common.messages.KVAdminMessage.StatusType.SHUTDOWN);
-		return sendAndWaitAnswer(msg);
+		try {
+			KVAdminMessage msg = new KVAdminMessageImpl(null, null,
+					common.messages.KVAdminMessage.StatusType.SHUTDOWN);
+			return sendAndWaitAnswer(msg);
+		} finally {
+			disconnect();
+		}
 	}
 
 

@@ -16,6 +16,8 @@ public class MetadataHandler {
 	private final static String fieldSeparator = ";";
 	private final static String lineSeparator = "/";
 	private final static String hashingAlgorithm = "MD5";
+	private final static String equivLocalhost = "127.0.0.1";
+	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private String minHashKey;
 	private String maxHashKey;
 	private final String myIp;
@@ -55,7 +57,7 @@ public class MetadataHandler {
 			data = n.split(fieldSeparator);
 			String ipAddress = data[1];
 			int port = Integer.parseInt(data[2]);
-			if (this.myIp.equals(ipAddress) && this.myPort == port) {
+			if (equalsIp(this.myIp, ipAddress) && this.myPort == port) {
 				minHashKey = data[3];
 				maxHashKey = data[4];
 			}
@@ -63,6 +65,12 @@ public class MetadataHandler {
 			tmpMetadata.add(nodeData);
 		}
 		this.metadata = tmpMetadata;	
+	}
+
+	private boolean equalsIp(String myIp, String ipAddress) {
+		return (myIp.equals(ipAddress)
+				|| (myIp.equals("localhost") && ipAddress.equals(equivLocalhost))
+				|| (myIp.equals(equivLocalhost) && ipAddress.equals("localhost")));
 	}
 
 	/**
@@ -76,14 +84,16 @@ public class MetadataHandler {
 	 */
 
 	public String[] getServerForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-
+		if (metadata.size() == 1) {
+			return new String []
+					{metadata.get(0).getIpAddress(), Integer.toString(metadata.get(0).getPortNumber())};
+		}
 		for (NodeData e: metadata){
 
 			boolean b=isInRange(key, e.getMinHashKey(), e.getMaxHashKey());
 
 			if (b==true){
-				return new String []{e.getIpAddress(), Integer.toString(e.getPortNumber())
-				};
+				return new String []{e.getIpAddress(), Integer.toString(e.getPortNumber())};
 			}
 
 		}
@@ -94,7 +104,7 @@ public class MetadataHandler {
 	public boolean isResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		boolean b;
 		try {
-			b =isInRange(key, minHashKey, maxHashKey);
+			b = isInRange(key, minHashKey, maxHashKey);
 		} catch (NoSuchAlgorithmException e) {
 			Logger.getLogger(getClass().getSimpleName()).fatal("Hashing algorithm " + hashingAlgorithm + " could not be found!");
 			throw(e);
@@ -114,21 +124,23 @@ public class MetadataHandler {
 		return s.toString();
 	}
 
-	private boolean isInRange(String key, String minHash, String maxHash) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm).digest(key.getBytes("UTF-8"))).toString(16);
+	private boolean isInRange(String key, String minHash, String maxHash)
+			throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		if (minHash.equals(maxHash)) {
+			// i.e. there is only one node
+			return true;
+		}
+		String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
+				.digest(key.getBytes("UTF-8"))).toString(16);
+		logger.debug("Hashed " + key + " --> " + hashedKey);
 		try {
-			boolean b = hashedKey.compareTo(minHash) >= 0 && hashedKey.compareTo(maxHash) <= 0;
-			System.out.println(hashedKey);
-			System.out.println(hashedKey.compareTo(minHash));
-			System.out.println(hashedKey.compareTo(maxHash));
-			System.out.println(b);
-			
 			if (minHash.compareTo(maxHash) <= 0) {
-				return b;
+				return hashedKey.compareTo(minHash) > 0 && hashedKey.compareTo(maxHash) <= 0;
 			} else {
-				return !b;
+				return hashedKey.compareTo(minHash) > 0 || hashedKey.compareTo(maxHash) <= 0;
 			}	
 		} catch (NullPointerException e) {
+			logger.warn("Hash of key " + key + " was null!");
 			return false;
 		}
 	}

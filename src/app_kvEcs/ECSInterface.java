@@ -3,12 +3,17 @@ package app_kvEcs;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.NoSuchElementException;
 
 import logger.LogSetup;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+
+
+
 
 
 
@@ -37,14 +42,15 @@ public class ECSInterface {
 	private static final String PROMPT = "ECSClient> ";
 	private BufferedReader stdin;
 	private ECSClient ecsClient = new ECSClient();
-	private boolean stop = false;
+	private boolean appStopped = false;
+	private boolean initialized = false;
 
 	public void run() {
-		while(!stop) {	        	
 
-			System.out.println("\n-------------------Please select one of the commands-------------------------------------");
+		System.out.println("\n-------------------Please select one of the commands-------------------------------------");
+		System.out.println("\nINIT, START, ADDNODE, DELETENODE, STOP, SHUTDOWN, HELP, QUIT");
 
-			System.out.println("\nINIT, START, ADDNODE, DELETENODE, STOP, SHUTDOWN, HELP, QUIT");
+		while(!appStopped) {	        	
 
 			stdin = new BufferedReader(new InputStreamReader(System.in));
 			System.out.print("\n" + PROMPT);
@@ -66,6 +72,7 @@ public class ECSInterface {
 				continue;
 			}
 		}
+		System.out.println("Application terminated !");
 	}
 
 
@@ -91,20 +98,23 @@ public class ECSInterface {
 						break;
 					}
 					ecsClient.initService(nodesNumber, cacheSize, strategy);
+					initialized = true;
 				}
 				break;
 
 			case START:
-				ecsClient.start();
+				if (initialized) {
+					ecsClient.start();
+				} else {
+					System.out.println("System must be initialized. Please use INIT command.");
+				}
 				break;
 
 			case STOP:
-				stop = true;
 				ecsClient.stop();
 				break;
 
 			case SHUTDOWN:
-				stop = true;
 				ecsClient.shutdown();
 				break;
 
@@ -113,6 +123,11 @@ public class ECSInterface {
 				break;
 
 			case ADDNODE:
+				if (!initialized) {
+					System.out.println("System must be initialized. Please use INIT command.");
+					break;
+				}
+
 				if(input.length != 3) {
 					System.out.println("Error! Invalid number of arguments!");
 					System.out.println("Usage: addnode <cacheSize> <cacheStrategy> !");
@@ -124,32 +139,42 @@ public class ECSInterface {
 								+ "\nPlease try again.");
 						break;
 					}
-					ecsClient.addNode(sizeCache, strat);
+					try {
+						ecsClient.addNode(sizeCache, strat);
+					} catch (NoSuchElementException e) {
+						System.out.println("There is no more node to be added."
+								+ "\nPlease use another command.");
+					}
 				}
 				break;
 
 			case DELETENODE:
+				if (!initialized) {
+					System.out.println("System must be initialized. Please use INIT command.");
+					break;
+				}
+
 				ecsClient.removeNode();
 				break;
 
 			case QUIT:	
-				stop = true;
+				appStopped = true;
 				ecsClient.shutdown();
-				System.exit(0);
+				logger.info("Exiting");
 				break;
 
 			default:
 			}
 
-		} catch (IOException e) {
-			stop = true;
-			printError("CLI does not respond - Application terminated ");
 		} catch (NumberFormatException e) {
 			printError("Numerical argument could not be parsed; please try again.");
-		} catch (NoSuchAlgorithmException e) {
-			stop = true;
+		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+			appStopped = true;
 			printError("A fatal error occurred - Application terminated");
-			logger.fatal("Hashing algorithm does not exist.");
+			logger.fatal("Hashing algorithm does not exist or used encoding is not supported.");
+		} catch (IOException e) {
+			appStopped = true;
+			printError("CLI does not respond - Application terminated ");
 		}
 	}
 

@@ -18,7 +18,7 @@ public class StorageTest extends TestCase {
 		IOException ex = null;
 		try {
 			new LogSetup("./testing/server.log", Level.ALL);
-			Storage s = new Storage("./testing/");
+			Storage s = new Storage("./testing/", "50000");
 			
 			s.put("hello",  "world");
 			s.put("are", "you");

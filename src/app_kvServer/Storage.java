@@ -1,11 +1,15 @@
 package app_kvServer;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.util.Iterator;
 
 import org.apache.log4j.Logger;
@@ -21,12 +25,14 @@ public class Storage implements Iterable<Pair<String, String>>{
     private File bisFile;
     private final static String EOL = System.getProperty("line.separator");
     private final static int MAX_TRIALS = 3;
+    private final static String storageName = "storage.txt";
+    private final static String storageBisName = "storage_bis.txt";
     
-    public Storage(String rootPath) throws IOException {
+    public Storage(String rootPath, String ID) throws IOException {
     	IOException ex = null;
     	for (int i=0 ; i<MAX_TRIALS ; i++) {
     		try {
-    			initStorage(rootPath);
+    			initStorage(rootPath + ID + "_");
     			return;
     		} catch (IOException e) {
     			ex = e;
@@ -37,8 +43,8 @@ public class Storage implements Iterable<Pair<String, String>>{
     }
     
     private void initStorage(String rootPath) throws IOException {
-    	String storageFile = rootPath + "storage.txt";
-    	String storageFileBis = rootPath + "storage_bis.txt";
+    	String storageFile = rootPath + storageName;
+    	String storageFileBis = rootPath + storageBisName;
     	
     	file = new File(storageFile);
     	file.createNewFile();
@@ -157,5 +163,32 @@ public class Storage implements Iterable<Pair<String, String>>{
 			logger.fatal("Storage file could not be found in its location.");
 		}
 		return null;
-	}	
+	}
+	
+	private static class SingletonWriter {
+	    private static final SingletonWriter inst= new SingletonWriter();
+	    private Writer writer;
+
+	    private SingletonWriter() {
+	        super();
+	    }
+	    public void initializeAppendingWriter( File f) throws UnsupportedEncodingException, FileNotFoundException {
+	    	 writer = new BufferedWriter(new OutputStreamWriter(
+	   	          new FileOutputStream(f, true), "utf-8"));
+	    }
+
+	    public synchronized void write(String str) throws IOException {
+	    	 writer.write(str);
+	    }
+
+	    public void closeWriter() throws IOException {
+	    	if (writer != null) {
+					writer.close();
+	    	}
+	    }
+	    
+	    public static SingletonWriter getInstance() {
+	        return inst;
+	    }
+	}
 }

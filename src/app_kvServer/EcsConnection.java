@@ -53,7 +53,8 @@ public class EcsConnection implements Runnable {
 				}
 			} catch (IOException e){
 				stop = true;
-				logger.fatal("A connection error occurred - Application terminated " + e);
+				logger.fatal("An error occurred in ECS connection - Application terminated " + e);
+				System.exit(1);
 			}
 		}
 	}

@@ -2,7 +2,6 @@ package app_kvEcs;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,9 +25,7 @@ import app_kvServer.cache_strategies.Strategy;
 import common.messages.TextMessage;
 import common.metadata.MetadataHandler;
 import common.metadata.NodeData;
-import client.KVAdminCommModule;
 import client.KVSocketListener;
-import client.KVSocketListener.SocketStatus;
 
 public class ECSClient implements KVSocketListener {
 
@@ -36,34 +33,45 @@ public class ECSClient implements KVSocketListener {
 	protected BufferedReader br;
 	protected String         line;
 	private List<String> sortedNodeHashes = new ArrayList<String>();
-	private List<ConfigStore> sortedConfigStores = new ArrayList<ConfigStore>();
+	private List<ConfigStore> sortedConfigStores;
 
 	private int numberOfUsedNodes = 0;
 	private MetadataHandler metadataHandler;
-	private Logger logger = Logger.getLogger(getClass().getSimpleName());
+	
+	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private final static String configLocation = "./src/app_kvEcs/ecs.config.txt";
+	private final static String hashingAlgorithm = "MD5";
+	private final static String PROMPT = "ECSClient> ";
 
 	protected void initService(int numberOfNodes, int cacheSize, Strategy displacementStrategy)
 			throws NoSuchAlgorithmException{
 		logger.debug("Initiating the service...");
+		sortedConfigStores = new ArrayList<ConfigStore>();
 		
 		try {
 			fis = new FileInputStream(configLocation);
-		br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
-		int added = 0;
+			br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
+			int added = 0;
 
-		while ((line = br.readLine()) != null && numberOfNodes > added) {
-			logger.info("Adding node " + line);
-			addNodeToLists(line.split(" "));
-			added ++;		
-		}
-		br.close();		
-		br = null;
-		fis = null;
+			while ((line = br.readLine()) != null && numberOfNodes > added) {
+				logger.info("Adding node " + line);
+				addNodeToLists(line.split(" "));
+				added ++;		
+			}
+			closeIO();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("An error occurred when trying to read from config file"
+					+ "- Application terminated.");
+			logger.fatal("An error occurred when trying to read from config file"
+					+ "- Application terminated.", e);
+			System.exit(1);
+		} finally {
+			try {
+				closeIO();
+			} catch (IOException e1) {
+				logger.error("Unable to close io!");
+				}
 		}
 		sortNodeLists();
 		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
@@ -79,12 +87,21 @@ public class ECSClient implements KVSocketListener {
 		numberOfUsedNodes = numberOfNodes;
 	}
 
+	private void closeIO() throws IOException {
+		if (br != null) {
+			br.close();		
+			br = null;
+		}
+		fis = null;
+	}
+
 	private java.util.List<NodeData> getMetadata(java.util.List<String> sortedList) {
 		LinkedList<NodeData> list = new LinkedList<>();
 		int size = sortedList.size();
 		for (int i=0; i<size; i+=4) {
 			String minHashKey = sortedList.get((i-1 + size) % size);
-			list.add(new NodeData(sortedList.get(i), sortedList.get(i+1), Integer.valueOf(sortedList.get(i+2)), minHashKey, sortedList.get(i+3)));
+			list.add(new NodeData(sortedList.get(i), sortedList.get(i+1),
+					Integer.valueOf(sortedList.get(i+2)), minHashKey, sortedList.get(i+3)));
 		}
 		return list;
 	}
@@ -96,36 +113,65 @@ public class ECSClient implements KVSocketListener {
 	}
 
 	protected void stop(){
+		if (sortedConfigStores == null) {
+			return;
+		}
 		for (ConfigStore cs : sortedConfigStores) {
 			cs.stopServer();
 		}
+
 	}
 
 	protected void shutdown(){
+		if (sortedConfigStores == null) {
+			return;
+		}
 		stop();
 		for (ConfigStore cs : sortedConfigStores) {
 			cs.shutdown();
+			cs = null;
 		}
+		sortedConfigStores = null;
+		numberOfUsedNodes = 0;
 	}
 
-	protected void addNode(int cacheSize, Strategy displacementStrategy) throws IOException, NoSuchElementException, NoSuchAlgorithmException{
+	protected void addNode(int cacheSize, Strategy displacementStrategy)
+			throws NoSuchElementException, NoSuchAlgorithmException{
+		try {
+			fis = new FileInputStream(configLocation);
+			br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
 
-		fis = new FileInputStream(configLocation);
-		br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
-
-		for(int i = 0; i <= numberOfUsedNodes; ++i) {
-			line = br.readLine();
-		}		
-		br.close();		
-		br = null;
-		fis = null;
+			for(int i = 0; i <= numberOfUsedNodes; ++i) {
+				line = br.readLine();
+			}		
+		} catch (IOException e) {
+			System.out.println("An error occurred when trying to read from config file"
+					+ "- Application terminated.");
+			logger.fatal("An error occurred when trying to read from config file"
+					+ "- Application terminated.", e);
+			System.exit(1);
+		} finally {
+			try {
+				closeIO();
+			} catch (IOException e1) {
+				logger.error("Unable to close io!");
+				}
+		}
 
 		if (line == null) {
 			throw new NoSuchElementException("There is no more node to add.");
 		}
 		logger.debug("Adding node " + line);
 		String[] params = line.split(" ");
-		addNodeToLists(params);
+		try {
+			addNodeToLists(params);
+		} catch (IllegalArgumentException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		String nodeName = params[0];
 
 		sortNodeLists();
@@ -133,7 +179,6 @@ public class ECSClient implements KVSocketListener {
 
 		// TODO launch node via SSH with arg <port>
 
-		// TODO connect via socket to this node
 		int index = findCsIndex(nodeName);
 		ConfigStore newNodeCS = sortedConfigStores.get(index);
 		newNodeCS.addListener(this);
@@ -141,22 +186,29 @@ public class ECSClient implements KVSocketListener {
 		String updatedMetadata = metadataHandler.toString();
 		newNodeCS.initKVServer(updatedMetadata, cacheSize, displacementStrategy);
 		newNodeCS.startServer();
-		
+
+		logger.info("New node started.");
+
 		ConfigStore nextNodeCS = sortedConfigStores.get((index + 1) % sortedConfigStores.size());
 		String hashOfNewNode = sortedNodeHashes.get(index*4 +3);
 		String[] newNodeAddress = new String[] {params[1], params[2]};
-		
+
 		nextNodeCS.lockWrite();
 		nextNodeCS.moveData(hashOfNewNode, newNodeAddress);
-		
+
+		logger.info("Data moved to new node.");
+
 		for (ConfigStore c : sortedConfigStores) {
 			try {
 				c.updateMetadata(updatedMetadata);
-			} catch (InterruptedException e) {
+			} catch (InterruptedException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+
+		logger.debug("Metadata updated for all nodes");
+
 		nextNodeCS.unlockWrite();
 		// TODO remove stale data on nextNode????
 		numberOfUsedNodes++;
@@ -176,27 +228,58 @@ public class ECSClient implements KVSocketListener {
 		if (numberOfUsedNodes == 0) {
 			throw new NoSuchElementException("There is no more node to remove.");
 		}
-		fis = new FileInputStream(configLocation);
+		try {
+			fis = new FileInputStream(configLocation);
 
-		br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
-		for(int i = 0; i < numberOfUsedNodes; ++i) {
-			line = br.readLine();
-		}		
-		br.close();		
-		br = null;
-		fis = null;
+			br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
+			for(int i = 0; i < numberOfUsedNodes; ++i) {
+				line = br.readLine();
+			}		
+		} catch (IOException e) {
+			System.out.println("An error occurred when trying to read from config file"
+					+ "- Application terminated.");
+			logger.fatal("An error occurred when trying to read from config file"
+					+ "- Application terminated.", e);
+			System.exit(1);
+		} finally {
+			try {
+				closeIO();
+			} catch (IOException e1) {}
+		}
 
-		// TODO invoke movedata on relevant node
-		// TODO update metadata of all remaining nodes
 		// TODO shutdown node
-
-		removeNodeFromLists(line.split(" ")[0]);
+		String toRemoveName = line.split(" ")[0];
+		String toRemoveHash = line.split(" ")[2];
+		int toRemoveIndex = findCsIndex(toRemoveName);
+		ConfigStore removed = removeNodeFromLists(toRemoveName);
 		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
+		
+		removed.lockWrite();
+		ConfigStore successor = sortedConfigStores.get(toRemoveIndex % sortedConfigStores.size());
+		String newMetadata = metadataHandler.toString();
+		try {
+			successor.updateMetadata(newMetadata);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		removed.moveData(toRemoveHash, successor.getIpAndPort());
+		// TODO when over
+		for (ConfigStore cs : sortedConfigStores) {
+			try {
+				cs.updateMetadata(newMetadata);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		removed.shutdown();
+		
 		numberOfUsedNodes--;
 	}
 
 
-	private void removeNodeFromLists(String nodeName) {
+	private ConfigStore removeNodeFromLists(String nodeName) {
 		int size = sortedNodeHashes.size();		
 		List<String> removedList = new ArrayList<String>();
 		int index = 0;
@@ -211,16 +294,16 @@ public class ECSClient implements KVSocketListener {
 			}
 		}		
 		sortedNodeHashes.removeAll(removedList);
-		sortedConfigStores.remove(index/4);
+		return sortedConfigStores.remove(index/4);
 	}
 
-	private void addNodeToLists(String[] nodeData) throws NoSuchAlgorithmException, IllegalArgumentException, IOException {
+	private void addNodeToLists(String[] nodeData)
+			throws NoSuchAlgorithmException, IllegalArgumentException, IOException {
 		sortedConfigStores.add(new ConfigStore(nodeData[1], Integer.parseInt(nodeData[2])));
 
 		String IpAndPort = new StringBuilder(nodeData[1]).append(";").append(nodeData[2]).toString();
 
-		//combine ip and port and convert to hash.
-		String hashedKey = new BigInteger(1,MessageDigest.getInstance("MD5").digest(IpAndPort.getBytes("UTF-8"))).toString(16);
+		String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm).digest(IpAndPort.getBytes("UTF-8"))).toString(16);
 		sortedNodeHashes.add(nodeData[0]);
 		sortedNodeHashes.add(nodeData[1]);
 		sortedNodeHashes.add(nodeData[2]);
@@ -238,7 +321,7 @@ public class ECSClient implements KVSocketListener {
 		String current;
 
 		for (int i = 0; i < size ; i+=4){
-			String max = sortedNodeHashes.get(1);
+			String max = sortedNodeHashes.get(0);
 			int indexOfMax = 0;
 			for (int j = 3; j < size-i; j+=4){
 				current = sortedNodeHashes.get(i);
@@ -247,27 +330,36 @@ public class ECSClient implements KVSocketListener {
 					indexOfMax = j;
 				}
 			}
-			Collections.swap(sortedNodeHashes, indexOfMax, size-i);
-			Collections.swap(sortedNodeHashes, indexOfMax-1, size-(i+1));
-			Collections.swap(sortedNodeHashes, indexOfMax-2, size-(i+2));
-			Collections.swap(sortedNodeHashes, indexOfMax-3, size-(i+3));
+			Collections.swap(sortedNodeHashes, indexOfMax, size-1-i);
+			Collections.swap(sortedNodeHashes, indexOfMax-1, size-1-(i+1));
+			Collections.swap(sortedNodeHashes, indexOfMax-2, size-1-(i+2));
+			Collections.swap(sortedNodeHashes, indexOfMax-3, size-1-(i+3));
 
-			Collections.swap(sortedConfigStores, indexOfMax/4, (size-i)/4);
+			Collections.swap(sortedConfigStores, indexOfMax/4, (size-1-i)/4);
 		}				
 	}
 
-    
-    @Override
-    public void handleStatus(SocketStatus status) {
-        
-    }
-    
-    @Override
-    public void handleNewMessage(TextMessage msg) {
-        System.out.println("Got new message in ECS");
-        
-    }
-    
+
+	@Override
+	public void handleStatus(SocketStatus status) {
+		if(status == SocketStatus.CONNECTED) {
+
+		} else if (status == SocketStatus.DISCONNECTED) {
+			System.out.print(PROMPT);
+			System.out.println("Connection terminated.");
+
+		} else if (status == SocketStatus.CONNECTION_LOST) {
+			System.out.println("Connection lost.");
+			System.out.print(PROMPT);
+		}
+	}
+
+	@Override
+	public void handleNewMessage(TextMessage msg) {
+		System.out.println("Got new message in ECS");
+
+	}
+
 
 	/**
 	 * Main entry point for the ECSClient application. 

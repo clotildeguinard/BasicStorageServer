@@ -33,7 +33,7 @@ public class KVServer implements Runnable {
 	private ClientConnection clientConnection;
 	private EcsConnection ecsConnection;
 	private boolean initialized;
-	//  this.serverIp = InetAddress.getLocalHost().getHostAddress();
+	private boolean writeLocked = false;
 
 	public KVServer(int port) {
 		this.port = port;
@@ -62,18 +62,33 @@ public class KVServer implements Runnable {
 			datacache = new LFUStrategy(cacheSize);
 		}
 		try {
-			this.cacheManager = new CacheManager(datacache, new Storage(storageLocation));
+			this.cacheManager = new CacheManager(datacache, new Storage(storageLocation, Integer.toString(port)));
 		} catch (IOException e) {
 			logger.fatal("Storage could not be instanciated");
 			shutdown();
 		}
 		metadataHandler = new MetadataHandler("127.0.0.1", port);
 		update(metadata);
-
+		openServerSocket();
+		
+		initialized = true;
 	}
 
 	public void start() {
 		new Thread(this).start();
+	}
+	
+	private void openServerSocket() {
+		try {
+			serverSocket = new ServerSocket(port);
+			logger.info("Server listening on port: " 
+					+ serverSocket.getLocalPort());
+		} catch (IOException e) {
+			logger.error("Error! Cannot open server socket:");
+			if(e instanceof BindException){
+				logger.error("Port " + port + " is already bound!");
+			}
+		}
 	}
 
 	private class ECSSocketLoop extends Thread {
@@ -85,30 +100,19 @@ public class KVServer implements Runnable {
 		public void run(){
 			
 				try {
-					serverSocket = new ServerSocket(port);
-					logger.info("Server listening on port: " 
-							+ serverSocket.getLocalPort());
-				} catch (IOException e) {
-					logger.error("Error! Cannot open server socket:");
-					if(e instanceof BindException){
-						logger.error("Port " + port + " is already bound!");
-					}
-				}
-				try {
 				Socket ecs = serverSocket.accept();                
 				ecsConnection = 
 						new EcsConnection(port, ecs, KVServer.this);
 				new Thread(ecsConnection).start();
 
-				logger.info("Connected to " 
+				logger.info("Connected to ECS " 
 						+ ecs.getInetAddress().getHostName() 
 						+  " on port " + ecs.getPort());
-
+				
 			} catch (IOException e) {
 				logger.error("Error! " +
 						"Unable to establish connection. \n", e);
 			}
-			logger.info("ECS - Server communication initialized ...");
 		}
 	}
 	/**
@@ -121,11 +125,12 @@ public class KVServer implements Runnable {
 		isStopped = !initialized;
 
 		if(serverSocket != null) {
+			logger.debug("Server listening to clients...");
 			while(!isStopped()){
 				try {
 					Socket client = serverSocket.accept();                
 					clientConnection = 
-							new ClientConnection(port, client, cacheManager, metadataHandler);
+							new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked);
 					new Thread(clientConnection).start();
 
 					logger.info("Connected to " 
@@ -136,28 +141,28 @@ public class KVServer implements Runnable {
 							"Unable to establish connection. \n", e);
 				}
 			}
+			try {
+				serverSocket.close();
+			} catch (IOException e) {
+				throw new RuntimeException("Error closing connection with clients.", e);
+			}
 		}
 		logger.info("Server stopped.");
 	}
 
 
-	private synchronized boolean isStopped() {
+	private boolean isStopped() {
 		return isStopped;
 	}
 
-	public synchronized void stop(){
+	public void stop(){
 		logger.debug("Stopping the server");
 		this.isStopped = true;
-		try {
-			this.serverSocket.close();
-		} catch (IOException e) {
-			throw new RuntimeException("Error closing server", e);
-		}
 	}
 
 	public void shutdown() {
 		stop();
-		logger.debug("Exiting");
+		logger.info("Exiting");
 		System.exit(0);
 	}
 
@@ -169,14 +174,17 @@ public class KVServer implements Runnable {
 	 */
 	public void moveData(String hashOfNewServer, String destinationServerIp, int destinationServerPort) throws IOException {
 		cacheManager.flushCache();
+		logger.debug("Cache flushed.");
 		KVStore kvStore = new KVStore(destinationServerIp, destinationServerPort);
 		try {
 			kvStore.connect();
 			for (Pair<String, String> pair : cacheManager) {
 				if (metadataHandler.hasToMove(pair.getKey(), hashOfNewServer)) {
+					logger.debug("Move key " + pair.getKey() + ", value " + pair.getValue());
 					kvStore.put(pair.getKey(), pair.getValue());
 					cacheManager.put(pair.getKey(), "null");
 				}
+				logger.debug("Keep key " + pair.getKey() + ", value " + pair.getValue());
 			}
 		} catch (InterruptedException e) {
 			stop();
@@ -199,12 +207,18 @@ public class KVServer implements Runnable {
 	}
 
 	public void lockWrite() {
-		clientConnection.writeLock();
+		writeLocked = true;
+		if (clientConnection != null) {
+			clientConnection.writeLock();
+		}
 		logger.info("Server write-locked");
 	}
 
 	public void unLockWrite() {
+		writeLocked = false;
+		if (clientConnection != null) {
 		clientConnection.writeUnlock();
+		}
 		logger.info("Server write-unlocked");
 	}
 

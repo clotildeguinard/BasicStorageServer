@@ -50,3 +50,353 @@
 2014-11-12 13:08:14,451 INFO  [Thread-0] root: connection closed!
 2014-11-12 13:10:41,944 INFO  [main] root: Send request:	 'PUT foo bar'
 2014-11-12 13:10:58,887 INFO  [main] root: Send request:	 'GET foo null'
+2014-12-03 10:09:00,550 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 10:09:00,588 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 10:09:00,841 INFO  [main] KVStore: try to close connection ...
+2014-12-03 10:09:00,842 INFO  [main] KVStore: tearing down the connection ...
+2014-12-03 10:09:00,844 INFO  [main] KVStore: connection closed!
+2014-12-03 10:09:00,844 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-03 10:53:19,944 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 10:53:19,960 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 10:53:20,212 INFO  [main] KVStore: try to close connection ...
+2014-12-03 10:53:20,213 INFO  [main] KVStore: tearing down the connection ...
+2014-12-03 10:53:20,215 INFO  [main] KVStore: connection closed!
+2014-12-03 10:53:20,215 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-03 10:56:42,207 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 10:56:42,208 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 10:56:42,461 INFO  [main] KVStore: try to close connection ...
+2014-12-03 10:56:42,461 INFO  [main] KVStore: tearing down the connection ...
+2014-12-03 10:56:42,463 INFO  [main] KVStore: connection closed!
+2014-12-03 10:56:42,463 INFO  [Thread-2] KVStore: KVStore stopped
+2014-12-03 11:03:34,921 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 11:03:34,935 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:03:34,950 INFO  [Thread-1] KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-03 11:03:34,985 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:03:34,985 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:03:34,986 INFO  [main] KVStore: connection closed!
+2014-12-03 11:03:34,986 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-03 11:03:34,988 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 11:03:34,989 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:03:35,007 INFO  [Thread-2] KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-03 11:03:35,039 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:03:35,039 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:03:35,039 INFO  [main] KVStore: connection closed!
+2014-12-03 11:03:35,040 INFO  [Thread-2] KVStore: KVStore stopped
+2014-12-03 11:03:35,042 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 11:03:35,043 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:03:35,048 INFO  [Thread-3] KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-03 11:03:35,094 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:03:35,094 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:03:35,094 INFO  [main] KVStore: connection closed!
+2014-12-03 11:03:35,094 INFO  [Thread-3] KVStore: KVStore stopped
+2014-12-03 11:03:35,095 WARN  [main] KVStore: Responsible server for key foo could not be found after 3 trials.
+2014-12-03 11:06:38,541 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 11:06:38,556 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:06:38,574 INFO  [Thread-1] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-03 11:06:38,606 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:06:38,606 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:06:38,606 INFO  [main] KVStore: connection closed!
+2014-12-03 11:06:38,606 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-03 11:07:18,936 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 11:07:18,937 DEBUG [main] KVCommModule: Send :	 'GET foo null'
+2014-12-03 11:07:18,942 INFO  [Thread-2] KVCommModule: New received message : GET_SUCCESS foo bar
+2014-12-03 11:07:18,988 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:07:18,988 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:07:18,988 INFO  [main] KVStore: connection closed!
+2014-12-03 11:07:18,988 INFO  [Thread-2] KVStore: KVStore stopped
+2014-12-03 11:07:26,088 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 11:07:26,089 DEBUG [main] KVCommModule: Send :	 'PUT gre tre'
+2014-12-03 11:07:26,099 INFO  [Thread-3] KVCommModule: New received message : PUT_SUCCESS gre tre
+2014-12-03 11:07:26,140 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:07:26,140 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:07:26,140 INFO  [main] KVStore: connection closed!
+2014-12-03 11:07:26,140 INFO  [Thread-3] KVStore: KVStore stopped
+2014-12-03 11:07:38,728 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 11:07:38,729 DEBUG [main] KVCommModule: Send :	 'PUT hre gdf'
+2014-12-03 11:07:38,831 INFO  [Thread-4] KVCommModule: New received message : PUT_SUCCESS hre gdf
+2014-12-03 11:07:38,879 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:07:38,879 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:07:38,879 INFO  [main] KVStore: connection closed!
+2014-12-03 11:07:38,879 INFO  [Thread-4] KVStore: KVStore stopped
+2014-12-03 11:08:11,403 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 11:08:11,404 DEBUG [main] KVCommModule: Send :	 'PUT gleoosgdgg gf'
+2014-12-03 11:08:11,655 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:08:11,655 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:08:11,655 INFO  [main] KVStore: connection closed!
+2014-12-03 11:08:11,655 INFO  [Thread-5] KVStore: KVStore stopped
+2014-12-03 11:18:15,807 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:18:15,818 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:18:15,835 INFO  [Thread-1] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-03 11:18:15,869 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:18:15,869 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:18:15,869 INFO  [main] KVStore: connection closed!
+2014-12-03 11:18:15,870 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-03 11:18:25,954 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:18:25,955 DEBUG [main] KVCommModule: Send :	 'PUT gre ddf'
+2014-12-03 11:18:25,961 INFO  [Thread-2] KVCommModule: New received message : PUT_SUCCESS gre ddf
+2014-12-03 11:18:26,006 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:18:26,006 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:18:26,006 INFO  [main] KVStore: connection closed!
+2014-12-03 11:18:26,007 INFO  [Thread-2] KVStore: KVStore stopped
+2014-12-03 11:18:47,164 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:18:47,165 DEBUG [main] KVCommModule: Send :	 'PUT wdfgsdh th'
+2014-12-03 11:18:47,169 INFO  [Thread-3] KVCommModule: New received message : PUT_SUCCESS wdfgsdh th
+2014-12-03 11:18:47,215 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:18:47,215 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:18:47,215 INFO  [main] KVStore: connection closed!
+2014-12-03 11:18:47,216 INFO  [Thread-3] KVStore: KVStore stopped
+2014-12-03 11:19:25,009 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:19:25,010 DEBUG [main] KVCommModule: Send :	 'PUT 34drdr fhjxfbjd'
+2014-12-03 11:19:25,116 INFO  [Thread-4] KVCommModule: New received message : PUT_SUCCESS 34drdr fhjxfbjd
+2014-12-03 11:19:25,162 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:19:25,162 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:19:25,162 INFO  [main] KVStore: connection closed!
+2014-12-03 11:19:25,162 INFO  [Thread-4] KVStore: KVStore stopped
+2014-12-03 11:23:38,788 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:23:38,801 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:23:38,819 INFO  [Thread-1] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-03 11:23:38,852 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:23:38,852 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:23:38,853 INFO  [main] KVStore: connection closed!
+2014-12-03 11:23:38,853 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-03 11:23:51,095 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:23:51,096 DEBUG [main] KVCommModule: Send :	 'PUT gregd g'
+2014-12-03 11:23:51,101 INFO  [Thread-2] KVCommModule: New received message : PUT_SUCCESS gregd g
+2014-12-03 11:23:51,147 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:23:51,147 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:23:51,147 INFO  [main] KVStore: connection closed!
+2014-12-03 11:23:51,147 INFO  [Thread-2] KVStore: KVStore stopped
+2014-12-03 11:24:07,875 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:24:07,877 DEBUG [main] KVCommModule: Send :	 'PUT 473905jeryerkjdg g'
+2014-12-03 11:24:07,881 INFO  [Thread-3] KVCommModule: New received message : PUT_SUCCESS 473905jeryerkjdg g
+2014-12-03 11:24:07,927 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:24:07,927 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:24:07,927 INFO  [main] KVStore: connection closed!
+2014-12-03 11:24:07,927 INFO  [Thread-3] KVStore: KVStore stopped
+2014-12-03 11:24:26,375 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:24:26,376 DEBUG [main] KVCommModule: Send :	 'PUT g f'
+2014-12-03 11:24:26,382 INFO  [Thread-4] KVCommModule: New received message : PUT_SUCCESS g f
+2014-12-03 11:24:26,426 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:24:26,426 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:24:26,426 INFO  [main] KVStore: connection closed!
+2014-12-03 11:24:26,426 INFO  [Thread-4] KVStore: KVStore stopped
+2014-12-03 11:32:58,346 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:32:58,356 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:32:58,371 INFO  [Thread-1] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-03 11:32:58,406 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:32:58,406 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:32:58,406 INFO  [main] KVStore: connection closed!
+2014-12-03 11:32:58,407 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-03 11:33:08,100 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:33:08,101 DEBUG [main] KVCommModule: Send :	 'PUT sgsrgh f'
+2014-12-03 11:33:08,104 INFO  [Thread-2] KVCommModule: New received message : PUT_SUCCESS sgsrgh f
+2014-12-03 11:33:08,152 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:33:08,152 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:33:08,152 INFO  [main] KVStore: connection closed!
+2014-12-03 11:33:08,152 INFO  [Thread-2] KVStore: KVStore stopped
+2014-12-03 11:33:24,508 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:33:24,509 DEBUG [main] KVCommModule: Send :	 'PUT g f'
+2014-12-03 11:33:24,513 INFO  [Thread-3] KVCommModule: New received message : PUT_SUCCESS g f
+2014-12-03 11:33:24,560 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:33:24,560 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:33:24,560 INFO  [main] KVStore: connection closed!
+2014-12-03 11:33:24,560 INFO  [Thread-3] KVStore: KVStore stopped
+2014-12-03 11:33:39,463 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:33:39,465 DEBUG [main] KVCommModule: Send :	 'PUT d 4'
+2014-12-03 11:33:39,468 INFO  [Thread-4] KVCommModule: New received message : PUT_SUCCESS d 4
+2014-12-03 11:33:39,515 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:33:39,515 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:33:39,515 INFO  [main] KVStore: connection closed!
+2014-12-03 11:33:39,515 INFO  [Thread-4] KVStore: KVStore stopped
+2014-12-03 11:33:49,162 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:33:49,163 DEBUG [main] KVCommModule: Send :	 'PUT q f'
+2014-12-03 11:33:49,205 INFO  [Thread-5] KVCommModule: New received message : PUT_SUCCESS q f
+2014-12-03 11:33:49,213 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:33:49,213 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:33:49,213 INFO  [main] KVStore: connection closed!
+2014-12-03 11:33:49,213 INFO  [Thread-5] KVStore: KVStore stopped
+2014-12-03 11:34:00,838 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:34:00,839 DEBUG [main] KVCommModule: Send :	 'PUT a d'
+2014-12-03 11:34:00,906 INFO  [Thread-6] KVCommModule: New received message : PUT_SUCCESS a d
+2014-12-03 11:34:00,939 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:34:00,939 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:34:00,939 INFO  [main] KVStore: connection closed!
+2014-12-03 11:34:00,939 INFO  [Thread-6] KVStore: KVStore stopped
+2014-12-03 11:34:06,241 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:34:06,242 DEBUG [main] KVCommModule: Send :	 'PUT y k'
+2014-12-03 11:34:06,418 INFO  [Thread-7] KVCommModule: New received message : PUT_SUCCESS y k
+2014-12-03 11:34:06,442 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:34:06,442 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:34:06,442 INFO  [main] KVStore: connection closed!
+2014-12-03 11:34:06,442 INFO  [Thread-7] KVStore: KVStore stopped
+2014-12-03 11:37:10,908 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:37:10,918 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:37:10,934 INFO  [Thread-1] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-03 11:37:10,969 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:37:10,969 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:37:10,969 INFO  [main] KVStore: connection closed!
+2014-12-03 11:37:10,970 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-03 11:44:42,083 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:44:42,097 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:44:42,125 INFO  [Thread-1] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-03 11:44:42,148 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:44:42,148 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:44:42,148 INFO  [main] KVStore: connection closed!
+2014-12-03 11:44:42,149 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-03 11:48:56,121 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:48:56,132 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:48:56,146 INFO  [Thread-1] KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-03 11:48:56,182 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:48:56,182 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:48:56,182 INFO  [main] KVStore: connection closed!
+2014-12-03 11:48:56,183 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-03 11:48:56,202 DEBUG [main] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-03 11:48:56,203 DEBUG [main] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-03 11:48:56,203 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50001
+2014-12-03 11:48:56,208 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:48:56,227 INFO  [Thread-2] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-03 11:48:56,259 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:48:56,259 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:48:56,259 INFO  [main] KVStore: connection closed!
+2014-12-03 11:48:56,259 INFO  [Thread-2] KVStore: KVStore stopped
+2014-12-03 11:49:48,916 DEBUG [main] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-03 11:49:48,917 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 11:49:48,918 DEBUG [main] KVCommModule: Send :	 'PUT foo1 bar'
+2014-12-03 11:49:48,925 INFO  [Thread-3] KVCommModule: New received message : PUT_SUCCESS foo1 bar
+2014-12-03 11:49:48,969 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:49:48,969 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:49:48,969 INFO  [main] KVStore: connection closed!
+2014-12-03 11:49:48,969 INFO  [Thread-3] KVStore: KVStore stopped
+2014-12-03 11:50:04,405 DEBUG [main] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-03 11:50:04,405 DEBUG [main] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-03 11:50:04,405 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50001
+2014-12-03 11:50:04,406 DEBUG [main] KVCommModule: Send :	 'GET foo null'
+2014-12-03 11:50:04,418 INFO  [Thread-4] KVCommModule: New received message : GET_SUCCESS foo bar
+2014-12-03 11:50:04,457 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:50:04,457 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:50:04,457 INFO  [main] KVStore: connection closed!
+2014-12-03 11:50:04,457 INFO  [Thread-4] KVStore: KVStore stopped
+2014-12-03 11:50:09,754 DEBUG [main] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-03 11:50:09,755 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-03 11:50:09,755 DEBUG [main] KVCommModule: Send :	 'GET foo1 null'
+2014-12-03 11:50:09,788 INFO  [Thread-5] KVCommModule: New received message : GET_SUCCESS foo1 bar
+2014-12-03 11:50:09,806 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:50:09,806 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:50:09,806 INFO  [main] KVStore: connection closed!
+2014-12-03 11:50:09,806 INFO  [Thread-5] KVStore: KVStore stopped
+2014-12-03 11:51:31,784 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:51:31,794 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-03 11:51:31,799 INFO  [Thread-1] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-03 11:51:31,845 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:51:31,845 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:51:31,846 INFO  [main] KVStore: connection closed!
+2014-12-03 11:51:31,847 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-03 11:51:38,987 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:51:38,989 DEBUG [main] KVCommModule: Send :	 'PUT foo1 bar'
+2014-12-03 11:51:38,994 INFO  [Thread-2] KVCommModule: New received message : PUT_SUCCESS foo1 bar
+2014-12-03 11:51:39,039 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:51:39,039 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:51:39,039 INFO  [main] KVStore: connection closed!
+2014-12-03 11:51:39,039 INFO  [Thread-2] KVStore: KVStore stopped
+2014-12-03 11:52:11,449 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:52:11,450 DEBUG [main] KVCommModule: Send :	 'GET foo1 null'
+2014-12-03 11:52:11,489 INFO  [Thread-3] KVCommModule: New received message : GET_SUCCESS foo1 null
+2014-12-03 11:52:11,500 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:52:11,500 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:52:11,500 INFO  [main] KVStore: connection closed!
+2014-12-03 11:52:11,500 INFO  [Thread-3] KVStore: KVStore stopped
+2014-12-03 11:52:23,917 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:52:23,919 DEBUG [main] KVCommModule: Send :	 'PUT foo1 b'
+2014-12-03 11:52:23,964 INFO  [Thread-4] KVCommModule: New received message : PUT_UPDATE foo1 b
+2014-12-03 11:52:23,969 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:52:23,969 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:52:23,969 INFO  [main] KVStore: connection closed!
+2014-12-03 11:52:23,969 INFO  [Thread-4] KVStore: KVStore stopped
+2014-12-03 11:53:18,712 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:53:18,713 DEBUG [main] KVCommModule: Send :	 'GET foo null'
+2014-12-03 11:53:18,964 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:53:18,964 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:53:18,964 INFO  [main] KVStore: connection closed!
+2014-12-03 11:53:18,964 INFO  [Thread-5] KVStore: KVStore stopped
+2014-12-03 11:53:35,285 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-03 11:53:35,287 DEBUG [main] KVCommModule: Send :	 'PUT foo b'
+2014-12-03 11:53:35,538 DEBUG [main] KVStore: try to close connection ...
+2014-12-03 11:53:35,538 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-03 11:53:35,538 INFO  [main] KVStore: connection closed!
+2014-12-03 11:53:35,538 INFO  [Thread-6] KVStore: KVStore stopped
+2014-12-04 13:33:30,162 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-04 13:33:30,173 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-04 13:33:30,187 INFO  [Thread-1] KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 13:33:30,224 DEBUG [main] KVStore: try to close connection ...
+2014-12-04 13:33:30,224 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-04 13:33:30,224 INFO  [main] KVStore: connection closed!
+2014-12-04 13:33:30,224 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-04 13:33:30,247 DEBUG [main] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 13:33:30,247 DEBUG [main] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 13:33:30,248 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50001
+2014-12-04 13:33:30,255 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-04 13:33:30,272 INFO  [Thread-2] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-04 13:33:30,306 DEBUG [main] KVStore: try to close connection ...
+2014-12-04 13:33:30,306 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-04 13:33:30,306 INFO  [main] KVStore: connection closed!
+2014-12-04 13:33:30,306 INFO  [Thread-2] KVStore: KVStore stopped
+2014-12-04 13:34:21,513 DEBUG [main] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-04 13:34:21,513 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-04 13:34:21,515 DEBUG [main] KVCommModule: Send :	 'PUT foo1 bar'
+2014-12-04 13:34:21,526 INFO  [Thread-3] KVCommModule: New received message : PUT_SUCCESS foo1 bar
+2014-12-04 13:34:21,565 DEBUG [main] KVStore: try to close connection ...
+2014-12-04 13:34:21,565 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-04 13:34:21,566 INFO  [main] KVStore: connection closed!
+2014-12-04 13:34:21,566 INFO  [Thread-3] KVStore: KVStore stopped
+2014-12-04 13:35:30,196 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-04 13:35:30,209 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-04 13:35:30,226 INFO  [Thread-1] KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 13:35:30,259 DEBUG [main] KVStore: try to close connection ...
+2014-12-04 13:35:30,259 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-04 13:35:30,259 INFO  [main] KVStore: connection closed!
+2014-12-04 13:35:30,260 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-04 13:35:30,284 DEBUG [main] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 13:35:30,285 DEBUG [main] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 13:35:30,285 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50001
+2014-12-04 13:35:30,291 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-04 13:35:30,312 INFO  [Thread-2] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-04 13:35:30,342 DEBUG [main] KVStore: try to close connection ...
+2014-12-04 13:35:30,342 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-04 13:35:30,342 INFO  [main] KVStore: connection closed!
+2014-12-04 13:35:30,342 INFO  [Thread-2] KVStore: KVStore stopped
+2014-12-04 13:35:39,682 DEBUG [main] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-04 13:35:39,683 DEBUG [main] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-04 13:35:39,684 DEBUG [main] KVCommModule: Send :	 'PUT foo1 bar1'
+2014-12-04 13:35:39,690 INFO  [Thread-3] KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2014-12-04 13:35:39,734 DEBUG [main] KVStore: try to close connection ...
+2014-12-04 13:35:39,734 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-04 13:35:39,734 INFO  [main] KVStore: connection closed!
+2014-12-04 13:35:39,734 INFO  [Thread-3] KVStore: KVStore stopped
+2014-12-04 13:36:16,258 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-04 13:36:16,269 DEBUG [main] KVCommModule: Send :	 'PUT foo1 bar1'
+2014-12-04 13:36:16,275 INFO  [Thread-1] KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2014-12-04 13:36:16,320 DEBUG [main] KVStore: try to close connection ...
+2014-12-04 13:36:16,320 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-04 13:36:16,320 INFO  [main] KVStore: connection closed!
+2014-12-04 13:36:16,321 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-04 13:36:19,564 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-04 13:36:19,565 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-04 13:36:19,569 INFO  [Thread-2] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-04 13:36:19,616 DEBUG [main] KVStore: try to close connection ...
+2014-12-04 13:36:19,616 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-04 13:36:19,616 INFO  [main] KVStore: connection closed!
+2014-12-04 13:36:19,616 INFO  [Thread-2] KVStore: KVStore stopped
+2014-12-04 14:00:04,888 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-04 14:00:04,901 DEBUG [main] KVCommModule: Send :	 'PUT foo bar'
+2014-12-04 14:00:04,906 INFO  [Thread-1] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-04 14:00:04,952 DEBUG [main] KVStore: try to close connection ...
+2014-12-04 14:00:04,952 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-04 14:00:04,952 INFO  [main] KVStore: connection closed!
+2014-12-04 14:00:04,953 INFO  [Thread-1] KVStore: KVStore stopped
+2014-12-04 14:00:16,815 DEBUG [main] KVStore: Trying to connect to ip 127.0.0.1 , port 50000
+2014-12-04 14:00:16,817 DEBUG [main] KVCommModule: Send :	 'PUT foo1 bar1'
+2014-12-04 14:00:16,823 INFO  [Thread-2] KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2014-12-04 14:00:16,867 DEBUG [main] KVStore: try to close connection ...
+2014-12-04 14:00:16,867 DEBUG [main] KVStore: tearing down the connection ...
+2014-12-04 14:00:16,867 INFO  [main] KVStore: connection closed!
+2014-12-04 14:00:16,867 INFO  [Thread-2] KVStore: KVStore stopped
