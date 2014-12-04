@@ -68,16 +68,18 @@ public class KVServer implements Runnable {
 			shutdown();
 		}
 		metadataHandler = new MetadataHandler("127.0.0.1", port);
-		update(metadata);
-		openServerSocket();
-		
+		updateMetadata(metadata);
+		if (serverSocket == null) {
+			openServerSocket();
+		}
+
 		initialized = true;
 	}
 
 	public void start() {
 		new Thread(this).start();
 	}
-	
+
 	private void openServerSocket() {
 		try {
 			serverSocket = new ServerSocket(port);
@@ -98,8 +100,10 @@ public class KVServer implements Runnable {
 		 * @return true if succeeded
 		 */
 		public void run(){
-			
-				try {
+			if (serverSocket == null) {
+				openServerSocket();
+			}
+			try {
 				Socket ecs = serverSocket.accept();                
 				ecsConnection = 
 						new EcsConnection(port, ecs, KVServer.this);
@@ -108,7 +112,7 @@ public class KVServer implements Runnable {
 				logger.info("Connected to ECS " 
 						+ ecs.getInetAddress().getHostName() 
 						+  " on port " + ecs.getPort());
-				
+
 			} catch (IOException e) {
 				logger.error("Error! " +
 						"Unable to establish connection. \n", e);
@@ -167,25 +171,30 @@ public class KVServer implements Runnable {
 	}
 
 	/**
-	 * 
-	 * @param rangeToMove contains min and max hash to move
-	 * @param destinationServer contains ip and port
+	 * Move to given node all data having key under hash hashOfNewNode
+	 * @param hashOfNewNode the hash of the new node
+	 * @param destinationServerIp
+	 * @param destinationServerPort
 	 * @throws IOException
 	 */
-	public void moveData(String hashOfNewServer, String destinationServerIp, int destinationServerPort) throws IOException {
+	public void moveData(String hashOfNewNode, String destinationServerIp, int destinationServerPort)
+			throws IOException {
 		cacheManager.flushCache();
 		logger.debug("Cache flushed.");
 		KVStore kvStore = new KVStore(destinationServerIp, destinationServerPort);
 		try {
 			kvStore.connect();
 			for (Pair<String, String> pair : cacheManager) {
-				if (metadataHandler.hasToMove(pair.getKey(), hashOfNewServer)) {
+				if (metadataHandler.hasToMove(pair.getKey(), hashOfNewNode)) {
 					logger.debug("Move key " + pair.getKey() + ", value " + pair.getValue());
 					kvStore.put(pair.getKey(), pair.getValue());
 					cacheManager.put(pair.getKey(), "null");
 				}
-				logger.debug("Keep key " + pair.getKey() + ", value " + pair.getValue());
+				else {
+					logger.debug("Keep key " + pair.getKey() + ", value " + pair.getValue());
+				}
 			}
+			eraseMovedData(hashOfNewNode);
 		} catch (InterruptedException e) {
 			stop();
 			logger.error("An error occurred during connection to other server", e);
@@ -198,10 +207,34 @@ public class KVServer implements Runnable {
 	}
 
 	/**
+	 * Erase from storage all data having key under hash hashOfNewNode
+	 * @param hashOfNewNode the hash of the new node
+	 * @throws IOException
+	 */
+	public void eraseMovedData(String hashOfNewNode) throws IOException {
+		cacheManager.flushCache();
+		logger.debug("Cache flushed.");
+		try {
+			for (Pair<String, String> pair : cacheManager) {
+				if (metadataHandler.hasToMove(pair.getKey(), hashOfNewNode)) {
+					logger.debug("Erase key " + pair.getKey() + ", value " + pair.getValue());
+					cacheManager.put(pair.getKey(), "null");
+				}
+				else {
+					logger.debug("Keep key " + pair.getKey() + ", value " + pair.getValue());
+				}
+			}
+		} catch (NoSuchAlgorithmException e) {
+			logger.fatal("An error occurred during hashing", e);
+			shutdown();
+		}
+	}
+
+	/**
 	 * Write the metadata to the known location and update responsability range
 	 * @param metadata
 	 */
-	public void update(String metadata) {
+	public void updateMetadata(String metadata) {
 		metadataHandler.update(metadata);
 		logger.info("Server metadata updated.");
 	}
@@ -217,7 +250,7 @@ public class KVServer implements Runnable {
 	public void unLockWrite() {
 		writeLocked = false;
 		if (clientConnection != null) {
-		clientConnection.writeUnlock();
+			clientConnection.writeUnlock();
 		}
 		logger.info("Server write-unlocked");
 	}

@@ -2540,3 +2540,728 @@ java.net.SocketException: socket closed
 2014-12-04 14:00:26,240 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UNLOCK_WRITE ok null'
 2014-12-04 14:03:36,217 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
 2014-12-04 14:03:36,217 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 14:46:07,733 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-04 14:46:10,989 INFO  [Thread-1] KVServer: Server listening on port: 50001
+2014-12-04 14:46:16,844 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 54519
+2014-12-04 14:46:16,851 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-04 14:46:16,852 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-04 14:46:16,860 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 14:46:16,860 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 14:46:16,860 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 14:46:22,182 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 14:46:22,182 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 14:46:22,183 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 14:46:22,183 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 14:46:22,183 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 14:46:29,356 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54520
+2014-12-04 14:46:29,359 DEBUG [Thread-4] KVCommModule: Receive :	 'PUT foo b'
+2014-12-04 14:46:29,359 DEBUG [Thread-4] ClientConnection: Requested from client : PUT foo b
+2014-12-04 14:46:29,360 DEBUG [Thread-4] ClientConnection: Answer to client : PUT_SUCCESS foo b
+2014-12-04 14:46:29,360 DEBUG [Thread-4] KVCommModule: Send :	 'PUT_SUCCESS foo b'
+2014-12-04 14:46:36,164 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54524
+2014-12-04 14:46:36,164 DEBUG [Thread-5] KVCommModule: Receive :	 'PUT foo1 b1'
+2014-12-04 14:46:36,165 DEBUG [Thread-5] ClientConnection: Requested from client : PUT foo1 b1
+2014-12-04 14:46:36,168 DEBUG [Thread-5] ClientConnection: Answer to client : PUT_SUCCESS foo1 b1
+2014-12-04 14:46:36,169 DEBUG [Thread-5] KVCommModule: Send :	 'PUT_SUCCESS foo1 b1'
+2014-12-04 14:46:42,409 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:FIFO'
+2014-12-04 14:46:42,410 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:FIFO
+2014-12-04 14:46:42,415 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 54525
+2014-12-04 14:46:42,423 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 14:46:42,425 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 14:46:42,426 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 14:46:42,453 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 14:46:42,453 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 14:46:42,453 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 14:46:42,454 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 14:46:42,454 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 14:46:42,503 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'LOCK_WRITE null null'
+2014-12-04 14:46:42,503 INFO  [Thread-2] EcsConnection: Requested from ECS : LOCK_WRITE null null
+2014-12-04 14:46:42,503 INFO  [Thread-2] KVServer: Server write-locked
+2014-12-04 14:46:42,504 INFO  [Thread-2] EcsConnection: Answer to ECS : LOCK_WRITE ok null
+2014-12-04 14:46:42,504 DEBUG [Thread-2] KVAdminCommModule: Send :	 'LOCK_WRITE ok null'
+2014-12-04 14:46:42,552 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'MOVE_DATA f286ae5dd8de98335a6283c1b67bb869 localhost:50001'
+2014-12-04 14:46:42,553 INFO  [Thread-2] EcsConnection: Requested from ECS : MOVE_DATA f286ae5dd8de98335a6283c1b67bb869 localhost:50001
+2014-12-04 14:46:42,558 DEBUG [Thread-2] KVServer: Cache flushed.
+2014-12-04 14:46:42,560 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50001
+2014-12-04 14:46:42,568 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54526
+2014-12-04 14:46:42,576 DEBUG [Thread-2] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-04 14:46:42,576 DEBUG [Thread-2] KVServer: Move key foo1, value b1
+2014-12-04 14:46:42,576 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50001
+2014-12-04 14:46:42,577 DEBUG [Thread-2] KVCommModule: Send :	 'PUT foo1 b1'
+2014-12-04 14:46:42,578 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54527
+2014-12-04 14:46:42,580 DEBUG [Thread-5] KVCommModule: Receive :	 'PUT foo1 b1'
+2014-12-04 14:46:42,580 DEBUG [Thread-5] ClientConnection: Requested from client : PUT foo1 b1
+2014-12-04 14:46:42,596 DEBUG [Thread-5] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-04 14:46:42,597 DEBUG [Thread-5] ClientConnection: Answer to client : SERVER_NOT_RESPONSIBLE foo1 node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 14:46:42,597 DEBUG [Thread-5] KVCommModule: Send :	 'SERVER_NOT_RESPONSIBLE foo1 node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/'
+2014-12-04 14:46:42,599 INFO  [Thread-8] KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo1 node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 14:46:42,628 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 14:46:42,628 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 14:46:42,628 INFO  [Thread-2] KVStore: connection closed!
+2014-12-04 14:46:42,629 INFO  [Thread-8] KVStore: KVStore stopped
+2014-12-04 14:46:42,634 DEBUG [Thread-2] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-04 14:46:42,647 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-04 14:46:42,650 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54528
+2014-12-04 14:46:42,650 DEBUG [Thread-2] KVCommModule: Send :	 'PUT foo1 b1'
+2014-12-04 14:46:42,652 DEBUG [Thread-10] KVCommModule: Receive :	 'PUT foo1 b1'
+2014-12-04 14:46:42,652 DEBUG [Thread-10] ClientConnection: Requested from client : PUT foo1 b1
+2014-12-04 14:46:42,652 DEBUG [Thread-10] ClientConnection: Answer to client : SERVER_WRITE_LOCK foo1 b1
+2014-12-04 14:46:42,653 DEBUG [Thread-10] KVCommModule: Send :	 'SERVER_WRITE_LOCK foo1 b1'
+2014-12-04 14:46:42,655 INFO  [Thread-9] KVCommModule: New received message : SERVER_WRITE_LOCK foo1 b1
+2014-12-04 14:46:42,702 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 14:46:42,702 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 14:46:42,704 INFO  [Thread-2] KVStore: connection closed!
+2014-12-04 14:46:42,704 INFO  [Thread-9] KVStore: KVStore stopped
+2014-12-04 14:46:42,728 DEBUG [Thread-2] KVServer: Keep key foo1, value b1
+2014-12-04 14:46:42,749 DEBUG [Thread-2] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 14:46:42,759 DEBUG [Thread-2] KVServer: Keep key foo, value b
+2014-12-04 14:46:42,763 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 14:46:42,767 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 14:46:42,784 INFO  [Thread-2] EcsConnection: Answer to ECS : MOVE_DATA ok null
+2014-12-04 14:46:42,794 DEBUG [Thread-2] KVAdminCommModule: Send :	 'MOVE_DATA ok null'
+2014-12-04 14:46:42,804 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UPDATE_METADATA null node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/'
+2014-12-04 14:46:42,805 INFO  [Thread-2] EcsConnection: Requested from ECS : UPDATE_METADATA null node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 14:46:42,805 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 14:46:42,805 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UPDATE_METADATA null node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/'
+2014-12-04 14:46:42,806 INFO  [Thread-2] EcsConnection: Answer to ECS : UPDATE_METADATA ok null
+2014-12-04 14:46:42,806 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UPDATE_METADATA ok null'
+2014-12-04 14:46:42,806 INFO  [Thread-2] EcsConnection: Requested from ECS : UPDATE_METADATA null node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 14:46:42,806 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 14:46:42,807 INFO  [Thread-2] EcsConnection: Answer to ECS : UPDATE_METADATA ok null
+2014-12-04 14:46:42,807 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UPDATE_METADATA ok null'
+2014-12-04 14:46:42,855 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UNLOCK_WRITE null null'
+2014-12-04 14:46:42,855 INFO  [Thread-2] EcsConnection: Requested from ECS : UNLOCK_WRITE null null
+2014-12-04 14:46:42,855 INFO  [Thread-2] KVServer: Server write-unlocked
+2014-12-04 14:46:42,856 INFO  [Thread-2] EcsConnection: Answer to ECS : UNLOCK_WRITE ok null
+2014-12-04 14:46:42,856 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UNLOCK_WRITE ok null'
+2014-12-04 14:48:39,589 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 14:48:39,588 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 14:55:34,204 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-04 14:55:36,453 INFO  [Thread-1] KVServer: Server listening on port: 50001
+2014-12-04 14:55:40,095 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 54639
+2014-12-04 14:55:40,098 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-04 14:55:40,099 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-04 14:55:40,105 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 14:55:40,105 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 14:55:40,105 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 14:55:42,139 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 14:55:42,140 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 14:55:42,140 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 14:55:42,140 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 14:55:42,140 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 14:55:47,669 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54640
+2014-12-04 14:55:47,672 DEBUG [Thread-4] KVCommModule: Receive :	 'PUT foo b'
+2014-12-04 14:55:47,672 DEBUG [Thread-4] ClientConnection: Requested from client : PUT foo b
+2014-12-04 14:55:47,673 DEBUG [Thread-4] ClientConnection: Answer to client : PUT_SUCCESS foo b
+2014-12-04 14:55:47,673 DEBUG [Thread-4] KVCommModule: Send :	 'PUT_SUCCESS foo b'
+2014-12-04 14:55:49,940 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54641
+2014-12-04 14:55:49,941 DEBUG [Thread-5] KVCommModule: Receive :	 'PUT foo1 bar1'
+2014-12-04 14:55:49,942 DEBUG [Thread-5] ClientConnection: Requested from client : PUT foo1 bar1
+2014-12-04 14:55:49,942 DEBUG [Thread-5] ClientConnection: Answer to client : PUT_SUCCESS foo1 bar1
+2014-12-04 14:55:49,943 DEBUG [Thread-5] KVCommModule: Send :	 'PUT_SUCCESS foo1 bar1'
+2014-12-04 14:55:56,265 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:FIFO'
+2014-12-04 14:55:56,265 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:FIFO
+2014-12-04 14:55:56,274 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 54642
+2014-12-04 14:55:56,280 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 14:55:56,280 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 14:55:56,281 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 14:55:56,309 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 14:55:56,310 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 14:55:56,310 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 14:55:56,310 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 14:55:56,310 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 14:55:56,360 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'LOCK_WRITE null null'
+2014-12-04 14:55:56,360 INFO  [Thread-2] EcsConnection: Requested from ECS : LOCK_WRITE null null
+2014-12-04 14:55:56,360 INFO  [Thread-2] KVServer: Server write-locked
+2014-12-04 14:55:56,361 INFO  [Thread-2] EcsConnection: Answer to ECS : LOCK_WRITE ok null
+2014-12-04 14:55:56,361 DEBUG [Thread-2] KVAdminCommModule: Send :	 'LOCK_WRITE ok null'
+2014-12-04 14:55:56,409 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'MOVE_DATA f286ae5dd8de98335a6283c1b67bb869 localhost:50001'
+2014-12-04 14:55:56,410 INFO  [Thread-2] EcsConnection: Requested from ECS : MOVE_DATA f286ae5dd8de98335a6283c1b67bb869 localhost:50001
+2014-12-04 14:55:56,415 DEBUG [Thread-2] KVServer: Cache flushed.
+2014-12-04 14:55:56,417 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50001
+2014-12-04 14:55:56,425 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54643
+2014-12-04 14:55:56,433 DEBUG [Thread-2] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-04 14:55:56,434 DEBUG [Thread-2] KVServer: Keep key foo1, value bar1
+2014-12-04 14:55:56,434 DEBUG [Thread-2] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 14:55:56,435 DEBUG [Thread-2] KVServer: Move key foo, value b
+2014-12-04 14:55:56,435 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50001
+2014-12-04 14:55:56,436 DEBUG [Thread-2] KVCommModule: Send :	 'PUT foo b'
+2014-12-04 14:55:56,436 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54644
+2014-12-04 14:55:56,440 DEBUG [Thread-5] KVCommModule: Receive :	 'PUT foo b'
+2014-12-04 14:55:56,440 DEBUG [Thread-5] ClientConnection: Requested from client : PUT foo b
+2014-12-04 14:55:56,454 DEBUG [Thread-5] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 14:55:56,456 DEBUG [Thread-5] ClientConnection: Answer to client : PUT_SUCCESS foo b
+2014-12-04 14:55:56,456 DEBUG [Thread-5] KVCommModule: Send :	 'PUT_SUCCESS foo b'
+2014-12-04 14:55:56,457 INFO  [Thread-8] KVCommModule: New received message : PUT_SUCCESS foo b
+2014-12-04 14:55:56,486 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 14:55:56,486 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 14:55:56,486 INFO  [Thread-2] KVStore: connection closed!
+2014-12-04 14:55:56,487 INFO  [Thread-8] KVStore: KVStore stopped
+2014-12-04 14:55:56,488 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 14:55:56,501 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 14:55:56,505 INFO  [Thread-2] EcsConnection: Answer to ECS : MOVE_DATA ok null
+2014-12-04 14:55:56,505 DEBUG [Thread-2] KVAdminCommModule: Send :	 'MOVE_DATA ok null'
+2014-12-04 14:55:56,510 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UPDATE_METADATA null node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/'
+2014-12-04 14:55:56,511 INFO  [Thread-2] EcsConnection: Requested from ECS : UPDATE_METADATA null node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 14:55:56,511 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 14:55:56,511 INFO  [Thread-2] EcsConnection: Answer to ECS : UPDATE_METADATA ok null
+2014-12-04 14:55:56,512 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UPDATE_METADATA ok null'
+2014-12-04 14:55:56,560 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UPDATE_METADATA null node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/'
+2014-12-04 14:55:56,561 INFO  [Thread-2] EcsConnection: Requested from ECS : UPDATE_METADATA null node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 14:55:56,561 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 14:55:56,562 INFO  [Thread-2] EcsConnection: Answer to ECS : UPDATE_METADATA ok null
+2014-12-04 14:55:56,562 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UPDATE_METADATA ok null'
+2014-12-04 14:55:56,610 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UNLOCK_WRITE null null'
+2014-12-04 14:55:56,610 INFO  [Thread-2] EcsConnection: Requested from ECS : UNLOCK_WRITE null null
+2014-12-04 14:55:56,610 INFO  [Thread-2] KVServer: Server write-unlocked
+2014-12-04 14:55:56,610 INFO  [Thread-2] EcsConnection: Answer to ECS : UNLOCK_WRITE ok null
+2014-12-04 14:55:56,611 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UNLOCK_WRITE ok null'
+2014-12-04 14:57:21,934 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54658
+2014-12-04 14:57:21,936 DEBUG [Thread-9] KVCommModule: Receive :	 'GET foo1 null'
+2014-12-04 14:57:21,936 DEBUG [Thread-9] ClientConnection: Requested from client : GET foo1 null
+2014-12-04 14:57:21,937 DEBUG [Thread-9] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-04 14:57:21,937 DEBUG [Thread-9] ClientConnection: Answer to client : GET_SUCCESS foo1 bar1
+2014-12-04 14:57:21,938 DEBUG [Thread-9] KVCommModule: Send :	 'GET_SUCCESS foo1 bar1'
+2014-12-04 14:57:26,097 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54659
+2014-12-04 14:57:26,123 DEBUG [Thread-10] KVCommModule: Receive :	 'GET foo null'
+2014-12-04 14:57:26,124 DEBUG [Thread-10] ClientConnection: Requested from client : GET foo null
+2014-12-04 14:57:26,134 DEBUG [Thread-10] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 14:57:26,155 DEBUG [Thread-10] ClientConnection: Answer to client : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 14:57:26,156 DEBUG [Thread-10] KVCommModule: Send :	 'SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/'
+2014-12-04 14:57:26,245 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54660
+2014-12-04 14:57:26,283 DEBUG [Thread-6] KVCommModule: Receive :	 'GET foo null'
+2014-12-04 14:57:26,283 DEBUG [Thread-6] ClientConnection: Requested from client : GET foo null
+2014-12-04 14:57:26,284 DEBUG [Thread-6] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 14:57:26,284 DEBUG [Thread-6] ClientConnection: Answer to client : GET_SUCCESS foo b
+2014-12-04 14:57:26,285 DEBUG [Thread-6] KVCommModule: Send :	 'GET_SUCCESS foo b'
+2014-12-04 14:58:28,021 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 14:58:28,020 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:09:42,429 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-04 15:09:44,340 INFO  [Thread-1] KVServer: Server listening on port: 50001
+2014-12-04 15:09:53,341 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 54833
+2014-12-04 15:09:53,350 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:09:53,351 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:09:53,358 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 54834
+2014-12-04 15:09:53,359 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:09:53,360 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:09:53,360 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:09:53,401 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:09:53,401 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:09:53,407 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:09:53,407 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:09:53,407 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:09:55,203 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:09:55,203 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:09:55,203 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:09:55,204 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:09:55,204 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:09:55,254 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:09:55,255 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:09:55,256 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:09:55,256 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:09:55,257 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:10:02,851 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54840
+2014-12-04 15:10:02,854 DEBUG [Thread-4] KVCommModule: Receive :	 'PUT foo bar'
+2014-12-04 15:10:02,854 DEBUG [Thread-4] ClientConnection: Requested from client : PUT foo bar
+2014-12-04 15:10:02,864 DEBUG [Thread-4] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:10:02,865 DEBUG [Thread-4] ClientConnection: Answer to client : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 15:10:02,865 DEBUG [Thread-4] KVCommModule: Send :	 'SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/'
+2014-12-04 15:10:02,932 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54841
+2014-12-04 15:10:02,933 DEBUG [Thread-4] KVCommModule: Receive :	 'PUT foo bar'
+2014-12-04 15:10:02,934 DEBUG [Thread-4] ClientConnection: Requested from client : PUT foo bar
+2014-12-04 15:10:02,946 DEBUG [Thread-4] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:10:02,948 DEBUG [Thread-4] ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2014-12-04 15:10:02,948 DEBUG [Thread-4] KVCommModule: Send :	 'PUT_SUCCESS foo bar'
+2014-12-04 15:10:06,815 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 54844
+2014-12-04 15:10:06,816 DEBUG [Thread-5] KVCommModule: Receive :	 'PUT foo1 b1'
+2014-12-04 15:10:06,816 DEBUG [Thread-5] ClientConnection: Requested from client : PUT foo1 b1
+2014-12-04 15:10:06,817 DEBUG [Thread-5] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-04 15:10:06,818 DEBUG [Thread-5] ClientConnection: Answer to client : PUT_SUCCESS foo1 b1
+2014-12-04 15:10:06,819 DEBUG [Thread-5] KVCommModule: Send :	 'PUT_SUCCESS foo1 b1'
+2014-12-04 15:14:20,293 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:14:20,293 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:17:16,199 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-04 15:17:19,443 INFO  [Thread-1] KVServer: Server listening on port: 50001
+2014-12-04 15:17:21,546 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 54944
+2014-12-04 15:17:21,555 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:17:21,555 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:17:21,561 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 54945
+2014-12-04 15:17:21,565 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:17:21,565 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:17:21,565 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:17:21,604 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:17:21,604 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:17:21,610 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:17:21,611 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:17:21,611 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:17:25,036 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:17:25,037 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:17:25,037 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:17:25,037 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:17:25,037 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:17:25,086 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:17:25,087 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:17:25,087 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:17:25,087 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:17:25,087 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:25:23,273 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:25:23,285 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:25:39,203 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-04 15:25:49,253 INFO  [Thread-1] KVServer: Server listening on port: 50001
+2014-12-04 15:26:06,680 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55053
+2014-12-04 15:26:06,692 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:26:06,693 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:26:06,695 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55054
+2014-12-04 15:26:06,700 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:26:06,700 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:26:06,701 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:26:06,742 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:26:06,743 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:26:06,748 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:26:06,748 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:26:06,749 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:26:08,851 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:26:08,851 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:26:08,852 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:26:08,852 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:26:08,852 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:26:08,903 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:26:08,903 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:26:08,904 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:26:08,905 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:26:08,905 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:33:17,435 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:33:17,435 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:33:37,064 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-04 15:33:39,537 INFO  [Thread-1] KVServer: Server listening on port: 50001
+2014-12-04 15:33:43,515 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55163
+2014-12-04 15:33:43,522 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:33:43,523 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:33:43,531 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:33:43,531 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55164
+2014-12-04 15:33:43,531 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:33:43,532 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:33:43,572 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:33:43,572 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:33:43,578 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:33:43,578 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:33:43,578 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:33:45,725 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:33:45,725 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:33:45,726 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:33:45,726 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:33:45,726 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:33:45,776 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:33:45,777 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:33:45,777 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:33:45,777 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:33:45,778 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:37:04,967 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:37:04,967 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:37:19,985 INFO  [Thread-1] KVServer: Server listening on port: 50001
+2014-12-04 15:37:22,376 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-04 15:37:28,301 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55222
+2014-12-04 15:37:28,309 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:37:28,310 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:37:28,315 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55223
+2014-12-04 15:37:28,320 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:37:28,320 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:37:28,321 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:37:28,358 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:37:28,358 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:37:28,364 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:37:28,364 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:37:28,365 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:37:30,166 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:37:30,167 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:37:30,167 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:37:30,167 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:37:30,168 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:37:30,216 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:37:30,217 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:37:30,217 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:37:30,217 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:37:30,217 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:37:32,274 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'LOCK_WRITE null null'
+2014-12-04 15:37:32,275 INFO  [Thread-2] EcsConnection: Requested from ECS : LOCK_WRITE null null
+2014-12-04 15:37:32,275 INFO  [Thread-2] KVServer: Server write-locked
+2014-12-04 15:37:32,275 INFO  [Thread-2] EcsConnection: Answer to ECS : LOCK_WRITE ok null
+2014-12-04 15:37:32,276 DEBUG [Thread-2] KVAdminCommModule: Send :	 'LOCK_WRITE ok null'
+2014-12-04 15:37:32,325 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/'
+2014-12-04 15:37:32,325 INFO  [Thread-2] EcsConnection: Requested from ECS : UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/
+2014-12-04 15:37:32,326 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:37:32,326 INFO  [Thread-2] EcsConnection: Answer to ECS : UPDATE_METADATA ok null
+2014-12-04 15:37:32,326 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UPDATE_METADATA ok null'
+2014-12-04 15:37:32,376 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'MOVE_DATA 50001 localhost:50000'
+2014-12-04 15:37:32,376 INFO  [Thread-2] EcsConnection: Requested from ECS : MOVE_DATA 50001 localhost:50000
+2014-12-04 15:37:32,376 DEBUG [Thread-2] KVServer: Cache flushed.
+2014-12-04 15:37:32,378 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-04 15:37:32,383 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 15:37:32,383 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 15:37:32,383 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55225
+2014-12-04 15:37:32,384 INFO  [Thread-2] KVStore: connection closed!
+2014-12-04 15:37:32,384 INFO  [Thread-5] KVStore: KVStore stopped
+2014-12-04 15:37:32,386 INFO  [Thread-2] EcsConnection: Answer to ECS : MOVE_DATA ok null
+2014-12-04 15:37:32,386 DEBUG [Thread-2] KVAdminCommModule: Send :	 'MOVE_DATA ok null'
+2014-12-04 15:37:32,426 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/'
+2014-12-04 15:37:32,426 INFO  [Thread-2] EcsConnection: Requested from ECS : UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/
+2014-12-04 15:37:32,426 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:37:32,426 INFO  [Thread-2] EcsConnection: Answer to ECS : UPDATE_METADATA ok null
+2014-12-04 15:37:32,427 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UPDATE_METADATA ok null'
+2014-12-04 15:37:32,475 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-04 15:37:32,476 INFO  [Thread-2] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-04 15:37:32,476 DEBUG [Thread-2] KVServer: Stopping the server
+2014-12-04 15:37:32,476 INFO  [Thread-2] KVServer: Exiting
+2014-12-04 15:38:10,969 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-04 15:38:10,969 INFO  [Thread-2] EcsConnection: Requested from ECS : STOP null null
+2014-12-04 15:38:10,970 DEBUG [Thread-2] KVServer: Stopping the server
+2014-12-04 15:38:10,970 INFO  [Thread-2] EcsConnection: Answer to ECS : STOP ok null
+2014-12-04 15:38:10,970 DEBUG [Thread-2] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-04 15:40:15,771 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:45:27,094 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-04 15:45:30,457 INFO  [Thread-1] KVServer: Server listening on port: 50001
+2014-12-04 15:45:35,520 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55339
+2014-12-04 15:45:35,530 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:45:35,531 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:45:35,534 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55340
+2014-12-04 15:45:35,540 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:45:35,540 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:45:35,540 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:45:35,579 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:45:35,579 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:45:35,585 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:45:35,585 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:45:35,585 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:45:37,961 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:45:37,961 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:45:37,962 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:45:37,962 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:45:37,962 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:45:38,012 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:45:38,013 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:45:38,013 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:45:38,013 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:45:38,013 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:45:44,293 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55342
+2014-12-04 15:45:44,296 DEBUG [Thread-4] KVCommModule: Receive :	 'PUT foo bar'
+2014-12-04 15:45:44,296 DEBUG [Thread-4] ClientConnection: Requested from client : PUT foo bar
+2014-12-04 15:45:44,309 DEBUG [Thread-4] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:45:44,309 DEBUG [Thread-4] ClientConnection: Answer to client : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 15:45:44,310 DEBUG [Thread-4] KVCommModule: Send :	 'SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/'
+2014-12-04 15:45:44,375 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55343
+2014-12-04 15:45:44,378 DEBUG [Thread-4] KVCommModule: Receive :	 'PUT foo bar'
+2014-12-04 15:45:44,378 DEBUG [Thread-4] ClientConnection: Requested from client : PUT foo bar
+2014-12-04 15:45:44,390 DEBUG [Thread-4] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:45:44,391 DEBUG [Thread-4] ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2014-12-04 15:45:44,391 DEBUG [Thread-4] KVCommModule: Send :	 'PUT_SUCCESS foo bar'
+2014-12-04 15:45:48,896 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55344
+2014-12-04 15:45:48,897 DEBUG [Thread-5] KVCommModule: Receive :	 'PUT foo1 b1'
+2014-12-04 15:45:48,898 DEBUG [Thread-5] ClientConnection: Requested from client : PUT foo1 b1
+2014-12-04 15:45:48,898 DEBUG [Thread-5] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-04 15:45:48,900 DEBUG [Thread-5] ClientConnection: Answer to client : PUT_SUCCESS foo1 b1
+2014-12-04 15:45:48,900 DEBUG [Thread-5] KVCommModule: Send :	 'PUT_SUCCESS foo1 b1'
+2014-12-04 15:45:52,904 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55347
+2014-12-04 15:45:52,906 DEBUG [Thread-5] KVCommModule: Receive :	 'PUT grreg de'
+2014-12-04 15:45:52,907 DEBUG [Thread-5] ClientConnection: Requested from client : PUT grreg de
+2014-12-04 15:45:52,907 DEBUG [Thread-5] MetadataHandler: Hashed grreg --> 73b0896bad34166b466a517ac7bac100
+2014-12-04 15:45:52,908 DEBUG [Thread-5] ClientConnection: Answer to client : PUT_SUCCESS grreg de
+2014-12-04 15:45:52,909 DEBUG [Thread-5] KVCommModule: Send :	 'PUT_SUCCESS grreg de'
+2014-12-04 15:45:58,755 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55348
+2014-12-04 15:45:58,766 DEBUG [Thread-6] KVCommModule: Receive :	 'PUT giraf etey'
+2014-12-04 15:45:58,766 DEBUG [Thread-6] ClientConnection: Requested from client : PUT giraf etey
+2014-12-04 15:45:58,767 DEBUG [Thread-6] MetadataHandler: Hashed giraf --> 96b4848d9bc04af941fc1617b8583828
+2014-12-04 15:45:58,767 DEBUG [Thread-6] ClientConnection: Answer to client : PUT_SUCCESS giraf etey
+2014-12-04 15:45:58,768 DEBUG [Thread-6] KVCommModule: Send :	 'PUT_SUCCESS giraf etey'
+2014-12-04 15:46:05,654 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55349
+2014-12-04 15:46:05,688 DEBUG [Thread-7] KVCommModule: Receive :	 'PUT hey wolrd'
+2014-12-04 15:46:05,689 DEBUG [Thread-7] ClientConnection: Requested from client : PUT hey wolrd
+2014-12-04 15:46:05,693 DEBUG [Thread-7] MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2014-12-04 15:46:05,720 DEBUG [Thread-7] ClientConnection: Answer to client : PUT_SUCCESS hey wolrd
+2014-12-04 15:46:05,726 DEBUG [Thread-7] KVCommModule: Send :	 'PUT_SUCCESS hey wolrd'
+2014-12-04 15:46:13,870 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55353
+2014-12-04 15:46:13,928 DEBUG [Thread-6] KVCommModule: Receive :	 'PUT christ mas'
+2014-12-04 15:46:13,928 DEBUG [Thread-6] ClientConnection: Requested from client : PUT christ mas
+2014-12-04 15:46:13,929 DEBUG [Thread-6] MetadataHandler: Hashed christ --> 123d11995f4c8d8cc48b8d5c46cc263
+2014-12-04 15:46:13,929 DEBUG [Thread-6] ClientConnection: Answer to client : PUT_SUCCESS christ mas
+2014-12-04 15:46:13,930 DEBUG [Thread-6] KVCommModule: Send :	 'PUT_SUCCESS christ mas'
+2014-12-04 15:46:21,121 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'LOCK_WRITE null null'
+2014-12-04 15:46:21,121 INFO  [Thread-2] EcsConnection: Requested from ECS : LOCK_WRITE null null
+2014-12-04 15:46:21,121 INFO  [Thread-2] KVServer: Server write-locked
+2014-12-04 15:46:21,122 INFO  [Thread-2] EcsConnection: Answer to ECS : LOCK_WRITE ok null
+2014-12-04 15:46:21,122 DEBUG [Thread-2] KVAdminCommModule: Send :	 'LOCK_WRITE ok null'
+2014-12-04 15:46:21,171 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/'
+2014-12-04 15:46:21,171 INFO  [Thread-2] EcsConnection: Requested from ECS : UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/
+2014-12-04 15:46:21,172 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:46:21,172 INFO  [Thread-2] EcsConnection: Answer to ECS : UPDATE_METADATA ok null
+2014-12-04 15:46:21,172 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UPDATE_METADATA ok null'
+2014-12-04 15:46:21,221 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'MOVE_DATA 50001 localhost:50000'
+2014-12-04 15:46:21,221 INFO  [Thread-2] EcsConnection: Requested from ECS : MOVE_DATA 50001 localhost:50000
+2014-12-04 15:46:21,234 DEBUG [Thread-2] KVServer: Cache flushed.
+2014-12-04 15:46:21,236 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-04 15:46:21,240 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55355
+2014-12-04 15:46:21,241 DEBUG [Thread-2] MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2014-12-04 15:46:21,241 DEBUG [Thread-2] KVServer: Keep key hey, value wolrd
+2014-12-04 15:46:21,241 DEBUG [Thread-2] MetadataHandler: Hashed giraf --> 96b4848d9bc04af941fc1617b8583828
+2014-12-04 15:46:21,242 DEBUG [Thread-2] KVServer: Keep key giraf, value etey
+2014-12-04 15:46:21,242 DEBUG [Thread-2] MetadataHandler: Hashed grreg --> 73b0896bad34166b466a517ac7bac100
+2014-12-04 15:46:21,242 DEBUG [Thread-2] KVServer: Keep key grreg, value de
+2014-12-04 15:46:21,243 DEBUG [Thread-2] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:46:21,243 DEBUG [Thread-2] KVServer: Keep key foo, value bar
+2014-12-04 15:46:21,243 DEBUG [Thread-2] KVServer: Cache flushed.
+2014-12-04 15:46:21,244 DEBUG [Thread-2] MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2014-12-04 15:46:21,244 DEBUG [Thread-2] KVServer: Keep key hey, value wolrd
+2014-12-04 15:46:21,245 DEBUG [Thread-2] MetadataHandler: Hashed giraf --> 96b4848d9bc04af941fc1617b8583828
+2014-12-04 15:46:21,245 DEBUG [Thread-2] KVServer: Keep key giraf, value etey
+2014-12-04 15:46:21,246 DEBUG [Thread-2] MetadataHandler: Hashed grreg --> 73b0896bad34166b466a517ac7bac100
+2014-12-04 15:46:21,246 DEBUG [Thread-2] KVServer: Keep key grreg, value de
+2014-12-04 15:46:21,246 DEBUG [Thread-2] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:46:21,247 DEBUG [Thread-2] KVServer: Keep key foo, value bar
+2014-12-04 15:46:21,247 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 15:46:21,247 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 15:46:21,248 INFO  [Thread-2] KVStore: connection closed!
+2014-12-04 15:46:21,249 INFO  [Thread-2] EcsConnection: Answer to ECS : MOVE_DATA ok null
+2014-12-04 15:46:21,249 DEBUG [Thread-2] KVAdminCommModule: Send :	 'MOVE_DATA ok null'
+2014-12-04 15:46:21,271 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/'
+2014-12-04 15:46:21,271 INFO  [Thread-2] EcsConnection: Requested from ECS : UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/
+2014-12-04 15:46:21,272 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:46:21,272 INFO  [Thread-2] EcsConnection: Answer to ECS : UPDATE_METADATA ok null
+2014-12-04 15:46:21,272 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UPDATE_METADATA ok null'
+2014-12-04 15:46:21,320 INFO  [Thread-9] KVStore: KVStore stopped
+2014-12-04 15:46:21,382 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-04 15:46:21,449 INFO  [Thread-2] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-04 15:46:21,449 DEBUG [Thread-2] KVServer: Stopping the server
+2014-12-04 15:46:21,484 INFO  [Thread-2] KVServer: Exiting
+2014-12-04 15:48:53,026 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:49:14,918 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-04 15:49:18,160 INFO  [Thread-1] KVServer: Server listening on port: 50001
+2014-12-04 15:49:26,531 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55391
+2014-12-04 15:49:26,539 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:49:26,541 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:49:26,545 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55392
+2014-12-04 15:49:26,550 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:49:26,550 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:49:26,551 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:49:26,590 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:49:26,590 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:49:26,595 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:49:26,595 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:49:26,596 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:49:28,732 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:49:28,733 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:49:28,733 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:49:28,733 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:49:28,733 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:49:28,783 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:49:28,784 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:49:28,784 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:49:28,784 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:49:28,784 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:49:34,565 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55393
+2014-12-04 15:49:34,568 DEBUG [Thread-4] KVCommModule: Receive :	 'PUT foo bar'
+2014-12-04 15:49:34,568 DEBUG [Thread-4] ClientConnection: Requested from client : PUT foo bar
+2014-12-04 15:49:34,579 DEBUG [Thread-4] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:49:34,580 DEBUG [Thread-4] ClientConnection: Answer to client : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 15:49:34,580 DEBUG [Thread-4] KVCommModule: Send :	 'SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/'
+2014-12-04 15:49:34,644 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55394
+2014-12-04 15:49:34,646 DEBUG [Thread-4] KVCommModule: Receive :	 'PUT foo bar'
+2014-12-04 15:49:34,646 DEBUG [Thread-4] ClientConnection: Requested from client : PUT foo bar
+2014-12-04 15:49:34,658 DEBUG [Thread-4] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:49:34,660 DEBUG [Thread-4] ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2014-12-04 15:49:34,660 DEBUG [Thread-4] KVCommModule: Send :	 'PUT_SUCCESS foo bar'
+2014-12-04 15:49:36,887 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55395
+2014-12-04 15:49:36,888 DEBUG [Thread-5] KVCommModule: Receive :	 'PUT foo b'
+2014-12-04 15:49:36,889 DEBUG [Thread-5] ClientConnection: Requested from client : PUT foo b
+2014-12-04 15:49:36,889 DEBUG [Thread-5] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:49:36,890 DEBUG [Thread-5] ClientConnection: Answer to client : PUT_UPDATE foo b
+2014-12-04 15:49:36,890 DEBUG [Thread-5] KVCommModule: Send :	 'PUT_UPDATE foo b'
+2014-12-04 15:49:47,042 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55397
+2014-12-04 15:49:47,043 DEBUG [Thread-6] KVCommModule: Receive :	 'PUT grreg de'
+2014-12-04 15:49:47,043 DEBUG [Thread-6] ClientConnection: Requested from client : PUT grreg de
+2014-12-04 15:49:47,043 DEBUG [Thread-6] MetadataHandler: Hashed grreg --> 73b0896bad34166b466a517ac7bac100
+2014-12-04 15:49:47,044 DEBUG [Thread-6] ClientConnection: Answer to client : PUT_SUCCESS grreg de
+2014-12-04 15:49:47,044 DEBUG [Thread-6] KVCommModule: Send :	 'PUT_SUCCESS grreg de'
+2014-12-04 15:49:49,910 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55398
+2014-12-04 15:49:49,934 DEBUG [Thread-7] KVCommModule: Receive :	 'PUT giraf etey'
+2014-12-04 15:49:49,934 DEBUG [Thread-7] ClientConnection: Requested from client : PUT giraf etey
+2014-12-04 15:49:49,939 DEBUG [Thread-7] MetadataHandler: Hashed giraf --> 96b4848d9bc04af941fc1617b8583828
+2014-12-04 15:49:49,941 DEBUG [Thread-7] ClientConnection: Answer to client : PUT_SUCCESS giraf etey
+2014-12-04 15:49:49,949 DEBUG [Thread-7] KVCommModule: Send :	 'PUT_SUCCESS giraf etey'
+2014-12-04 15:49:52,682 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55399
+2014-12-04 15:49:52,712 DEBUG [Thread-8] KVCommModule: Receive :	 'PUT hey wolrd'
+2014-12-04 15:49:52,712 DEBUG [Thread-8] ClientConnection: Requested from client : PUT hey wolrd
+2014-12-04 15:49:52,734 DEBUG [Thread-8] MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2014-12-04 15:49:52,746 DEBUG [Thread-8] ClientConnection: Answer to client : PUT_SUCCESS hey wolrd
+2014-12-04 15:49:52,766 DEBUG [Thread-8] KVCommModule: Send :	 'PUT_SUCCESS hey wolrd'
+2014-12-04 15:49:54,124 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55401
+2014-12-04 15:49:54,187 DEBUG [Thread-5] KVCommModule: Receive :	 'PUT christ mas'
+2014-12-04 15:49:54,188 DEBUG [Thread-5] ClientConnection: Requested from client : PUT christ mas
+2014-12-04 15:49:54,188 DEBUG [Thread-5] MetadataHandler: Hashed christ --> 123d11995f4c8d8cc48b8d5c46cc263
+2014-12-04 15:49:54,190 DEBUG [Thread-5] ClientConnection: Answer to client : PUT_SUCCESS christ mas
+2014-12-04 15:49:54,190 DEBUG [Thread-5] KVCommModule: Send :	 'PUT_SUCCESS christ mas'
+2014-12-04 15:49:57,178 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55404
+2014-12-04 15:49:57,244 DEBUG [Thread-9] KVCommModule: Receive :	 'PUT foo bar'
+2014-12-04 15:49:57,278 DEBUG [Thread-9] ClientConnection: Requested from client : PUT foo bar
+2014-12-04 15:49:57,313 DEBUG [Thread-9] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:49:57,382 DEBUG [Thread-9] ClientConnection: Answer to client : PUT_UPDATE foo bar
+2014-12-04 15:49:57,450 DEBUG [Thread-9] KVCommModule: Send :	 'PUT_UPDATE foo bar'
+2014-12-04 15:49:57,509 ERROR [Thread-9] ClientConnection: A connection error occurred - Application terminated java.net.SocketException: Software caused connection abort: recv failed
+2014-12-04 15:53:12,207 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:53:12,206 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:54:35,156 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-04 15:54:38,260 INFO  [Thread-1] KVServer: Server listening on port: 50001
+2014-12-04 15:54:47,781 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55461
+2014-12-04 15:54:47,791 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:54:47,792 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:54:47,797 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55462
+2014-12-04 15:54:47,800 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:54:47,801 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:54:47,801 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:54:47,842 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU'
+2014-12-04 15:54:47,842 INFO  [Thread-2] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-04 15:54:47,848 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:54:47,848 INFO  [Thread-2] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-04 15:54:47,848 DEBUG [Thread-2] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-04 15:54:49,780 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:54:49,780 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:54:49,780 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:54:49,781 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:54:49,781 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:54:49,830 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'START null null'
+2014-12-04 15:54:49,831 INFO  [Thread-2] EcsConnection: Requested from ECS : START null null
+2014-12-04 15:54:49,831 INFO  [Thread-2] EcsConnection: Answer to ECS : START ok null
+2014-12-04 15:54:49,831 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-04 15:54:49,831 DEBUG [Thread-2] KVAdminCommModule: Send :	 'START ok null'
+2014-12-04 15:54:55,687 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55463
+2014-12-04 15:54:55,691 DEBUG [Thread-4] KVCommModule: Receive :	 'PUT foo bar'
+2014-12-04 15:54:55,691 DEBUG [Thread-4] ClientConnection: Requested from client : PUT foo bar
+2014-12-04 15:54:55,700 DEBUG [Thread-4] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:54:55,701 DEBUG [Thread-4] ClientConnection: Answer to client : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/
+2014-12-04 15:54:55,701 DEBUG [Thread-4] KVCommModule: Send :	 'SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/'
+2014-12-04 15:54:55,767 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55464
+2014-12-04 15:54:55,769 DEBUG [Thread-4] KVCommModule: Receive :	 'PUT foo bar'
+2014-12-04 15:54:55,769 DEBUG [Thread-4] ClientConnection: Requested from client : PUT foo bar
+2014-12-04 15:54:55,783 DEBUG [Thread-4] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:54:55,784 DEBUG [Thread-4] ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2014-12-04 15:54:55,784 DEBUG [Thread-4] KVCommModule: Send :	 'PUT_SUCCESS foo bar'
+2014-12-04 15:54:58,273 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55465
+2014-12-04 15:54:58,274 DEBUG [Thread-5] KVCommModule: Receive :	 'PUT foo1 b1'
+2014-12-04 15:54:58,275 DEBUG [Thread-5] ClientConnection: Requested from client : PUT foo1 b1
+2014-12-04 15:54:58,275 DEBUG [Thread-5] MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2014-12-04 15:54:58,277 DEBUG [Thread-5] ClientConnection: Answer to client : PUT_SUCCESS foo1 b1
+2014-12-04 15:54:58,277 DEBUG [Thread-5] KVCommModule: Send :	 'PUT_SUCCESS foo1 b1'
+2014-12-04 15:55:10,423 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55470
+2014-12-04 15:55:10,424 DEBUG [Thread-5] KVCommModule: Receive :	 'PUT grreg de'
+2014-12-04 15:55:10,425 DEBUG [Thread-5] ClientConnection: Requested from client : PUT grreg de
+2014-12-04 15:55:10,425 DEBUG [Thread-5] MetadataHandler: Hashed grreg --> 73b0896bad34166b466a517ac7bac100
+2014-12-04 15:55:10,426 DEBUG [Thread-5] ClientConnection: Answer to client : PUT_SUCCESS grreg de
+2014-12-04 15:55:10,426 DEBUG [Thread-5] KVCommModule: Send :	 'PUT_SUCCESS grreg de'
+2014-12-04 15:55:11,625 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55471
+2014-12-04 15:55:11,650 DEBUG [Thread-6] KVCommModule: Receive :	 'PUT giraf etey'
+2014-12-04 15:55:11,650 DEBUG [Thread-6] ClientConnection: Requested from client : PUT giraf etey
+2014-12-04 15:55:11,651 DEBUG [Thread-6] MetadataHandler: Hashed giraf --> 96b4848d9bc04af941fc1617b8583828
+2014-12-04 15:55:11,651 DEBUG [Thread-6] ClientConnection: Answer to client : PUT_SUCCESS giraf etey
+2014-12-04 15:55:11,652 DEBUG [Thread-6] KVCommModule: Send :	 'PUT_SUCCESS giraf etey'
+2014-12-04 15:55:16,727 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55473
+2014-12-04 15:55:16,746 DEBUG [Thread-7] KVCommModule: Receive :	 'PUT hey wolrd'
+2014-12-04 15:55:16,769 DEBUG [Thread-7] ClientConnection: Requested from client : PUT hey wolrd
+2014-12-04 15:55:16,779 DEBUG [Thread-7] MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2014-12-04 15:55:16,803 DEBUG [Thread-7] ClientConnection: Answer to client : PUT_SUCCESS hey wolrd
+2014-12-04 15:55:16,812 DEBUG [Thread-7] KVCommModule: Send :	 'PUT_SUCCESS hey wolrd'
+2014-12-04 15:55:18,155 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55474
+2014-12-04 15:55:18,212 DEBUG [Thread-6] KVCommModule: Receive :	 'PUT christ mas'
+2014-12-04 15:55:18,212 DEBUG [Thread-6] ClientConnection: Requested from client : PUT christ mas
+2014-12-04 15:55:18,213 DEBUG [Thread-6] MetadataHandler: Hashed christ --> 123d11995f4c8d8cc48b8d5c46cc263
+2014-12-04 15:55:18,213 DEBUG [Thread-6] ClientConnection: Answer to client : PUT_SUCCESS christ mas
+2014-12-04 15:55:18,214 DEBUG [Thread-6] KVCommModule: Send :	 'PUT_SUCCESS christ mas'
+2014-12-04 15:55:23,098 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'LOCK_WRITE null null'
+2014-12-04 15:55:23,099 INFO  [Thread-2] EcsConnection: Requested from ECS : LOCK_WRITE null null
+2014-12-04 15:55:23,099 INFO  [Thread-2] KVServer: Server write-locked
+2014-12-04 15:55:23,099 INFO  [Thread-2] EcsConnection: Answer to ECS : LOCK_WRITE ok null
+2014-12-04 15:55:23,099 DEBUG [Thread-2] KVAdminCommModule: Send :	 'LOCK_WRITE ok null'
+2014-12-04 15:55:23,149 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/'
+2014-12-04 15:55:23,149 INFO  [Thread-2] EcsConnection: Requested from ECS : UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/
+2014-12-04 15:55:23,150 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:55:23,150 INFO  [Thread-2] EcsConnection: Answer to ECS : UPDATE_METADATA ok null
+2014-12-04 15:55:23,150 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UPDATE_METADATA ok null'
+2014-12-04 15:55:23,199 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'MOVE_DATA f286ae5dd8de98335a6283c1b67bb869 localhost:50000'
+2014-12-04 15:55:23,199 INFO  [Thread-2] EcsConnection: Requested from ECS : MOVE_DATA f286ae5dd8de98335a6283c1b67bb869 localhost:50000
+2014-12-04 15:55:23,208 DEBUG [Thread-2] KVServer: Cache flushed.
+2014-12-04 15:55:23,210 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-04 15:55:23,215 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55475
+2014-12-04 15:55:23,216 DEBUG [Thread-2] MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2014-12-04 15:55:23,216 DEBUG [Thread-2] KVServer: Move key hey, value wolrd
+2014-12-04 15:55:23,216 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-04 15:55:23,217 DEBUG [Thread-2] KVCommModule: Send :	 'PUT hey wolrd'
+2014-12-04 15:55:23,218 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55476
+2014-12-04 15:55:23,294 DEBUG [Thread-8] KVCommModule: Receive :	 'PUT hey wolrd'
+2014-12-04 15:55:23,302 DEBUG [Thread-8] ClientConnection: Requested from client : PUT hey wolrd
+2014-12-04 15:55:23,338 DEBUG [Thread-8] ClientConnection: Answer to client : PUT_SUCCESS hey wolrd
+2014-12-04 15:55:23,371 DEBUG [Thread-8] KVCommModule: Send :	 'PUT_SUCCESS hey wolrd'
+2014-12-04 15:55:23,449 DEBUG [Thread-2] KVAdminCommModule: Receive :	 'UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/'
+2014-12-04 15:55:23,449 INFO  [Thread-2] EcsConnection: Requested from ECS : UPDATE_METADATA null node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/
+2014-12-04 15:55:23,450 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-04 15:55:23,450 INFO  [Thread-2] EcsConnection: Answer to ECS : UPDATE_METADATA ok null
+2014-12-04 15:55:23,450 DEBUG [Thread-2] KVAdminCommModule: Send :	 'UPDATE_METADATA ok null'
+2014-12-04 15:55:23,561 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 15:55:23,595 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 15:55:23,642 INFO  [Thread-2] KVStore: connection closed!
+2014-12-04 15:55:23,642 INFO  [Thread-9] KVStore: KVStore stopped
+2014-12-04 15:55:23,642 INFO  [Thread-10] KVStore: KVStore stopped
+2014-12-04 15:55:23,681 DEBUG [Thread-2] MetadataHandler: Hashed giraf --> 96b4848d9bc04af941fc1617b8583828
+2014-12-04 15:55:23,757 DEBUG [Thread-2] KVServer: Move key giraf, value etey
+2014-12-04 15:55:23,757 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-04 15:55:23,788 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55477
+2014-12-04 15:55:23,787 DEBUG [Thread-2] KVCommModule: Send :	 'PUT giraf etey'
+2014-12-04 15:55:23,871 DEBUG [Thread-9] KVCommModule: Receive :	 'PUT giraf etey'
+2014-12-04 15:55:23,905 DEBUG [Thread-9] ClientConnection: Requested from client : PUT giraf etey
+2014-12-04 15:55:23,952 DEBUG [Thread-9] ClientConnection: Answer to client : PUT_SUCCESS giraf etey
+2014-12-04 15:55:24,004 DEBUG [Thread-9] KVCommModule: Send :	 'PUT_SUCCESS giraf etey'
+2014-12-04 15:55:24,036 INFO  [Thread-11] KVCommModule: New received message : PUT_SUCCESS giraf etey
+2014-12-04 15:55:24,104 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 15:55:24,143 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 15:55:24,204 INFO  [Thread-2] KVStore: connection closed!
+2014-12-04 15:55:24,204 INFO  [Thread-11] KVStore: KVStore stopped
+2014-12-04 15:55:24,302 DEBUG [Thread-2] MetadataHandler: Hashed grreg --> 73b0896bad34166b466a517ac7bac100
+2014-12-04 15:55:24,317 DEBUG [Thread-2] KVServer: Move key grreg, value de
+2014-12-04 15:55:24,382 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-04 15:55:24,422 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55478
+2014-12-04 15:55:24,421 DEBUG [Thread-2] KVCommModule: Send :	 'PUT grreg de'
+2014-12-04 15:55:24,553 DEBUG [Thread-10] KVCommModule: Receive :	 'PUT grreg de'
+2014-12-04 15:55:24,590 DEBUG [Thread-10] ClientConnection: Requested from client : PUT grreg de
+2014-12-04 15:55:24,641 DEBUG [Thread-10] ClientConnection: Answer to client : PUT_SUCCESS grreg de
+2014-12-04 15:55:24,675 DEBUG [Thread-10] KVCommModule: Send :	 'PUT_SUCCESS grreg de'
+2014-12-04 15:55:24,728 INFO  [Thread-12] KVCommModule: New received message : PUT_SUCCESS grreg de
+2014-12-04 15:55:24,764 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 15:55:24,815 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 15:55:24,879 INFO  [Thread-2] KVStore: connection closed!
+2014-12-04 15:55:24,879 INFO  [Thread-12] KVStore: KVStore stopped
+2014-12-04 15:55:24,953 DEBUG [Thread-2] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:55:24,953 DEBUG [Thread-2] KVServer: Move key foo, value bar
+2014-12-04 15:55:25,019 DEBUG [Thread-2] KVStore: Trying to connect to ip localhost , port 50000
+2014-12-04 15:55:25,092 INFO  [Thread-3] KVServer: Connected to 127.0.0.1 on port 55479
+2014-12-04 15:55:25,091 DEBUG [Thread-2] KVCommModule: Send :	 'PUT foo bar'
+2014-12-04 15:55:25,202 DEBUG [Thread-11] KVCommModule: Receive :	 'PUT foo bar'
+2014-12-04 15:55:25,271 DEBUG [Thread-11] ClientConnection: Requested from client : PUT foo bar
+2014-12-04 15:55:25,472 DEBUG [Thread-11] ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2014-12-04 15:55:25,530 DEBUG [Thread-11] KVCommModule: Send :	 'PUT_SUCCESS foo bar'
+2014-12-04 15:55:25,586 INFO  [Thread-13] KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-04 15:55:25,689 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 15:55:25,752 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 15:55:25,796 INFO  [Thread-13] KVStore: KVStore stopped
+2014-12-04 15:55:25,796 INFO  [Thread-2] KVStore: connection closed!
+2014-12-04 15:55:25,865 DEBUG [Thread-2] KVServer: Cache flushed.
+2014-12-04 15:55:25,865 DEBUG [Thread-2] MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2014-12-04 15:55:25,866 DEBUG [Thread-2] KVServer: Erase key hey, value wolrd
+2014-12-04 15:55:25,866 DEBUG [Thread-2] MetadataHandler: Hashed giraf --> 96b4848d9bc04af941fc1617b8583828
+2014-12-04 15:55:25,867 DEBUG [Thread-2] KVServer: Erase key giraf, value etey
+2014-12-04 15:55:25,867 DEBUG [Thread-2] MetadataHandler: Hashed grreg --> 73b0896bad34166b466a517ac7bac100
+2014-12-04 15:55:25,867 DEBUG [Thread-2] KVServer: Erase key grreg, value de
+2014-12-04 15:55:25,868 DEBUG [Thread-2] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2014-12-04 15:55:25,868 DEBUG [Thread-2] KVServer: Erase key foo, value bar
+2014-12-04 15:55:25,869 DEBUG [Thread-2] KVStore: try to close connection ...
+2014-12-04 15:55:25,869 DEBUG [Thread-2] KVStore: tearing down the connection ...
+2014-12-04 15:55:25,869 INFO  [Thread-2] EcsConnection: Answer to ECS : MOVE_DATA ok null
+2014-12-04 15:55:25,870 DEBUG [Thread-2] KVAdminCommModule: Send :	 'MOVE_DATA ok null'
+2014-12-04 15:55:25,870 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Software caused connection abort: recv failed
+2014-12-04 15:55:26,326 ERROR [Thread-7] ClientConnection: A connection error occurred - Application terminated java.net.SocketException: Connection reset
+2014-12-04 15:57:41,126 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset

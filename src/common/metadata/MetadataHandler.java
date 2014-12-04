@@ -146,7 +146,7 @@ public class MetadataHandler {
 	}
 
 	public boolean hasToMove(String key, String hashOfNewServer) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		return !isInRange(key, minHashKey, hashOfNewServer);
+		return isInRange(key, minHashKey, hashOfNewServer);
 	}
 
 	public NodeData getRandom() throws NoSuchElementException {

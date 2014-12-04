@@ -70,12 +70,10 @@ public class EcsConnection implements Runnable {
 			kvServer.start();
 			return new KVAdminMessageImpl("ok", null, StatusType.START);
 		case UPDATE_METADATA:
-			// value contains the metadata
-			kvServer.update(value);
+			kvServer.updateMetadata(value);
 			return new KVAdminMessageImpl("ok", null, StatusType.UPDATE_METADATA);
 		case MOVE_DATA:
 			String[] destinationServer = value.split(":");
-			// key is the maxHashKey of the new node;
 			kvServer.moveData(key, destinationServer[0], Integer.parseInt(destinationServer[1]));
 			return new KVAdminMessageImpl("ok", null, StatusType.MOVE_DATA);
 		case LOCK_WRITE:

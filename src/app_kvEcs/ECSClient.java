@@ -98,6 +98,7 @@ public class ECSClient implements KVSocketListener {
 	private java.util.List<NodeData> getMetadata(java.util.List<String> sortedList) {
 		LinkedList<NodeData> list = new LinkedList<>();
 		int size = sortedList.size();
+
 		for (int i=0; i<size; i+=4) {
 			String minHashKey = sortedList.get((i-1 + size) % size);
 			list.add(new NodeData(sortedList.get(i), sortedList.get(i+1),
@@ -247,10 +248,10 @@ public class ECSClient implements KVSocketListener {
 			} catch (IOException e1) {}
 		}
 
-		// TODO shutdown node
+
 		String toRemoveName = line.split(" ")[0];
-		String toRemoveHash = line.split(" ")[2];
 		int toRemoveIndex = findCsIndex(toRemoveName);
+		String toRemoveHash = sortedNodeHashes.get(toRemoveIndex*4 + 3);
 		ConfigStore removed = removeNodeFromLists(toRemoveName);
 		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
 		
@@ -281,19 +282,17 @@ public class ECSClient implements KVSocketListener {
 
 	private ConfigStore removeNodeFromLists(String nodeName) {
 		int size = sortedNodeHashes.size();		
-		List<String> removedList = new ArrayList<String>();
 		int index = 0;
-		for(int i = 0; i < size; i++){
+		for(int i = 0; i < size; i+=4){
 			if(nodeName.equals(sortedNodeHashes.get(i))){
 				index = i;
-				removedList.add(sortedNodeHashes.get(i));
-				removedList.add(sortedNodeHashes.get(i+1));
-				removedList.add(sortedNodeHashes.get(i+2));
-				removedList.add(sortedNodeHashes.get(i+3));
+				sortedNodeHashes.remove(i); // remove name
+				sortedNodeHashes.remove(i); // remove ip
+				sortedNodeHashes.remove(i); // remove port
+				sortedNodeHashes.remove(i); // remove hash
 				break;
 			}
-		}		
-		sortedNodeHashes.removeAll(removedList);
+		}
 		return sortedConfigStores.remove(index/4);
 	}
 
@@ -346,10 +345,10 @@ public class ECSClient implements KVSocketListener {
 
 		} else if (status == SocketStatus.DISCONNECTED) {
 			System.out.print(PROMPT);
-			System.out.println("Connection terminated.");
+			System.out.println("Connection terminated with a server.");
 
 		} else if (status == SocketStatus.CONNECTION_LOST) {
-			System.out.println("Connection lost.");
+			System.out.println("Connection lost with a server.");
 			System.out.print(PROMPT);
 		}
 	}
