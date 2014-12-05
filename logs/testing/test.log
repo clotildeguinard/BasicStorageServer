@@ -633,3 +633,844 @@
 2014-12-04 15:40:29,546 INFO  [Thread-25] KVStore: KVStore stopped
 2014-12-04 15:40:29,547 INFO  [main] KVStore: connection closed!
 2014-12-04 15:40:29,547 INFO  [main] KVStore: connection closed!
+2014-12-05 15:58:38,256 FATAL [main] ECSClient: An error occurred when trying to read from config file- Application terminated.
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at app_kvEcs.ConfigStore.connect(ConfigStore.java:64)
+	at app_kvEcs.ConfigStore.<init>(ConfigStore.java:50)
+	at app_kvEcs.ECSClient.addNodeToLists(ECSClient.java:272)
+	at app_kvEcs.ECSClient.initService(ECSClient.java:63)
+	at app_kvEcs.ECSInterface.handleCommandBis(ECSInterface.java:112)
+	at app_kvEcs.ECSInterface.handleCommand(ECSInterface.java:83)
+	at testing.ECSTest.testConnectionSuccess(ECSTest.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at junit.framework.TestCase.runTest(TestCase.java:168)
+	at junit.framework.TestCase.runBare(TestCase.java:134)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:124)
+	at junit.framework.TestSuite.runTest(TestSuite.java:243)
+	at junit.framework.TestSuite.run(TestSuite.java:238)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:83)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+2014-12-05 15:59:59,706 FATAL [main] ECSClient: An error occurred when trying to read from config file- Application terminated.
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at app_kvEcs.ConfigStore.connect(ConfigStore.java:64)
+	at app_kvEcs.ConfigStore.<init>(ConfigStore.java:50)
+	at app_kvEcs.ECSClient.addNodeToLists(ECSClient.java:272)
+	at app_kvEcs.ECSClient.initService(ECSClient.java:63)
+	at app_kvEcs.ECSInterface.handleCommandBis(ECSInterface.java:112)
+	at app_kvEcs.ECSInterface.handleCommand(ECSInterface.java:83)
+	at testing.ECSTest.testConnectionSuccess(ECSTest.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at junit.framework.TestCase.runTest(TestCase.java:168)
+	at junit.framework.TestCase.runBare(TestCase.java:134)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:124)
+	at junit.framework.TestSuite.runTest(TestSuite.java:243)
+	at junit.framework.TestSuite.run(TestSuite.java:238)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:83)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+2014-12-05 16:00:51,398 FATAL [main] ECSClient: An error occurred when trying to read from config file- Application terminated.
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at app_kvEcs.ConfigStore.connect(ConfigStore.java:64)
+	at app_kvEcs.ConfigStore.<init>(ConfigStore.java:50)
+	at app_kvEcs.ECSClient.addNodeToLists(ECSClient.java:272)
+	at app_kvEcs.ECSClient.initService(ECSClient.java:63)
+	at app_kvEcs.ECSInterface.handleCommandBis(ECSInterface.java:112)
+	at app_kvEcs.ECSInterface.handleCommand(ECSInterface.java:83)
+	at testing.ECSTest.testConnectionSuccess(ECSTest.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at junit.framework.TestCase.runTest(TestCase.java:168)
+	at junit.framework.TestCase.runBare(TestCase.java:134)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:124)
+	at junit.framework.TestSuite.runTest(TestSuite.java:243)
+	at junit.framework.TestSuite.run(TestSuite.java:238)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:83)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+2014-12-05 16:21:07,029 INFO  [main] KVServer: Server metadata updated.
+2014-12-05 16:21:07,030 INFO  [main] KVServer: Server listening on port: 50000
+2014-12-05 16:21:07,032 DEBUG [Thread-2] KVServer: Server listening to clients...
+2014-12-05 16:21:39,981 DEBUG [main] ECSClient: Initiating the service...
+2014-12-05 16:21:39,981 DEBUG [main] ECSClient: Initiating the service...
+2014-12-05 16:21:39,982 INFO  [main] ECSClient: Adding node node1 localhost 50000
+2014-12-05 16:21:39,982 INFO  [main] ECSClient: Adding node node1 localhost 50000
+2014-12-05 16:21:39,985 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-05 16:21:39,985 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-05 16:21:39,993 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-05 16:21:39,993 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-05 16:21:39,997 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55878
+2014-12-05 16:21:39,997 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55878
+2014-12-05 16:21:40,007 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-05 16:21:40,007 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-05 16:21:40,007 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-05 16:21:40,007 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-05 16:21:40,009 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:21:40,009 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:21:40,010 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:21:40,010 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:21:40,010 INFO  [Thread-4] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-05 16:21:40,010 INFO  [Thread-4] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-05 16:21:40,012 INFO  [Thread-4] KVServer: Server metadata updated.
+2014-12-05 16:21:40,012 INFO  [Thread-4] KVServer: Server metadata updated.
+2014-12-05 16:21:40,013 INFO  [Thread-4] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-05 16:21:40,013 INFO  [Thread-4] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-05 16:21:40,013 DEBUG [Thread-4] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-05 16:21:40,013 DEBUG [Thread-4] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-05 16:21:40,014 INFO  [Thread-5] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-05 16:21:40,014 INFO  [Thread-5] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-05 16:21:40,059 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:21:40,059 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:21:40,060 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:21:40,060 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:21:40,060 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:21:40,060 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:21:40,060 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:21:40,060 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:21:40,060 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-05 16:21:40,060 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-05 16:21:40,060 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:21:40,060 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:21:40,061 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:21:40,061 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:21:40,109 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:21:40,109 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:21:40,109 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:21:40,109 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:21:40,109 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:21:40,109 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:21:40,110 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:21:40,110 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:21:40,110 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:21:40,110 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:21:40,110 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:21:40,110 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:21:40,111 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:21:40,111 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:21:40,159 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:21:40,159 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:21:40,160 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:21:40,160 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:21:40,160 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:21:40,160 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:21:40,160 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:21:40,160 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:21:40,161 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-05 16:21:40,161 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-05 16:21:40,161 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:21:40,161 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:21:40,162 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:21:40,162 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:21:40,209 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:21:40,209 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:21:40,209 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:21:40,209 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:21:40,209 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:21:40,209 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:21:40,210 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:21:40,210 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:21:40,210 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:21:40,210 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:21:40,210 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:21:40,210 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:21:40,210 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:21:40,210 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:21:40,260 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-05 16:21:40,260 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-05 16:21:40,260 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-05 16:21:40,260 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-05 16:21:40,261 INFO  [Thread-4] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-05 16:21:40,261 INFO  [Thread-4] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-05 16:21:40,261 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:21:40,261 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:21:40,261 INFO  [Thread-4] KVServer: Exiting
+2014-12-05 16:21:40,261 INFO  [Thread-4] KVServer: Exiting
+2014-12-05 16:27:29,514 DEBUG [main] ECSClient: Initiating the service...
+2014-12-05 16:27:29,514 DEBUG [main] ECSClient: Initiating the service...
+2014-12-05 16:27:29,515 INFO  [main] ECSClient: Adding node node1 localhost 50000
+2014-12-05 16:27:29,515 INFO  [main] ECSClient: Adding node node1 localhost 50000
+2014-12-05 16:27:29,517 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-05 16:27:29,517 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-05 16:27:29,528 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-05 16:27:29,528 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-05 16:27:29,531 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55883
+2014-12-05 16:27:29,531 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55883
+2014-12-05 16:27:29,544 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-05 16:27:29,544 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-05 16:27:29,545 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-05 16:27:29,545 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-05 16:27:29,546 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:27:29,546 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:27:29,548 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:27:29,548 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:27:29,549 INFO  [Thread-4] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-05 16:27:29,549 INFO  [Thread-4] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-05 16:27:29,551 INFO  [Thread-4] KVServer: Server metadata updated.
+2014-12-05 16:27:29,551 INFO  [Thread-4] KVServer: Server metadata updated.
+2014-12-05 16:27:29,551 INFO  [Thread-4] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-05 16:27:29,551 INFO  [Thread-4] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-05 16:27:29,552 DEBUG [Thread-4] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-05 16:27:29,552 DEBUG [Thread-4] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-05 16:27:29,553 INFO  [Thread-5] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-05 16:27:29,553 INFO  [Thread-5] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-05 16:27:29,597 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:27:29,597 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:27:29,597 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:27:29,597 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:27:29,597 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:27:29,597 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:27:29,598 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:27:29,598 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:27:29,598 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-05 16:27:29,598 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-05 16:27:29,598 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:27:29,598 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:27:29,599 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:27:29,599 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:27:29,647 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:27:29,647 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:27:29,647 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:27:29,647 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:27:29,648 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:27:29,648 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:27:29,648 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:27:29,648 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:27:29,648 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:27:29,648 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:27:29,648 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:27:29,648 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:27:29,649 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:27:29,649 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:27:29,697 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:27:29,697 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:27:29,697 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:27:29,697 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:27:29,697 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:27:29,697 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:27:29,698 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:27:29,698 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:27:29,698 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-05 16:27:29,698 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-05 16:27:29,698 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:27:29,698 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:27:29,699 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:27:29,699 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:27:29,747 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:27:29,747 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:27:29,747 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:27:29,747 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:27:29,747 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:27:29,747 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:27:29,747 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:27:29,747 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:27:29,748 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:27:29,748 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:27:29,748 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:27:29,748 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:27:29,748 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:27:29,748 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:27:29,797 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-05 16:27:29,797 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-05 16:27:29,797 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-05 16:27:29,797 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-05 16:27:29,798 INFO  [Thread-4] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-05 16:27:29,798 INFO  [Thread-4] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-05 16:27:29,798 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:27:29,798 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:27:29,798 INFO  [Thread-4] EcsConnection: Exiting
+2014-12-05 16:27:29,798 INFO  [Thread-4] EcsConnection: Exiting
+2014-12-05 16:27:29,798 INFO  [Thread-4] EcsConnection: Answer to ECS : SHUTDOWN ok null
+2014-12-05 16:27:29,798 INFO  [Thread-4] EcsConnection: Answer to ECS : SHUTDOWN ok null
+2014-12-05 16:27:29,798 DEBUG [Thread-4] KVAdminCommModule: Send :	 'SHUTDOWN ok null'
+2014-12-05 16:27:29,798 DEBUG [Thread-4] KVAdminCommModule: Send :	 'SHUTDOWN ok null'
+2014-12-05 16:27:29,799 INFO  [Thread-5] KVAdminCommModule: New received message : SHUTDOWN ok null
+2014-12-05 16:27:29,799 INFO  [Thread-5] KVAdminCommModule: New received message : SHUTDOWN ok null
+2014-12-05 16:27:29,848 INFO  [main] ConfigStore: try to close connection with localhost:50000 ...
+2014-12-05 16:27:29,848 INFO  [main] ConfigStore: try to close connection with localhost:50000 ...
+2014-12-05 16:27:29,848 INFO  [main] ConfigStore: tearing down the connection ...
+2014-12-05 16:27:29,848 INFO  [main] ConfigStore: tearing down the connection ...
+2014-12-05 16:27:29,848 INFO  [main] ConfigStore: connection closed!
+2014-12-05 16:27:29,848 INFO  [main] ConfigStore: connection closed!
+2014-12-05 16:27:29,849 INFO  [Thread-5] ConfigStore: Connection with server stopped
+2014-12-05 16:27:29,849 INFO  [Thread-5] ConfigStore: Connection with server stopped
+2014-12-05 16:28:52,884 DEBUG [main] ECSClient: Initiating the service...
+2014-12-05 16:28:52,884 DEBUG [main] ECSClient: Initiating the service...
+2014-12-05 16:28:52,886 INFO  [main] ECSClient: Adding node node1 localhost 50000
+2014-12-05 16:28:52,886 INFO  [main] ECSClient: Adding node node1 localhost 50000
+2014-12-05 16:28:52,888 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-05 16:28:52,888 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-05 16:28:52,897 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-05 16:28:52,897 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-05 16:28:52,900 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55886
+2014-12-05 16:28:52,900 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55886
+2014-12-05 16:28:52,909 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-05 16:28:52,909 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-05 16:28:52,910 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-05 16:28:52,910 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-05 16:28:52,911 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:28:52,911 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:28:52,913 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:28:52,913 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:28:52,913 INFO  [Thread-4] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-05 16:28:52,913 INFO  [Thread-4] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-05 16:28:52,915 INFO  [Thread-4] KVServer: Server metadata updated.
+2014-12-05 16:28:52,915 INFO  [Thread-4] KVServer: Server metadata updated.
+2014-12-05 16:28:52,916 INFO  [Thread-4] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-05 16:28:52,916 INFO  [Thread-4] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-05 16:28:52,916 DEBUG [Thread-4] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-05 16:28:52,916 DEBUG [Thread-4] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-05 16:28:52,917 INFO  [Thread-5] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-05 16:28:52,917 INFO  [Thread-5] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-05 16:28:52,962 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:28:52,962 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:28:52,962 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:28:52,962 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:28:52,963 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:28:52,963 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:28:52,963 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:28:52,963 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:28:52,963 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-05 16:28:52,963 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-05 16:28:52,963 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:28:52,963 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:28:52,964 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:28:52,964 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:28:53,012 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:28:53,012 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:28:53,012 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:28:53,012 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:28:53,013 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:28:53,013 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:28:53,013 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:28:53,013 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:28:53,013 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:28:53,013 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:28:53,013 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:28:53,013 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:28:53,014 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:28:53,014 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:28:53,062 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:28:53,062 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:28:53,062 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:28:53,062 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:28:53,062 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:28:53,062 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:28:53,063 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:28:53,063 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:28:53,063 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-05 16:28:53,063 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-05 16:28:53,063 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:28:53,063 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:28:53,064 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:28:53,064 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:28:53,112 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:28:53,112 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:28:53,112 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:28:53,112 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:28:53,112 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:28:53,112 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:28:53,113 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:28:53,113 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:28:53,113 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:28:53,113 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:28:53,113 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:28:53,113 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:28:53,114 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:28:53,114 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:28:53,163 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-05 16:28:53,163 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-05 16:28:53,163 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-05 16:28:53,163 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-05 16:28:53,164 INFO  [Thread-4] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-05 16:28:53,164 INFO  [Thread-4] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-05 16:28:53,164 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:28:53,164 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:28:53,164 INFO  [Thread-4] EcsConnection: Exiting
+2014-12-05 16:28:53,164 INFO  [Thread-4] EcsConnection: Exiting
+2014-12-05 16:28:53,164 INFO  [Thread-4] EcsConnection: Answer to ECS : SHUTDOWN ok null
+2014-12-05 16:28:53,164 INFO  [Thread-4] EcsConnection: Answer to ECS : SHUTDOWN ok null
+2014-12-05 16:28:53,164 DEBUG [Thread-4] KVAdminCommModule: Send :	 'SHUTDOWN ok null'
+2014-12-05 16:28:53,164 DEBUG [Thread-4] KVAdminCommModule: Send :	 'SHUTDOWN ok null'
+2014-12-05 16:28:53,165 INFO  [Thread-5] KVAdminCommModule: New received message : SHUTDOWN ok null
+2014-12-05 16:28:53,165 INFO  [Thread-5] KVAdminCommModule: New received message : SHUTDOWN ok null
+2014-12-05 16:28:53,213 INFO  [main] ConfigStore: try to close connection with localhost:50000 ...
+2014-12-05 16:28:53,213 INFO  [main] ConfigStore: try to close connection with localhost:50000 ...
+2014-12-05 16:28:53,213 INFO  [main] ConfigStore: tearing down the connection ...
+2014-12-05 16:28:53,213 INFO  [main] ConfigStore: tearing down the connection ...
+2014-12-05 16:28:53,213 INFO  [main] ConfigStore: connection closed!
+2014-12-05 16:28:53,213 INFO  [main] ConfigStore: connection closed!
+2014-12-05 16:28:53,215 INFO  [Thread-5] ConfigStore: Connection with server stopped
+2014-12-05 16:28:53,215 INFO  [Thread-5] ConfigStore: Connection with server stopped
+2014-12-05 16:31:22,766 DEBUG [main] ECSClient: Initiating the service...
+2014-12-05 16:31:22,767 INFO  [main] ECSClient: Adding node node1 localhost 50000
+2014-12-05 16:31:22,769 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-05 16:31:23,780 FATAL [main] ECSClient: An error occurred when trying to read from config file- Application terminated.
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at app_kvEcs.ConfigStore.connect(ConfigStore.java:64)
+	at app_kvEcs.ConfigStore.<init>(ConfigStore.java:50)
+	at app_kvEcs.ECSClient.addNodeToLists(ECSClient.java:272)
+	at app_kvEcs.ECSClient.initService(ECSClient.java:63)
+	at app_kvEcs.ECSInterface.handleCommandBis(ECSInterface.java:112)
+	at app_kvEcs.ECSInterface.handleCommand(ECSInterface.java:83)
+	at testing.ECSTest.testConnectionSuccess(ECSTest.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at junit.framework.TestCase.runTest(TestCase.java:168)
+	at junit.framework.TestCase.runBare(TestCase.java:134)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:124)
+	at junit.framework.TestSuite.runTest(TestSuite.java:243)
+	at junit.framework.TestSuite.run(TestSuite.java:238)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:83)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+2014-12-05 16:31:35,474 DEBUG [main] ECSClient: Initiating the service...
+2014-12-05 16:31:35,474 DEBUG [main] ECSClient: Initiating the service...
+2014-12-05 16:31:35,475 INFO  [main] ECSClient: Adding node node1 localhost 50000
+2014-12-05 16:31:35,475 INFO  [main] ECSClient: Adding node node1 localhost 50000
+2014-12-05 16:31:35,477 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-05 16:31:35,477 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-05 16:31:35,486 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-05 16:31:35,486 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-05 16:31:35,488 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55899
+2014-12-05 16:31:35,488 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 55899
+2014-12-05 16:31:35,498 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-05 16:31:35,498 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-05 16:31:35,498 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-05 16:31:35,498 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-05 16:31:35,500 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:31:35,500 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:31:35,501 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:31:35,501 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-05 16:31:35,502 INFO  [Thread-4] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-05 16:31:35,502 INFO  [Thread-4] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-05 16:31:35,504 INFO  [Thread-4] KVServer: Server metadata updated.
+2014-12-05 16:31:35,504 INFO  [Thread-4] KVServer: Server metadata updated.
+2014-12-05 16:31:35,504 INFO  [Thread-4] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-05 16:31:35,504 INFO  [Thread-4] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-05 16:31:35,504 DEBUG [Thread-4] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-05 16:31:35,504 DEBUG [Thread-4] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-05 16:31:35,505 INFO  [Thread-5] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-05 16:31:35,505 INFO  [Thread-5] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-05 16:31:35,551 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:31:35,551 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:31:35,551 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:31:35,551 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:31:35,551 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:31:35,551 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:31:35,552 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:31:35,552 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:31:35,552 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-05 16:31:35,552 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-05 16:31:35,552 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:31:35,552 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:31:35,553 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:31:35,553 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:31:35,601 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:31:35,601 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:31:35,602 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:31:35,602 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:31:35,603 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:31:35,603 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:31:35,603 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:31:35,603 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:31:35,604 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:31:35,604 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:31:35,604 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:31:35,604 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:31:35,606 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:31:35,606 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:31:35,652 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:31:35,652 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-05 16:31:35,653 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:31:35,653 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'START null null'
+2014-12-05 16:31:35,653 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:31:35,653 INFO  [Thread-4] EcsConnection: Requested from ECS : START null null
+2014-12-05 16:31:35,654 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:31:35,654 INFO  [Thread-4] EcsConnection: Answer to ECS : START ok null
+2014-12-05 16:31:35,654 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-05 16:31:35,654 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-05 16:31:35,654 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:31:35,654 DEBUG [Thread-4] KVAdminCommModule: Send :	 'START ok null'
+2014-12-05 16:31:35,655 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:31:35,655 INFO  [Thread-5] KVAdminCommModule: New received message : START ok null
+2014-12-05 16:31:35,702 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:31:35,702 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-05 16:31:35,703 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:31:35,703 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-05 16:31:35,703 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:31:35,703 INFO  [Thread-4] EcsConnection: Requested from ECS : STOP null null
+2014-12-05 16:31:35,703 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:31:35,703 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:31:35,703 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:31:35,703 INFO  [Thread-4] EcsConnection: Answer to ECS : STOP ok null
+2014-12-05 16:31:35,704 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:31:35,704 DEBUG [Thread-4] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-05 16:31:35,704 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:31:35,704 INFO  [Thread-5] KVAdminCommModule: New received message : STOP ok null
+2014-12-05 16:31:35,753 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-05 16:31:35,753 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-05 16:31:35,753 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-05 16:31:35,753 DEBUG [Thread-4] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-05 16:31:35,753 INFO  [Thread-4] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-05 16:31:35,753 INFO  [Thread-4] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-05 16:31:35,753 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:31:35,753 DEBUG [Thread-4] KVServer: Stopping the server
+2014-12-05 16:31:35,753 INFO  [Thread-4] EcsConnection: Exiting
+2014-12-05 16:31:35,753 INFO  [Thread-4] EcsConnection: Exiting
+2014-12-05 16:31:35,753 INFO  [Thread-4] EcsConnection: Answer to ECS : SHUTDOWN ok null
+2014-12-05 16:31:35,753 INFO  [Thread-4] EcsConnection: Answer to ECS : SHUTDOWN ok null
+2014-12-05 16:31:35,754 DEBUG [Thread-4] KVAdminCommModule: Send :	 'SHUTDOWN ok null'
+2014-12-05 16:31:35,754 DEBUG [Thread-4] KVAdminCommModule: Send :	 'SHUTDOWN ok null'
+2014-12-05 16:31:35,754 INFO  [Thread-5] KVAdminCommModule: New received message : SHUTDOWN ok null
+2014-12-05 16:31:35,754 INFO  [Thread-5] KVAdminCommModule: New received message : SHUTDOWN ok null
+2014-12-05 16:31:35,803 INFO  [main] ConfigStore: try to close connection with localhost:50000 ...
+2014-12-05 16:31:35,803 INFO  [main] ConfigStore: try to close connection with localhost:50000 ...
+2014-12-05 16:31:35,803 INFO  [main] ConfigStore: tearing down the connection ...
+2014-12-05 16:31:35,803 INFO  [main] ConfigStore: tearing down the connection ...
+2014-12-05 16:31:35,803 INFO  [main] ConfigStore: connection closed!
+2014-12-05 16:31:35,803 INFO  [main] ConfigStore: connection closed!
+2014-12-05 16:31:35,803 INFO  [Thread-5] ConfigStore: Connection with server stopped
+2014-12-05 16:31:35,803 INFO  [Thread-5] ConfigStore: Connection with server stopped
+2014-12-05 16:36:28,984 ERROR [Thread-7] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:36:28,984 ERROR [Thread-7] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:36:28,984 ERROR [Thread-6] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: Socket closed
+	at java.net.DualStackPlainSocketImpl.checkAndReturnNativeFD(Unknown Source)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:36:28,984 ERROR [Thread-6] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: Socket closed
+	at java.net.DualStackPlainSocketImpl.checkAndReturnNativeFD(Unknown Source)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:37:57,366 ERROR [Thread-7] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: Socket closed
+	at java.net.DualStackPlainSocketImpl.checkAndReturnNativeFD(Unknown Source)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:37:57,366 ERROR [Thread-7] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: Socket closed
+	at java.net.DualStackPlainSocketImpl.checkAndReturnNativeFD(Unknown Source)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:37:57,366 ERROR [Thread-6] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: Socket closed
+	at java.net.DualStackPlainSocketImpl.checkAndReturnNativeFD(Unknown Source)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:37:57,366 ERROR [Thread-6] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: Socket closed
+	at java.net.DualStackPlainSocketImpl.checkAndReturnNativeFD(Unknown Source)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:37:57,366 ERROR [Thread-8] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:37:57,366 ERROR [Thread-8] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:38:17,775 ERROR [Thread-8] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:38:17,775 ERROR [Thread-8] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:38:17,775 ERROR [Thread-6] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: Socket closed
+	at java.net.DualStackPlainSocketImpl.checkAndReturnNativeFD(Unknown Source)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:38:17,775 ERROR [Thread-6] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: Socket closed
+	at java.net.DualStackPlainSocketImpl.checkAndReturnNativeFD(Unknown Source)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:38:17,775 ERROR [Thread-7] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: Socket closed
+	at java.net.DualStackPlainSocketImpl.checkAndReturnNativeFD(Unknown Source)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:38:17,775 ERROR [Thread-7] KVServer: Error! Unable to establish connection. 
+
+java.net.SocketException: Socket closed
+	at java.net.DualStackPlainSocketImpl.checkAndReturnNativeFD(Unknown Source)
+	at java.net.DualStackPlainSocketImpl.socketAccept(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.accept(Unknown Source)
+	at java.net.PlainSocketImpl.accept(Unknown Source)
+	at java.net.ServerSocket.implAccept(Unknown Source)
+	at java.net.ServerSocket.accept(Unknown Source)
+	at app_kvServer.KVServer.run(KVServer.java:136)
+	at java.lang.Thread.run(Unknown Source)
+2014-12-05 16:39:49,110 FATAL [main] ECSClient: An error occurred when trying to read from config file- Application terminated.
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at app_kvEcs.ConfigStore.connect(ConfigStore.java:64)
+	at app_kvEcs.ConfigStore.<init>(ConfigStore.java:50)
+	at app_kvEcs.ECSClient.addNodeToLists(ECSClient.java:272)
+	at app_kvEcs.ECSClient.initService(ECSClient.java:63)
+	at app_kvEcs.ECSInterface.handleCommandBis(ECSInterface.java:112)
+	at app_kvEcs.ECSInterface.handleCommand(ECSInterface.java:83)
+	at testing.ECSTest.testNodeCycle(ECSTest.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at junit.framework.TestCase.runTest(TestCase.java:168)
+	at junit.framework.TestCase.runBare(TestCase.java:134)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:124)
+	at junit.framework.TestSuite.runTest(TestSuite.java:243)
+	at junit.framework.TestSuite.run(TestSuite.java:238)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:83)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+2014-12-05 16:56:45,081 FATAL [main] ECSClient: An error occurred when trying to read from config file- Application terminated.
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at app_kvEcs.ConfigStore.connect(ConfigStore.java:64)
+	at app_kvEcs.ConfigStore.<init>(ConfigStore.java:50)
+	at app_kvEcs.ECSClient.addNodeToLists(ECSClient.java:272)
+	at app_kvEcs.ECSClient.initService(ECSClient.java:63)
+	at app_kvEcs.ECSInterface.handleCommandBis(ECSInterface.java:112)
+	at app_kvEcs.ECSInterface.handleCommand(ECSInterface.java:83)
+	at testing.BenchmarkTest.<clinit>(BenchmarkTest.java:37)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at junit.framework.TestSuite.createTest(TestSuite.java:61)
+	at junit.framework.TestSuite.addTestMethod(TestSuite.java:294)
+	at junit.framework.TestSuite.addTestsFromTestCase(TestSuite.java:150)
+	at junit.framework.TestSuite.<init>(TestSuite.java:129)
+	at org.junit.internal.runners.JUnit38ClassRunner.<init>(JUnit38ClassRunner.java:71)
+	at org.junit.internal.builders.JUnit3Builder.runnerForClass(JUnit3Builder.java:14)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:57)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:29)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:57)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:24)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.<init>(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.<init>(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+2014-12-05 17:08:19,377 ERROR [Thread-43] KVServer: Error! Cannot open server socket:
+2014-12-05 17:08:19,377 ERROR [Thread-43] KVServer: Error! Cannot open server socket:
+2014-12-05 17:08:19,378 ERROR [Thread-43] KVServer: Port 50002 is already bound!
+2014-12-05 17:08:19,378 ERROR [Thread-43] KVServer: Port 50002 is already bound!

@@ -24,6 +24,7 @@ import org.apache.log4j.Logger;
 
 
 
+
 import app_kvClient.KVClient;
 import app_kvServer.cache_strategies.Strategy;
 
@@ -41,9 +42,17 @@ public class ECSInterface {
 	private Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private static final String PROMPT = "ECSClient> ";
 	private BufferedReader stdin;
-	private ECSClient ecsClient = new ECSClient();
+	private final ECSClient ecsClient;
 	private boolean appStopped = false;
 	private boolean initialized = false;
+	
+	public ECSInterface() {
+		this.ecsClient = new ECSClient("./src/app_kvEcs/ecs.config.txt");
+	}
+	
+	public ECSInterface(String configLocation) {
+		this.ecsClient = new ECSClient(configLocation);
+	}
 
 	public void run() {
 
@@ -56,31 +65,30 @@ public class ECSInterface {
 			System.out.print("\n" + PROMPT);
 
 			try {
-				String[] input = stdin.readLine().split(" ");
-				Command cmd = Command.valueOf(input[0].toUpperCase());
-				handleCommand(cmd, input);
-			} catch (IllegalArgumentException e) {
-
-				printError("Do not recognise "
-						+ "the input, pl. try again");
-
-				continue;
+				String input = stdin.readLine();
+				handleCommand(input);
 			} catch (IOException e) {
 				printError("Did not get the input, "
 						+ "pl. try again");
-
-				continue;
 			}
 		}
 		System.out.println("Application terminated !");
 	}
 
 
-	private void printError(String error){
-		System.out.println("\t" + "Error! " +  error);
+	public void handleCommand(String line) {
+		try{
+			String[] input = line.split(" ");
+			Command cmd = Command.valueOf(input[0].toUpperCase());
+			handleCommandBis(cmd, input);
+		} catch (IllegalArgumentException e) {
+
+			printError("Do not recognise "
+					+ "the input, pl. try again");
+		}
 	}
 
-	private void handleCommand(Command cmd, String[] input) {
+	private void handleCommandBis(Command cmd, String[] input) {
 		try {
 			switch (cmd) {
 
@@ -196,6 +204,11 @@ public class ECSInterface {
 	}
 
 
+	private void printError(String error){
+		System.out.println("\t" + "Error! " +  error);
+	}
+
+
 	private void printHelp() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\t").append("ECS CLIENT HELP (Usage):\n\n");
@@ -216,7 +229,7 @@ public class ECSInterface {
 		sb.append("\t\t\t Stops all nodes \n");
 		sb.append("\t").append("SHUTDOWN \n");
 		sb.append("\t\t\t Shutdowns all nodes \n");
-//		sb.append("ALL | DEBUG | INFO | WARN | ERROR | FATAL | OFF \n");
+		//		sb.append("ALL | DEBUG | INFO | WARN | ERROR | FATAL | OFF \n");
 		sb.append("\t").append("QUIT \n");
 		sb.append("\t\t\t Exits the program");
 		System.out.println(sb.toString());

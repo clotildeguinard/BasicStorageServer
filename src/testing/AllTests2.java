@@ -10,14 +10,17 @@ import junit.framework.TestSuite;
 import logger.LogSetup;
 
 
-public class AllTests {
+public class AllTests2 {
 
 	static {
 		try {
 			new LogSetup("logs/testing/test.log", Level.ERROR);
+			
+			//should be removed if ssh could be used in initKVServer(...)
+			/////////////////
 			KVServer kvserver = new KVServer(50000);
-			kvserver.initKVServer("node0;127.0.0.1;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff", 10, "FIFO");
-			kvserver.start();
+			new Thread(kvserver.new ECSSocketLoop()).start();
+			////////////////
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -26,11 +29,8 @@ public class AllTests {
 	
 	public static Test suite() {
 		TestSuite clientSuite = new TestSuite("Basic Storage ServerTest-Suite");
-		clientSuite.addTestSuite(ConnectionTest.class);
-		clientSuite.addTestSuite(InteractionTest.class); 
-		clientSuite.addTestSuite(DataCacheTest.class); 
-		clientSuite.addTestSuite(StorageTest.class); 
-		clientSuite.addTestSuite(CacheManagerTest.class);
+//		clientSuite.addTestSuite(ECSTest.class);
+		clientSuite.addTestSuite(BenchmarkTest.class);
 		return clientSuite;
 	}
 	

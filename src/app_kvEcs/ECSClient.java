@@ -39,9 +39,13 @@ public class ECSClient implements KVSocketListener {
 	private MetadataHandler metadataHandler;
 	
 	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
-	private final static String configLocation = "./src/app_kvEcs/ecs.config.txt";
+	private final String configLocation;
 	private final static String hashingAlgorithm = "MD5";
 	private final static String PROMPT = "ECSClient> ";
+	
+	public ECSClient(String configLocation) {
+		this.configLocation = configLocation;
+	}
 
 	protected void initService(int numberOfNodes, int cacheSize, Strategy displacementStrategy)
 			throws NoSuchAlgorithmException{
@@ -269,7 +273,9 @@ public class ECSClient implements KVSocketListener {
 
 		String IpAndPort = new StringBuilder(nodeData[1]).append(";").append(nodeData[2]).toString();
 
-		String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm).digest(IpAndPort.getBytes("UTF-8"))).toString(16);
+		String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm).
+				digest(IpAndPort.getBytes("UTF-8"))).toString(16);
+		System.out.println(hashedKey);
 		sortedNodeHashes.add(nodeData[0]);
 		sortedNodeHashes.add(nodeData[1]);
 		sortedNodeHashes.add(nodeData[2]);
@@ -344,11 +350,7 @@ public class ECSClient implements KVSocketListener {
 	}
 
 	@Override
-	public void handleNewMessage(TextMessage msg) {
-		System.out.println("Got new message in ECS");
-
-	}
-
+	public void handleNewMessage(TextMessage msg) {}
 
 	/**
 	 * Main entry point for the ECSClient application. 

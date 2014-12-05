@@ -65,7 +65,8 @@ public class KVServer implements Runnable {
 			this.cacheManager = new CacheManager(datacache, new Storage(storageLocation, Integer.toString(port)));
 		} catch (IOException e) {
 			logger.fatal("Storage could not be instanciated");
-			shutdown();
+			stop();
+			System.exit(1);
 		}
 		metadataHandler = new MetadataHandler("127.0.0.1", port);
 		updateMetadata(metadata);
@@ -93,7 +94,7 @@ public class KVServer implements Runnable {
 		}
 	}
 
-	private class ECSSocketLoop extends Thread {
+	public class ECSSocketLoop extends Thread {
 		/**
 		 * Instanciate socket for future connections
 		 * Initiate communication loop with ECS
@@ -164,12 +165,6 @@ public class KVServer implements Runnable {
 		this.isStopped = true;
 	}
 
-	public void shutdown() {
-		stop();
-		logger.info("Exiting");
-		System.exit(0);
-	}
-
 	/**
 	 * Move to given node all data having key under hash hashOfNewNode
 	 * @param hashOfNewNode the hash of the new node
@@ -200,7 +195,8 @@ public class KVServer implements Runnable {
 			logger.error("An error occurred during connection to other server", e);
 		} catch (NoSuchAlgorithmException e) {
 			logger.fatal("An error occurred during hashing", e);
-			shutdown();
+			stop();
+			System.exit(1);
 		} finally {
 			kvStore.disconnect();
 		}
@@ -226,7 +222,8 @@ public class KVServer implements Runnable {
 			}
 		} catch (NoSuchAlgorithmException e) {
 			logger.fatal("An error occurred during hashing", e);
-			shutdown();
+			stop();
+			System.exit(1);
 		}
 	}
 

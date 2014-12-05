@@ -16,9 +16,7 @@ import common.messages.TextMessage;
 
 public class KVClient implements KVSocketListener {
 
-	static String command;
-
-	private Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private static final String PROMPT = "KVClient> ";
 	private BufferedReader stdin;
 	private KVStore kvStore = new KVStore("127.0.0.1", 50000);
@@ -39,79 +37,79 @@ public class KVClient implements KVSocketListener {
 			System.out.print(PROMPT);
 
 			try {
-				String command = stdin.readLine();
-				String[] tokens = command.split("\\s+");
-
-				if(tokens[0].equals("quit")) {
-					stop = true;
-					disconnect();
-					System.out.println(PROMPT + "Application exit!");
-
-				} else if (tokens[0].equals("put")) {
-					if(tokens.length == 3) {
-						try {
-							System.out.println(kvStore.put(tokens[1], tokens[2]));
-						} catch (NoSuchAlgorithmException e) {
-							printError("A fatal error occurred!");
-							disconnect();
-							stop = true;
-						} catch (IOException e) {
-							printError("Unable to send message!");
-							disconnect();
-						} catch (InterruptedException e) {
-							printError("Unable to receive answer!");
-							disconnect();
-						}
-					} else {
-						printError("Invalid number of parameters!");
-					}
-
-				} else if (tokens[0].equals("get")) {
-					if(tokens.length == 2) {
-						try {
-							System.out.println(kvStore.get(tokens[1]));
-						} catch (NoSuchAlgorithmException e) {
-							printError("A fatal error occurred!");
-							disconnect();
-							stop = true;
-						} catch (IOException e) {
-							printError("Unable to send message!");
-							disconnect();
-						} catch (InterruptedException e) {
-							printError("Unable to receive answer!");
-							disconnect();
-						}
-					} else {
-						printError("Invalid number of parameters!");
-					}
-
-				} else if(tokens[0].equalsIgnoreCase("logLevel")) {
-					if (tokens.length == 1) {
-						System.out.println("\t" +
-								"Log level currently set to level " + logger.getLevel());
-					} else if(tokens.length == 2) {
-						String level = setLevel(tokens[1]);
-						System.out.println("\t" +
-								"Log level changed to level " + level);
-					} else {
-						printError("Invalid number of parameters!");
-					}
-
-				} else if(tokens[0].equals("help")) {
-					printHelp();
-				} else {
-					printError("Unknown command");
-					printHelp();
-
-					continue;
-
-				}
-
+				String input = stdin.readLine();
+				handleCommand(input);
 			} catch (IOException e) {
 				stop = true;
 				printError("CLI does not respond - Application terminated ");
 			}
 		}   
+	}
+
+	public void handleCommand(String command) {
+		String[] tokens = command.split("\\s+");
+
+		if(tokens[0].equals("quit")) {
+			stop = true;
+			disconnect();
+			System.out.println(PROMPT + "Application exit!");
+
+		} else if (tokens[0].equals("put")) {
+			if(tokens.length == 3) {
+				try {
+					System.out.println(kvStore.put(tokens[1], tokens[2]));
+				} catch (NoSuchAlgorithmException e) {
+					printError("A fatal error occurred!");
+					disconnect();
+					stop = true;
+				} catch (IOException e) {
+					printError("Unable to send message!");
+					disconnect();
+				} catch (InterruptedException e) {
+					printError("Unable to receive answer!");
+					disconnect();
+				}
+			} else {
+				printError("Invalid number of parameters!");
+			}
+
+		} else if (tokens[0].equals("get")) {
+			if(tokens.length == 2) {
+				try {
+					System.out.println(kvStore.get(tokens[1]));
+				} catch (NoSuchAlgorithmException e) {
+					printError("A fatal error occurred!");
+					disconnect();
+					stop = true;
+				} catch (IOException e) {
+					printError("Unable to send message!");
+					disconnect();
+				} catch (InterruptedException e) {
+					printError("Unable to receive answer!");
+					disconnect();
+				}
+			} else {
+				printError("Invalid number of parameters!");
+			}
+
+		} else if(tokens[0].equalsIgnoreCase("logLevel")) {
+			if (tokens.length == 1) {
+				System.out.println("\t" +
+						"Log level currently set to level " + logger.getLevel());
+			} else if(tokens.length == 2) {
+				String level = setLevel(tokens[1]);
+				System.out.println("\t" +
+						"Log level changed to level " + level);
+			} else {
+				printError("Invalid number of parameters!");
+			}
+
+		} else if(tokens[0].equals("help")) {
+			printHelp();
+		} else {
+			printError("Unknown command");
+			printHelp();
+		}
 	}
 
 

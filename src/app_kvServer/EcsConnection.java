@@ -86,11 +86,10 @@ public class EcsConnection implements Runnable {
 			kvServer.stop();
 			return new KVAdminMessageImpl("ok", null, StatusType.STOP);
 		case SHUTDOWN:
-			try {
-				return new KVAdminMessageImpl("ok", null, StatusType.SHUTDOWN);
-			} finally {
-				kvServer.shutdown();
-			}
+			kvServer.stop();
+			stop = true;
+			logger.info("Exiting");
+			return new KVAdminMessageImpl("ok", null, StatusType.SHUTDOWN);
 		default:
 			logger.warn("The instruction has an unknown status : " + statusType);
 		}
