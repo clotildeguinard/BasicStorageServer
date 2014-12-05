@@ -3,11 +3,11 @@ package testing;
 import java.io.IOException;
 
 import org.apache.log4j.Level;
-import org.junit.Before;
 import org.junit.Test;
 
 import app_kvEcs.ECSInterface;
 import app_kvServer.KVServer;
+import app_kvServer.KVServer.ECSSocketLoop;
 import junit.framework.TestCase;
 import logger.LogSetup;
 
@@ -16,7 +16,13 @@ public class ECSTest extends TestCase {
 
 	static {
 		try {
-			new LogSetup("logs/testing/test.log", Level.ERROR);
+			new LogSetup("logs/testing/test.log", Level.DEBUG);		
+			
+			//should be removed if ssh could be used in initKVServer(...)
+			/////////////////
+			KVServer kvserver = new KVServer(50000);
+			new Thread(kvserver.new ECSSocketLoop()).start();
+			////////////////
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

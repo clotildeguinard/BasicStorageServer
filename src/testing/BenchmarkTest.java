@@ -24,17 +24,25 @@ public class BenchmarkTest extends TestCase {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+	}
+	
+	public void before() {
 		//should be removed if ssh could be used in initKVServer(...)
 		/////////////////
-		KVServer kvserver = new KVServer(50001);
+
+		KVServer kvserver = new KVServer(50000);
+		new Thread(kvserver.new ECSSocketLoop()).start();
+		
+		kvserver = new KVServer(50001);
 		new Thread(kvserver.new ECSSocketLoop()).start();
 
 		kvserver = new KVServer(50002);
 		new Thread(kvserver.new ECSSocketLoop()).start();
 		////////////////
 		
+		
 		ecs = new ECSInterface("./testing/ecs.config.txt");
-		ecs.handleCommand("init 3 5 LRU");
+		ecs.handleCommand("init 2 5 LRU");
 		ecs.handleCommand("start");
 		
 		kvclient = new KVClient();
@@ -42,11 +50,14 @@ public class BenchmarkTest extends TestCase {
 
 	@Test
 	public void test1() {
+		before();
 		Exception ex = null;
 
 		try {
 			long startTime = System.currentTimeMillis();
+			
 			// Task1
+			
 			for (int i=0; i<10; i++) {
 				kvclient.handleCommand("put foo" + i + " " + "bar" + i);
 			}
@@ -54,20 +65,15 @@ public class BenchmarkTest extends TestCase {
 			System.out.println("Task1 : " + (time1 - startTime) + " ms");
 			
 			// Task2
-			ecs.handleCommand("removenode");
+			
+			ecs.handleCommand("addnode 5 FIFO");
 			long time2 = System.currentTimeMillis();
 			System.out.println("Task2 : " + (time2 - time1) + " ms");
 			
 
 			// Task3
-			
-			//should be removed if ssh could be used in initKVServer(...)
-			/////////////////
-			KVServer kvserver = new KVServer(50002);
-			new Thread(kvserver.new ECSSocketLoop()).start();
-			////////////////
-			
-			ecs.handleCommand("addnode 5 FIFO");
+
+			ecs.handleCommand("removenode");
 			long time3 = System.currentTimeMillis();
 			System.out.println("Task3 : " + (time3 - time2) + " ms");
 			
@@ -85,6 +91,8 @@ public class BenchmarkTest extends TestCase {
 		}
 		assertNull(ex);
 	}
+	
+	
 
 }
 

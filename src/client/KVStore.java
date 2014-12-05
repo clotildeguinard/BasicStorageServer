@@ -200,7 +200,7 @@ public class KVStore extends Thread implements KVCommInterface {
 	}
 
 	@Override
-	public KVMessage put(String key, String value) throws IOException,
+	public synchronized KVMessage put(String key, String value) throws IOException,
 	InterruptedException, NoSuchAlgorithmException {
 		return putBis(key, value, 1);
 	}
@@ -260,7 +260,7 @@ public class KVStore extends Thread implements KVCommInterface {
 	}
 	
 	@Override
-	public KVMessage get(String key) throws IOException, InterruptedException,
+	public synchronized KVMessage get(String key) throws IOException, InterruptedException,
 	NoSuchAlgorithmException {
 
 		return getBis(key, 1);

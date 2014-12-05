@@ -153,7 +153,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		}
 
 		int i = 0;
-		while (i < 5 && commModule.latestIsNull()) {
+		while (i < 30 && commModule.latestIsNull()) {
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
@@ -169,37 +169,41 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	}
 
 	@Override
-	public KVAdminMessage updateMetadata(String metadata) throws IOException,
+	public boolean updateMetadata(String metadata) throws IOException,
 	InterruptedException {
 
 		KVAdminMessage msg = new KVAdminMessageImpl(null, metadata,
 				common.messages.KVAdminMessage.StatusType.UPDATE_METADATA);
-		return sendAndWaitAnswer(msg);
+		KVAdminMessage answer = sendAndWaitAnswer(msg);
+		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 	}
 
 
 	@Override
-	public KVAdminMessage lockWrite() {
+	public boolean lockWrite() {
 		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
 				common.messages.KVAdminMessage.StatusType.LOCK_WRITE);
-		return sendAndWaitAnswer(msg);
+		KVAdminMessage answer = sendAndWaitAnswer(msg);
+		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 	}
 
 
 	@Override
-	public KVAdminMessage unlockWrite() {
+	public boolean unlockWrite() {
 		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
 				common.messages.KVAdminMessage.StatusType.UNLOCK_WRITE);
-		return sendAndWaitAnswer(msg);
+		KVAdminMessage answer = sendAndWaitAnswer(msg);
+		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 	}
 
 
 	@Override
-	public KVAdminMessage shutdown() {
+	public boolean shutdown() {
 		try {
 			KVAdminMessage msg = new KVAdminMessageImpl(null, null,
 					common.messages.KVAdminMessage.StatusType.SHUTDOWN);
-			return sendAndWaitAnswer(msg);
+			KVAdminMessage answer = sendAndWaitAnswer(msg);
+			return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 		} finally {
 			disconnect();
 		}
@@ -207,33 +211,37 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 
 
 	@Override
-	public KVAdminMessage moveData(String hashOfNewServer, String[] destinationServer) {
+	public boolean moveData(String hashOfNewServer, String[] destinationServer) {
 		KVAdminMessage msg = new KVAdminMessageImpl(hashOfNewServer, destinationServer[0] + ":" + destinationServer[1],
 				common.messages.KVAdminMessage.StatusType.MOVE_DATA);
-		return sendAndWaitAnswer(msg);
+		KVAdminMessage answer = sendAndWaitAnswer(msg);
+		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 	}
 
 
 	@Override
-	public KVAdminMessage initKVServer(String metadata, int cacheSize,
+	public boolean initKVServer(String metadata, int cacheSize,
 			Strategy strategy) {
 		KVAdminMessage msg = new KVAdminMessageImpl(metadata, cacheSize + ":" + strategy,
 				common.messages.KVAdminMessage.StatusType.INIT_KVSERVER);
-		return sendAndWaitAnswer(msg);
+		KVAdminMessage answer = sendAndWaitAnswer(msg);
+		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 	}
 
 	@Override
-	public KVAdminMessage stopServer() {
+	public boolean stopServer() {
 		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
 				common.messages.KVAdminMessage.StatusType.STOP);
-		return sendAndWaitAnswer(msg);
+		KVAdminMessage answer = sendAndWaitAnswer(msg);
+		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 	}
 
 	@Override
-	public KVAdminMessage startServer() {
+	public boolean startServer() {
 		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
 				common.messages.KVAdminMessage.StatusType.START);
-		return sendAndWaitAnswer(msg);
+		KVAdminMessage answer = sendAndWaitAnswer(msg);
+		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 	}
 
 }

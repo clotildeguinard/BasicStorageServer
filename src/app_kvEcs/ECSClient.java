@@ -22,6 +22,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import app_kvServer.cache_strategies.Strategy;
+import common.messages.KVAdminMessage;
 import common.messages.TextMessage;
 import common.metadata.MetadataHandler;
 import common.metadata.NodeData;
@@ -37,12 +38,12 @@ public class ECSClient implements KVSocketListener {
 
 	private int numberOfUsedNodes = 0;
 	private MetadataHandler metadataHandler;
-	
+
 	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private final String configLocation;
 	private final static String hashingAlgorithm = "MD5";
 	private final static String PROMPT = "ECSClient> ";
-	
+
 	public ECSClient(String configLocation) {
 		this.configLocation = configLocation;
 	}
@@ -52,7 +53,7 @@ public class ECSClient implements KVSocketListener {
 		logger.debug("Initiating the service...");
 		sortedConfigStores = new ArrayList<ConfigStore>();
 		sortedNodeHashes = new ArrayList<>();
-		
+
 		try {
 			fis = new FileInputStream(configLocation);
 			br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
@@ -76,7 +77,7 @@ public class ECSClient implements KVSocketListener {
 				closeIO();
 			} catch (IOException e1) {
 				logger.error("Unable to close io!");
-				}
+			}
 		}
 		sortNodeLists();
 		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
@@ -114,7 +115,9 @@ public class ECSClient implements KVSocketListener {
 
 	protected void start(){
 		for (ConfigStore cs : sortedConfigStores) {
-			cs.startServer();
+			if (!cs.startServer()) {
+				logger.error("Some server may not have been started correctly.");
+			}
 		}
 	}
 
@@ -123,7 +126,9 @@ public class ECSClient implements KVSocketListener {
 			return;
 		}
 		for (ConfigStore cs : sortedConfigStores) {
-			cs.stopServer();
+			if (!cs.stopServer()) {
+				logger.error("Some server may not have been stopped correctly.");
+			}
 		}
 
 	}
@@ -134,7 +139,9 @@ public class ECSClient implements KVSocketListener {
 		}
 		stop();
 		for (ConfigStore cs : sortedConfigStores) {
-			cs.shutdown();
+			if (!cs.shutdown()) {
+				logger.error("Some server may not have been shut down correctly.");
+			}
 			cs = null;
 		}
 		sortedConfigStores = null;
@@ -172,33 +179,52 @@ public class ECSClient implements KVSocketListener {
 		newNodeCS.addListener(this);
 
 		String updatedMetadata = metadataHandler.toString();
-		newNodeCS.initKVServer(updatedMetadata, cacheSize, displacementStrategy);
-		newNodeCS.startServer();
-
-		logger.info("New node started.");
+		if (!newNodeCS.initKVServer(updatedMetadata, cacheSize, displacementStrategy)) {
+			logger.error("The node may not have been initialized correctly.");
+		} else {
+			logger.info("New node initialized.");
+		}
+		if (!newNodeCS.startServer()) {
+			logger.error("The node may not have been started correctly.");
+		} else {
+			logger.info("New node started.");
+		}
 
 		ConfigStore nextNodeCS = sortedConfigStores.get((index + 1) % sortedConfigStores.size());
 		String hashOfNewNode = sortedNodeHashes.get(index*4 +3);
 		String[] newNodeAddress = new String[] {params[1], params[2]};
 
-		nextNodeCS.lockWrite();
-		nextNodeCS.moveData(hashOfNewNode, newNodeAddress);
 
-		logger.info("Data moved to new node.");
+		if (!newNodeCS.lockWrite()) {
+			logger.error("The new node may not have been write-locked correctly.");
+		} else {
+			logger.info("New node write-locked.");
+		}
+		if (!nextNodeCS.moveData(hashOfNewNode, newNodeAddress)) {
+			logger.error("The data may not have been moved correctly.");
+		} else {
+			logger.info("Data moved to new node.");
+		}
 
 		for (ConfigStore c : sortedConfigStores) {
 			try {
-				c.updateMetadata(updatedMetadata);
+				if (!c.updateMetadata(updatedMetadata)) {
+					logger.error("The metadata may not have been updated correctly on a given server.");
+				}
 			} catch (InterruptedException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 
-		logger.debug("Metadata updated for all nodes");
+		logger.info("Metadata updated for all nodes");
 
-		nextNodeCS.unlockWrite();
-		// TODO remove stale data on nextNode????
+		if (!newNodeCS.unlockWrite()) {
+			logger.error("The new node may not have been write-unlocked correctly.");
+		} else {
+			logger.info("New node write-unlocked.");
+		}
+
 		return ++numberOfUsedNodes;
 	}
 
@@ -217,7 +243,7 @@ public class ECSClient implements KVSocketListener {
 			return 0;
 		}
 		String line = getLine(numberOfUsedNodes);
-		
+
 
 
 		String toRemoveName = line.split(" ")[0];
@@ -225,28 +251,44 @@ public class ECSClient implements KVSocketListener {
 		String toRemoveHash = sortedNodeHashes.get(toRemoveIndex*4 + 3);
 		ConfigStore removed = removeNodeFromLists(toRemoveName);
 		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
-		
+
 		removed.lockWrite();
 		ConfigStore successor = sortedConfigStores.get(toRemoveIndex % sortedConfigStores.size());
 		String newMetadata = metadataHandler.toString();
 		try {
-			successor.updateMetadata(newMetadata);
+			if (!successor.updateMetadata(newMetadata)) {
+				logger.error("The metadata may not have been updated correctly on successor node.");
+			} else {
+				logger.info("Metadata updated on successor node.");
+			}
+
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		removed.moveData(toRemoveHash, successor.getIpAndPort());
-		// TODO when over
+		
+		if (!removed.moveData(toRemoveHash, successor.getIpAndPort())) {
+			logger.error("The data may not have been moved correctly to successor node.");
+		} else {
+			logger.info("Data moved to successor node.");
+		}
+		
+
 		for (ConfigStore cs : sortedConfigStores) {
 			try {
-				cs.updateMetadata(newMetadata);
+				if (!cs.updateMetadata(newMetadata)) {
+					logger.error("Some server may not have updated its metadata correctly.");
+				}
+				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		removed.shutdown();
-		
+		if (!removed.shutdown()) {
+			logger.error("The removed node may not have been shut down correctly.");
+		}
+
 		return --numberOfUsedNodes;
 	}
 
@@ -275,14 +317,14 @@ public class ECSClient implements KVSocketListener {
 
 		String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm).
 				digest(IpAndPort.getBytes("UTF-8"))).toString(16);
-		System.out.println(hashedKey);
+
 		sortedNodeHashes.add(nodeData[0]);
 		sortedNodeHashes.add(nodeData[1]);
 		sortedNodeHashes.add(nodeData[2]);
 		sortedNodeHashes.add(hashedKey);
 
 	}
-	
+
 	private String getLine(int lineIndex) {
 		try {
 			fis = new FileInputStream(configLocation);

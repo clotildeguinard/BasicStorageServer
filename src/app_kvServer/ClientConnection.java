@@ -22,38 +22,25 @@ public class ClientConnection implements Runnable {
 	private final CacheManager sharedCacheManager;
 	private Logger logger = Logger.getLogger(getClass().getSimpleName());
 
-	private boolean stop = true;
-	private boolean writeLock = false;
+	private final boolean stopped;
+	private final boolean writeLock;
 
-	public void writeLock() {
-		writeLock = true;
-	}
-
-	public void writeUnlock() {
-		writeLock = false;
-	}
-
-	public ClientConnection(int port, Socket clientSocket,
-			CacheManager cacheManager, MetadataHandler metadataHandler, boolean writeLocked)
-			throws UnknownHostException {
+	public ClientConnection(int port, Socket clientSocket, CacheManager cacheManager,
+			MetadataHandler metadataHandler, boolean writeLocked, boolean stopped)
+					throws IOException {
 		this.writeLock = writeLocked;
+		this.stopped = stopped;
 		this.clientSocket = clientSocket;
 		this.sharedCacheManager = cacheManager;
 		this.metadataHandler = metadataHandler;
-		try {
-			commModule = new KVCommModule(clientSocket.getOutputStream(),
-					clientSocket.getInputStream());
-		} catch (IOException e1) {
-			stop = true;
-			logger.error("A connection error occurred - Application terminated "
-					+ e1);
-		}
+		this.commModule = new KVCommModule(clientSocket.getOutputStream(),
+				clientSocket.getInputStream());
 	}
 
 	public void run() {
-		stop = false;
+		boolean running = true;
 
-		while (!stop) {
+		while (running) {
 			try {
 				KVMessage request = commModule.receiveKVMessage();
 				KVMessage serverAnswer = null;
@@ -62,7 +49,7 @@ public class ClientConnection implements Runnable {
 				String value = request.getValue();
 				logger.debug("Requested from client : "
 						+ request);
-				if (stop) {
+				if (stopped) {
 					serverAnswer = new KVMessageImpl(key, value,
 							StatusType.SERVER_STOPPED);
 				} else if (!metadataHandler.isResponsibleFor(key)) {
@@ -83,15 +70,16 @@ public class ClientConnection implements Runnable {
 					logger.error("Invalid answer to request : " + request);
 				}
 			} catch (IOException e) {
-				stop = true;
+				running = false;
 				logger.error("A connection error occurred - Application terminated "
 						+ e);
 			} catch (NoSuchAlgorithmException e) {
-				stop = true;
+				running = false;
 				logger.fatal("A hashing error occurred - Application terminated "
 						+ e);
 			}
 		}
+		logger.debug("Client connection terminated.");
 	}
 
 	private KVMessage handleCommand(String key, String value,

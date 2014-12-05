@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import org.apache.log4j.Logger;
+
 import common.messages.TextMessage;
 
 public class CommModule {
@@ -24,6 +26,7 @@ public class CommModule {
 	 * @throws IOException some I/O error regarding the output stream 
 	 */
 	public void sendMessage(TextMessage msg) throws IOException {
+		Logger.getLogger(getClass().getSimpleName()).debug("Sending text : " + msg.getMsg());
 		byte[] msgBytes = msg.getMsgBytes();
 		output.write(msgBytes, 0, msgBytes.length);
 		output.flush();
@@ -84,6 +87,7 @@ public class CommModule {
 		
 		/* build final String */
 		TextMessage msg = new TextMessage(msgBytes);
+		Logger.getLogger(getClass().getSimpleName()).debug("Receiving text : " + msg.getMsg());
 		return msg;
     }
 

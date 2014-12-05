@@ -2,6 +2,7 @@ package app_kvServer;
 
 import java.io.IOException;
 import java.net.BindException;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.security.NoSuchAlgorithmException;
@@ -51,7 +52,7 @@ public class KVServer implements Runnable {
 	 * @throws IOException 
 	 */
 
-	public void initKVServer(String metadata, int cacheSize, String strategy) {
+	public void initKVServer(String metadata, int cacheSize, String strategy) throws IOException {
 
 		DataCache datacache;
 		if (strategy.equalsIgnoreCase("FIFO")) {
@@ -62,11 +63,12 @@ public class KVServer implements Runnable {
 			datacache = new LFUStrategy(cacheSize);
 		}
 		try {
-			this.cacheManager = new CacheManager(datacache, new Storage(storageLocation, Integer.toString(port)));
+			this.cacheManager = new CacheManager(datacache,
+					new Storage(storageLocation, Integer.toString(port)));
 		} catch (IOException e) {
-			logger.fatal("Storage could not be instanciated");
 			stop();
-			System.exit(1);
+			logger.fatal("Storage could not be instanciated");
+			throw(e);
 		}
 		metadataHandler = new MetadataHandler("127.0.0.1", port);
 		updateMetadata(metadata);
@@ -78,12 +80,18 @@ public class KVServer implements Runnable {
 	}
 
 	public void start() {
+		isStopped = false;
 		new Thread(this).start();
 	}
 
-	private void openServerSocket() {
+	private void openServerSocket() throws IOException {
 		try {
-			serverSocket = new ServerSocket(port);
+			serverSocket = new ServerSocket();
+			serverSocket.setReuseAddress(true);
+			serverSocket.bind(new InetSocketAddress(port));
+			System.out.println("hello");
+//			serverSocket = new ServerSocket(port);
+
 			logger.info("Server listening on port: " 
 					+ serverSocket.getLocalPort());
 		} catch (IOException e) {
@@ -91,6 +99,7 @@ public class KVServer implements Runnable {
 			if(e instanceof BindException){
 				logger.error("Port " + port + " is already bound!");
 			}
+			throw(e);
 		}
 	}
 
@@ -102,7 +111,11 @@ public class KVServer implements Runnable {
 		 */
 		public void run(){
 			if (serverSocket == null) {
-				openServerSocket();
+				try {
+					openServerSocket();
+				} catch (IOException e) {
+					return;
+				}
 			}
 			try {
 				Socket ecs = serverSocket.accept();                
@@ -116,7 +129,7 @@ public class KVServer implements Runnable {
 
 			} catch (IOException e) {
 				logger.error("Error! " +
-						"Unable to establish connection. \n", e);
+						"Unable to establish connection with ECS. \n", e);
 			}
 		}
 	}
@@ -131,11 +144,12 @@ public class KVServer implements Runnable {
 
 		if(serverSocket != null) {
 			logger.debug("Server listening to clients...");
+			
 			while(!isStopped()){
 				try {
-					Socket client = serverSocket.accept();                
+					Socket client = serverSocket.accept();
 					clientConnection = 
-							new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked);
+							new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped);
 					new Thread(clientConnection).start();
 
 					logger.info("Connected to " 
@@ -143,7 +157,7 @@ public class KVServer implements Runnable {
 							+  " on port " + client.getPort());
 				} catch (IOException e) {
 					logger.error("Error! " +
-							"Unable to establish connection. \n", e);
+							"Unable to establish connection with a client. \n", e);
 				}
 			}
 			try {
@@ -194,9 +208,8 @@ public class KVServer implements Runnable {
 			stop();
 			logger.error("An error occurred during connection to other server", e);
 		} catch (NoSuchAlgorithmException e) {
-			logger.fatal("An error occurred during hashing", e);
 			stop();
-			System.exit(1);
+			logger.fatal("An error occurred during hashing", e);
 		} finally {
 			kvStore.disconnect();
 		}
@@ -238,17 +251,11 @@ public class KVServer implements Runnable {
 
 	public void lockWrite() {
 		writeLocked = true;
-		if (clientConnection != null) {
-			clientConnection.writeLock();
-		}
 		logger.info("Server write-locked");
 	}
 
 	public void unLockWrite() {
 		writeLocked = false;
-		if (clientConnection != null) {
-			clientConnection.writeUnlock();
-		}
 		logger.info("Server write-unlocked");
 	}
 
