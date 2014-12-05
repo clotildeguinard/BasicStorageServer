@@ -35,7 +35,7 @@ public class ECSInterface {
 
 	static String command;
 	public enum Command {
-		INIT, START, STOP, SHUTDOWN, HELP, QUIT, ADDNODE, DELETENODE
+		INIT, START, STOP, SHUTDOWN, HELP, QUIT, ADDNODE, REMOVENODE
 	}
 
 	private Logger logger = Logger.getLogger(getClass().getSimpleName());
@@ -48,7 +48,7 @@ public class ECSInterface {
 	public void run() {
 
 		System.out.println("\n-------------------Please select one of the commands-------------------------------------");
-		System.out.println("\nINIT, START, ADDNODE, DELETENODE, STOP, SHUTDOWN, HELP, QUIT");
+		System.out.println("\nINIT, START, ADDNODE, REMOVENODE, STOP, SHUTDOWN, HELP, QUIT");
 
 		while(!appStopped) {	        	
 
@@ -85,7 +85,11 @@ public class ECSInterface {
 			switch (cmd) {
 
 			case INIT:
-				if(input.length != 4) {
+				if (initialized) {
+					System.out.println("\t System already initialized."
+							+ "\n\t Please use ADDNODE, or SHUTDOWN and INIT.");
+				}
+				else if (input.length != 4) {
 					printError("Invalid number of arguments! "
 							+ "\n\t Usage: init <numberOfNodes> <cacheSize> <cacheStrategy> !");
 				} else {
@@ -117,6 +121,7 @@ public class ECSInterface {
 
 			case SHUTDOWN:
 				ecsClient.shutdown();
+				initialized = false;
 				break;
 
 			case HELP:
@@ -132,7 +137,7 @@ public class ECSInterface {
 
 				if(input.length != 3) {
 					printError("Invalid number of arguments! "
-							+ "\n\t Usage: addnode <cacheSize> <cacheStrategy> !");
+							+ "\n\t Usage: ADDNODE <cacheSize> <cacheStrategy> !");
 				} else {
 					int sizeCache = Integer.valueOf(input[1]);
 					Strategy strat = Strategy.valueOf(input[2]);
@@ -142,7 +147,9 @@ public class ECSInterface {
 						break;
 					}
 					try {
-						ecsClient.addNode(sizeCache, strat);
+						int nb = ecsClient.addNode(sizeCache, strat);
+						System.out.println("\t Node added successfully."
+								+ "\n\t There are " + nb + " nodes in the system.");
 					} catch (NoSuchElementException e) {
 						System.out.println("\t There is no more node to be added."
 								+ "\n\t Please use another command.");
@@ -150,14 +157,21 @@ public class ECSInterface {
 				}
 				break;
 
-			case DELETENODE:
-				System.out.println("hey");
+			case REMOVENODE:
 				if (!initialized) {
 					System.out.println("\t System must be initialized."
 							+ "\n\t Please use INIT command.");
 					break;
 				}
-				ecsClient.removeNode();
+				int remainingNodes = ecsClient.removeNode();
+				if (remainingNodes == 0) {
+					System.out.println("\t There is only one node currently."
+							+ "\n\t If you delete it your data will be lost."
+							+ "\n\t Please use SHUTDOWN if you want to delete it.");
+				} else {
+					System.out.println("\t Node removed successfully."
+							+ "\n\t There are " + remainingNodes + " remaining nodes in the system.");
+				}
 				break;
 
 			case QUIT:	
@@ -170,7 +184,6 @@ public class ECSInterface {
 			}
 
 		} catch (NumberFormatException e) {
-			e.printStackTrace();
 			printError("Numerical argument could not be parsed; please try again.");
 		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
 			appStopped = true;
@@ -185,10 +198,10 @@ public class ECSInterface {
 
 	private void printHelp() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("\t").append("ECS CLIENT HELP (Usage):\n");
+		sb.append("\t").append("ECS CLIENT HELP (Usage):\n\n");
 		sb.append("\t");
 		sb.append("::::::::::::::::::::::::::::::::");
-		sb.append("::::::::::::::::::::::::::::::::\n");
+		sb.append("::::::::::::::::::::::::::::::::\n\n");
 		sb.append("\t").append("INIT <Amount of nodes> <Cache size> <Displacement strategy>\n");
 		sb.append("\t\t\t Initializes 'Amount of nodes' servers\n");
 		sb.append("\t\t\t Displacement strategy : LRU | LFU | FIFO\n");
@@ -197,13 +210,12 @@ public class ECSInterface {
 		sb.append("\t").append("ADDNODE <Cache size> <Displacement strategy> \n");
 		sb.append("\t\t\t Add next node \n");
 		sb.append("\t\t\t Displacement strategy : LRU | LFU | FIFO\n");
-		sb.append("\t").append("DELETENODE \n");
+		sb.append("\t").append("REMOVENODE \n");
 		sb.append("\t\t\t Remove last added node \n");
 		sb.append("\t").append("STOP \n");
 		sb.append("\t\t\t Stops all nodes \n");
 		sb.append("\t").append("SHUTDOWN \n");
 		sb.append("\t\t\t Shutdowns all nodes \n");
-		sb.append("\t").append("\t\t\t\t ");
 //		sb.append("ALL | DEBUG | INFO | WARN | ERROR | FATAL | OFF \n");
 		sb.append("\t").append("QUIT \n");
 		sb.append("\t\t\t Exits the program");

@@ -32,7 +32,7 @@ public class ECSClient implements KVSocketListener {
 	protected InputStream    fis;
 	protected BufferedReader br;
 	protected String         line;
-	private List<String> sortedNodeHashes = new ArrayList<String>();
+	private List<String> sortedNodeHashes;
 	private List<ConfigStore> sortedConfigStores;
 
 	private int numberOfUsedNodes = 0;
@@ -47,6 +47,7 @@ public class ECSClient implements KVSocketListener {
 			throws NoSuchAlgorithmException{
 		logger.debug("Initiating the service...");
 		sortedConfigStores = new ArrayList<ConfigStore>();
+		sortedNodeHashes = new ArrayList<>();
 		
 		try {
 			fis = new FileInputStream(configLocation);
@@ -133,31 +134,13 @@ public class ECSClient implements KVSocketListener {
 			cs = null;
 		}
 		sortedConfigStores = null;
+		sortedNodeHashes = null;
 		numberOfUsedNodes = 0;
 	}
 
-	protected void addNode(int cacheSize, Strategy displacementStrategy)
+	protected int addNode(int cacheSize, Strategy displacementStrategy)
 			throws NoSuchElementException, NoSuchAlgorithmException{
-		try {
-			fis = new FileInputStream(configLocation);
-			br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
-
-			for(int i = 0; i <= numberOfUsedNodes; ++i) {
-				line = br.readLine();
-			}		
-		} catch (IOException e) {
-			System.out.println("An error occurred when trying to read from config file"
-					+ "- Application terminated.");
-			logger.fatal("An error occurred when trying to read from config file"
-					+ "- Application terminated.", e);
-			System.exit(1);
-		} finally {
-			try {
-				closeIO();
-			} catch (IOException e1) {
-				logger.error("Unable to close io!");
-				}
-		}
+		String line = getLine(numberOfUsedNodes + 1);
 
 		if (line == null) {
 			throw new NoSuchElementException("There is no more node to add.");
@@ -212,7 +195,7 @@ public class ECSClient implements KVSocketListener {
 
 		nextNodeCS.unlockWrite();
 		// TODO remove stale data on nextNode????
-		numberOfUsedNodes++;
+		return ++numberOfUsedNodes;
 	}
 
 	private int findCsIndex(String nodeName) {
@@ -225,28 +208,12 @@ public class ECSClient implements KVSocketListener {
 		return -1;
 	}
 
-	protected void removeNode() throws IOException{
-		if (numberOfUsedNodes == 0) {
-			throw new NoSuchElementException("There is no more node to remove.");
+	protected int removeNode() throws IOException{
+		if (numberOfUsedNodes < 2) {
+			return 0;
 		}
-		try {
-			fis = new FileInputStream(configLocation);
-
-			br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
-			for(int i = 0; i < numberOfUsedNodes; ++i) {
-				line = br.readLine();
-			}		
-		} catch (IOException e) {
-			System.out.println("An error occurred when trying to read from config file"
-					+ "- Application terminated.");
-			logger.fatal("An error occurred when trying to read from config file"
-					+ "- Application terminated.", e);
-			System.exit(1);
-		} finally {
-			try {
-				closeIO();
-			} catch (IOException e1) {}
-		}
+		String line = getLine(numberOfUsedNodes);
+		
 
 
 		String toRemoveName = line.split(" ")[0];
@@ -276,7 +243,7 @@ public class ECSClient implements KVSocketListener {
 		}
 		removed.shutdown();
 		
-		numberOfUsedNodes--;
+		return --numberOfUsedNodes;
 	}
 
 
@@ -308,6 +275,29 @@ public class ECSClient implements KVSocketListener {
 		sortedNodeHashes.add(nodeData[2]);
 		sortedNodeHashes.add(hashedKey);
 
+	}
+	
+	private String getLine(int lineIndex) {
+		try {
+			fis = new FileInputStream(configLocation);
+
+			br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
+			for(int i = 0; i < lineIndex; ++i) {
+				line = br.readLine();
+			}		
+			return line;
+		} catch (IOException e) {
+			System.out.println("An error occurred when trying to read from config file"
+					+ "- Application terminated.");
+			logger.fatal("An error occurred when trying to read from config file"
+					+ "- Application terminated.", e);
+			System.exit(1);
+		} finally {
+			try {
+				closeIO();
+			} catch (IOException e1) {}
+		}
+		return null;
 	}
 
 	private void sortNodeLists(){
