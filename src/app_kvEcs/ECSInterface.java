@@ -89,7 +89,6 @@ public class ECSInterface {
 	}
 
 	private void handleCommandBis(Command cmd, String[] input) {
-		logger.debug(ecsClient.printNodes());
 		try {
 			switch (cmd) {
 

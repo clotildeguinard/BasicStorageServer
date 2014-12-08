@@ -20,7 +20,7 @@ public class BenchmarkTest extends TestCase {
 
 	static {
 		try {
-			new LogSetup("logs/testing/test.log", Level.ERROR);
+			new LogSetup("logs/testing/test.log", Level.DEBUG);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -37,6 +37,9 @@ public class BenchmarkTest extends TestCase {
 		new Thread(kvserver.new ECSSocketLoop()).start();
 
 		kvserver = new KVServer(50002);
+		new Thread(kvserver.new ECSSocketLoop()).start();
+
+		kvserver = new KVServer(50003);
 		new Thread(kvserver.new ECSSocketLoop()).start();
 		////////////////
 		

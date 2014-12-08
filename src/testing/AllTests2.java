@@ -13,7 +13,7 @@ public class AllTests2 {
 
 	static {
 		try {
-			new LogSetup("logs/testing/test.log", Level.WARN);
+			new LogSetup("logs/testing/test.log", Level.DEBUG);
 
 		} catch (IOException e) {
 			e.printStackTrace();

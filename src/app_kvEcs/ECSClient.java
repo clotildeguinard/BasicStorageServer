@@ -97,6 +97,9 @@ public class ECSClient implements KVSocketListener {
 			cs.addListener(this);
 			cs.initKVServer(metadata, cacheSize, displacementStrategy);
 		}
+		
+		logger.debug("Possible nodes : \n" + printPossible());
+		logger.debug("Used nodes : \n" + printNodes());
 
 		numberOfUsedNodes = numberOfNodes;
 		return numberOfUsedNodes;
@@ -152,11 +155,13 @@ public class ECSClient implements KVSocketListener {
 
 	protected int addNode(int cacheSize, Strategy displacementStrategy)
 			throws NoSuchElementException, NoSuchAlgorithmException{
-		if (possibleRemainingNodes.size() < 1) {
+		int size = possibleRemainingNodes.size(); 
+		if (size < 1) {
 			throw new NoSuchElementException("There is no more node to add.");
 		}
 
-		String[] params = possibleRemainingNodes.remove(0);
+		int random = (int) (Math.random() * (size - 1));
+		String[] params = possibleRemainingNodes.remove(random);
 		logger.debug("Adding node " + params[0]);
 		try {
 			addNodeToLists(params);
@@ -224,6 +229,9 @@ public class ECSClient implements KVSocketListener {
 		} else {
 			logger.info("New node write-unlocked.");
 		}
+		
+		logger.debug("Possible nodes : \n" + printPossible());
+		logger.debug("Used nodes : \n" + printNodes());
 
 		return ++numberOfUsedNodes;
 	}
@@ -243,10 +251,13 @@ public class ECSClient implements KVSocketListener {
 			return 0;
 		}
 
-		String toRemoveName = sortedNodeHashes.get(0);
+		int size = sortedNodeHashes.size();
+		int random = (int) (Math.random() * (size - 1));
+		String toRemoveName = sortedNodeHashes.get(random/4);
 		System.out.println(toRemoveName);
 		int toRemoveIndex = findCsIndex(toRemoveName);
 		System.out.println(toRemoveIndex);
+
 		String toRemoveHash = sortedNodeHashes.get(toRemoveIndex*4 + 3);
 		ConfigStore removed = removeNodeFromLists(toRemoveName);
 		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
@@ -287,6 +298,9 @@ public class ECSClient implements KVSocketListener {
 		if (!removed.shutdown()) {
 			logger.error("The removed node may not have been shut down correctly.");
 		}
+		
+		logger.debug("Possible nodes : \n" + printPossible());
+		logger.debug("Used nodes : \n" + printNodes());
 
 		return --numberOfUsedNodes;
 	}
@@ -394,7 +408,7 @@ public class ECSClient implements KVSocketListener {
 		}
 	}
 
-	public String printNodes() {
+	private String printNodes() {
 		String s = "";
 		if (sortedNodeHashes == null) {
 			return s;
@@ -408,6 +422,20 @@ public class ECSClient implements KVSocketListener {
 			} else {
 				s+= ";";
 			}
+		}
+		return s;
+	}
+
+	private String printPossible() {
+		String s = "";
+		if (possibleRemainingNodes == null) {
+			return s;
+		}
+		for (String[] i : possibleRemainingNodes) {
+			for (String k : i){
+				s = s + k + ";";
+			}
+			s+= "\n";
 		}
 		return s;
 	}
