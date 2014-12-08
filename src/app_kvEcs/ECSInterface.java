@@ -45,11 +45,11 @@ public class ECSInterface {
 	private final ECSClient ecsClient;
 	private boolean appStopped = false;
 	private boolean initialized = false;
-	
+
 	public ECSInterface() {
 		this.ecsClient = new ECSClient("./src/app_kvEcs/ecs.config.txt");
 	}
-	
+
 	public ECSInterface(String configLocation) {
 		this.ecsClient = new ECSClient(configLocation);
 	}
@@ -89,13 +89,14 @@ public class ECSInterface {
 	}
 
 	private void handleCommandBis(Command cmd, String[] input) {
+		logger.debug(ecsClient.printNodes());
 		try {
 			switch (cmd) {
 
 			case INIT:
 				if (initialized) {
 					System.out.println("\t System already initialized."
-							+ "\n\t Please use ADDNODE, or SHUTDOWN and INIT.");
+							+ "\n\t Please use ADDNODE, or SHUTDOWN and INIT again.");
 				}
 				else if (input.length != 4) {
 					printError("Invalid number of arguments! "
@@ -109,7 +110,8 @@ public class ECSInterface {
 								+ "number must be greater than 0.\nPlease try again.");
 						break;
 					}
-					ecsClient.initService(nodesNumber, cacheSize, strategy);
+					int initNodes = ecsClient.initService(nodesNumber, cacheSize, strategy);
+					System.out.println("\t System initialized with " + initNodes + " nodes.");
 					initialized = true;
 				}
 				break;

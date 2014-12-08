@@ -89,7 +89,7 @@ public class KVServer implements Runnable {
 			serverSocket = new ServerSocket();
 			serverSocket.setReuseAddress(true);
 			serverSocket.bind(new InetSocketAddress(port));
-			System.out.println("hello");
+
 //			serverSocket = new ServerSocket(port);
 
 			logger.info("Server listening on port: " 
