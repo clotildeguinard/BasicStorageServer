@@ -13672,3 +13672,439 @@ node1;localhost;50000;
 2014-12-08 18:11:37,141 INFO  [main] ConfigStore: connection closed!
 2014-12-08 18:11:37,141 INFO  [Thread-41] ConfigStore: Connection with server stopped
 2014-12-08 18:11:37,141 INFO  [Thread-41] ConfigStore: Connection with server stopped
+2014-12-09 14:21:02,951 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-09 14:21:02,951 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-09 14:21:02,985 DEBUG [main] ECSClient: Initiating the service...
+2014-12-09 14:21:02,985 DEBUG [main] ECSClient: Initiating the service...
+2014-12-09 14:21:03,002 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-09 14:21:03,002 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-09 14:21:03,027 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-09 14:21:03,027 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-09 14:21:03,030 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 64361
+2014-12-09 14:21:03,030 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 64361
+2014-12-09 14:21:03,063 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-09 14:21:03,063 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-09 14:21:03,064 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-09 14:21:03,064 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-09 14:21:03,075 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-09 14:21:03,075 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-09 14:21:03,076 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>init_kvserver</status><key>node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/</key><value>5:LRU</value></kvadminmessage>
+2014-12-09 14:21:03,076 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>init_kvserver</status><key>node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/</key><value>5:LRU</value></kvadminmessage>
+2014-12-09 14:21:03,077 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>init_kvserver</status><key>node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/</key><value>5:LRU</value></kvadminmessage>
+2014-12-09 14:21:03,077 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>init_kvserver</status><key>node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/</key><value>5:LRU</value></kvadminmessage>
+2014-12-09 14:21:03,078 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-09 14:21:03,078 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-09 14:21:03,078 INFO  [Thread-3] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-09 14:21:03,078 INFO  [Thread-3] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-09 14:21:03,100 INFO  [Thread-3] KVServer: Server metadata updated.
+2014-12-09 14:21:03,100 INFO  [Thread-3] KVServer: Server metadata updated.
+2014-12-09 14:21:03,100 INFO  [Thread-3] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-09 14:21:03,100 INFO  [Thread-3] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-09 14:21:03,100 DEBUG [Thread-3] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-09 14:21:03,100 DEBUG [Thread-3] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-09 14:21:03,101 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>init_kvserver</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,101 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>init_kvserver</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,101 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>init_kvserver</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,101 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>init_kvserver</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,102 INFO  [Thread-4] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-09 14:21:03,102 INFO  [Thread-4] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-09 14:21:03,127 DEBUG [main] ECSClient: Possible nodes : 
+node2;localhost;50001;
+node3;localhost;50002;
+node4;localhost;50003;
+
+2014-12-09 14:21:03,127 DEBUG [main] ECSClient: Possible nodes : 
+node2;localhost;50001;
+node3;localhost;50002;
+node4;localhost;50003;
+
+2014-12-09 14:21:03,127 DEBUG [main] ECSClient: Used nodes : 
+node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b
+
+2014-12-09 14:21:03,127 DEBUG [main] ECSClient: Used nodes : 
+node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b
+
+2014-12-09 14:21:03,128 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:21:03,128 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:21:03,128 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,128 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,129 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,129 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,129 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:21:03,129 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:21:03,129 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:21:03,129 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:21:03,129 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:21:03,129 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:21:03,130 DEBUG [Thread-5] KVServer: Server listening to clients...
+2014-12-09 14:21:03,130 DEBUG [Thread-5] KVServer: Server listening to clients...
+2014-12-09 14:21:03,130 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:21:03,130 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:21:03,130 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,130 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,131 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,131 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,131 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:21:03,131 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:21:03,179 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:21:03,179 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:21:03,179 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,179 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,180 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,180 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,180 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:21:03,180 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:21:03,180 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:21:03,180 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:21:03,181 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:21:03,181 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:21:03,181 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-09 14:21:03,181 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-09 14:21:03,181 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:21:03,181 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:21:03,181 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,181 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,182 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,182 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,182 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:21:03,182 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:21:03,230 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:21:03,230 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:21:03,230 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,230 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,231 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,231 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,231 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:21:03,231 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:21:03,231 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:21:03,231 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:21:03,231 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:21:03,231 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:21:03,231 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:21:03,231 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:21:03,231 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:21:03,231 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:21:03,231 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,231 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,232 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,232 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,232 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:21:03,232 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:21:03,280 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:21:03,280 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:21:03,281 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,281 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,282 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,282 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,282 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:21:03,282 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:21:03,283 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:21:03,283 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:21:03,283 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:21:03,283 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:21:03,284 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:21:03,284 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:21:03,284 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:21:03,284 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:21:03,285 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,285 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,287 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,287 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,287 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:21:03,287 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:21:03,331 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:21:03,331 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:21:03,332 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,332 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,333 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,333 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,334 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:21:03,334 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:21:03,334 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:21:03,334 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:21:03,335 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:21:03,335 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:21:03,336 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:21:03,336 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:21:03,336 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-09 14:21:03,336 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-09 14:21:03,336 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,336 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,339 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,339 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,339 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:21:03,339 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:21:03,383 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:21:03,383 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:21:03,383 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,383 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,384 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,384 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,385 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:21:03,385 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:21:03,385 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:21:03,385 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:21:03,385 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:21:03,385 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:21:03,386 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:21:03,386 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:21:03,386 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:21:03,386 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:21:03,386 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,386 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,387 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,387 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,387 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:21:03,387 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:21:03,434 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-09 14:21:03,434 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-09 14:21:03,435 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>shutdown</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,435 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>shutdown</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,436 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>shutdown</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,436 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>shutdown</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,437 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-09 14:21:03,437 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-09 14:21:03,438 INFO  [Thread-3] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-09 14:21:03,438 INFO  [Thread-3] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-09 14:21:03,438 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:21:03,438 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:21:03,439 INFO  [Thread-3] EcsConnection: Exiting
+2014-12-09 14:21:03,439 INFO  [Thread-3] EcsConnection: Exiting
+2014-12-09 14:21:03,439 INFO  [Thread-3] EcsConnection: Answer to ECS : SHUTDOWN ok null
+2014-12-09 14:21:03,439 INFO  [Thread-3] EcsConnection: Answer to ECS : SHUTDOWN ok null
+2014-12-09 14:21:03,440 DEBUG [Thread-3] KVAdminCommModule: Send :	 'SHUTDOWN ok null'
+2014-12-09 14:21:03,440 DEBUG [Thread-3] KVAdminCommModule: Send :	 'SHUTDOWN ok null'
+2014-12-09 14:21:03,441 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>shutdown</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,441 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>shutdown</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,444 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>shutdown</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,444 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>shutdown</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:21:03,445 INFO  [Thread-4] KVAdminCommModule: New received message : SHUTDOWN ok null
+2014-12-09 14:21:03,445 INFO  [Thread-4] KVAdminCommModule: New received message : SHUTDOWN ok null
+2014-12-09 14:21:03,486 INFO  [main] ConfigStore: try to close connection with localhost:50000 ...
+2014-12-09 14:21:03,486 INFO  [main] ConfigStore: try to close connection with localhost:50000 ...
+2014-12-09 14:21:03,487 INFO  [main] ConfigStore: tearing down the connection ...
+2014-12-09 14:21:03,487 INFO  [main] ConfigStore: tearing down the connection ...
+2014-12-09 14:21:03,489 INFO  [main] ConfigStore: connection closed!
+2014-12-09 14:21:03,489 INFO  [main] ConfigStore: connection closed!
+2014-12-09 14:21:03,489 INFO  [Thread-4] ConfigStore: Connection with server stopped
+2014-12-09 14:21:03,489 INFO  [Thread-4] ConfigStore: Connection with server stopped
+2014-12-09 14:21:49,651 DEBUG [main] ECSClient: Initiating the service...
+2014-12-09 14:21:49,651 DEBUG [main] ECSClient: Initiating the service...
+2014-12-09 14:21:49,659 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-09 14:21:49,659 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-09 14:28:07,376 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-09 14:28:07,376 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-09 14:28:07,401 DEBUG [main] ECSClient: Initiating the service...
+2014-12-09 14:28:07,401 DEBUG [main] ECSClient: Initiating the service...
+2014-12-09 14:28:07,403 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-09 14:28:07,403 DEBUG [main] ConfigStore: Trying to connect to ip localhost , port 50000
+2014-12-09 14:28:07,415 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-09 14:28:07,415 DEBUG [main] ConfigStore: Connected to ip localhost , port 50000
+2014-12-09 14:28:07,418 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 65373
+2014-12-09 14:28:07,418 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 65373
+2014-12-09 14:28:07,431 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-09 14:28:07,431 DEBUG [main] ECSClient: Sorting the nodes...
+2014-12-09 14:28:07,431 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-09 14:28:07,431 DEBUG [main] ECSClient: No sorting: only one node.
+2014-12-09 14:28:07,434 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-09 14:28:07,434 DEBUG [main] KVAdminCommModule: Send :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-09 14:28:07,435 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>init_kvserver</status><key>node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/</key><value>5:LRU</value></kvadminmessage>
+2014-12-09 14:28:07,435 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>init_kvserver</status><key>node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/</key><value>5:LRU</value></kvadminmessage>
+2014-12-09 14:28:07,437 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>init_kvserver</status><key>node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/</key><value>5:LRU</value></kvadminmessage>
+2014-12-09 14:28:07,437 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>init_kvserver</status><key>node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/</key><value>5:LRU</value></kvadminmessage>
+2014-12-09 14:28:07,437 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-09 14:28:07,437 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU'
+2014-12-09 14:28:07,438 INFO  [Thread-3] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-09 14:28:07,438 INFO  [Thread-3] EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2014-12-09 14:28:07,442 INFO  [Thread-3] KVServer: Server metadata updated.
+2014-12-09 14:28:07,442 INFO  [Thread-3] KVServer: Server metadata updated.
+2014-12-09 14:28:07,443 INFO  [Thread-3] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-09 14:28:07,443 INFO  [Thread-3] EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-09 14:28:07,443 DEBUG [Thread-3] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-09 14:28:07,443 DEBUG [Thread-3] KVAdminCommModule: Send :	 'INIT_KVSERVER ok null'
+2014-12-09 14:28:07,443 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>init_kvserver</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,443 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>init_kvserver</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,444 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>init_kvserver</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,444 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>init_kvserver</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,444 INFO  [Thread-4] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-09 14:28:07,444 INFO  [Thread-4] KVAdminCommModule: New received message : INIT_KVSERVER ok null
+2014-12-09 14:28:07,486 DEBUG [main] ECSClient: Possible nodes : 
+node2;localhost;50001;
+node3;localhost;50002;
+node4;localhost;50003;
+
+2014-12-09 14:28:07,486 DEBUG [main] ECSClient: Possible nodes : 
+node2;localhost;50001;
+node3;localhost;50002;
+node4;localhost;50003;
+
+2014-12-09 14:28:07,486 DEBUG [main] ECSClient: Used nodes : 
+node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b
+
+2014-12-09 14:28:07,486 DEBUG [main] ECSClient: Used nodes : 
+node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b
+
+2014-12-09 14:28:07,487 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:28:07,487 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:28:07,488 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,488 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,489 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,489 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,489 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:28:07,489 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:28:07,489 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:28:07,489 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:28:07,490 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:28:07,490 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:28:07,490 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:28:07,490 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:28:07,490 DEBUG [Thread-5] KVServer: Server listening to clients...
+2014-12-09 14:28:07,490 DEBUG [Thread-5] KVServer: Server listening to clients...
+2014-12-09 14:28:07,490 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,490 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,491 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,491 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,491 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:28:07,491 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:28:07,539 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:28:07,539 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:28:07,539 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,539 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,539 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,539 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,540 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:28:07,540 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:28:07,540 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:28:07,540 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:28:07,540 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:28:07,540 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:28:07,540 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:28:07,540 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:28:07,540 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-09 14:28:07,540 DEBUG [Thread-6] KVServer: Server listening to clients...
+2014-12-09 14:28:07,540 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,540 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,541 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,541 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,541 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:28:07,541 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:28:07,589 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:28:07,589 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:28:07,589 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,589 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,589 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,589 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,590 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:28:07,590 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:28:07,590 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:28:07,590 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:28:07,590 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:28:07,590 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:28:07,590 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:28:07,590 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:28:07,590 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:28:07,590 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:28:07,590 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,590 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,591 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,591 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,591 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:28:07,591 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:28:07,640 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:28:07,640 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:28:07,640 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,640 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,640 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,640 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,641 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:28:07,641 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:28:07,641 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:28:07,641 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:28:07,641 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:28:07,641 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:28:07,641 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:28:07,641 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:28:07,641 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:28:07,641 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:28:07,642 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,642 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,642 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,642 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,642 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:28:07,642 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:28:07,690 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:28:07,690 DEBUG [main] KVAdminCommModule: Send :	 'START null null'
+2014-12-09 14:28:07,691 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,691 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,692 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,692 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,694 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:28:07,694 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'START null null'
+2014-12-09 14:28:07,694 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:28:07,694 INFO  [Thread-3] EcsConnection: Requested from ECS : START null null
+2014-12-09 14:28:07,695 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:28:07,695 INFO  [Thread-3] EcsConnection: Answer to ECS : START ok null
+2014-12-09 14:28:07,695 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-09 14:28:07,695 DEBUG [Thread-7] KVServer: Server listening to clients...
+2014-12-09 14:28:07,696 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:28:07,696 DEBUG [Thread-3] KVAdminCommModule: Send :	 'START ok null'
+2014-12-09 14:28:07,697 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,697 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,698 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,698 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>start</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,699 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:28:07,699 INFO  [Thread-4] KVAdminCommModule: New received message : START ok null
+2014-12-09 14:28:07,743 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:28:07,743 DEBUG [main] KVAdminCommModule: Send :	 'STOP null null'
+2014-12-09 14:28:07,744 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,744 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,746 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,746 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,747 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:28:07,747 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'STOP null null'
+2014-12-09 14:28:07,748 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:28:07,748 INFO  [Thread-3] EcsConnection: Requested from ECS : STOP null null
+2014-12-09 14:28:07,749 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:28:07,749 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:28:07,749 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:28:07,749 INFO  [Thread-3] EcsConnection: Answer to ECS : STOP ok null
+2014-12-09 14:28:07,750 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:28:07,750 DEBUG [Thread-3] KVAdminCommModule: Send :	 'STOP ok null'
+2014-12-09 14:28:07,751 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,751 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,753 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,753 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>stop</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,753 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:28:07,753 INFO  [Thread-4] KVAdminCommModule: New received message : STOP ok null
+2014-12-09 14:28:07,796 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-09 14:28:07,796 DEBUG [main] KVAdminCommModule: Send :	 'SHUTDOWN null null'
+2014-12-09 14:28:07,796 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>shutdown</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,796 DEBUG [main] KVAdminCommModule: Sending text : <kvadminmessage><status>shutdown</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,797 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>shutdown</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,797 DEBUG [Thread-3] KVAdminCommModule: Receiving text : <kvadminmessage><status>shutdown</status><key>null</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,798 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-09 14:28:07,798 DEBUG [Thread-3] KVAdminCommModule: Receive :	 'SHUTDOWN null null'
+2014-12-09 14:28:07,798 INFO  [Thread-3] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-09 14:28:07,798 INFO  [Thread-3] EcsConnection: Requested from ECS : SHUTDOWN null null
+2014-12-09 14:28:07,798 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:28:07,798 DEBUG [Thread-3] KVServer: Stopping the server
+2014-12-09 14:28:07,798 INFO  [Thread-3] EcsConnection: Exiting
+2014-12-09 14:28:07,798 INFO  [Thread-3] EcsConnection: Exiting
+2014-12-09 14:28:07,799 INFO  [Thread-3] EcsConnection: Answer to ECS : SHUTDOWN ok null
+2014-12-09 14:28:07,799 INFO  [Thread-3] EcsConnection: Answer to ECS : SHUTDOWN ok null
+2014-12-09 14:28:07,799 DEBUG [Thread-3] KVAdminCommModule: Send :	 'SHUTDOWN ok null'
+2014-12-09 14:28:07,799 DEBUG [Thread-3] KVAdminCommModule: Send :	 'SHUTDOWN ok null'
+2014-12-09 14:28:07,799 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>shutdown</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,799 DEBUG [Thread-3] KVAdminCommModule: Sending text : <kvadminmessage><status>shutdown</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,800 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>shutdown</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,800 DEBUG [Thread-4] KVAdminCommModule: Receiving text : <kvadminmessage><status>shutdown</status><key>ok</key><value>null</value></kvadminmessage>
+2014-12-09 14:28:07,800 INFO  [Thread-4] KVAdminCommModule: New received message : SHUTDOWN ok null
+2014-12-09 14:28:07,800 INFO  [Thread-4] KVAdminCommModule: New received message : SHUTDOWN ok null
+2014-12-09 14:28:07,847 INFO  [main] ConfigStore: try to close connection with localhost:50000 ...
+2014-12-09 14:28:07,847 INFO  [main] ConfigStore: try to close connection with localhost:50000 ...
+2014-12-09 14:28:07,848 INFO  [main] ConfigStore: tearing down the connection ...
+2014-12-09 14:28:07,848 INFO  [main] ConfigStore: tearing down the connection ...
+2014-12-09 14:28:07,849 INFO  [main] ConfigStore: connection closed!
+2014-12-09 14:28:07,849 INFO  [main] ConfigStore: connection closed!
+2014-12-09 14:28:07,850 INFO  [Thread-4] ConfigStore: Connection with server stopped
+2014-12-09 14:28:07,850 INFO  [Thread-4] ConfigStore: Connection with server stopped

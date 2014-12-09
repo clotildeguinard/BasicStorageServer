@@ -23,8 +23,8 @@ public class AllTests2 {
 	
 	public static Test suite() {
 		TestSuite clientSuite = new TestSuite("Basic Storage ServerTest-Suite");
-//		clientSuite.addTestSuite(ECSTest.class);
-		clientSuite.addTestSuite(BenchmarkTest.class);
+		clientSuite.addTestSuite(ECSTest.class);
+//		clientSuite.addTestSuite(BenchmarkTest.class);
 		return clientSuite;
 	}
 	

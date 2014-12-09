@@ -72,6 +72,19 @@ public class ECSClient implements KVSocketListener {
 
 	}
 
+	private void launchSSH(String hostIp, int portNumber, String logLevel) {
+		Process proc;
+//		String script = "script.sh";
+		String script = "ssh -n " + hostIp + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
+					+ portNumber + " " + logLevel.toUpperCase() + " & ";
+		Runtime run = Runtime.getRuntime();
+		try {
+			proc = run.exec(script);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	protected int initService(int numberOfNodes, int cacheSize, Strategy displacementStrategy)
 			throws NoSuchAlgorithmException, IOException{
 		if (numberOfNodes > possibleRemainingNodes.size()) {
@@ -97,7 +110,7 @@ public class ECSClient implements KVSocketListener {
 			cs.addListener(this);
 			cs.initKVServer(metadata, cacheSize, displacementStrategy);
 		}
-		
+
 		logger.debug("Possible nodes : \n" + printPossible());
 		logger.debug("Used nodes : \n" + printNodes());
 
@@ -229,7 +242,7 @@ public class ECSClient implements KVSocketListener {
 		} else {
 			logger.info("New node write-unlocked.");
 		}
-		
+
 		logger.debug("Possible nodes : \n" + printPossible());
 		logger.debug("Used nodes : \n" + printNodes());
 
@@ -298,7 +311,7 @@ public class ECSClient implements KVSocketListener {
 		if (!removed.shutdown()) {
 			logger.error("The removed node may not have been shut down correctly.");
 		}
-		
+
 		logger.debug("Possible nodes : \n" + printPossible());
 		logger.debug("Used nodes : \n" + printNodes());
 
@@ -337,7 +350,7 @@ public class ECSClient implements KVSocketListener {
 		sortedNodeHashes.add(nodeData[1]);
 		sortedNodeHashes.add(nodeData[2]);
 		sortedNodeHashes.add(hashedKey);
-
+		
 	}
 
 	private void sortNodeLists(){
