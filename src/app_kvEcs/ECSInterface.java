@@ -39,7 +39,7 @@ public class ECSInterface {
 		INIT, START, STOP, SHUTDOWN, HELP, QUIT, ADDNODE, REMOVENODE
 	}
 
-	private Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private static final Logger logger = Logger.getLogger(ECSInterface.class);
 	private static final String PROMPT = "ECSClient> ";
 	private BufferedReader stdin;
 	private final ECSClient ecsClient;

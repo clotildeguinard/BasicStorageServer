@@ -20,7 +20,7 @@ public class ClientConnection implements Runnable {
 	private final MetadataHandler metadataHandler;
 	private KVCommModule commModule;
 	private final CacheManager sharedCacheManager;
-	private Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private static final Logger logger = Logger.getLogger(ClientConnection.class);
 
 	private final boolean stopped;
 	private final boolean writeLock;
@@ -53,8 +53,7 @@ public class ClientConnection implements Runnable {
 					serverAnswer = new KVMessageImpl(key, value,
 							StatusType.SERVER_STOPPED);
 				} else if (!metadataHandler.isResponsibleFor(key)) {
-					value = metadataHandler.toString();
-					serverAnswer = new KVMessageImpl(key, value,
+					serverAnswer = new KVMessageImpl(key, metadataHandler.toString(),
 							StatusType.SERVER_NOT_RESPONSIBLE);
 
 				} else {

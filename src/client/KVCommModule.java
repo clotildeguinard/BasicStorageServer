@@ -12,7 +12,7 @@ import common.messages.TextMessage;
 
 public class KVCommModule extends CommModule implements KVSocketListener {
 	private Logger logger = Logger.getLogger(getClass().getSimpleName());
- 	private KVMessage latest;
+	private KVMessage latest;
 
 	public KVCommModule(OutputStream output, InputStream input) {
 		super(output, input);
@@ -42,7 +42,7 @@ public class KVCommModule extends CommModule implements KVSocketListener {
 
 	public KVMessage getLatest() {
 		try {
-		return latest;
+			return latest;
 		} finally {
 			latest = null;
 		}

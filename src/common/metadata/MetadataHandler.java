@@ -32,7 +32,7 @@ public class MetadataHandler {
 		this.myIp = clientIp;
 		this.myPort = clientPort;
 	}
-	
+
 	/**
 	 * used by ECS
 	 * @param metadataContent
@@ -100,16 +100,8 @@ public class MetadataHandler {
 		return null;
 	}
 
-
 	public boolean isResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		boolean b;
-		try {
-			b = isInRange(key, minHashKey, maxHashKey);
-		} catch (NoSuchAlgorithmException e) {
-			Logger.getLogger(getClass().getSimpleName()).fatal("Hashing algorithm " + hashingAlgorithm + " could not be found!");
-			throw(e);
-		}
-		return b;
+		return isInRange(key, minHashKey, maxHashKey);
 	}
 
 	public String toString() {
@@ -130,10 +122,11 @@ public class MetadataHandler {
 			// i.e. there is only one node
 			return true;
 		}
-		String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
-				.digest(key.getBytes("UTF-8"))).toString(16);
-		logger.debug("Hashed " + key + " --> " + hashedKey);
 		try {
+			String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
+					.digest(key.getBytes("UTF-8"))).toString(16);
+			logger.debug("Hashed " + key + " --> " + hashedKey);
+
 			if (minHash.compareTo(maxHash) <= 0) {
 				return hashedKey.compareTo(minHash) > 0 && hashedKey.compareTo(maxHash) <= 0;
 			} else {
@@ -142,6 +135,9 @@ public class MetadataHandler {
 		} catch (NullPointerException e) {
 			logger.warn("Hash of key " + key + " was null!");
 			return false;
+		} catch (NoSuchAlgorithmException e) {
+			Logger.getLogger(getClass().getSimpleName()).fatal("Hashing algorithm " + hashingAlgorithm + " could not be found!");
+			throw(e);
 		}
 	}
 

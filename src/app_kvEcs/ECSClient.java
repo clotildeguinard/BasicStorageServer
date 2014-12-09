@@ -35,7 +35,7 @@ public class ECSClient implements KVSocketListener {
 	private int numberOfUsedNodes = 0;
 	private MetadataHandler metadataHandler;
 
-	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private static final Logger logger = Logger.getLogger(ECSClient.class);
 	private final static String hashingAlgorithm = "MD5";
 	private final static String PROMPT = "ECSClient> ";
 

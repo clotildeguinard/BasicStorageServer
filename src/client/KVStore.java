@@ -29,7 +29,7 @@ import common.metadata.NodeData;
 public class KVStore extends Thread implements KVCommInterface {
 
 	private KVCommModule commModule;
-	private Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private static final Logger logger = Logger.getLogger(KVStore.class);
 	private Socket clientSocket;
 	private Set<KVSocketListener> listeners;
 	private boolean running = false;
@@ -83,7 +83,7 @@ public class KVStore extends Thread implements KVCommInterface {
 	public boolean isRunning() {
 		return running;
 	}
-	
+
 
 	public void disconnect() {
 		logger.debug("try to close connection ...");
@@ -149,10 +149,10 @@ public class KVStore extends Thread implements KVCommInterface {
 		}
 	}
 
-	
+
 	public KVMessage putComm(String key, String value) throws IOException,
 	InterruptedException {
-		
+
 		KVMessage msg = new KVMessageImpl(key, value,
 				common.messages.KVMessage.StatusType.PUT);
 		commModule.sendKVMessage(msg);
@@ -167,14 +167,14 @@ public class KVStore extends Thread implements KVCommInterface {
 		}
 		return commModule.getLatest();
 	}
-	
+
 	public KVMessage putBis(String key, String value, int nbTrials)
 			throws NoSuchAlgorithmException, UnknownHostException, IOException, InterruptedException {
 		if (nbTrials > MAX_TRIALS) {
 			logger.warn("Responsible server for key " + key + " could not be found after "  + MAX_TRIALS + " trials.");
 			return new KVMessageImpl(key, null, StatusType.PUT_ERROR);
 		}
-		
+
 		String[] serverForKey = metadataHandler.getServerForKey(key);
 
 		if (serverForKey != null) {
@@ -190,19 +190,17 @@ public class KVStore extends Thread implements KVCommInterface {
 		if (answer == null || answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
 			return answer;
 		}
-
-		String metadata = answer.getValue();
-
-		metadataHandler.update(metadata);
-
+		metadataHandler.update(answer.getValue());
 		return putBis(key, value, nbTrials + 1);
 
 	}
 
 	@Override
-	public synchronized KVMessage put(String key, String value) throws IOException,
+	public KVMessage put(String key, String value) throws IOException,
 	InterruptedException, NoSuchAlgorithmException {
-		return putBis(key, value, 1);
+		KVMessage answer = putBis(key, value, 1);
+		logger.debug("answer to put : " + answer);
+		return answer;
 	}
 
 	/**
@@ -212,7 +210,7 @@ public class KVStore extends Thread implements KVCommInterface {
 
 	public KVMessage getComm(String key) throws IOException,
 	InterruptedException {
-		
+
 		KVMessage msg = new KVMessageImpl(key, null,
 				common.messages.KVMessage.StatusType.GET);
 		commModule.sendKVMessage(msg);
@@ -234,7 +232,7 @@ public class KVStore extends Thread implements KVCommInterface {
 			logger.warn("Responsible server for key " + key + " could not be found after "  + MAX_TRIALS + " trials.");
 			return new KVMessageImpl(key, null, StatusType.GET_ERROR);
 		}
-		
+
 		String[] serverForKey = metadataHandler.getServerForKey(key);
 
 		if (serverForKey != null) {
@@ -246,21 +244,16 @@ public class KVStore extends Thread implements KVCommInterface {
 
 		KVMessage answer = this.getComm(key);
 		disconnect();
-		
+
 		if (answer == null || answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
 			return answer;
 		}
-
-
-		String metadata = answer.getValue();
-
-		metadataHandler.update(metadata);
-
+		metadataHandler.update(answer.getValue());
 		return getBis(key, nbTrials + 1);
 	}
-	
+
 	@Override
-	public synchronized KVMessage get(String key) throws IOException, InterruptedException,
+	public KVMessage get(String key) throws IOException, InterruptedException,
 	NoSuchAlgorithmException {
 
 		return getBis(key, 1);

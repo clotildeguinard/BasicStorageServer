@@ -36,14 +36,6 @@ public class NodeData {
 	public String getName() {
 		return name;
 	}
-
-	public void setMinHashKey(String minHashKey) {
-		this.minHashKey = minHashKey;
-	}
-
-	public void setMaxHashKey(String maxHashKey) {
-		this.maxHashKey = maxHashKey;
-	}
 	
 
 }

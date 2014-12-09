@@ -44,6 +44,7 @@ public class ECSTest extends TestCase {
 			ecs.handleCommand("stop");
 			ecs.handleCommand("start");
 			ecs.handleCommand("shutdown");
+			ecs.handleCommand("quit");
 			System.out.println("ECSTest : " + (System.currentTimeMillis() - startTime) + " ms");
 		} catch (Exception e) {
 			ex = e;

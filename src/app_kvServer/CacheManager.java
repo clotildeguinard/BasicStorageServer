@@ -97,8 +97,6 @@ public class CacheManager implements Iterable<Pair<String, String>> {
 			}
 		}
 	}
-	
-
     
     public void flushCache() throws IOException {
     	for (Pair<String, String> kv : dataCache) {

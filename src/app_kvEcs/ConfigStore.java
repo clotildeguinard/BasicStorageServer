@@ -32,7 +32,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	private final String serverIp;
 	private final int serverPort;
 	
-	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private static final Logger logger = Logger.getLogger(ConfigStore.class);
 	private static final int MAX_TRIALS = 3;
 
 	/**
@@ -208,6 +208,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 			disconnect();
 		}
 	}
+
 
 
 	@Override

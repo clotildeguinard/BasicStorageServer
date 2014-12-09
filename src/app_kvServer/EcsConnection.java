@@ -18,7 +18,7 @@ public class EcsConnection implements Runnable {
 	private final KVServer kvServer;
 	protected Socket ecsSocket;
 	private KVAdminCommModule commModule;
-	private Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private final static Logger logger = Logger.getLogger(EcsConnection.class);
 
 	private boolean stopECSConnection = true;
 

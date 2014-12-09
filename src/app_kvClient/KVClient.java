@@ -16,7 +16,7 @@ import common.messages.TextMessage;
 
 public class KVClient implements KVSocketListener {
 
-	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private static final Logger logger = Logger.getLogger(KVClient.class);
 	private static final String PROMPT = "KVClient> ";
 	private BufferedReader stdin;
 	private KVStore kvStore = new KVStore("127.0.0.1", 50000);

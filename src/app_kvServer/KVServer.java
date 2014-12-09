@@ -5,6 +5,7 @@ import java.net.BindException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.security.NoSuchAlgorithmException;
 
 import logger.LogSetup;
@@ -86,11 +87,11 @@ public class KVServer implements Runnable {
 
 	private void openServerSocket() throws IOException {
 		try {
-			serverSocket = new ServerSocket();
-			serverSocket.setReuseAddress(true);
-			serverSocket.bind(new InetSocketAddress(port));
+//			serverSocket = new ServerSocket();
+//			serverSocket.setReuseAddress(true);
+//			serverSocket.bind(new InetSocketAddress(port));
 
-//			serverSocket = new ServerSocket(port);
+			serverSocket = new ServerSocket(port);
 
 			logger.info("Server listening on port: " 
 					+ serverSocket.getLocalPort());
@@ -155,6 +156,9 @@ public class KVServer implements Runnable {
 					logger.info("Connected to " 
 							+ client.getInetAddress().getHostName() 
 							+  " on port " + client.getPort());
+				} catch (SocketException e1) {
+					System.out.println(serverSocket.isBound());
+					System.out.println(serverSocket.isClosed());
 				} catch (IOException e) {
 					logger.error("Error! " +
 							"Unable to establish connection with a client. \n", e);
@@ -162,6 +166,7 @@ public class KVServer implements Runnable {
 			}
 			try {
 				serverSocket.close();
+				System.out.println("closing " + !serverSocket.isBound());
 			} catch (IOException e) {
 				throw new RuntimeException("Error closing connection with clients.", e);
 			}
