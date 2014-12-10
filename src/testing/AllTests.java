@@ -14,7 +14,7 @@ public class AllTests {
 
 	static {
 		try {
-			new LogSetup("logs/testing/test.log", Level.ERROR);
+			new LogSetup("testing/test.log", Level.ERROR);
 			KVServer kvserver = new KVServer(50000);
 			kvserver.initKVServer("node0;127.0.0.1;50000;00000000000000000000000000000000;ffffffffffffffffffffffffffffffff", 10, "FIFO");
 			kvserver.start();

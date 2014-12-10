@@ -86,8 +86,6 @@ public class KVStore extends Thread implements KVCommInterface {
 
 
 	public void disconnect() {
-		logger.debug("try to close connection ...");
-
 		try {
 			tearDownConnection();
 			if (listeners != null) {
@@ -158,11 +156,11 @@ public class KVStore extends Thread implements KVCommInterface {
 		commModule.sendKVMessage(msg);
 
 		int i = 0;
-		while (i < 5 && commModule.latestIsNull()) {
-			Thread.sleep(50);
+		while (i < 10 && commModule.latestIsNull()) {
+			Thread.sleep(100);
 			i++;
 		}
-		if (i == 5) {
+		if (i == 10) {
 			return null;
 		}
 		return commModule.getLatest();
@@ -216,11 +214,11 @@ public class KVStore extends Thread implements KVCommInterface {
 		commModule.sendKVMessage(msg);
 
 		int i = 0;
-		while (i < 5 && commModule.latestIsNull()) {
-			Thread.sleep(50);
+		while (i < 10 && commModule.latestIsNull()) {
+			Thread.sleep(100);
 			i++;
 		}
-		if (i == 5) {
+		if (i == 10) {
 			return null;
 		}
 		return commModule.getLatest();

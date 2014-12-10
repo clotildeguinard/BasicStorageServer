@@ -3,13 +3,11 @@ package testing;
 import java.io.IOException;
 
 import org.apache.log4j.Level;
-import org.junit.Before;
 import org.junit.Test;
 
 import app_kvClient.KVClient;
 import app_kvEcs.ECSInterface;
 import app_kvServer.KVServer;
-import app_kvServer.KVServer.ECSSocketLoop;
 import junit.framework.TestCase;
 import logger.LogSetup;
 
@@ -22,7 +20,7 @@ public class ManyClientsTest extends TestCase {
 
 	static {
 		try {
-			new LogSetup("logs/testing/test.log", Level.DEBUG);
+			new LogSetup("testing/test.log", Level.DEBUG);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

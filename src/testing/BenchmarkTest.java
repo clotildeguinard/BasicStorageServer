@@ -20,7 +20,7 @@ public class BenchmarkTest extends TestCase {
 
 	static {
 		try {
-			new LogSetup("logs/testing/test.log", Level.DEBUG);
+			new LogSetup("testing/test.log", Level.DEBUG);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

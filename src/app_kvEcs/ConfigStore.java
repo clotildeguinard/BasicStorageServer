@@ -28,7 +28,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	private KVAdminCommModule commModule;
 	private Socket ecsSocket;
 	private Set<KVSocketListener> listeners;
-	private boolean csRunning = false;
+	private boolean isRunning = false;
 	private final String serverIp;
 	private final int serverPort;
 	
@@ -54,7 +54,6 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		return new String[] {serverIp, Integer.toString(serverPort)};
 	}
 
-
 	public void addListener(KVSocketListener listener) {
 		listeners.add(listener);
 	}
@@ -67,21 +66,11 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		logger.debug("Connected to ip " + serverIp + " , port " + serverPort);
 		listeners = new HashSet<KVSocketListener>();
 		addListener(commModule);
-		setRunning(true);
+		isRunning = true;
 		new Thread(this).start();
 	}
 
-	public void setRunning(boolean isRunning) {
-		csRunning = isRunning;
-	}
-
-	public boolean isRunning() {
-		return csRunning;
-	}
-
-
 	public void disconnect() {
-		logger.info("try to close connection with " + serverIp + ":" + serverPort + " ...");
 
 		try {
 			tearDownConnection();
@@ -96,8 +85,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	}
 
 	private void tearDownConnection() throws IOException {
-		setRunning(false);
-		logger.info("tearing down the connection ...");
+		isRunning = false;
+		logger.info("tearing down the connection with " + serverIp + ":" + serverPort + " ...");
 
 		if (ecsSocket != null) {
 			commModule.closeStreams();
@@ -107,15 +96,14 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		}
 	}
 
-
 	/**
-	 * Initializes and starts the client connection. Loops until the connection
-	 * is closed or aborted by the client.
+	 * Initializes and starts the connection with server. Loops until the connection
+	 * is closed or aborted by the server.
 	 */
 	public void run() {
 		try {
 
-			while (isRunning()) {
+			while (isRunning) {
 
 				try {
 					TextMessage latestMsg = commModule.receiveMessage();
@@ -123,7 +111,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 						listener.handleNewMessage(latestMsg);
 					}
 				} catch (IOException ioe) {
-					if (isRunning()) {
+					if (isRunning) {
 						logger.error("Connection lost!");
 						try {
 							tearDownConnection();
@@ -138,7 +126,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 			}
 			logger.info("Connection with server stopped");
 		} finally {
-			if (isRunning()) {
+			if (isRunning) {
 				disconnect();
 			}
 		}
@@ -209,8 +197,6 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		}
 	}
 
-
-
 	@Override
 	public boolean moveData(String hashOfNewServer, String[] destinationServer) {
 		KVAdminMessage msg = new KVAdminMessageImpl(hashOfNewServer, destinationServer[0] + ":" + destinationServer[1],
@@ -218,7 +204,6 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		KVAdminMessage answer = sendAndWaitAnswer(msg);
 		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 	}
-
 
 	@Override
 	public boolean initKVServer(String metadata, int cacheSize,

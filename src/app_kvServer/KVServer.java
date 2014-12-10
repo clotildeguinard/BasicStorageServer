@@ -2,7 +2,6 @@ package app_kvServer;
 
 import java.io.IOException;
 import java.net.BindException;
-import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
@@ -14,9 +13,6 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import client.KVStore;
-import common.messages.KVAdminMessage;
-import common.messages.KVAdminMessage.StatusType;
-import common.messages.KVAdminMessageImpl;
 import common.metadata.MetadataHandler;
 import app_kvServer.cache_strategies.FIFOStrategy;
 import app_kvServer.cache_strategies.LFUStrategy;
@@ -34,7 +30,7 @@ public class KVServer implements Runnable {
 	private Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private ClientConnection clientConnection;
 	private EcsConnection ecsConnection;
-	private boolean initialized;
+	private boolean shutdown = true;
 	private boolean writeLocked = false;
 
 	public KVServer(int port) {
@@ -77,19 +73,29 @@ public class KVServer implements Runnable {
 			openServerSocket();
 		}
 
-		initialized = true;
+		shutdown = false;
+		new Thread(this).start();
 	}
 
 	public void start() {
+		logger.debug("Starting the server");
 		isStopped = false;
-		new Thread(this).start();
+	}
+
+	public void stop(){
+		logger.debug("Stopping the server");
+		this.isStopped = true;
+	}
+
+	public void shutdown() {
+		shutdown = true;
 	}
 
 	private void openServerSocket() throws IOException {
 		try {
-//			serverSocket = new ServerSocket();
-//			serverSocket.setReuseAddress(true);
-//			serverSocket.bind(new InetSocketAddress(port));
+			//			serverSocket = new ServerSocket();
+			//			serverSocket.setReuseAddress(true);
+			//			serverSocket.bind(new InetSocketAddress(port));
 
 			serverSocket = new ServerSocket(port);
 
@@ -141,48 +147,40 @@ public class KVServer implements Runnable {
 	@Override
 	public void run() {
 
-		isStopped = !initialized;
+		if (serverSocket == null) {
+			return;
+		}
+		logger.debug("Server listening to clients...");
 
-		if(serverSocket != null) {
-			logger.debug("Server listening to clients...");
-			
-			while(!isStopped()){
-				try {
-					Socket client = serverSocket.accept();
-					clientConnection = 
-							new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped);
-					new Thread(clientConnection).start();
-
-					logger.info("Connected to " 
-							+ client.getInetAddress().getHostName() 
-							+  " on port " + client.getPort());
-				} catch (SocketException e1) {
-					System.out.println(serverSocket.isBound());
-					System.out.println(serverSocket.isClosed());
-				} catch (IOException e) {
-					logger.error("Error! " +
-							"Unable to establish connection with a client. \n", e);
-				}
-			}
+		while (!shutdown){
 			try {
-				serverSocket.close();
-				System.out.println("closing " + !serverSocket.isBound());
+				Socket client = serverSocket.accept();
+				clientConnection = 
+						new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped);
+				new Thread(clientConnection).start();
+
+				logger.info("Connected to " 
+						+ client.getInetAddress().getHostName() 
+						+  " on port " + client.getPort());
+			} catch (SocketException e1) {
+				shutdown = true;
+				System.out.println(serverSocket.isBound());
+				System.out.println(serverSocket.isClosed());
 			} catch (IOException e) {
-				throw new RuntimeException("Error closing connection with clients.", e);
+				shutdown = true;
+				logger.error("Error! " +
+						"Unable to establish connection with a client. \n", e);
 			}
+		}
+		try {
+			serverSocket.close();
+			System.out.println("closing " + !serverSocket.isBound());
+		} catch (IOException e) {
+			throw new RuntimeException("Error closing connection with clients.", e);
 		}
 		logger.info("Server stopped.");
 	}
 
-
-	private boolean isStopped() {
-		return isStopped;
-	}
-
-	public void stop(){
-		logger.debug("Stopping the server");
-		this.isStopped = true;
-	}
 
 	/**
 	 * Move to given node all data having key under hash hashOfNewNode

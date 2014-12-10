@@ -72,11 +72,13 @@ public class ECSClient implements KVSocketListener {
 
 	}
 
-	private void launchSSH(String hostIp, int portNumber, String logLevel) {
+	private void launchSSH(String hostIp, String port, String logLevel) {
 		Process proc;
 //		String script = "script.sh";
-		String script = "ssh -n " + hostIp + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
-					+ portNumber + " " + logLevel.toUpperCase() + " & ";
+//		String script = "ssh -n " + hostIp + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
+//					+ portNumber + " " + logLevel.toUpperCase() + " & ";
+		String script = "java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
+				+ port + " " + logLevel.toUpperCase();
 		Runtime run = Runtime.getRuntime();
 		try {
 			proc = run.exec(script);
@@ -213,10 +215,10 @@ public class ECSClient implements KVSocketListener {
 		String[] newNodeAddress = new String[] {params[1], params[2]};
 
 
-		if (!newNodeCS.lockWrite()) {
-			logger.error("The new node may not have been write-locked correctly.");
+		if (!nextNodeCS.lockWrite()) {
+			logger.error("The successor node may not have been write-locked correctly.");
 		} else {
-			logger.info("New node write-locked.");
+			logger.info("Successor node write-locked.");
 		}
 		if (!nextNodeCS.moveData(hashOfNewNode, newNodeAddress)) {
 			logger.error("The data may not have been moved correctly.");
@@ -237,10 +239,10 @@ public class ECSClient implements KVSocketListener {
 
 		logger.info("Metadata updated for all nodes");
 
-		if (!newNodeCS.unlockWrite()) {
-			logger.error("The new node may not have been write-unlocked correctly.");
+		if (!nextNodeCS.unlockWrite()) {
+			logger.error("The successor node may not have been write-unlocked correctly.");
 		} else {
-			logger.info("New node write-unlocked.");
+			logger.info("Successor node write-unlocked.");
 		}
 
 		logger.debug("Possible nodes : \n" + printPossible());
@@ -264,18 +266,17 @@ public class ECSClient implements KVSocketListener {
 			return 0;
 		}
 
-		int size = sortedNodeHashes.size();
-		int random = (int) (Math.random() * (size - 1));
-		String toRemoveName = sortedNodeHashes.get(random/4);
-		System.out.println(toRemoveName);
+		int random = (int) (Math.random() * (sortedConfigStores.size() - 1));
+		String toRemoveName = sortedNodeHashes.get(random*4);
+		logger.info("Removing node " + toRemoveName);
 		int toRemoveIndex = findCsIndex(toRemoveName);
-		System.out.println(toRemoveIndex);
 
 		String toRemoveHash = sortedNodeHashes.get(toRemoveIndex*4 + 3);
 		ConfigStore removed = removeNodeFromLists(toRemoveName);
 		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
 
 		removed.lockWrite();
+		System.out.println("successor node is " + sortedNodeHashes.get(toRemoveIndex*4 % sortedNodeHashes.size()));
 		ConfigStore successor = sortedConfigStores.get(toRemoveIndex % sortedConfigStores.size());
 		String newMetadata = metadataHandler.toString();
 		try {
@@ -339,6 +340,8 @@ public class ECSClient implements KVSocketListener {
 
 	private void addNodeToLists(String[] nodeData)
 			throws NoSuchAlgorithmException, IllegalArgumentException, IOException {
+		launchSSH(nodeData[1], nodeData[2], "DEBUG");
+		
 		sortedConfigStores.add(new ConfigStore(nodeData[1], Integer.parseInt(nodeData[2])));
 
 		String IpAndPort = new StringBuilder(nodeData[1]).append(";").append(nodeData[2]).toString();

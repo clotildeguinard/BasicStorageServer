@@ -11,7 +11,7 @@ import common.messages.KVMessageImpl;
 import common.messages.TextMessage;
 
 public class KVCommModule extends CommModule implements KVSocketListener {
-	private Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private final static Logger logger = Logger.getLogger(KVCommModule.class);
 	private KVMessage latest;
 
 	public KVCommModule(OutputStream output, InputStream input) {
@@ -19,16 +19,12 @@ public class KVCommModule extends CommModule implements KVSocketListener {
 	}
 
 	public void sendKVMessage(KVMessage message) throws IOException {
-		logger.debug("Send :\t '" + message + "'");
-		TextMessage xmlText = ((KVMessageImpl) message).marshal();
-		sendMessage(xmlText);
+		sendMessage(((KVMessageImpl) message).marshal());
 	}
 
 	public KVMessage receiveKVMessage() throws IOException {
 		TextMessage xmlText = receiveMessage();
-		KVMessage received = KVMessageImpl.unmarshal(xmlText);
-		logger.debug("Receive :\t '" + received + "'");
-		return received;
+		return KVMessageImpl.unmarshal(xmlText);
 	}
 
 	@Override

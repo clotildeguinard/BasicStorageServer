@@ -38,9 +38,9 @@ public class ClientConnection implements Runnable {
 	}
 
 	public void run() {
-		boolean running = true;
-
-		while (running) {
+//		boolean running = true;
+//
+//		while (running) {
 			try {
 				KVMessage request = commModule.receiveKVMessage();
 				KVMessage serverAnswer = null;
@@ -69,15 +69,15 @@ public class ClientConnection implements Runnable {
 					logger.error("Invalid answer to request : " + request);
 				}
 			} catch (IOException e) {
-				running = false;
+//				running = false;
 				logger.error("A connection error occurred - Application terminated "
 						+ e);
 			} catch (NoSuchAlgorithmException e) {
-				running = false;
+//				running = false;
 				logger.fatal("A hashing error occurred - Application terminated "
 						+ e);
 			}
-		}
+//		}
 		logger.debug("Client connection terminated.");
 	}
 

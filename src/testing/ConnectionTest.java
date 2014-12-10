@@ -15,7 +15,7 @@ public class ConnectionTest extends TestCase {
 	
 	public void testConnectionSuccess() {
 		try {
-			new LogSetup("logs/testing/test.log", Level.ERROR);
+			new LogSetup("testing/test.log", Level.ERROR);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

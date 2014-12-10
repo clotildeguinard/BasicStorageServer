@@ -21,6 +21,7 @@ public class EcsConnection implements Runnable {
 	private final static Logger logger = Logger.getLogger(EcsConnection.class);
 
 	private boolean stopECSConnection = true;
+	private boolean hasToShutdownServer = false;
 
 	public EcsConnection(int port, Socket ecsSocket, KVServer kvServer) throws UnknownHostException {
 		this.kvServer = kvServer;
@@ -55,6 +56,10 @@ public class EcsConnection implements Runnable {
 				stopECSConnection = true;
 				logger.fatal("An error occurred in ECS connection - Application terminated " + e);
 				System.exit(1);
+			} finally {
+				if (hasToShutdownServer) {
+					kvServer.shutdown();
+				}
 			}
 		}
 	}
@@ -104,6 +109,7 @@ public class EcsConnection implements Runnable {
 		case SHUTDOWN:
 			kvServer.stop();
 			stopECSConnection = true;
+			hasToShutdownServer = true;
 			logger.info("Exiting");
 			return new KVAdminMessageImpl("ok", null, StatusType.SHUTDOWN);
 

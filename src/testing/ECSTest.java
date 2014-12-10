@@ -16,7 +16,7 @@ public class ECSTest extends TestCase {
 
 	static {
 		try {
-			new LogSetup("logs/testing/test.log", Level.DEBUG);		
+			new LogSetup("testing/test.log", Level.DEBUG);		
 			
 			//should be removed if ssh could be used in initKVServer(...)
 			/////////////////
