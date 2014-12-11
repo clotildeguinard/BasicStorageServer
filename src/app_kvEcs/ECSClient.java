@@ -75,10 +75,15 @@ public class ECSClient implements KVSocketListener {
 	private void launchSSH(String hostIp, String port, String logLevel) {
 		Process proc;
 //		String script = "script.sh";
+<<<<<<< Updated upstream
 //		String script = "ssh -n " + hostIp + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
 //					+ portNumber + " " + logLevel.toUpperCase() + " & ";
 		String script = "java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
 				+ port + " " + logLevel.toUpperCase();
+=======
+		String script = "ssh -n " + hostIp + " nohup java -jar /Users/nadiastraton/git/BasicStorageServer/ms3-server.jar "
+					+ portNumber + " " + logLevel.toUpperCase() + " & ";
+>>>>>>> Stashed changes
 		Runtime run = Runtime.getRuntime();
 		try {
 			proc = run.exec(script);
@@ -409,11 +414,11 @@ public class ECSClient implements KVSocketListener {
 	 */
 	public static void main(String[] args) {
 		try {
-			if(args.length != 1) {
+			if(args.length != 0) {
 				System.out.println("Error! Invalid number of arguments!");
 				System.out.println("Usage: ECS <loglevel> !");
 			} else {
-				new LogSetup("logs/ecs.log", Level.toLevel(args[0]));
+				new LogSetup("logs/ecs.log", Level.toLevel(1));
 				ECSInterface app = new ECSInterface();
 				app.run();
 			}
