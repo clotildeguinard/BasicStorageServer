@@ -19,7 +19,7 @@ public class KVClient implements KVSocketListener {
 	private static final Logger logger = Logger.getLogger(KVClient.class);
 	private static final String PROMPT = "KVClient> ";
 	private BufferedReader stdin;
-	private KVStore kvStore = new KVStore("127.0.0.1", 50000);
+	private KVStore kvStore = new KVStore("localhost", 50000);
 	private boolean stop = false;
 
 	private String serverAddress;

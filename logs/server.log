@@ -3873,3 +3873,15 @@ java.net.SocketException: socket closed
 2014-12-05 09:55:01,573 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
 2014-12-11 10:10:15,222 INFO  [Thread-1] KVServer: Server listening on port: 50000
 >>>>>>> Stashed changes
+2014-12-11 10:33:51,482 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-11 10:33:51,898 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 60796
+2014-12-11 10:33:52,108 INFO  [Thread-1] KVServer: Server listening on port: 50001
+2014-12-11 10:33:52,448 INFO  [Thread-2] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-11 10:33:52,468 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-11 10:33:52,469 INFO  [Thread-2] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-11 10:33:52,470 DEBUG [Thread-3] KVServer: Server listening to clients...
+2014-12-11 10:33:52,471 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 60800
+2014-12-11 10:33:52,496 INFO  [Thread-2] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/ 5:LRU
+2014-12-11 10:33:52,508 INFO  [Thread-2] KVServer: Server metadata updated.
+2014-12-11 10:33:52,508 INFO  [Thread-2] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2014-12-11 10:33:52,509 DEBUG [Thread-3] KVServer: Server listening to clients...
