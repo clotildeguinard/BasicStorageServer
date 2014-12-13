@@ -1,4 +1,4 @@
-package client;
+package common.communication;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +32,7 @@ public class KVAdminCommModule extends CommModule implements KVSocketListener {
 	@Override
 	public void handleNewMessage(TextMessage msg) {
 		latest = KVAdminMessageImpl.unmarshal(msg);	
-		logger.info("New received message : " + latest);
+		logger.debug("New received message : " + latest);
 	}
 
 	@Override

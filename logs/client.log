@@ -184,3 +184,15 @@
 2014-12-10 13:37:12,868 DEBUG [main] MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
 2014-12-10 13:37:12,868 DEBUG [main] client.KVStore: Trying to connect to ip localhost , port 50001
 2014-12-10 13:37:13,868 DEBUG [main] client.KVStore: tearing down the connection ...
+2014-12-13 17:09:31,545 DEBUG [main] app_kvClient.KVStore: Trying to connect to ip localhost , port 50000
+2014-12-13 17:09:31,567 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_STOPPED foo bar
+2014-12-13 17:09:31,664 INFO  [main] app_kvClient.KVStore: Connection closed.
+2014-12-13 17:09:31,664 DEBUG [main] app_kvClient.KVStore: Answer to put : SERVER_STOPPED foo bar
+2014-12-13 17:09:53,318 DEBUG [main] app_kvClient.KVStore: Trying to connect to ip localhost , port 50000
+2014-12-13 17:09:53,324 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2014-12-13 17:09:53,419 INFO  [main] app_kvClient.KVStore: Connection closed.
+2014-12-13 17:09:53,419 DEBUG [main] app_kvClient.KVStore: Answer to put : PUT_SUCCESS foo bar
+2014-12-13 17:09:57,451 DEBUG [main] app_kvClient.KVStore: Trying to connect to ip localhost , port 50000
+2014-12-13 17:09:57,455 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_UPDATE foo bar
+2014-12-13 17:09:57,552 INFO  [main] app_kvClient.KVStore: Connection closed.
+2014-12-13 17:09:57,552 DEBUG [main] app_kvClient.KVStore: Answer to put : PUT_UPDATE foo bar

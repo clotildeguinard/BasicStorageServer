@@ -1,11 +1,8 @@
-package client;
+package common.communication;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
-import org.apache.log4j.Logger;
-
 import common.messages.TextMessage;
 
 public class CommModule {

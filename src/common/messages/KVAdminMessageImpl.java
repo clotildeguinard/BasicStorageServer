@@ -61,32 +61,31 @@ public class KVAdminMessageImpl implements KVAdminMessage {
 	public static KVAdminMessage unmarshal(TextMessage text) {
 
 		String xml = text.getMsg();
-
-		String key = unmarshalParameter(xml, "key");
-		String value = unmarshalParameter(xml, "value");
-		String status = unmarshalParameter(xml, "status");
-
-		StatusType statusType = null;
-		if (status != null) {
-			statusType = StatusType.valueOf(status.toUpperCase());
-		}
-
-		return new KVAdminMessageImpl(key, value, statusType);
-
-	}
-
-	private static String unmarshalParameter(String xml, String parameter) {
 		try {
-			String start_tag = "<" + parameter + ">";
-			String end_tag = "</" + parameter + ">";
-			int beginIndex = xml.indexOf(start_tag)
-					+ parameter.length() + 2;
-			int endIndex = xml.indexOf(end_tag);
-			return xml.substring(beginIndex, endIndex);
+			String key = unmarshalParameter(xml, "key");
+			String value = unmarshalParameter(xml, "value");
+			String status = unmarshalParameter(xml, "status");
+
+			StatusType statusType = null;
+			if (status != null) {
+				statusType = StatusType.valueOf(status.toUpperCase());
+			}
+
+			return new KVAdminMessageImpl(key, value, statusType);
 		} catch (IndexOutOfBoundsException e) {
 			logger.warn("Impossible to unmarshal received message : " + xml);
 			return null;
 		}
+	}
+
+	private static String unmarshalParameter(String xml, String parameter) throws IndexOutOfBoundsException {
+
+		String start_tag = "<" + parameter + ">";
+		String end_tag = "</" + parameter + ">";
+		int beginIndex = xml.indexOf(start_tag)
+				+ parameter.length() + 2;
+		int endIndex = xml.indexOf(end_tag);
+		return xml.substring(beginIndex, endIndex);
 	}
 
 

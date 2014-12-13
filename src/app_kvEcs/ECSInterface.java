@@ -25,12 +25,13 @@ import org.apache.log4j.Logger;
 
 
 
+
+
 import app_kvClient.KVClient;
+import app_kvClient.KVStore;
 import app_kvServer.cache_strategies.Strategy;
 
 import com.sun.corba.se.spi.orbutil.fsm.Input;
-
-import client.KVStore;
 
 public class ECSInterface {
 
@@ -82,7 +83,6 @@ public class ECSInterface {
 			Command cmd = Command.valueOf(input[0].toUpperCase());
 			handleCommandBis(cmd, input);
 		} catch (IllegalArgumentException e) {
-
 			printError("Do not recognise "
 					+ "the input, pl. try again");
 		}

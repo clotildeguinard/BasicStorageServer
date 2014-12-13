@@ -2,6 +2,7 @@ package app_kvServer;
 
 import java.io.IOException;
 import java.net.BindException;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
@@ -12,8 +13,8 @@ import logger.LogSetup;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import client.KVStore;
 import common.metadata.MetadataHandler;
+import app_kvClient.KVStore;
 import app_kvServer.cache_strategies.FIFOStrategy;
 import app_kvServer.cache_strategies.LFUStrategy;
 import app_kvServer.cache_strategies.LRUStrategy;
@@ -28,9 +29,8 @@ public class KVServer implements Runnable {
 	protected boolean isStopped = true;
 	protected CacheManager cacheManager;
 	private Logger logger = Logger.getLogger(getClass().getSimpleName());
-	private ClientConnection clientConnection;
 	private EcsConnection ecsConnection;
-	private boolean shutdown = true;
+	private boolean shutdown = false;
 	private boolean writeLocked = false;
 
 	public KVServer(int port) {
@@ -93,11 +93,11 @@ public class KVServer implements Runnable {
 
 	private void openServerSocket() throws IOException {
 		try {
-			//			serverSocket = new ServerSocket();
-			//			serverSocket.setReuseAddress(true);
-			//			serverSocket.bind(new InetSocketAddress(port));
+			serverSocket = new ServerSocket();
+			serverSocket.setReuseAddress(true);
+			serverSocket.bind(new InetSocketAddress(port));
 
-			serverSocket = new ServerSocket(port);
+			//			serverSocket = new ServerSocket(port);
 
 			logger.info("Server listening on port: " 
 					+ serverSocket.getLocalPort());
@@ -121,6 +121,7 @@ public class KVServer implements Runnable {
 				try {
 					openServerSocket();
 				} catch (IOException e) {
+					logger.error("Server socket could not be opened; kvServer cannot run.");
 					return;
 				}
 			}
@@ -155,26 +156,26 @@ public class KVServer implements Runnable {
 		while (!shutdown){
 			try {
 				Socket client = serverSocket.accept();
-				clientConnection = 
-						new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped);
-				new Thread(clientConnection).start();
-
-				logger.info("Connected to " 
+				logger.info("Connected to client " 
 						+ client.getInetAddress().getHostName() 
 						+  " on port " + client.getPort());
+				
+				ClientConnection clientConnection = 
+						new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped);
+				new Thread(clientConnection).start();
 			} catch (SocketException e1) {
 				shutdown = true;
-				System.out.println(serverSocket.isBound());
-				System.out.println(serverSocket.isClosed());
+				logger.error("Unable to establish connection with a client. \n", e1);
+				logger.debug("Server socket bound : " + serverSocket.isBound());
+				logger.debug("Server socket closed : " + serverSocket.isClosed());
 			} catch (IOException e) {
 				shutdown = true;
-				logger.error("Error! " +
-						"Unable to establish connection with a client. \n", e);
+				logger.error("Unable to establish connection with a client. \n", e);
 			}
 		}
+		logger.info("Stopping to listen to clients");
 		try {
 			serverSocket.close();
-			System.out.println("closing " + !serverSocket.isBound());
 		} catch (IOException e) {
 			throw new RuntimeException("Error closing connection with clients.", e);
 		}

@@ -21,10 +21,10 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import app_kvServer.cache_strategies.Strategy;
+import common.communication.KVSocketListener;
 import common.messages.TextMessage;
 import common.metadata.MetadataHandler;
 import common.metadata.NodeData;
-import client.KVSocketListener;
 
 public class ECSClient implements KVSocketListener {
 
@@ -74,14 +74,20 @@ public class ECSClient implements KVSocketListener {
 
 	private void launchSSH(String hostIp, String port, String logLevel) {
 		Process proc;
-//		String script = "script.sh";
 
 //		String script = "ssh -n " + hostIp + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
 //					+ portNumber + " " + logLevel.toUpperCase() + " & ";
-		String script = "java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
-				+ port + " " + logLevel.toUpperCase();
-
 		
+		String currentPath = ClassLoader.getSystemResource("").toString();
+		System.out.println(currentPath);
+		String serverJarPath = currentPath.replace("/bin/", "/").substring(6);
+
+		String script = "java -jar " + serverJarPath + "ms3-server.jar "
+				+ port + " " + logLevel.toUpperCase();
+		System.out.println(script);
+		
+//		script = "java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
+//				+ port + " " + logLevel.toUpperCase();
 
 		Runtime run = Runtime.getRuntime();
 		try {
@@ -344,7 +350,7 @@ public class ECSClient implements KVSocketListener {
 
 	private void addNodeToLists(String[] nodeData)
 			throws NoSuchAlgorithmException, IllegalArgumentException, IOException {
-		launchSSH(nodeData[1], nodeData[2], "DEBUG");
+//		launchSSH(nodeData[1], nodeData[2], "DEBUG");
 		
 		sortedConfigStores.add(new ConfigStore(nodeData[1], Integer.parseInt(nodeData[2])));
 

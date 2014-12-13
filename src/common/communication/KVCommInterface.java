@@ -1,4 +1,4 @@
-package client;
+package common.communication;
 
 import common.messages.KVMessage;
 

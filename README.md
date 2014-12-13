@@ -33,10 +33,10 @@ o	If the build fails, check that every jar was exited in the consoles ("quit" or
 (cannot update the jar files if they are still in use) 
 
 
--	Latency of 1000 writes to n servers  (without cache, with FIFO cache 50, with FIFO cache 1000/n)
+-	Latency of 100 writes to n servers  (without cache, with FIFO cache 50, with FIFO cache 1000/n)
 o	Mean time of a write to memory / to cache?
 o	Try many values of n (put in evidence the overhead of writing to the last line of a looooong file in memory. More servers: shorter file.)
--	Latency of 1000 writes to n servers  with concurrency: k clients (without cache, with FIFO cache 50, with FIFO cache 1000/n)
+-	Latency of 100 writes to n servers  with concurrency: k clients (without cache, with FIFO cache 50, with FIFO cache 1000/n)
 o	Mean time of a write to memory / to cache?
 o	Try many values of k (put in evidence the influence of serving many clients at a time).
 -	Latency of 100 random reads to n servers  (without cache, with FIFO cache 20)

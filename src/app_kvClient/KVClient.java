@@ -10,8 +10,7 @@ import logger.LogSetup;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import client.KVSocketListener;
-import client.KVStore;
+import common.communication.KVSocketListener;
 import common.messages.TextMessage;
 
 public class KVClient implements KVSocketListener {

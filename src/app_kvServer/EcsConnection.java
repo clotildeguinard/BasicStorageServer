@@ -7,12 +7,14 @@ import java.net.UnknownHostException;
 
 import org.apache.log4j.Logger;
 
+import common.communication.KVAdminCommModule;
+import common.communication.KVCommModule;
+import common.communication.KVSocketListener;
+import common.communication.KVSocketListener.SocketStatus;
 import common.messages.KVAdminMessage;
 import common.messages.KVAdminMessageImpl;
 import common.messages.KVMessage;
 import common.messages.KVAdminMessage.StatusType;
-import client.KVAdminCommModule;
-import client.KVCommModule;
 
 public class EcsConnection implements Runnable {
 	private final KVServer kvServer;
@@ -54,14 +56,20 @@ public class EcsConnection implements Runnable {
 				}
 			} catch (IOException e){
 				stopECSConnection = true;
-				logger.fatal("An error occurred in ECS connection - Application terminated " + e);
-				System.exit(1);
+				hasToShutdownServer = true;
+				logger.fatal("An error occurred in ECS connection " + e);
 			} finally {
 				if (hasToShutdownServer) {
 					kvServer.shutdown();
 				}
 			}
 		}
+		try {
+			tearDownConnection();
+		} catch (IOException e) {
+			logger.error("An error occurred when tearing down the connection \n" + e );
+		}
+		
 	}
 
 	private KVAdminMessage handleCommand(String key, String value, StatusType statusType) throws IOException {
@@ -117,6 +125,16 @@ public class EcsConnection implements Runnable {
 			logger.warn("The instruction has an unknown status : " + statusType);
 		}
 		return null;	
+	}
+	
+	private void tearDownConnection() throws IOException {
+
+		if (ecsSocket != null) {
+			commModule.closeStreams();
+			ecsSocket.close();
+			ecsSocket = null;
+			logger.info("Connection closed with ECS.");
+		}
 	}
 
 }

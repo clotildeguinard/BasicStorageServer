@@ -1,1 +1,0 @@
-ssh -n localhost nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar 50000 ERROR &

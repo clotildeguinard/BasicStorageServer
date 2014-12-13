@@ -3,7 +3,7 @@ package testing;
 import org.apache.log4j.Level;
 import org.junit.Test;
 
-import client.KVStore;
+import app_kvClient.KVStore;
 import junit.framework.TestCase;
 import logger.LogSetup;
 import common.messages.KVMessage;

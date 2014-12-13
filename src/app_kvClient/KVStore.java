@@ -1,4 +1,4 @@
-package client;
+package app_kvClient;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -10,7 +10,10 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
-import client.KVSocketListener.SocketStatus;
+import common.communication.KVCommInterface;
+import common.communication.KVCommModule;
+import common.communication.KVSocketListener;
+import common.communication.KVSocketListener.SocketStatus;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
@@ -35,6 +38,7 @@ public class KVStore extends Thread implements KVCommInterface {
 	private boolean running = false;
 	private MetadataHandler metadataHandler;
 	private static final int MAX_TRIALS = 3;
+	private static final int MAX_WAITING_MS = 3000;
 
 	/**
 	 * Initialize KVStore with address and port of KVServer
@@ -100,13 +104,12 @@ public class KVStore extends Thread implements KVCommInterface {
 
 	private void tearDownConnection() throws IOException {
 		setRunning(false);
-		logger.debug("tearing down the connection ...");
 
 		if (clientSocket != null) {
 			commModule.closeStreams();
 			clientSocket.close();
 			clientSocket = null;
-			logger.info("connection closed!");
+			logger.info("Connection closed.");
 		}
 	}
 
@@ -146,27 +149,22 @@ public class KVStore extends Thread implements KVCommInterface {
 			}
 		}
 	}
+	
+	private KVMessage sendAndWaitAnswer(KVMessage request) throws IOException, InterruptedException {
+		commModule.sendKVMessage(request);
 
-
-	public KVMessage putComm(String key, String value) throws IOException,
-	InterruptedException {
-
-		KVMessage msg = new KVMessageImpl(key, value,
-				common.messages.KVMessage.StatusType.PUT);
-		commModule.sendKVMessage(msg);
-
-		int i = 0;
-		while (i < 10 && commModule.latestIsNull()) {
+		int t = 0;
+		while (t < MAX_WAITING_MS && commModule.latestIsNull()) {
 			Thread.sleep(100);
-			i++;
-		}
-		if (i == 10) {
-			return null;
+			t += 100;
+			if (t >= MAX_WAITING_MS) {
+				return null;
+			}
 		}
 		return commModule.getLatest();
 	}
 
-	public KVMessage putBis(String key, String value, int nbTrials)
+	private KVMessage putBis(String key, String value, int nbTrials)
 			throws NoSuchAlgorithmException, UnknownHostException, IOException, InterruptedException {
 		if (nbTrials > MAX_TRIALS) {
 			logger.warn("Responsible server for key " + key + " could not be found after "  + MAX_TRIALS + " trials.");
@@ -182,7 +180,8 @@ public class KVStore extends Thread implements KVCommInterface {
 			connect();
 		}
 
-		KVMessage answer = this.putComm(key, value);
+		KVMessage answer = sendAndWaitAnswer(new KVMessageImpl(key, value,
+				common.messages.KVMessage.StatusType.PUT));
 
 		disconnect();
 		if (answer == null || answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
@@ -197,34 +196,11 @@ public class KVStore extends Thread implements KVCommInterface {
 	public KVMessage put(String key, String value) throws IOException,
 	InterruptedException, NoSuchAlgorithmException {
 		KVMessage answer = putBis(key, value, 1);
-		logger.debug("answer to put : " + answer);
+		logger.debug("Answer to put : " + answer);
 		return answer;
 	}
 
-	/**
-	 * returns kvmessage, or null if no kvmessage arrives within a given time
-	 * interval
-	 */
-
-	public KVMessage getComm(String key) throws IOException,
-	InterruptedException {
-
-		KVMessage msg = new KVMessageImpl(key, null,
-				common.messages.KVMessage.StatusType.GET);
-		commModule.sendKVMessage(msg);
-
-		int i = 0;
-		while (i < 10 && commModule.latestIsNull()) {
-			Thread.sleep(100);
-			i++;
-		}
-		if (i == 10) {
-			return null;
-		}
-		return commModule.getLatest();
-	}
-
-	public KVMessage getBis(String key, int nbTrials)
+	private KVMessage getBis(String key, int nbTrials)
 			throws NoSuchAlgorithmException, UnknownHostException, IOException, InterruptedException {
 		if (nbTrials > MAX_TRIALS) {
 			logger.warn("Responsible server for key " + key + " could not be found after "  + MAX_TRIALS + " trials.");
@@ -240,7 +216,8 @@ public class KVStore extends Thread implements KVCommInterface {
 			connect();
 		}
 
-		KVMessage answer = this.getComm(key);
+		KVMessage answer = sendAndWaitAnswer(new KVMessageImpl(key, null,
+				common.messages.KVMessage.StatusType.GET));
 		disconnect();
 
 		if (answer == null || answer.getStatus() != StatusType.SERVER_NOT_RESPONSIBLE) {
