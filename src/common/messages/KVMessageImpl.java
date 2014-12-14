@@ -59,32 +59,31 @@ public class KVMessageImpl implements KVMessage {
 	public static KVMessage unmarshal(TextMessage text) {
 
 		String xml = text.getMsg();
+		try {
+			String key = unmarshalParameter(xml, "key");
+			String value = unmarshalParameter(xml, "value");
+			String status = unmarshalParameter(xml, "status");
 
-		String key = unmarshalParameter(xml, "key");
-		String value = unmarshalParameter(xml, "value");
-		String status = unmarshalParameter(xml, "status");
+			StatusType statusType = null;
+			if (status != null) {
+				statusType = StatusType.valueOf(status.toUpperCase());
+			}
 
-		StatusType statusType = null;
-		if (status != null) {
-			statusType = StatusType.valueOf(status.toUpperCase());
+			return new KVMessageImpl(key, value, statusType);
+		} catch (IndexOutOfBoundsException | IllegalArgumentException e) {
+			logger.warn("Impossible to unmarshal received message : " + xml);
+			return null;
 		}
-
-		return new KVMessageImpl(key, value, statusType);
 
 	}
 
-	private static String unmarshalParameter(String xml, String parameter) {
-		try {
+	private static String unmarshalParameter(String xml, String parameter) throws IndexOutOfBoundsException {
 			String start_tag = "<" + parameter + ">";
 			String end_tag = "</" + parameter + ">";
 			int beginIndex = xml.indexOf(start_tag)
 					+ parameter.length() + 2;
 			int endIndex = xml.indexOf(end_tag);
 			return xml.substring(beginIndex, endIndex);
-		} catch (IndexOutOfBoundsException e) {
-			logger.warn("Impossible to unmarshal received message : " + xml);
-			return null;
-		}
 	}
 
 	@Override

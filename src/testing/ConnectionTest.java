@@ -5,7 +5,7 @@ import java.net.UnknownHostException;
 
 import org.apache.log4j.Level;
 
-import client.KVStore;
+import app_kvClient.KVStore;
 import junit.framework.TestCase;
 import logger.LogSetup;
 

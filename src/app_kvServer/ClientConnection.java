@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import common.communication.KVCommModule;
+import common.communication.KVSocketListener;
+import common.communication.KVSocketListener.SocketStatus;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
 import common.metadata.MetadataHandler;
-import client.KVCommModule;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -38,47 +40,46 @@ public class ClientConnection implements Runnable {
 	}
 
 	public void run() {
-//		boolean running = true;
-//
-//		while (running) {
-			try {
-				KVMessage request = commModule.receiveKVMessage();
-				KVMessage serverAnswer = null;
+		try {
+			KVMessage request = commModule.receiveKVMessage();
+			KVMessage serverAnswer = null;
 
-				String key = request.getKey();
-				String value = request.getValue();
-				logger.debug("Requested from client : "
-						+ request);
-				if (stopped) {
-					serverAnswer = new KVMessageImpl(key, value,
-							StatusType.SERVER_STOPPED);
-				} else if (!metadataHandler.isResponsibleFor(key)) {
-					serverAnswer = new KVMessageImpl(key, metadataHandler.toString(),
-							StatusType.SERVER_NOT_RESPONSIBLE);
+			String key = request.getKey();
+			String value = request.getValue();
+			logger.info("Requested from client : "
+					+ request);
+			if (stopped) {
+				serverAnswer = new KVMessageImpl(key, value,
+						StatusType.SERVER_STOPPED);
+			} else if (!metadataHandler.isResponsibleFor(key)) {
+				serverAnswer = new KVMessageImpl(key, metadataHandler.toString(),
+						StatusType.SERVER_NOT_RESPONSIBLE);
 
-				} else {
-					serverAnswer = handleCommand(key, value,
-							request.getStatus());
-				}
-				logger.debug("Answer to client : "
-						+ serverAnswer);
-
-				if (serverAnswer != null) {
-					commModule.sendKVMessage(serverAnswer);
-				} else {
-					logger.error("Invalid answer to request : " + request);
-				}
-			} catch (IOException e) {
-//				running = false;
-				logger.error("A connection error occurred - Application terminated "
-						+ e);
-			} catch (NoSuchAlgorithmException e) {
-//				running = false;
-				logger.fatal("A hashing error occurred - Application terminated "
-						+ e);
+			} else {
+				serverAnswer = handleCommand(key, value,
+						request.getStatus());
 			}
-//		}
-		logger.debug("Client connection terminated.");
+			logger.info("Answer to client : "
+					+ serverAnswer);
+
+			if (serverAnswer != null) {
+				commModule.sendKVMessage(serverAnswer);
+			} else {
+				logger.error("Invalid answer to request : " + request);
+			}
+		} catch (IOException e) {
+			logger.error("A connection error occurred - Application terminated "
+					+ e);
+		} catch (NoSuchAlgorithmException e) {
+			logger.fatal("A hashing error occurred - Application terminated "
+					+ e);
+		}
+		
+		try {
+			tearDownConnection();
+		} catch (IOException e) {
+			logger.error("An error occurred when tearing down the connection \n" + e );
+		}
 	}
 
 	private KVMessage handleCommand(String key, String value,
@@ -98,4 +99,12 @@ public class ClientConnection implements Runnable {
 		}
 	}
 
+	private void tearDownConnection() throws IOException {
+		if (clientSocket != null) {
+			commModule.closeStreams();
+			clientSocket.close();
+			clientSocket = null;
+			logger.info("Connection closed.");
+		}
+	}
 }

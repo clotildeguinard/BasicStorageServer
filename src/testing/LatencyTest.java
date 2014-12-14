@@ -14,88 +14,95 @@ import junit.framework.TestCase;
 import logger.LogSetup;
 
 
-public class BenchmarkTest extends TestCase {
+public class LatencyTest extends TestCase {
 	private static ECSInterface ecs;
 	private static KVClient kvclient;
 
 	static {
 		try {
-			new LogSetup("testing/test.log", Level.DEBUG);
+			new LogSetup("testing/test.log", Level.WARN);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 	}
-	
-	public void before() {
-		//should be removed if ssh could be used in initKVServer(...)
-		/////////////////
 
-		KVServer kvserver = new KVServer(50000);
-		new Thread(kvserver.new ECSSocketLoop()).start();
-		
-		kvserver = new KVServer(50001);
-		new Thread(kvserver.new ECSSocketLoop()).start();
+	public void before(int cacheSize, int nbNodes) {	
+		KVServer kvServer;
+		for (int i = 0; i < nbNodes; i++) {
+			kvServer = new KVServer(50000 + i);
+			new Thread(kvServer.new ECSSocketLoop()).start();
+		}
 
-		kvserver = new KVServer(50002);
-		new Thread(kvserver.new ECSSocketLoop()).start();
-
-		kvserver = new KVServer(50003);
-		new Thread(kvserver.new ECSSocketLoop()).start();
-		////////////////
-		
-		
 		ecs = new ECSInterface("./testing/ecs.config.txt");
-		ecs.handleCommand("init 2 5 LRU");
+		ecs.handleCommand("init "+ nbNodes + " " + cacheSize + " FIFO");
 		ecs.handleCommand("start");
-		
+
 		kvclient = new KVClient();
+	}
+
+	private void after() {
+		if (kvclient != null) {
+			kvclient.handleCommand("quit");
+		}
+		if (ecs != null) {
+			ecs.handleCommand("shutdown");
+		}
 	}
 
 	@Test
 	public void test1() {
-		before();
+		task(50, 50, 1);
+//		task(50, 25, 1);
+//		task(50, 50, 1);
+		
+//		task(50, 5, 3);
+//		task(50, 5, 3);
+//		task(50, 5, 3);
+	}
+
+	private void task(int nbRequests, int cacheSize, int nbNodes) {
+		before(cacheSize, nbNodes);
 		Exception ex = null;
 
 		try {
 			long startTime = System.currentTimeMillis();
-			
+
 			// Task1
-			
-			for (int i=0; i<30; i++) {
+
+			for (int i = 0; i < nbRequests; i++) {
 				kvclient.handleCommand("put foo" + i + " " + "bar" + i);
 			}
 			long time1 = System.currentTimeMillis();
-			System.out.println("Task1 : " + (time1 - startTime) + " ms");
-			
+			System.out.println("Task with " + nbRequests + " requests, " + nbNodes + " nodes and cacheSize " + cacheSize + " took : " + (time1 - startTime) + " ms");
+
 			// Task2
-			
-			ecs.handleCommand("addnode 5 FIFO");
+
+			ecs.handleCommand("addnode " + cacheSize + " FIFO");
 			long time2 = System.currentTimeMillis();
 			System.out.println("Task2 : " + (time2 - time1) + " ms");
-			
+
 
 			// Task3
 
 			ecs.handleCommand("removenode");
 			long time3 = System.currentTimeMillis();
 			System.out.println("Task3 : " + (time3 - time2) + " ms");
-			
-			
+
+
 			System.out.println("BenchmarkTest1 : " + (System.currentTimeMillis() - startTime) + " ms");
 		} catch (Exception e) {
 			ex = e;
 		} finally {
-			kvclient.handleCommand("quit");
-			ecs.handleCommand("shutdown");
+			after();
 		}
-		
+
 		if (ex!= null) {
 			ex.printStackTrace();
 		}
 		assertNull(ex);
 	}
-	
-	
+
+
 
 }
 

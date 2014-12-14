@@ -49,22 +49,26 @@ public class MetadataHandler {
 	 * @param fileLocation
 	 * @throws IOException
 	 */
-	public void update(String metadata) {
-		LinkedList<NodeData> tmpMetadata = new LinkedList<>();
-		String[] nodes = metadata.split(lineSeparator);
-		String[] data = null;
-		for (String n : nodes) {
-			data = n.split(fieldSeparator);
-			String ipAddress = data[1];
-			int port = Integer.parseInt(data[2]);
-			if (equalsIp(this.myIp, ipAddress) && this.myPort == port) {
-				minHashKey = data[3];
-				maxHashKey = data[4];
+	public void update(String metadata) throws ArrayIndexOutOfBoundsException {
+		try {
+			LinkedList<NodeData> tmpMetadata = new LinkedList<>();
+			String[] nodes = metadata.split(lineSeparator);
+			String[] data = null;
+			for (String n : nodes) {
+				data = n.split(fieldSeparator);
+				String ipAddress = data[1];
+				int port = Integer.parseInt(data[2]);
+				if (equalsIp(this.myIp, ipAddress) && this.myPort == port) {
+					minHashKey = data[3];
+					maxHashKey = data[4];
+				}
+				NodeData nodeData = new NodeData(data[0], data[1], Integer.parseInt(data[2]), data[3], data[4]);
+				tmpMetadata.add(nodeData);
 			}
-			NodeData nodeData = new NodeData(data[0], data[1], Integer.parseInt(data[2]), data[3], data[4]);
-			tmpMetadata.add(nodeData);
+			this.metadata = tmpMetadata;	
+		} catch (ArrayIndexOutOfBoundsException e) {
+			logger.warn("Was unable to update metadata, caused ArrayIndexOutOfBoundsException.");
 		}
-		this.metadata = tmpMetadata;	
 	}
 
 	private boolean equalsIp(String myIp, String ipAddress) {
@@ -125,7 +129,6 @@ public class MetadataHandler {
 		try {
 			String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
 					.digest(key.getBytes("UTF-8"))).toString(16);
-			logger.debug("Hashed " + key + " --> " + hashedKey);
 
 			if (minHash.compareTo(maxHash) <= 0) {
 				return hashedKey.compareTo(minHash) > 0 && hashedKey.compareTo(maxHash) <= 0;

@@ -8,110 +8,101 @@ import org.junit.Test;
 import app_kvClient.KVClient;
 import app_kvEcs.ECSInterface;
 import app_kvServer.KVServer;
+import app_kvServer.KVServer.ECSSocketLoop;
 import junit.framework.TestCase;
 import logger.LogSetup;
 
 
 public class ManyClientsTest extends TestCase {
 	private static ECSInterface ecs;
-	private static KVClient kvclient1;
-	private static KVClient kvclient2;
-	private static KVClient kvclient3;
+	private static KVClient[] kvclients;
+	private static Thread[] clientThreads;
 
 	static {
 		try {
-			new LogSetup("testing/test.log", Level.DEBUG);
+			new LogSetup("testing/test.log", Level.WARN);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 	}
 
-	public void before() {
-		//should be removed if ssh could be used in initKVServer(...)
-		/////////////////
+	private void before(int nbConcurrentClients) {
+		KVServer kvServer = new KVServer(50000);
+		new Thread(kvServer.new ECSSocketLoop()).start();
 
-		KVServer kvserver = new KVServer(50000);
-		new Thread(kvserver.new ECSSocketLoop()).start();
+		kvServer = new KVServer(50001);
+		new Thread(kvServer.new ECSSocketLoop()).start();
 
-		kvserver = new KVServer(50001);
-		new Thread(kvserver.new ECSSocketLoop()).start();
+		kvServer = new KVServer(50002);
+		new Thread(kvServer.new ECSSocketLoop()).start();
 
-		kvserver = new KVServer(50002);
-		new Thread(kvserver.new ECSSocketLoop()).start();
-
-		kvserver = new KVServer(50003);
-		new Thread(kvserver.new ECSSocketLoop()).start();
-		////////////////
-
+		kvServer = new KVServer(50003);
+		new Thread(kvServer.new ECSSocketLoop()).start();
 
 		ecs = new ECSInterface("./testing/ecs.config.txt");
-		ecs.handleCommand("init 2 5 LRU");
+		ecs.handleCommand("init 4 5 LRU");
 		ecs.handleCommand("start");
 
-		kvclient1 = new KVClient();
-		kvclient2 = new KVClient();
-		kvclient3 = new KVClient();
+		kvclients = new KVClient[nbConcurrentClients];
+		for (int i = 0; i < nbConcurrentClients ; i ++) {
+			kvclients[i] = new KVClient();
+		}
+	}
+
+	private void after() {
+		ecs.handleCommand("shutdown");
+		ecs.handleCommand("quit");
 	}
 
 
 	@Test
 	public void test1() {
-		before();
+		task(3);
+	}
+
+	private void task(int nbConcurrentClients) {
+		before(nbConcurrentClients);
 		Exception ex = null;
 
 		try {
 			long startTime = System.currentTimeMillis();
 
 			// Task1
-			Thread t1 = clientThread(kvclient1);
-			Thread t2 = clientThread(kvclient2);
-			Thread t3 = clientThread(kvclient3);
-			t3.start();
-			t1.start();
-			t2.start();
-			
-			t3.join();
-			t1.join();
-			t2.join();
+			clientThreads = new Thread[nbConcurrentClients];
+			for (int i = 0; i < nbConcurrentClients ; i ++) {
+				clientThreads[i] = clientThread(kvclients[i], i);
+			}
+			for (Thread t : clientThreads) {
+				t.start();
+			}
+			for (Thread t : clientThreads) {
+				t.join();
+			}
 
 
 			long time1 = System.currentTimeMillis();
-			System.out.println("Task1 : " + (time1 - startTime) + " ms");
 
-			// Task2
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("Task with " + nbConcurrentClients + " concurrent clients : " + (time1 - startTime) + " ms");
+			System.out.println("----------------------------------------------------------------------");
 
-			ecs.handleCommand("addnode 5 FIFO");
-			long time2 = System.currentTimeMillis();
-			System.out.println("Task2 : " + (time2 - time1) + " ms");
-
-
-			// Task3
-
-			ecs.handleCommand("removenode");
-			long time3 = System.currentTimeMillis();
-			System.out.println("Task3 : " + (time3 - time2) + " ms");
-
-
-			System.out.println("BenchmarkTest1 : " + (System.currentTimeMillis() - startTime) + " ms");
 		} catch (Exception e) {
 			ex = e;
+			ex.printStackTrace();
 		} finally {
-			kvclient1.handleCommand("quit");
-			ecs.handleCommand("shutdown");
+			after();
 		}
 
-		if (ex!= null) {
-			ex.printStackTrace();
-		}
 		assertNull(ex);
 	}
-	
-	private Thread clientThread(final KVClient client) {
+
+	private Thread clientThread(final KVClient client, final int index) {
 		return new Thread() {
 			public void run(){
 				for (int i=0; i<30; i++) {
-					client.handleCommand("put foo" + i + " " + "bar" + i);
+					client.handleCommand("put foo" + (30*index + i) + " " + "bar" + (30*index + i));
 				}
+				client.handleCommand("quit");
 			}
 		};
 	}
