@@ -3873,6 +3873,7 @@ java.net.SocketException: socket closed
 2014-12-05 09:55:01,573 FATAL [Thread-2] EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
 2014-12-11 10:10:15,222 INFO  [Thread-1] KVServer: Server listening on port: 50000
 >>>>>>> Stashed changes
+<<<<<<< Updated upstream
 2014-12-11 10:33:51,482 INFO  [Thread-1] KVServer: Server listening on port: 50000
 2014-12-11 10:33:51,898 INFO  [Thread-1] KVServer: Connected to ECS 127.0.0.1 on port 60796
 2014-12-11 10:33:52,108 INFO  [Thread-1] KVServer: Server listening on port: 50001
@@ -3887,3 +3888,11 @@ java.net.SocketException: socket closed
 2014-12-11 10:33:52,509 DEBUG [Thread-3] KVServer: Server listening to clients...
 2014-12-11 11:05:22,172 FATAL [Thread-2] app_kvServer.EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
 2014-12-11 11:05:22,172 FATAL [Thread-2] app_kvServer.EcsConnection: An error occurred in ECS connection - Application terminated java.net.SocketException: Connection reset
+=======
+2014-12-11 10:37:49,080 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-11 10:49:45,470 INFO  [Thread-1] KVServer: Server listening on port: 50000
+2014-12-11 10:53:08,046 INFO  [Thread-1] KVServer: Connected to ECS localhost on port 49811
+2014-12-11 10:53:08,259 ERROR [Thread-1] KVServer: Error! Cannot open server socket:
+2014-12-11 10:53:08,260 ERROR [Thread-1] KVServer: Port 50000 is already bound!
+2014-12-11 10:53:08,298 INFO  [Thread-1] KVServer: Server listening on port: 50001
+>>>>>>> Stashed changes

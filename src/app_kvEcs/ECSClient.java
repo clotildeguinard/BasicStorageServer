@@ -78,10 +78,12 @@ public class ECSClient implements KVSocketListener {
 
 //		String script = "ssh -n " + hostIp + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
 //					+ portNumber + " " + logLevel.toUpperCase() + " & ";
-		String script = "java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
+
+
+		String script = "java -jar /Users/nadiastraton/git/BasicStorageServer/ms3-server.jar "
+
 				+ port + " " + logLevel.toUpperCase();
 
-		
 
 		Runtime run = Runtime.getRuntime();
 		try {
