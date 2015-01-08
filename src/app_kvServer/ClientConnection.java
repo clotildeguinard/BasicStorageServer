@@ -1,6 +1,7 @@
 package app_kvServer;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -51,10 +52,6 @@ public class ClientConnection implements Runnable {
 			if (stopped) {
 				serverAnswer = new KVMessageImpl(key, value,
 						StatusType.SERVER_STOPPED);
-			} else if (!metadataHandler.isResponsibleFor(key)) {
-				serverAnswer = new KVMessageImpl(key, metadataHandler.toString(),
-						StatusType.SERVER_NOT_RESPONSIBLE);
-
 			} else {
 				serverAnswer = handleCommand(key, value,
 						request.getStatus());
@@ -83,12 +80,19 @@ public class ClientConnection implements Runnable {
 	}
 
 	private KVMessage handleCommand(String key, String value,
-			StatusType requestStatus) {
+			StatusType requestStatus) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		switch (requestStatus) {
 		case GET:
+			if (!metadataHandler.isReadResponsibleFor(key)) {
+				return new KVMessageImpl(key, metadataHandler.toString(),
+						StatusType.SERVER_NOT_RESPONSIBLE);
+			}
 			return sharedCacheManager.get(key);
 		case PUT:
-			if (writeLock) {
+			if (!metadataHandler.isWriteResponsibleFor(key)) {
+				return new KVMessageImpl(key, metadataHandler.toString(),
+						StatusType.SERVER_NOT_RESPONSIBLE);
+			} else if (writeLock) {
 				return new KVMessageImpl(key, value,
 						StatusType.SERVER_WRITE_LOCK);
 			} else {

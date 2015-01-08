@@ -77,14 +77,6 @@ public class ECSClient implements KVSocketListener {
 
 //		String script = "ssh -n " + hostIp + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
 //					+ portNumber + " " + logLevel.toUpperCase() + " & ";
-<<<<<<< HEAD
-
-
-		String script = "java -jar /Users/nadiastraton/git/BasicStorageServer/ms3-server.jar "
-
-				+ port + " " + logLevel.toUpperCase();
-
-=======
 		
 		String currentPath = ClassLoader.getSystemResource("").toString();
 		System.out.println(currentPath);
@@ -96,7 +88,6 @@ public class ECSClient implements KVSocketListener {
 		
 //		script = "java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
 //				+ port + " " + logLevel.toUpperCase();
->>>>>>> FETCH_HEAD
 
 		Runtime run = Runtime.getRuntime();
 		try {
@@ -146,7 +137,7 @@ public class ECSClient implements KVSocketListener {
 		for (int i=0; i<size; i+=4) {
 			String minHashKey = sortedList.get((i-1 + size) % size);
 			list.add(new NodeData(sortedList.get(i), sortedList.get(i+1),
-					Integer.valueOf(sortedList.get(i+2)), minHashKey, sortedList.get(i+3)));
+					Integer.valueOf(sortedList.get(i+2)), minHashKey, sortedList.get(i+3), "", ""));
 		}
 		return list;
 	}

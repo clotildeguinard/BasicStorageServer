@@ -171,7 +171,7 @@ public class KVStore extends Thread implements KVCommInterface {
 			return new KVMessageImpl(key, null, StatusType.PUT_ERROR);
 		}
 
-		String[] serverForKey = metadataHandler.getServerForKey(key);
+		String[] serverForKey = metadataHandler.getWriteServerForKey(key);
 
 		if (serverForKey != null) {
 			int portNumber = Integer.parseInt(serverForKey[1]);
@@ -207,7 +207,7 @@ public class KVStore extends Thread implements KVCommInterface {
 			return new KVMessageImpl(key, null, StatusType.GET_ERROR);
 		}
 
-		String[] serverForKey = metadataHandler.getServerForKey(key);
+		String[] serverForKey = metadataHandler.getReadServerForKey(key);
 
 		if (serverForKey != null) {
 			int portNumber = Integer.parseInt(serverForKey[1]);

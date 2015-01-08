@@ -4,7 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -18,6 +17,8 @@ public class MetadataHandler {
 	private final static String hashingAlgorithm = "MD5";
 	private final static String equivLocalhost = "127.0.0.1";
 	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private String minReadHashKey;
+	private String maxHashKey2;
 	private String minHashKey;
 	private String maxHashKey;
 	private final String myIp;
@@ -49,26 +50,24 @@ public class MetadataHandler {
 	 * @param fileLocation
 	 * @throws IOException
 	 */
-	public void update(String metadata) throws ArrayIndexOutOfBoundsException {
-		try {
-			LinkedList<NodeData> tmpMetadata = new LinkedList<>();
-			String[] nodes = metadata.split(lineSeparator);
-			String[] data = null;
-			for (String n : nodes) {
-				data = n.split(fieldSeparator);
-				String ipAddress = data[1];
-				int port = Integer.parseInt(data[2]);
-				if (equalsIp(this.myIp, ipAddress) && this.myPort == port) {
-					minHashKey = data[3];
-					maxHashKey = data[4];
-				}
-				NodeData nodeData = new NodeData(data[0], data[1], Integer.parseInt(data[2]), data[3], data[4]);
-				tmpMetadata.add(nodeData);
+	public void update(String metadata) {
+		LinkedList<NodeData> tmpMetadata = new LinkedList<>();
+		String[] nodes = metadata.split(lineSeparator);
+		String[] data = null;
+		for (String n : nodes) {
+			data = n.split(fieldSeparator);
+			String ipAddress = data[1];
+			int port = Integer.parseInt(data[2]);
+			if (equalsIp(this.myIp, ipAddress) && this.myPort == port) {
+				minHashKey = data[3];
+				maxHashKey = data[4];
+				minReadHashKey = data[5];
+				maxHashKey2 = data[6];
 			}
-			this.metadata = tmpMetadata;	
-		} catch (ArrayIndexOutOfBoundsException e) {
-			logger.warn("Was unable to update metadata, caused ArrayIndexOutOfBoundsException.");
+			NodeData nodeData = new NodeData(data[0], data[1], Integer.parseInt(data[2]), data[3], data[4], data[5], data[6]);
+			tmpMetadata.add(nodeData);
 		}
+		this.metadata = tmpMetadata;	
 	}
 
 	private boolean equalsIp(String myIp, String ipAddress) {
@@ -87,7 +86,34 @@ public class MetadataHandler {
 	 * @throws IOException
 	 */
 
-	public String[] getServerForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+	public String[] getReadServerForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		if (metadata.size() == 1) {
+			return new String []
+					{metadata.get(0).getIpAddress(), Integer.toString(metadata.get(0).getPortNumber())};
+		}
+		for (NodeData e: metadata){
+
+			boolean b=isInRange(key, e.getMinReadHashKey(), e.getMaxHashKey());
+
+			if (b==true){
+				return new String []{e.getIpAddress(), Integer.toString(e.getPortNumber())};
+			}
+
+		}
+		return null;
+	}
+
+	/**
+	 * 
+	 * @param fileLocation : the location of the metadata
+	 * @param key : the key we are interested in
+	 * @return array with server ip and port responsible for key
+	 * @throws UnsupportedEncodingException 
+	 * @throws NoSuchAlgorithmException 
+	 * @throws IOException
+	 */
+
+	public String[] getWriteServerForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		if (metadata.size() == 1) {
 			return new String []
 					{metadata.get(0).getIpAddress(), Integer.toString(metadata.get(0).getPortNumber())};
@@ -104,7 +130,12 @@ public class MetadataHandler {
 		return null;
 	}
 
-	public boolean isResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+
+	public boolean isReadResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		return isInRange(key, minReadHashKey, maxHashKey);
+	}
+
+	public boolean isWriteResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		return isInRange(key, minHashKey, maxHashKey);
 	}
 
@@ -121,7 +152,7 @@ public class MetadataHandler {
 	}
 
 	private boolean isInRange(String key, String minHash, String maxHash)
-			throws NoSuchAlgorithmException, UnsupportedEncodingException {
+			throws UnsupportedEncodingException, NoSuchAlgorithmException {
 		if (minHash.equals(maxHash)) {
 			// i.e. there is only one node
 			return true;
@@ -129,12 +160,9 @@ public class MetadataHandler {
 		try {
 			String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
 					.digest(key.getBytes("UTF-8"))).toString(16);
+			logger.debug("Hashed " + key + " --> " + hashedKey);
 
-			if (minHash.compareTo(maxHash) <= 0) {
-				return hashedKey.compareTo(minHash) > 0 && hashedKey.compareTo(maxHash) <= 0;
-			} else {
-				return hashedKey.compareTo(minHash) > 0 || hashedKey.compareTo(maxHash) <= 0;
-			}	
+			return hashIsInRange(hashedKey, minHash, maxHash);	
 		} catch (NullPointerException e) {
 			logger.warn("Hash of key " + key + " was null!");
 			return false;
@@ -144,8 +172,37 @@ public class MetadataHandler {
 		}
 	}
 
+	private boolean hashIsInRange(String hashedKey, String minHash, String maxHash)
+			throws UnsupportedEncodingException, NoSuchAlgorithmException {
+		if (minHash.equals(maxHash)) {
+			// i.e. there is only one node
+			return true;
+		}
+		if (minHash.compareTo(maxHash) <= 0) {
+			return hashedKey.compareTo(minHash) > 0 && hashedKey.compareTo(maxHash) <= 0;
+		} else {
+			return hashedKey.compareTo(minHash) > 0 || hashedKey.compareTo(maxHash) <= 0;
+		}
+	}
+
 	public boolean hasToMove(String key, String hashOfNewServer) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		return isInRange(key, minHashKey, hashOfNewServer);
+		if (hashIsInRange(hashOfNewServer, minHashKey, maxHashKey)) {
+			return isInRange(key, minHashKey, hashOfNewServer);
+		} else {
+			return false;
+		}
+	}
+
+	public boolean hasToDelete(String key, String hashOfNewServer) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+		if (hashIsInRange(hashOfNewServer, minReadHashKey, maxHashKey2)) {
+			// can delete part of replica2 zone
+			return isInRange(key, minReadHashKey, hashOfNewServer);
+		} else if (hashIsInRange(hashOfNewServer, maxHashKey2, maxHashKey)) {
+			// can delete whole replica2 zone
+			return isInRange(key, minReadHashKey, maxHashKey2);
+		} else {
+			return false;
+		}
 	}
 
 	public NodeData getRandom() throws NoSuchElementException {
