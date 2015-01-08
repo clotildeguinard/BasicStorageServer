@@ -69,6 +69,13 @@ public class KVStore extends Thread implements KVCommInterface {
 		connect(n.getIpAddress(), n.getPortNumber());
 	}
 
+	public void heartbeat(String Ip, int Port) throws IOException, InterruptedException{
+		connect();
+		sendAndWaitAnswer(new KVMessageImpl(Ip, Integer.toString(Port),
+				common.messages.KVMessage.StatusType.HEARTBEAT));
+		disconnect();
+	}
+	
 	private void connect(String address, int port) throws IOException {
 		logger.debug("Trying to connect to ip " + address + " , port " + port);
 		clientSocket = new Socket(address, port);

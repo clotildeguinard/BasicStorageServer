@@ -33,7 +33,7 @@ public class MetadataHandler {
 		this.myIp = clientIp;
 		this.myPort = clientPort;
 	}
-
+	
 	/**
 	 * used by ECS
 	 * @param metadataContent
@@ -43,6 +43,31 @@ public class MetadataHandler {
 		myPort = -1;
 		myIp = null;
 	}
+	
+	// find neighbours who will get heartbeats. one on left, one on right.
+	public List<NodeData> getNeighbours(){
+		
+		List<NodeData> neighbours = null;
+		
+		return neighbours;		
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getIp(){
+		return myIp;		
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getPort(){
+		return myPort;		
+	}
+	
 
 	/**
 	 * overwrite metadata file with more recent metadata

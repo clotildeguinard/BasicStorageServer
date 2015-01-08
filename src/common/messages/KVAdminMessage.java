@@ -11,7 +11,8 @@ public interface KVAdminMessage {
 		SHUTDOWN,
 		UPDATE_METADATA,
 		MOVE_DATA,
-		INIT_KVSERVER
+		INIT_KVSERVER,
+		SUSPICIOUS;
 	}
 
 	/**

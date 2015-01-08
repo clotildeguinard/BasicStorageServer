@@ -14,6 +14,7 @@ import common.messages.KVMessageImpl;
 import common.metadata.MetadataHandler;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -27,9 +28,10 @@ public class ClientConnection implements Runnable {
 
 	private final boolean stopped;
 	private final boolean writeLock;
+	private final List<KVMessage> heartbeatQueue;
 
 	public ClientConnection(int port, Socket clientSocket, CacheManager cacheManager,
-			MetadataHandler metadataHandler, boolean writeLocked, boolean stopped)
+			MetadataHandler metadataHandler, boolean writeLocked, boolean stopped, List<KVMessage> heartbeatQueue)
 					throws IOException {
 		this.writeLock = writeLocked;
 		this.stopped = stopped;
@@ -38,6 +40,7 @@ public class ClientConnection implements Runnable {
 		this.metadataHandler = metadataHandler;
 		this.commModule = new KVCommModule(clientSocket.getOutputStream(),
 				clientSocket.getInputStream());
+		this.heartbeatQueue = heartbeatQueue;
 	}
 
 	public void run() {
@@ -61,7 +64,7 @@ public class ClientConnection implements Runnable {
 
 			if (serverAnswer != null) {
 				commModule.sendKVMessage(serverAnswer);
-			} else {
+			} else if (!request.getStatus().equals(StatusType.HEARTBEAT)){
 				logger.error("Invalid answer to request : " + request);
 			}
 		} catch (IOException e) {
@@ -98,6 +101,10 @@ public class ClientConnection implements Runnable {
 			} else {
 				return sharedCacheManager.put(key, value);
 			}
+		case HEARTBEAT:
+			heartbeatQueue.add(new KVMessageImpl(key, value, StatusType.HEARTBEAT));
+			return null;
+			
 		default:
 			return null;
 		}

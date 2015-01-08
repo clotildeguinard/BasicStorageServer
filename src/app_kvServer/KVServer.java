@@ -1,5 +1,6 @@
 package app_kvServer;
 
+
 import java.io.IOException;
 import java.net.BindException;
 import java.net.InetSocketAddress;
@@ -7,12 +8,17 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 import logger.LogSetup;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import common.communication.HeartBeat;
+import common.messages.KVAdminMessage;
+import common.messages.KVMessage;
 import common.metadata.MetadataHandler;
 import app_kvClient.KVStore;
 import app_kvServer.cache_strategies.FIFOStrategy;
@@ -30,6 +36,7 @@ public class KVServer implements Runnable {
 	protected CacheManager cacheManager;
 	private Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private EcsConnection ecsConnection;
+	private List<KVAdminMessage> suspiciousQueue;
 	private boolean shutdown = false;
 	private boolean writeLocked = false;
 
@@ -128,7 +135,7 @@ public class KVServer implements Runnable {
 			try {
 				Socket ecs = serverSocket.accept();                
 				ecsConnection = 
-						new EcsConnection(port, ecs, KVServer.this);
+						new EcsConnection(port, ecs, KVServer.this, suspiciousQueue);
 				new Thread(ecsConnection).start();
 
 				logger.info("Connected to ECS " 
@@ -152,7 +159,8 @@ public class KVServer implements Runnable {
 			return;
 		}
 		logger.debug("Server listening to clients...");
-
+		List<KVMessage> heartbeatQueue = new ArrayList<KVMessage>();
+		new Thread(new HeartBeat(metadataHandler, heartbeatQueue, isStopped, suspiciousQueue)).start();
 		while (!shutdown){
 			try {
 				Socket client = serverSocket.accept();
@@ -161,7 +169,7 @@ public class KVServer implements Runnable {
 						+  " on port " + client.getPort());
 				
 				ClientConnection clientConnection = 
-						new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped);
+						new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped, heartbeatQueue);
 				new Thread(clientConnection).start();
 			} catch (SocketException e1) {
 				shutdown = true;

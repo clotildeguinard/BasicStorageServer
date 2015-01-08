@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -24,10 +25,12 @@ public class EcsConnection implements Runnable {
 
 	private boolean stopECSConnection = true;
 	private boolean hasToShutdownServer = false;
+	List<KVAdminMessage> suspQueue;
 
-	public EcsConnection(int port, Socket ecsSocket, KVServer kvServer) throws UnknownHostException {
+	public EcsConnection(int port, Socket ecsSocket, KVServer kvServer, List<KVAdminMessage> SuspQueue) throws UnknownHostException {
 		this.kvServer = kvServer;
 		this.ecsSocket = ecsSocket;
+		this.suspQueue = SuspQueue;
 		try {
 			commModule = new KVAdminCommModule(ecsSocket.getOutputStream(), ecsSocket.getInputStream());
 		} catch (IOException e1) {
@@ -41,6 +44,12 @@ public class EcsConnection implements Runnable {
 
 		while(!stopECSConnection) {
 			try {
+				if (suspQueue.size() >= 1){
+					for(KVAdminMessage suspicion : suspQueue){
+						commModule.sendKVAdminMessage(suspicion);
+						suspQueue.remove(suspicion);
+					}
+				}
 				KVAdminMessage request = commModule.receiveKVAdminMessage();
 				logger.info("Requested from ECS : " + request);
 
