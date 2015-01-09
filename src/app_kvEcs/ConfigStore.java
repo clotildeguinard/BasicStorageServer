@@ -209,6 +209,16 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		KVAdminMessage answer = sendAndWaitAnswer(msg, 60000);
 		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 	}
+	
+	
+	public boolean moveData(String[] destinationServer, String minHashToMove, String maxHashToMove) {
+		KVAdminMessage msg = new KVAdminMessageImpl(minHashToMove + ":" + maxHashToMove, destinationServer[0] + ":" + destinationServer[1],
+				common.messages.KVAdminMessage.StatusType.MOVE_DATA_BIS);
+		KVAdminMessage answer = sendAndWaitAnswer(msg, 60000);
+		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
+	}
+	
+
 
 	@Override
 	public boolean initKVServer(String metadata, int cacheSize,

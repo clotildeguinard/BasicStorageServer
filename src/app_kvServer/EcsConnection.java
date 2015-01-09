@@ -130,6 +130,18 @@ public class EcsConnection implements Runnable {
 			logger.info("Exiting");
 			return new KVAdminMessageImpl("ok", null, StatusType.SHUTDOWN);
 
+		case MOVE_DATA_BIS:
+			String[] destinationServers = value.split(":");
+			String[] RangeToMove = key.split(":");
+			try {
+				kvServer.moveData(key, destinationServers[0], Integer.parseInt(destinationServers[1]));
+			} catch (IOException e) {
+				return new KVAdminMessageImpl(null, null, StatusType.MOVE_DATA);
+			}
+			return new KVAdminMessageImpl("ok", null, StatusType.MOVE_DATA);
+
+			
+			
 		default:
 			logger.warn("The instruction has an unknown status : " + statusType);
 		}

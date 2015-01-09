@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
@@ -72,6 +73,44 @@ public class ECSClient implements KVSocketListener {
 
 	}
 
+	
+	public boolean recoverData(String Ip, int Port) throws NoSuchAlgorithmException, UnsupportedEncodingException{
+		int suspIndex = 0;
+		for (int i = 1; i<sortedNodeHashes.size(); i+=4){
+			if( sortedNodeHashes.get(i).equals(Ip) && sortedNodeHashes.get(i+1).equals(Integer.toString(Port))){
+				suspIndex = (i-1) % 4;
+			}
+		}
+		
+		// lost data to new owner (following node)
+		String[] destinationServer = {sortedNodeHashes.get((suspIndex+5) % sortedNodeHashes.size()), sortedNodeHashes.get((suspIndex+6) % sortedNodeHashes.size())};
+		
+		String key1 = sortedNodeHashes.get((suspIndex - 3) % sortedNodeHashes.size()) + ";" + sortedNodeHashes.get((suspIndex - 2) % sortedNodeHashes.size());
+		String key2 = Ip + ";" + Integer.toString(Port);
+		
+		ConfigStore replica1CS = sortedConfigStores.get((suspIndex - 1) % sortedConfigStores.size());
+		String minHashToMove1 = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
+				.digest(key1.getBytes("UTF-8"))).toString(16);
+		String maxHashToMove1 = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
+				.digest(key2.getBytes("UTF-8"))).toString(16);
+		
+		replica1CS.moveData(destinationServer, minHashToMove1, maxHashToMove1);
+		
+		
+		// data of a new node as replica to previous node.
+		String key4 = sortedNodeHashes.get((suspIndex + 5) % sortedNodeHashes.size()) + ";" + sortedNodeHashes.get((suspIndex + 6) % sortedNodeHashes.size());
+		String key3 = Ip + ";" + Integer.toString(Port);
+		String[] destinationserver = {sortedNodeHashes.get((suspIndex - 7) % sortedNodeHashes.size()), sortedNodeHashes.get((suspIndex - 6) % sortedNodeHashes.size())};
+		ConfigStore replica2CS = sortedConfigStores.get((suspIndex + 1) % sortedConfigStores.size());
+		String minHashToMove2 = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
+				.digest(key3.getBytes("UTF-8"))).toString(16);
+		String maxHashToMove2 = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
+				.digest(key4.getBytes("UTF-8"))).toString(16);
+		
+		replica2CS.moveData(destinationserver, minHashToMove2, maxHashToMove2);
+		return true;		
+	}
+	
 	private void launchSSH(String hostIp, String port, String logLevel) {
 		Process proc;
 
@@ -136,8 +175,10 @@ public class ECSClient implements KVSocketListener {
 
 		for (int i=0; i<size; i+=4) {
 			String minHashKey = sortedList.get((i-1 + size) % size);
+			String maxHashKey2 = sortedList.get((i-5 + 2 * size) % size);
+			String minReadHashKey = sortedList.get((i-9 + 3 * size) % size);
 			list.add(new NodeData(sortedList.get(i), sortedList.get(i+1),
-					Integer.valueOf(sortedList.get(i+2)), minHashKey, sortedList.get(i+3), "", ""));
+					Integer.valueOf(sortedList.get(i+2)), minHashKey, sortedList.get(i+3), maxHashKey2, minReadHashKey));
 		}
 		return list;
 	}
@@ -465,5 +506,7 @@ public class ECSClient implements KVSocketListener {
 		}
 		return s;
 	}
+	
+
 
 }

@@ -176,7 +176,7 @@ public class MetadataHandler {
 		return s.toString();
 	}
 
-	private boolean isInRange(String key, String minHash, String maxHash)
+	public boolean isInRange(String key, String minHash, String maxHash)
 			throws UnsupportedEncodingException, NoSuchAlgorithmException {
 		if (minHash.equals(maxHash)) {
 			// i.e. there is only one node

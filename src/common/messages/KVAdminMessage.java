@@ -12,7 +12,8 @@ public interface KVAdminMessage {
 		UPDATE_METADATA,
 		MOVE_DATA,
 		INIT_KVSERVER,
-		SUSPICIOUS;
+		SUSPICIOUS,
+		MOVE_DATA_BIS;
 	}
 
 	/**

@@ -36,7 +36,7 @@ public class KVServer implements Runnable {
 	protected CacheManager cacheManager;
 	private Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private EcsConnection ecsConnection;
-	private List<KVAdminMessage> suspiciousQueue;
+	private List<KVAdminMessage> suspiciousQueue = new ArrayList<KVAdminMessage>();
 	private boolean shutdown = false;
 	private boolean writeLocked = false;
 
@@ -225,6 +225,36 @@ public class KVServer implements Runnable {
 		} finally {
 			kvStore.disconnect();
 		}
+	}
+	
+	
+	public void moveData(String minHashValue, String maxHashValue, String destinationServerIp, int destinationServerPort)
+		throws IOException {
+			cacheManager.flushCache();
+			logger.debug("Cache flushed.");
+			KVStore kvStore = new KVStore(destinationServerIp, destinationServerPort);
+			try {
+				kvStore.connect();
+				for (Pair<String, String> pair : cacheManager) {
+					if (metadataHandler.isInRange(pair.getKey(), minHashValue, maxHashValue)) {
+						logger.debug("Move key " + pair.getKey() + ", value " + pair.getValue());
+						kvStore.put(pair.getKey(), pair.getValue());
+						cacheManager.put(pair.getKey(), "null");
+					}
+					else {
+						logger.debug("Keep key " + pair.getKey() + ", value " + pair.getValue());
+					}
+				}
+//				eraseMovedData(hashOfNewNode);
+			} catch (InterruptedException e) {
+				stop();
+				logger.error("An error occurred during connection to other server", e);
+			} catch (NoSuchAlgorithmException e) {
+				stop();
+				logger.fatal("An error occurred during hashing", e);
+			} finally {
+				kvStore.disconnect();
+			}
 	}
 
 	/**
