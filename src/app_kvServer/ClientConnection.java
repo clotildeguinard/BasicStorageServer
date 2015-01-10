@@ -5,6 +5,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import app_kvClient.KVStore;
+import app_kvServer.cache_strategies.Pair;
 import common.communication.KVCommModule;
 import common.communication.KVSocketListener;
 import common.communication.KVSocketListener.SocketStatus;
@@ -12,6 +14,7 @@ import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
 import common.metadata.MetadataHandler;
+import common.metadata.NodeData;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -64,6 +67,9 @@ public class ClientConnection implements Runnable {
 
 			if (serverAnswer != null) {
 				commModule.sendKVMessage(serverAnswer);
+				if (request.getStatus().equals(StatusType.PUT)) {
+					propagateToReplicas(key, value);
+				}
 			} else if (!request.getStatus().equals(StatusType.HEARTBEAT)){
 				logger.error("Invalid answer to request : " + request);
 			}
@@ -74,11 +80,37 @@ public class ClientConnection implements Runnable {
 			logger.fatal("A hashing error occurred - Application terminated "
 					+ e);
 		}
-		
+
 		try {
 			tearDownConnection();
 		} catch (IOException e) {
 			logger.error("An error occurred when tearing down the connection \n" + e );
+		}
+	}
+
+	private void propagateToReplicas(String key, String value) throws UnknownHostException, IOException, NoSuchAlgorithmException {
+		NodeData rep1 = metadataHandler.getReplica1();
+		KVStore kvStore = new KVStore(rep1.getIpAddress(), rep1.getPortNumber());
+		try {
+			kvStore.connect();
+			kvStore.put(key, value);
+
+		} catch (InterruptedException e) {
+			logger.error("An error occurred during connection to other server", e);
+		} finally {
+			kvStore.disconnect();
+		}
+
+		NodeData rep2 = metadataHandler.getReplica2();
+		kvStore = new KVStore(rep2.getIpAddress(), rep2.getPortNumber());
+		try {
+			kvStore.connect();
+			kvStore.put(key, value);
+
+		} catch (InterruptedException e) {
+			logger.error("An error occurred during connection to other server", e);
+		} finally {
+			kvStore.disconnect();
 		}
 	}
 
@@ -104,7 +136,7 @@ public class ClientConnection implements Runnable {
 		case HEARTBEAT:
 			heartbeatQueue.add(new KVMessageImpl(key, value, StatusType.HEARTBEAT));
 			return null;
-			
+
 		default:
 			return null;
 		}

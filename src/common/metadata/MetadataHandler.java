@@ -233,5 +233,25 @@ public class MetadataHandler {
 	public NodeData getRandom() throws NoSuchElementException {
 		return metadata.get(0);
 	}
+	
+	public NodeData getReplica1() {
+		for (int i=0; i<metadata.size(); i++) {
+			NodeData e = metadata.get(i);
+			if (equalsIp(this.myIp, e.getIpAddress()) && this.myPort == e.getPortNumber()) {
+				return metadata.get((i-1 + metadata.size()) % metadata.size());
+			}
+		}
+		return null;
+	}
+	
+	public NodeData getReplica2() {
+		for (int i=0; i<metadata.size(); i++) {
+			NodeData e = metadata.get(i);
+			if (equalsIp(this.myIp, e.getIpAddress()) && this.myPort == e.getPortNumber()) {
+				return metadata.get((i-2 + 2*metadata.size()) % metadata.size());
+			}
+		}
+		return null;
+	}
 
 }
