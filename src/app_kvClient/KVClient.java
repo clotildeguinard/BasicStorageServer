@@ -10,6 +10,8 @@ import logger.LogSetup;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import app_kvApi.KVStore;
+import app_kvApi.KVStoreClient;
 import common.communication.KVSocketListener;
 import common.messages.TextMessage;
 
@@ -18,7 +20,7 @@ public class KVClient implements KVSocketListener {
 	private static final Logger logger = Logger.getLogger(KVClient.class);
 	private static final String PROMPT = "KVClient> ";
 	private BufferedReader stdin;
-	private KVStore kvStore = new KVStore("localhost", 50000);
+	private KVStore kvStore = new KVStoreClient("localhost", 50000);
 	private boolean stop = false;
 
 	private String serverAddress;
@@ -27,11 +29,9 @@ public class KVClient implements KVSocketListener {
 	public void run() {	        	
 
 		System.out.println("\n-------------------Please select one of the commands-------------------------------------");
-
 		System.out.println("\nPUT, GET, LOGLEVEL, HELP, QUIT");
 
 		while(!stop) {
-
 			stdin = new BufferedReader(new InputStreamReader(System.in));
 			System.out.print(PROMPT);
 
@@ -42,7 +42,18 @@ public class KVClient implements KVSocketListener {
 				stop = true;
 				printError("CLI does not respond - Application terminated ");
 			}
-		}   
+		}
+
+		if (kvStore.connection != null) {
+			System.out.println("waiting connection...");
+			try {
+				kvStore.connection.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("connection joined!");
+		}
 	}
 
 	public void handleCommand(String command) {
@@ -111,7 +122,6 @@ public class KVClient implements KVSocketListener {
 		}
 	}
 
-
 	private void disconnect() {
 		if(kvStore != null) {
 			kvStore.disconnect();
@@ -141,16 +151,10 @@ public class KVClient implements KVSocketListener {
 		System.out.println(sb.toString());
 	}
 
-	private void printPossibleLogLevels() {
-		System.out.println(PROMPT
-				+ "Possible log levels are:");
-		System.out.println(PROMPT 
-				+ "ALL | DEBUG | INFO | WARN | ERROR | FATAL | OFF");
-	}
-
 	private String setLevel(String levelString) {
 		Level wantedLevel = Level.toLevel(levelString);
 		logger.setLevel(wantedLevel);
+		kvStore.setLoggerLevel(wantedLevel);
 		return wantedLevel.toString();
 	}
 
@@ -168,7 +172,6 @@ public class KVClient implements KVSocketListener {
 					+ serverAddress + " / " + serverPort);
 			System.out.print(PROMPT);
 		}
-
 	}
 
 	@Override
@@ -191,6 +194,7 @@ public class KVClient implements KVSocketListener {
 			new LogSetup("logs/client.log", Level.ALL);
 			KVClient app = new KVClient();
 			app.run();
+			System.out.println("finished to run");
 		} catch (IOException e) {
 			System.out.println("Error! Unable to initialize logger!");
 			e.printStackTrace();

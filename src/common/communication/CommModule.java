@@ -17,7 +17,7 @@ public class CommModule {
 	}
 	
 	/**
-	 * Method sends a TextMessage using this socket.
+	 * Send a TextMessage using this socket.
 	 * @param msg the message that is to be sent.
 	 * @param output 
 	 * @throws IOException some I/O error regarding the output stream 

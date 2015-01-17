@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
@@ -23,7 +22,10 @@ import org.apache.log4j.Logger;
 
 import app_kvServer.cache_strategies.Strategy;
 import common.communication.KVSocketListener;
+import common.messages.KVAdminMessage;
+import common.messages.KVAdminMessageImpl;
 import common.messages.TextMessage;
+import common.messages.KVMessage.StatusType;
 import common.metadata.MetadataHandler;
 import common.metadata.NodeData;
 
@@ -33,7 +35,7 @@ public class ECSClient implements KVSocketListener {
 	private List<String> sortedNodeHashes;
 	private List<ConfigStore> sortedConfigStores;
 
-	private int numberOfUsedNodes = 0;
+	private int nbUsedNodes = 0;
 	private MetadataHandler metadataHandler;
 
 	private static final Logger logger = Logger.getLogger(ECSClient.class);
@@ -41,7 +43,6 @@ public class ECSClient implements KVSocketListener {
 	private final static String PROMPT = "ECSClient> ";
 
 	public ECSClient(String configLocation) {
-
 		this.possibleRemainingNodes = new ArrayList<String[]>();
 		InputStream fis;
 		BufferedReader br = null;
@@ -70,63 +71,34 @@ public class ECSClient implements KVSocketListener {
 				logger.error("Unable to close io!");
 			}
 		}
-
 	}
 
-	
-	public boolean recoverData(String Ip, int Port) throws NoSuchAlgorithmException, UnsupportedEncodingException{
-		int suspIndex = 0;
-		for (int i = 1; i<sortedNodeHashes.size(); i+=4){
-			if( sortedNodeHashes.get(i).equals(Ip) && sortedNodeHashes.get(i+1).equals(Integer.toString(Port))){
-				suspIndex = (i-1) % 4;
-			}
-		}
-		
-		// lost data to new owner (following node)
-		String[] destinationServer = {sortedNodeHashes.get((suspIndex+5) % sortedNodeHashes.size()), sortedNodeHashes.get((suspIndex+6) % sortedNodeHashes.size())};
-		
-		String key1 = sortedNodeHashes.get((suspIndex - 3) % sortedNodeHashes.size()) + ";" + sortedNodeHashes.get((suspIndex - 2) % sortedNodeHashes.size());
-		String key2 = Ip + ";" + Integer.toString(Port);
-		
-		ConfigStore replica1CS = sortedConfigStores.get((suspIndex - 1) % sortedConfigStores.size());
-		String minHashToMove1 = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
-				.digest(key1.getBytes("UTF-8"))).toString(16);
-		String maxHashToMove1 = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
-				.digest(key2.getBytes("UTF-8"))).toString(16);
-		
-		replica1CS.moveData(destinationServer, minHashToMove1, maxHashToMove1);
-		
-		
-		// data of a new node as replica to previous node.
-		String key4 = sortedNodeHashes.get((suspIndex + 5) % sortedNodeHashes.size()) + ";" + sortedNodeHashes.get((suspIndex + 6) % sortedNodeHashes.size());
-		String key3 = Ip + ";" + Integer.toString(Port);
-		String[] destinationserver = {sortedNodeHashes.get((suspIndex - 7) % sortedNodeHashes.size()), sortedNodeHashes.get((suspIndex - 6) % sortedNodeHashes.size())};
-		ConfigStore replica2CS = sortedConfigStores.get((suspIndex + 1) % sortedConfigStores.size());
-		String minHashToMove2 = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
-				.digest(key3.getBytes("UTF-8"))).toString(16);
-		String maxHashToMove2 = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
-				.digest(key4.getBytes("UTF-8"))).toString(16);
-		
-		replica2CS.moveData(destinationserver, minHashToMove2, maxHashToMove2);
-		return true;		
-	}
-	
 	private void launchSSH(String hostIp, String port, String logLevel) {
 		Process proc;
 
-//		String script = "ssh -n " + hostIp + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
-//					+ portNumber + " " + logLevel.toUpperCase() + " & ";
-		
+		//		String script = "ssh -n " + hostIp + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
+		//					+ portNumber + " " + logLevel.toUpperCase() + " & ";
+
+
+
+		//
+		//		String script = "java -jar /Users/nadiastraton/git/BasicStorageServer/ms3-server.jar "
+		//
+		//				+ port + " " + logLevel.toUpperCase();
+
+
 		String currentPath = ClassLoader.getSystemResource("").toString();
 		System.out.println(currentPath);
 		String serverJarPath = currentPath.replace("/bin/", "/").substring(6);
 
 		String script = "java -jar " + serverJarPath + "ms3-server.jar "
 				+ port + " " + logLevel.toUpperCase();
+
 		System.out.println(script);
-		
-//		script = "java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
-//				+ port + " " + logLevel.toUpperCase();
+
+		//		script = "java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
+		//				+ port + " " + logLevel.toUpperCase();
+
 
 		Runtime run = Runtime.getRuntime();
 		try {
@@ -136,7 +108,16 @@ public class ECSClient implements KVSocketListener {
 		}
 	}
 
-	protected int initService(int numberOfNodes, int cacheSize, Strategy displacementStrategy)
+	/**
+	 * Initiate connection to a pool of nodes and heartbeat between them
+	 * @param numberOfNodes
+	 * @param cacheSize
+	 * @param displacementStrategy
+	 * @return number of nodes participating in the service
+	 * @throws NoSuchAlgorithmException
+	 * @throws IOException
+	 */
+	public int initService(int numberOfNodes, int cacheSize, Strategy displacementStrategy)
 			throws NoSuchAlgorithmException, IOException{
 		if (numberOfNodes > possibleRemainingNodes.size()) {
 			numberOfNodes = possibleRemainingNodes.size();
@@ -165,8 +146,8 @@ public class ECSClient implements KVSocketListener {
 		logger.debug("Possible nodes : \n" + printPossible());
 		logger.debug("Used nodes : \n" + printNodes());
 
-		numberOfUsedNodes = numberOfNodes;
-		return numberOfUsedNodes;
+		nbUsedNodes = numberOfNodes;
+		return nbUsedNodes;
 	}
 
 	private java.util.List<NodeData> getMetadata(java.util.List<String> sortedList) {
@@ -174,15 +155,19 @@ public class ECSClient implements KVSocketListener {
 		int size = sortedList.size();
 
 		for (int i=0; i<size; i+=4) {
-			String minHashKey = sortedList.get((i-1 + size) % size);
-			String maxHashKey2 = sortedList.get((i-5 + 2 * size) % size);
-			String minReadHashKey = sortedList.get((i-9 + 3 * size) % size);
+			String minWriteHashKey = sortedList.get((i-1 + size) % size);
+			String maxR2minR1HashKey = sortedList.get((i-5 + 2 * size) % size);
+			String minR2HashKey = sortedList.get((i-9 + 3 * size) % size);
 			list.add(new NodeData(sortedList.get(i), sortedList.get(i+1),
-					Integer.valueOf(sortedList.get(i+2)), minHashKey, sortedList.get(i+3), maxHashKey2, minReadHashKey));
+					Integer.valueOf(sortedList.get(i+2)), sortedList.get(i+3), minWriteHashKey, maxR2minR1HashKey, minR2HashKey));
 		}
 		return list;
 	}
 
+	/**
+	 * Start all nodes participating in the service
+	 * i.e. disable answer to queries from clients
+	 */
 	protected void start(){
 		for (ConfigStore cs : sortedConfigStores) {
 			if (!cs.startServer()) {
@@ -191,6 +176,10 @@ public class ECSClient implements KVSocketListener {
 		}
 	}
 
+	/**
+	 * Stop all nodes participating in the service
+	 * i.e. disable answer to queries from clients
+	 */
 	protected void stop(){
 		if (sortedConfigStores == null) {
 			return;
@@ -200,14 +189,16 @@ public class ECSClient implements KVSocketListener {
 				logger.error("Some server may not have been stopped correctly.");
 			}
 		}
-
 	}
 
+	/**
+	 * Shutdown all nodes participating in the service
+	 * i.e. stop them, stop heartbeat and close connection to them
+	 */
 	protected void shutdown(){
 		if (sortedConfigStores == null) {
 			return;
 		}
-		stop();
 		for (ConfigStore cs : sortedConfigStores) {
 			if (!cs.shutdown()) {
 				logger.error("Some server may not have been shut down correctly.");
@@ -216,9 +207,35 @@ public class ECSClient implements KVSocketListener {
 		}
 		sortedConfigStores = null;
 		sortedNodeHashes = null;
-		numberOfUsedNodes = 0;
+		nbUsedNodes = 0;
+	}
+	
+	/**
+	 * Send updated metadata to all nodes participating in the service
+	 */
+	protected void updateAllMetadata() {
+		String updatedMetadata = metadataHandler.toString();
+		for (ConfigStore c : sortedConfigStores) {
+			try {
+				if (!c.updateMetadata(updatedMetadata)) {
+					logger.error("The metadata may not have been updated correctly on a given server.");
+				}
+			} catch (InterruptedException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		logger.info("Metadata updated for all nodes");
 	}
 
+	/**
+	 * Add node to the pool of participating nodes
+	 * @param cacheSize
+	 * @param displacementStrategy
+	 * @return number of nodes participating in the service
+	 * @throws NoSuchElementException
+	 * @throws NoSuchAlgorithmException
+	 */
 	protected int addNode(int cacheSize, Strategy displacementStrategy)
 			throws NoSuchElementException, NoSuchAlgorithmException{
 		int size = possibleRemainingNodes.size(); 
@@ -227,10 +244,10 @@ public class ECSClient implements KVSocketListener {
 		}
 
 		int random = (int) (Math.random() * (size - 1));
-		String[] params = possibleRemainingNodes.remove(random);
-		logger.debug("Adding node " + params[0]);
+		String[] newNodeParams = possibleRemainingNodes.remove(random);
+		logger.debug("Adding node " + newNodeParams[0]);
 		try {
-			addNodeToLists(params);
+			addNodeToLists(newNodeParams);
 		} catch (IllegalArgumentException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -238,7 +255,7 @@ public class ECSClient implements KVSocketListener {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		String nodeName = params[0];
+		String nodeName = newNodeParams[0];
 
 		sortNodeLists();
 		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
@@ -262,33 +279,11 @@ public class ECSClient implements KVSocketListener {
 		}
 
 		ConfigStore nextNodeCS = sortedConfigStores.get((index + 1) % sortedConfigStores.size());
-		String hashOfNewNode = sortedNodeHashes.get(index*4 +3);
-		String[] newNodeAddress = new String[] {params[1], params[2]};
+		ConfigStore nextnextNodeCS = sortedConfigStores.get((index + 2) % sortedConfigStores.size());
 
+		redistributeDataAdd(index, newNodeParams, nextNodeCS, nextnextNodeCS);
 
-		if (!nextNodeCS.lockWrite()) {
-			logger.error("The successor node may not have been write-locked correctly.");
-		} else {
-			logger.info("Successor node write-locked.");
-		}
-		if (!nextNodeCS.moveData(hashOfNewNode, newNodeAddress)) {
-			logger.error("The data may not have been moved correctly.");
-		} else {
-			logger.info("Data moved to new node.");
-		}
-
-		for (ConfigStore c : sortedConfigStores) {
-			try {
-				if (!c.updateMetadata(updatedMetadata)) {
-					logger.error("The metadata may not have been updated correctly on a given server.");
-				}
-			} catch (InterruptedException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
-		logger.info("Metadata updated for all nodes");
+		updateAllMetadata();
 
 		if (!nextNodeCS.unlockWrite()) {
 			logger.error("The successor node may not have been write-unlocked correctly.");
@@ -299,21 +294,54 @@ public class ECSClient implements KVSocketListener {
 		logger.debug("Possible nodes : \n" + printPossible());
 		logger.debug("Used nodes : \n" + printNodes());
 
-		return ++numberOfUsedNodes;
+		return ++nbUsedNodes;
 	}
 
-	private int findCsIndex(String nodeName) {
-		int max = sortedNodeHashes.size();
-		for (int i=0; i<max; i += 4) {
-			if (sortedNodeHashes.get(i).equals(nodeName)) {
-				return i/4;
-			}
+	private void redistributeDataAdd(int indexOfNewNode, String[] newNodeParams, ConfigStore nextNodeCS, ConfigStore nextnextNodeCS) {
+		String[] newNodeAddress = new String[] {newNodeParams[1], newNodeParams[2]};
+		NodeData newNodeData = metadataHandler.getNodeData(newNodeAddress[0], Integer.valueOf(newNodeAddress[1]));
+
+		if (!nextNodeCS.lockWrite()) {
+			logger.error("The successor node may not have been write-locked correctly.");
+		} else {
+			logger.info("Successor node write-locked.");
 		}
-		return -1;
+		
+		// COPY owner range from NEXT to NEW
+		if (!nextNodeCS.copyData(newNodeAddress, newNodeData.getMinWriteHashKey(), newNodeData.getMaxHashKey())) {
+			logger.error("The owner data may not have been copied correctly.");
+		} else {
+			logger.info("Owner data copied to new node.");
+		}
+
+		// MOVE r2 range from NEXT to NEW
+		if (!nextNodeCS.moveData(newNodeAddress, newNodeData.getMinR2HashKey(), newNodeData.getMaxR2minR1HashKey())) {
+			logger.error("The R2 data may not have been moved correctly.");
+		} else {
+			logger.info("R2 data moved to new node.");
+		}
+		
+		if (!nextnextNodeCS.lockWrite()) {
+			logger.error("The after-successor node may not have been write-locked correctly.");
+		} else {
+			logger.info("After-successor node write-locked.");
+		}
+
+		// MOVE r1 range from NEXT-NEXT to NEW
+		if (!nextnextNodeCS.moveData(newNodeAddress, newNodeData.getMaxR2minR1HashKey(), newNodeData.getMinWriteHashKey())) {
+			logger.error("The R1 data may not have been moved correctly.");
+		} else {
+			logger.info("R1 data moved to new node.");
+		}
 	}
 
+	/**
+	 * Remove node from the pool of participating nodes
+	 * @return number of participating nodes
+	 * @throws IOException
+	 */
 	protected int removeNode() throws IOException{
-		if (numberOfUsedNodes <= 1) {
+		if (nbUsedNodes <= 1) {
 			return 0;
 		}
 
@@ -322,19 +350,61 @@ public class ECSClient implements KVSocketListener {
 		logger.info("Removing node " + toRemoveName);
 		int toRemoveIndex = findCsIndex(toRemoveName);
 
-		String toRemoveHash = sortedNodeHashes.get(toRemoveIndex*4 + 3);
-		ConfigStore removed = removeNodeFromLists(toRemoveName);
+		String toRemoveIp = sortedNodeHashes.get(toRemoveIndex*4 + 1);
+		int toRemovePort = Integer.valueOf(sortedNodeHashes.get(toRemoveIndex*4 + 2));
+		
+		NodeData removedNodeData = metadataHandler.getNodeData(toRemoveIp, toRemovePort);
+		ConfigStore removedNodeCS = removeNodeFromLists(toRemoveName);
 		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
 
-		removed.lockWrite();
-		System.out.println("successor node is " + sortedNodeHashes.get(toRemoveIndex*4 % sortedNodeHashes.size()));
-		ConfigStore successor = sortedConfigStores.get(toRemoveIndex % sortedConfigStores.size());
+		removedNodeCS.lockWrite();
+		System.out.println("successor node is " + sortedNodeHashes.get(toRemoveIndex*4));
+	
+		redistributeDataRemove(toRemoveIndex, removedNodeData, removedNodeCS);
+
+		updateAllMetadata();
+		
+		if (!removedNodeCS.shutdown()) {
+			logger.error("The removed node may not have been shut down correctly.");
+		}
+
+		logger.debug("Possible nodes : \n" + printPossible());
+		logger.debug("Used nodes : \n" + printNodes());
+
+		return --nbUsedNodes;
+	}
+	
+	private void redistributeDataRemove(int toRemoveIndex, NodeData removedNodeData, ConfigStore toRemoveNodeCS) throws IOException {		
+		ConfigStore nextNodeCS = sortedConfigStores.get(toRemoveIndex % sortedConfigStores.size());
+		ConfigStore nextnextNodeCS = sortedConfigStores.get((toRemoveIndex + 1) % sortedConfigStores.size());
 		String newMetadata = metadataHandler.toString();
+		String[] nextNodeAddress = new String[] {sortedNodeHashes.get((toRemoveIndex * 4 + 1) % sortedNodeHashes.size()), sortedNodeHashes.get((toRemoveIndex * 4 + 2) % sortedNodeHashes.size())};
+		String[] nextnextNodeAddress = new String[] {sortedNodeHashes.get((toRemoveIndex * 4 + 5) % sortedNodeHashes.size()), sortedNodeHashes.get((toRemoveIndex * 4 + 6) % sortedNodeHashes.size())};
+		
 		try {
-			if (!successor.updateMetadata(newMetadata)) {
+			if (!nextNodeCS.updateMetadata(newMetadata)) {
 				logger.error("The metadata may not have been updated correctly on successor node.");
 			} else {
 				logger.info("Metadata updated on successor node.");
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// COPY r2 range from TOREMOVE to NEXT
+		
+		if (!toRemoveNodeCS.copyData(nextNodeAddress, removedNodeData.getMinR2HashKey(), removedNodeData.getMaxR2minR1HashKey())) {
+			logger.error("The R2 data may not have been copied correctly.");
+		} else {
+			logger.info("R2 data copied to next node.");
+		}
+		
+		try {
+			if (!nextnextNodeCS.updateMetadata(newMetadata)) {
+				logger.error("The metadata may not have been updated correctly on after-successor node.");
+			} else {
+				logger.info("Metadata updated on after-successor node.");
 			}
 
 		} catch (InterruptedException e) {
@@ -342,32 +412,109 @@ public class ECSClient implements KVSocketListener {
 			e.printStackTrace();
 		}
 
-		if (!removed.moveData(toRemoveHash, successor.getIpAndPort())) {
-			logger.error("The data may not have been moved correctly to successor node.");
+		// COPY r1 range from TOREMOVE to NEXT-NEXT
+		if (!toRemoveNodeCS.copyData(nextnextNodeAddress, removedNodeData.getMaxR2minR1HashKey(), removedNodeData.getMinWriteHashKey())) {
+			logger.error("The R1 data may not have been copied correctly.");
 		} else {
-			logger.info("Data moved to successor node.");
+			logger.info("R1 data copied to next-next node.");
 		}
-
-
-		for (ConfigStore cs : sortedConfigStores) {
-			try {
-				if (!cs.updateMetadata(newMetadata)) {
-					logger.error("Some server may not have updated its metadata correctly.");
-				}
-
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	}
+	
+	/**
+	 * Remove suspicious node from the pool of participating nodes
+	 * and bring the data back to consistency by copying it from replicas
+	 * @param ip
+	 * @param port
+	 * @return
+	 * @throws NoSuchAlgorithmException
+	 * @throws IOException
+	 */
+	protected int handleSuspiciousNode(String ip, int port) throws NoSuchAlgorithmException, IOException{
+		int suspIndex = 0;
+		String suspName = null;
+		for (int i = 0; i<sortedNodeHashes.size(); i+=4){
+			if( sortedNodeHashes.get(i+1).equals(ip) && sortedNodeHashes.get(i+2).equals(Integer.toString(port))){
+				suspIndex = i % 4;
+				suspName = sortedNodeHashes.get(i);
 			}
 		}
-		if (!removed.shutdown()) {
+		logger.info("Suspicious node " + suspName);
+		
+		NodeData suspNodeData = metadataHandler.getNodeData(ip, port);
+		ConfigStore suspNodeCS = removeNodeFromLists(suspName);
+		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
+
+		suspNodeCS.lockWrite();
+		System.out.println("successor node is " + sortedNodeHashes.get(suspIndex*4));
+	
+		redistributeDataSuspicious(suspIndex, suspNodeData, sortedConfigStores.get((suspIndex - 1 + sortedConfigStores.size()) % sortedConfigStores.size()));
+
+		updateAllMetadata();
+		
+		if (!suspNodeCS.shutdown()) {
 			logger.error("The removed node may not have been shut down correctly.");
 		}
 
 		logger.debug("Possible nodes : \n" + printPossible());
 		logger.debug("Used nodes : \n" + printNodes());
 
-		return --numberOfUsedNodes;
+		return --nbUsedNodes;	
+	}
+
+	private void redistributeDataSuspicious(int suspIndex, NodeData suspNodeData, ConfigStore previousNodeCS) throws IOException {		
+		ConfigStore nextNodeCS = sortedConfigStores.get(suspIndex % sortedConfigStores.size());
+		ConfigStore nextnextNodeCS = sortedConfigStores.get((suspIndex + 1) % sortedConfigStores.size());
+		String newMetadata = metadataHandler.toString();
+		String[] nextNodeAddress = new String[] {sortedNodeHashes.get((suspIndex * 4 + 1) % sortedNodeHashes.size()), sortedNodeHashes.get((suspIndex * 4 + 2) % sortedNodeHashes.size())};
+		String[] nextnextNodeAddress = new String[] {sortedNodeHashes.get((suspIndex * 4 + 5) % sortedNodeHashes.size()), sortedNodeHashes.get((suspIndex * 4 + 6) % sortedNodeHashes.size())};
+		
+		try {
+			if (!nextNodeCS.updateMetadata(newMetadata)) {
+				logger.error("The metadata may not have been updated correctly on successor node.");
+			} else {
+				logger.info("Metadata updated on successor node.");
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// COPY r2 range of SUSP from PREVIOUS to NEXT
+		
+		if (!previousNodeCS.copyData(nextNodeAddress, suspNodeData.getMinR2HashKey(), suspNodeData.getMaxR2minR1HashKey())) {
+			logger.error("The R2 data of suspicious node may not have been copied correctly.");
+		} else {
+			logger.info("R2 data of suspicious node copied to next node.");
+		}
+		
+		try {
+			if (!nextnextNodeCS.updateMetadata(newMetadata)) {
+				logger.error("The metadata may not have been updated correctly on after-successor node.");
+			} else {
+				logger.info("Metadata updated on after-successor node.");
+			}
+
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// COPY r1 range of SUSP from PREVIOUS to NEXT-NEXT
+		if (!previousNodeCS.copyData(nextnextNodeAddress, suspNodeData.getMaxR2minR1HashKey(), suspNodeData.getMinWriteHashKey())) {
+			logger.error("The R1 data of suspicious node may not have been copied correctly.");
+		} else {
+			logger.info("R1 data of suspicious node copied to next-next node.");
+		}
+	}
+	
+	private int findCsIndex(String nodeName) {
+		int max = sortedNodeHashes.size();
+		for (int i=0; i<max; i += 4) {
+			if (sortedNodeHashes.get(i).equals(nodeName)) {
+				return i/4;
+			}
+		}
+		return -1;
 	}
 
 
@@ -391,8 +538,8 @@ public class ECSClient implements KVSocketListener {
 
 	private void addNodeToLists(String[] nodeData)
 			throws NoSuchAlgorithmException, IllegalArgumentException, IOException {
-//		launchSSH(nodeData[1], nodeData[2], "DEBUG");
-		
+		//		launchSSH(nodeData[1], nodeData[2], "DEBUG");
+
 		sortedConfigStores.add(new ConfigStore(nodeData[1], Integer.parseInt(nodeData[2])));
 
 		String IpAndPort = new StringBuilder(nodeData[1]).append(";").append(nodeData[2]).toString();
@@ -404,7 +551,7 @@ public class ECSClient implements KVSocketListener {
 		sortedNodeHashes.add(nodeData[1]);
 		sortedNodeHashes.add(nodeData[2]);
 		sortedNodeHashes.add(hashedKey);
-		
+
 	}
 
 	private void sortNodeLists(){
@@ -451,7 +598,18 @@ public class ECSClient implements KVSocketListener {
 	}
 
 	@Override
-	public void handleNewMessage(TextMessage msg) {}
+	public void handleNewMessage(TextMessage msg) {
+		KVAdminMessage message = KVAdminMessageImpl.unmarshal(msg);
+		if (message.getStatus().equals(common.messages.KVAdminMessage.StatusType.SUSPICIOUS)) {
+			try {
+				handleSuspiciousNode(message.getKey(), Integer.valueOf(message.getValue()));
+			} catch (NumberFormatException | NoSuchAlgorithmException
+					| IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 
 	/**
 	 * Main entry point for the ECSClient application. 
@@ -506,7 +664,7 @@ public class ECSClient implements KVSocketListener {
 		}
 		return s;
 	}
-	
+
 
 
 }

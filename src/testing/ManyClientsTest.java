@@ -8,9 +8,7 @@ import org.junit.Test;
 import app_kvClient.KVClient;
 import app_kvEcs.ECSInterface;
 import app_kvServer.KVServer;
-import app_kvServer.KVServer.ECSSocketLoop;
 import junit.framework.TestCase;
-import logger.LogSetup;
 
 
 public class ManyClientsTest extends TestCase {
@@ -18,26 +16,11 @@ public class ManyClientsTest extends TestCase {
 	private static KVClient[] kvclients;
 	private static Thread[] clientThreads;
 
-	static {
-		try {
-			new LogSetup("testing/test.log", Level.WARN);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-	}
-
 	private void before(int nbConcurrentClients) {
-		KVServer kvServer = new KVServer(50000);
-		new Thread(kvServer.new ECSSocketLoop()).start();
-
-		kvServer = new KVServer(50001);
-		new Thread(kvServer.new ECSSocketLoop()).start();
-
-		kvServer = new KVServer(50002);
-		new Thread(kvServer.new ECSSocketLoop()).start();
-
-		kvServer = new KVServer(50003);
-		new Thread(kvServer.new ECSSocketLoop()).start();
+		new KVServer(50000);
+		new KVServer(50001);
+		new KVServer(50002);
+		new KVServer(50003);
 
 		ecs = new ECSInterface("./testing/ecs.config.txt");
 		ecs.handleCommand("init 4 5 LRU");
@@ -50,7 +33,6 @@ public class ManyClientsTest extends TestCase {
 	}
 
 	private void after() {
-		ecs.handleCommand("shutdown");
 		ecs.handleCommand("quit");
 	}
 

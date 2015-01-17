@@ -96,14 +96,13 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	}
 
 	/**
-	 * Initializes and starts the connection with server. Loops until the connection
-	 * is closed or aborted by the server.
+	 * Initializes and starts the connection with server.
+	 * Loops until the connection is closed by ecs ("shutdown")
+	 * or aborted by the server.
 	 */
 	public void run() {
 		try {
-
 			while (isRunning) {
-
 				try {
 					TextMessage latestMsg = commModule.receiveMessage();
 					for (KVSocketListener listener : listeners) {
@@ -203,21 +202,21 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	}
 
 	@Override
-	public boolean moveData(String hashOfNewServer, String[] destinationServer) {
-		KVAdminMessage msg = new KVAdminMessageImpl(hashOfNewServer, destinationServer[0] + ":" + destinationServer[1],
+	public boolean moveData(String[] destinationServer, String minHashToMove, String maxHashToMove) {
+		KVAdminMessage msg = new KVAdminMessageImpl(minHashToMove + ":" + maxHashToMove, destinationServer[0] + ":" + destinationServer[1],
 				common.messages.KVAdminMessage.StatusType.MOVE_DATA);
 		KVAdminMessage answer = sendAndWaitAnswer(msg, 60000);
 		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 	}
-	
-	
-	public boolean moveData(String[] destinationServer, String minHashToMove, String maxHashToMove) {
+
+	@Override
+	public boolean copyData(String[] destinationServer, String minHashToMove,
+			String maxHashToMove) {
 		KVAdminMessage msg = new KVAdminMessageImpl(minHashToMove + ":" + maxHashToMove, destinationServer[0] + ":" + destinationServer[1],
-				common.messages.KVAdminMessage.StatusType.MOVE_DATA_BIS);
+				common.messages.KVAdminMessage.StatusType.COPY_DATA);
 		KVAdminMessage answer = sendAndWaitAnswer(msg, 60000);
 		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
 	}
-	
 
 
 	@Override

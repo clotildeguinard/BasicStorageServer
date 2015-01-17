@@ -11,63 +11,32 @@ import java.util.NoSuchElementException;
 import org.apache.log4j.Logger;
 
 public class MetadataHandler {
-	private List<NodeData> metadata;
+	protected List<NodeData> metadata;
 	private final static String fieldSeparator = ";";
 	private final static String lineSeparator = "/";
 	private final static String hashingAlgorithm = "MD5";
-	private final static String equivLocalhost = "127.0.0.1";
 	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
-	private String minReadHashKey;
-	private String maxHashKey2;
-	private String minHashKey;
-	private String maxHashKey;
-	private final String myIp;
-	private final int myPort;
+	protected String minR2HashKey;
+	protected String maxR2minR1HashKey;
+	protected String minWriteHashKey;
+	protected String maxHashKey;
+	protected final Address myAddress;
 
 	/**
-	 * used by server
 	 * @param myIp
 	 * @param myPort
 	 */
-	public MetadataHandler(String clientIp, int clientPort) {
-		this.myIp = clientIp;
-		this.myPort = clientPort;
+	public MetadataHandler(String myIp, int myPort) {
+		this.myAddress = new Address(myIp, myPort);
 	}
-	
+
 	/**
-	 * used by ECS
 	 * @param metadataContent
 	 */
 	public MetadataHandler(List<NodeData> metadata) {
 		this.metadata = metadata;
-		myPort = -1;
-		myIp = null;
+		this.myAddress = new Address(null, -1);
 	}
-	
-	// find neighbours who will get heartbeats. one on left, one on right.
-	public List<NodeData> getNeighbours(){
-		
-		List<NodeData> neighbours = null;
-		
-		return neighbours;		
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public String getIp(){
-		return myIp;		
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public int getPort(){
-		return myPort;		
-	}
-	
 
 	/**
 	 * overwrite metadata file with more recent metadata
@@ -81,13 +50,16 @@ public class MetadataHandler {
 		String[] data = null;
 		for (String n : nodes) {
 			data = n.split(fieldSeparator);
-			String ipAddress = data[1];
-			int port = Integer.parseInt(data[2]);
-			if (equalsIp(this.myIp, ipAddress) && this.myPort == port) {
-				minHashKey = data[3];
-				maxHashKey = data[4];
-				minReadHashKey = data[5];
-				maxHashKey2 = data[6];
+			if (data.length != 7) {
+				logger.warn("Tried to update metadata with invalid input " + metadata);
+				return;
+			}
+			Address a = new Address(data[1], Integer.parseInt(data[2]));
+			if (myAddress.isSameAddress(a)) {
+				maxHashKey = data[3];
+				minWriteHashKey = data[4];
+				maxR2minR1HashKey = data[5];
+				minR2HashKey = data[6];
 			}
 			NodeData nodeData = new NodeData(data[0], data[1], Integer.parseInt(data[2]), data[3], data[4], data[5], data[6]);
 			tmpMetadata.add(nodeData);
@@ -95,87 +67,31 @@ public class MetadataHandler {
 		this.metadata = tmpMetadata;	
 	}
 
-	private boolean equalsIp(String myIp, String ipAddress) {
-		return (myIp.equals(ipAddress)
-				|| (myIp.equals("localhost") && ipAddress.equals(equivLocalhost))
-				|| (myIp.equals(equivLocalhost) && ipAddress.equals("localhost")));
-	}
-
-	/**
-	 * 
-	 * @param fileLocation : the location of the metadata
-	 * @param key : the key we are interested in
-	 * @return array with server ip and port responsible for key
-	 * @throws UnsupportedEncodingException 
-	 * @throws NoSuchAlgorithmException 
-	 * @throws IOException
-	 */
-
-	public String[] getReadServerForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		if (metadata.size() == 1) {
-			return new String []
-					{metadata.get(0).getIpAddress(), Integer.toString(metadata.get(0).getPortNumber())};
-		}
-		for (NodeData e: metadata){
-
-			boolean b=isInRange(key, e.getMinReadHashKey(), e.getMaxHashKey());
-
-			if (b==true){
-				return new String []{e.getIpAddress(), Integer.toString(e.getPortNumber())};
-			}
-
-		}
-		return null;
-	}
-
-	/**
-	 * 
-	 * @param fileLocation : the location of the metadata
-	 * @param key : the key we are interested in
-	 * @return array with server ip and port responsible for key
-	 * @throws UnsupportedEncodingException 
-	 * @throws NoSuchAlgorithmException 
-	 * @throws IOException
-	 */
-
-	public String[] getWriteServerForKey(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		if (metadata.size() == 1) {
-			return new String []
-					{metadata.get(0).getIpAddress(), Integer.toString(metadata.get(0).getPortNumber())};
-		}
-		for (NodeData e: metadata){
-
-			boolean b=isInRange(key, e.getMinHashKey(), e.getMaxHashKey());
-
-			if (b==true){
-				return new String []{e.getIpAddress(), Integer.toString(e.getPortNumber())};
-			}
-
-		}
-		return null;
-	}
-
-
-	public boolean isReadResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		return isInRange(key, minReadHashKey, maxHashKey);
-	}
-
-	public boolean isWriteResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		return isInRange(key, minHashKey, maxHashKey);
-	}
-
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		for (NodeData n : metadata) {
+			Address a = n.getAddress();
+			
 			s.append(n.getName() + fieldSeparator);
-			s.append(n.getIpAddress() + fieldSeparator);
-			s.append(n.getPortNumber() + fieldSeparator);
-			s.append(n.getMinHashKey() + fieldSeparator);
-			s.append(n.getMaxHashKey() + lineSeparator);
+			s.append(a.getIp() + fieldSeparator);
+			s.append(a.getPort() + fieldSeparator);
+			s.append(n.getMaxHashKey() + fieldSeparator);
+			s.append(n.getMinWriteHashKey() + fieldSeparator);
+			s.append(n.getMaxR2minR1HashKey() + fieldSeparator);
+			s.append(n.getMinR2HashKey() + lineSeparator);
 		}
 		return s.toString();
 	}
 
+	/**
+	 * used locally (kvstore and server) and by server
+	 * @param key
+	 * @param minHash
+	 * @param maxHash
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 * @throws NoSuchAlgorithmException
+	 */
 	public boolean isInRange(String key, String minHash, String maxHash)
 			throws UnsupportedEncodingException, NoSuchAlgorithmException {
 		if (minHash.equals(maxHash)) {
@@ -210,45 +126,22 @@ public class MetadataHandler {
 		}
 	}
 
-	public boolean hasToMove(String key, String hashOfNewServer) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		if (hashIsInRange(hashOfNewServer, minHashKey, maxHashKey)) {
-			return isInRange(key, minHashKey, hashOfNewServer);
-		} else {
-			return false;
-		}
-	}
-
-	public boolean hasToDelete(String key, String hashOfNewServer) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-		if (hashIsInRange(hashOfNewServer, minReadHashKey, maxHashKey2)) {
-			// can delete part of replica2 zone
-			return isInRange(key, minReadHashKey, hashOfNewServer);
-		} else if (hashIsInRange(hashOfNewServer, maxHashKey2, maxHashKey)) {
-			// can delete whole replica2 zone
-			return isInRange(key, minReadHashKey, maxHashKey2);
-		} else {
-			return false;
-		}
-	}
-
 	public NodeData getRandom() throws NoSuchElementException {
 		return metadata.get(0);
 	}
-	
-	public NodeData getReplica1() {
-		for (int i=0; i<metadata.size(); i++) {
-			NodeData e = metadata.get(i);
-			if (equalsIp(this.myIp, e.getIpAddress()) && this.myPort == e.getPortNumber()) {
-				return metadata.get((i-1 + metadata.size()) % metadata.size());
-			}
-		}
-		return null;
-	}
-	
-	public NodeData getReplica2() {
-		for (int i=0; i<metadata.size(); i++) {
-			NodeData e = metadata.get(i);
-			if (equalsIp(this.myIp, e.getIpAddress()) && this.myPort == e.getPortNumber()) {
-				return metadata.get((i-2 + 2*metadata.size()) % metadata.size());
+
+
+	/**
+	 * used by ECS
+	 * @param ip
+	 * @param portNumber
+	 * @return
+	 */
+	public NodeData getNodeData(String ip, int portNumber) {
+		Address a = new Address(ip, portNumber);
+		for (NodeData e : metadata) {
+			if (e.getAddress().isSameAddress(a)) {
+				return e;
 			}
 		}
 		return null;

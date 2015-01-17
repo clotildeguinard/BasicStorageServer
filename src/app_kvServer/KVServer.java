@@ -8,44 +8,57 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
 
 import logger.LogSetup;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import common.communication.HeartBeat;
-import common.messages.KVAdminMessage;
-import common.messages.KVMessage;
-import common.metadata.MetadataHandler;
-import app_kvClient.KVStore;
+import common.metadata.Address;
+import common.metadata.MetadataHandlerServer;
+import app_kvApi.KVStore;
+import app_kvApi.KVStoreServer;
 import app_kvServer.cache_strategies.FIFOStrategy;
 import app_kvServer.cache_strategies.LFUStrategy;
 import app_kvServer.cache_strategies.LRUStrategy;
 import app_kvServer.cache_strategies.Pair;
 
-
-public class KVServer implements Runnable {
-	private final String storageLocation = "./src/app_kvServer/";
-	private MetadataHandler metadataHandler;
+public class KVServer {
+	private static final String storageLocation = "./src/app_kvServer/";
+	private static final Logger logger = Logger.getLogger(KVServer.class);
 	protected final int port;
+	
+	private MetadataHandlerServer metadataHandler;
 	protected ServerSocket serverSocket = null;
-	protected boolean isStopped = true;
 	protected CacheManager cacheManager;
-	private Logger logger = Logger.getLogger(getClass().getSimpleName());
 	private EcsConnection ecsConnection;
-	private List<KVAdminMessage> suspiciousQueue = new ArrayList<KVAdminMessage>();
+	private HeartBeatHandler heartBeatHandler;
+	
+	protected boolean isStopped = true;
 	private boolean shutdown = false;
 	private boolean writeLocked = false;
+	private boolean initialized = false;
 
+	/**
+	 * Launch KVServer at given port,
+	 * wait for ECS to connect to it
+	 * @param port
+	 */
 	public KVServer(int port) {
 		this.port = port;
+		Thread ecsWaitingThread = new Thread(new ECSWaitingThread());
+		ecsWaitingThread.start();
+//		try {
+//			ecsWaitingThread.join();
+//		} catch (InterruptedException e) {
+//			shutdown();
+//		}
 	}
 
 	/**
-	 * Start KV Server at given port
+	 * Initialize KVServer,
+	 * begin to listen to clients
+	 * and launch heartbeat
 	 * @param port given port for storage server to operate
 	 * @param cacheSize specifies how many key-value pairs the server is allowed 
 	 *           to keep in-memory
@@ -55,7 +68,6 @@ public class KVServer implements Runnable {
 	 *           and "LFU".
 	 * @throws IOException 
 	 */
-
 	public void initKVServer(String metadata, int cacheSize, String strategy) throws IOException {
 
 		DataCache datacache;
@@ -70,18 +82,18 @@ public class KVServer implements Runnable {
 			this.cacheManager = new CacheManager(datacache,
 					new Storage(storageLocation, Integer.toString(port)));
 		} catch (IOException e) {
-			stop();
 			logger.fatal("Storage could not be instanciated");
-			throw(e);
+			shutdown();
 		}
-		metadataHandler = new MetadataHandler("127.0.0.1", port);
+		metadataHandler = new MetadataHandlerServer("127.0.0.1", port);
 		updateMetadata(metadata);
-		if (serverSocket == null) {
-			openServerSocket();
-		}
+		
+		initialized = true;
 
-		shutdown = false;
-		new Thread(this).start();
+		new Thread(new ClientAccepterThread()).start();
+
+		heartBeatHandler = new HeartBeatHandler(metadataHandler, ecsConnection);
+		new Thread(heartBeatHandler).start();
 	}
 
 	public void start() {
@@ -95,7 +107,23 @@ public class KVServer implements Runnable {
 	}
 
 	public void shutdown() {
+		stop();
 		shutdown = true;
+		if (heartBeatHandler != null) {
+			heartBeatHandler.shutdown();
+		}
+		try {
+			heartBeatHandler.join();
+		} catch (InterruptedException e) {
+			logger.error("Interrupted when trying to join heartbeat thread");
+		}
+		try {
+			if (serverSocket != null) {
+				serverSocket.close();
+			}
+		} catch (IOException e) {
+			// Do nothing.
+		}
 	}
 
 	private void openServerSocket() throws IOException {
@@ -103,9 +131,6 @@ public class KVServer implements Runnable {
 			serverSocket = new ServerSocket();
 			serverSocket.setReuseAddress(true);
 			serverSocket.bind(new InetSocketAddress(port));
-
-			//			serverSocket = new ServerSocket(port);
-
 			logger.info("Server listening on port: " 
 					+ serverSocket.getLocalPort());
 		} catch (IOException e) {
@@ -117,7 +142,7 @@ public class KVServer implements Runnable {
 		}
 	}
 
-	public class ECSSocketLoop extends Thread {
+	public class ECSWaitingThread implements Runnable {
 		/**
 		 * Instanciate socket for future connections
 		 * Initiate communication loop with ECS
@@ -128,85 +153,95 @@ public class KVServer implements Runnable {
 				try {
 					openServerSocket();
 				} catch (IOException e) {
-					logger.error("Server socket could not be opened; kvServer cannot run.");
+					logger.fatal("Server socket could not be opened; kvServer cannot run.");
 					return;
 				}
 			}
 			try {
-				Socket ecs = serverSocket.accept();                
+				Socket ecs = serverSocket.accept();   
 				ecsConnection = 
-						new EcsConnection(port, ecs, KVServer.this, suspiciousQueue);
-				new Thread(ecsConnection).start();
+						new EcsConnection(port, ecs, KVServer.this);
+				ecsConnection.start();
 
 				logger.info("Connected to ECS " 
 						+ ecs.getInetAddress().getHostName() 
 						+  " on port " + ecs.getPort());
-
 			} catch (IOException e) {
 				logger.error("Error! " +
 						"Unable to establish connection with ECS. \n", e);
 			}
 		}
 	}
-	/**
-	 * Initializes and starts the server. 
-	 * Loops until the the server should be closed.
-	 */
-	@Override
-	public void run() {
 
-		if (serverSocket == null) {
-			return;
-		}
-		logger.debug("Server listening to clients...");
-		List<KVMessage> heartbeatQueue = new ArrayList<KVMessage>();
-		new Thread(new HeartBeat(metadataHandler, heartbeatQueue, isStopped, suspiciousQueue)).start();
-		while (!shutdown){
-			try {
-				Socket client = serverSocket.accept();
-				logger.info("Connected to client " 
-						+ client.getInetAddress().getHostName() 
-						+  " on port " + client.getPort());
-				
-				ClientConnection clientConnection = 
-						new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped, heartbeatQueue);
-				new Thread(clientConnection).start();
-			} catch (SocketException e1) {
-				shutdown = true;
-				logger.error("Unable to establish connection with a client. \n", e1);
-				logger.debug("Server socket bound : " + serverSocket.isBound());
-				logger.debug("Server socket closed : " + serverSocket.isClosed());
-			} catch (IOException e) {
-				shutdown = true;
-				logger.error("Unable to establish connection with a client. \n", e);
+	/**
+	 * Loops until the server should be closed.
+	 */
+	public class ClientAccepterThread implements Runnable {
+		@Override
+		public void run() {
+			if (initialized) {
+				logger.debug("Server listening to clients...");
+			} else {
+				logger.error("Server not initialized");
+				return;
 			}
+			
+			if (serverSocket == null) {
+				try {
+					openServerSocket();
+				} catch (IOException e) {
+					logger.fatal("Server socket could not be opened; kvServer cannot run.");
+					return;
+				}
+			}
+
+			while (!shutdown){
+				try {
+					Socket client = serverSocket.accept();
+					logger.debug("Connected to client " 
+							+ client.getInetAddress().getHostName() 
+							+  " on port " + client.getPort());
+
+					ClientConnection clientConnection = 
+							new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped, heartBeatHandler);
+					new Thread(clientConnection).start();
+				} catch (SocketException e1) {
+					shutdown();
+					//				logger.error("Unable to establish connection with a client. \n", e1);
+					//				logger.debug("Server socket bound : " + serverSocket.isBound());
+					//				logger.debug("Server socket closed : " + serverSocket.isClosed());
+				} catch (IOException e) {
+					shutdown();
+					logger.error("Unable to establish connection with a client. \n", e);
+				}
+			}
+			try {
+				serverSocket.close();
+			} catch (IOException e) {
+				throw new RuntimeException("Error closing connection with clients.", e);
+			}
+			logger.info("Server stopped to listen to clients.");
 		}
-		logger.info("Stopping to listen to clients");
-		try {
-			serverSocket.close();
-		} catch (IOException e) {
-			throw new RuntimeException("Error closing connection with clients.", e);
-		}
-		logger.info("Server stopped.");
 	}
 
 
 	/**
-	 * Move to given node all data having key under hash hashOfNewNode
-	 * @param hashOfNewNode the hash of the new node
+	 * Copy to given node all data having key-hash between minHash and maxHash
+	 * @param minHashValue
+	 * @param maxHashValue
 	 * @param destinationServerIp
 	 * @param destinationServerPort
 	 * @throws IOException
 	 */
-	public void moveData(String hashOfNewNode, String destinationServerIp, int destinationServerPort)
+	public void copyData(String minHashValue, String maxHashValue, Address destinationServer)
 			throws IOException {
 		cacheManager.flushCache();
 		logger.debug("Cache flushed.");
-		KVStore kvStore = new KVStore(destinationServerIp, destinationServerPort);
+		KVStore kvStore = new KVStoreServer(destinationServer);
 		try {
 			kvStore.connect();
 			for (Pair<String, String> pair : cacheManager) {
-				if (metadataHandler.hasToMove(pair.getKey(), hashOfNewNode)) {
+				if (metadataHandler.isInRange(pair.getKey(), minHashValue, maxHashValue)) {
 					logger.debug("Move key " + pair.getKey() + ", value " + pair.getValue());
 					kvStore.put(pair.getKey(), pair.getValue());
 					cacheManager.put(pair.getKey(), "null");
@@ -215,7 +250,6 @@ public class KVServer implements Runnable {
 					logger.debug("Keep key " + pair.getKey() + ", value " + pair.getValue());
 				}
 			}
-			eraseMovedData(hashOfNewNode);
 		} catch (InterruptedException e) {
 			stop();
 			logger.error("An error occurred during connection to other server", e);
@@ -226,48 +260,20 @@ public class KVServer implements Runnable {
 			kvStore.disconnect();
 		}
 	}
-	
-	
-	public void moveData(String minHashValue, String maxHashValue, String destinationServerIp, int destinationServerPort)
-		throws IOException {
-			cacheManager.flushCache();
-			logger.debug("Cache flushed.");
-			KVStore kvStore = new KVStore(destinationServerIp, destinationServerPort);
-			try {
-				kvStore.connect();
-				for (Pair<String, String> pair : cacheManager) {
-					if (metadataHandler.isInRange(pair.getKey(), minHashValue, maxHashValue)) {
-						logger.debug("Move key " + pair.getKey() + ", value " + pair.getValue());
-						kvStore.put(pair.getKey(), pair.getValue());
-						cacheManager.put(pair.getKey(), "null");
-					}
-					else {
-						logger.debug("Keep key " + pair.getKey() + ", value " + pair.getValue());
-					}
-				}
-//				eraseMovedData(hashOfNewNode);
-			} catch (InterruptedException e) {
-				stop();
-				logger.error("An error occurred during connection to other server", e);
-			} catch (NoSuchAlgorithmException e) {
-				stop();
-				logger.fatal("An error occurred during hashing", e);
-			} finally {
-				kvStore.disconnect();
-			}
-	}
+
 
 	/**
-	 * Erase from storage all data having key under hash hashOfNewNode
-	 * @param hashOfNewNode the hash of the new node
+	 * Erase from storage all data having key-hash between minHash and maxHash
+	 * @param minHash
+	 * @param maxHash
 	 * @throws IOException
 	 */
-	public void eraseMovedData(String hashOfNewNode) throws IOException {
+	public void deleteData(String minHash, String maxHash) throws IOException {
 		cacheManager.flushCache();
 		logger.debug("Cache flushed.");
 		try {
 			for (Pair<String, String> pair : cacheManager) {
-				if (metadataHandler.hasToMove(pair.getKey(), hashOfNewNode)) {
+				if (metadataHandler.isInRange(pair.getKey(), minHash, maxHash)) {
 					logger.debug("Erase key " + pair.getKey() + ", value " + pair.getValue());
 					cacheManager.put(pair.getKey(), "null");
 				}
@@ -314,7 +320,7 @@ public class KVServer implements Runnable {
 			} else {
 				new LogSetup("logs/server.log", Level.toLevel(args[1]));
 				KVServer kvServer = new KVServer(Integer.parseInt(args[0]));
-				new Thread(kvServer.new ECSSocketLoop()).start();
+				//				new Thread(kvServer.new ECSSocketLoop()).start();
 			}
 		} catch (IOException e) {
 			System.out.println("Error! Unable to initialize logger!");

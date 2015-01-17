@@ -4,16 +4,16 @@ package common.messages;
 public interface KVAdminMessage {
 	
 	public enum StatusType {
+		INIT_KVSERVER,
 		LOCK_WRITE,
 		UNLOCK_WRITE,
+		UPDATE_METADATA,
+		SUSPICIOUS,
+		MOVE_DATA,
+		COPY_DATA,
 		START,
 		STOP,
-		SHUTDOWN,
-		UPDATE_METADATA,
-		MOVE_DATA,
-		INIT_KVSERVER,
-		SUSPICIOUS,
-		MOVE_DATA_BIS;
+		SHUTDOWN;
 	}
 
 	/**

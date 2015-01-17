@@ -1,27 +1,18 @@
 package testing;
 
-import java.io.IOException;
-
-import org.apache.log4j.Level;
 import org.junit.Test;
 
 import app_kvEcs.ECSInterface;
 import app_kvServer.KVServer;
-import app_kvServer.KVServer.ECSSocketLoop;
 import junit.framework.TestCase;
-import logger.LogSetup;
 
 
 public class SimpleECSTest extends TestCase {
 
 	static {
-		try {
-			new LogSetup("testing/test.log", Level.DEBUG);		
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		KVServer kvServer = new KVServer(50000);
-		new Thread(kvServer.new ECSSocketLoop()).start();
+		new KVServer(50000);
+		new KVServer(50001);
+		new KVServer(50002);
 	}
 
 	@Test

@@ -5,36 +5,33 @@ import java.io.UnsupportedEncodingException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import app_kvClient.KVStore;
-import app_kvServer.cache_strategies.Pair;
+import app_kvApi.KVStore;
+import app_kvApi.KVStoreServer;
 import common.communication.KVCommModule;
-import common.communication.KVSocketListener;
-import common.communication.KVSocketListener.SocketStatus;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
-import common.metadata.MetadataHandler;
+import common.metadata.MetadataHandlerServer;
 import common.metadata.NodeData;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 
 public class ClientConnection implements Runnable {
 
 	protected Socket clientSocket;
-	private final MetadataHandler metadataHandler;
+	private final MetadataHandlerServer metadataHandler;
 	private KVCommModule commModule;
 	private final CacheManager sharedCacheManager;
 	private static final Logger logger = Logger.getLogger(ClientConnection.class);
 
 	private final boolean stopped;
 	private final boolean writeLock;
-	private final List<KVMessage> heartbeatQueue;
+	private HeartBeatHandler heartbeatHandler;
 
 	public ClientConnection(int port, Socket clientSocket, CacheManager cacheManager,
-			MetadataHandler metadataHandler, boolean writeLocked, boolean stopped, List<KVMessage> heartbeatQueue)
+			MetadataHandlerServer metadataHandler, boolean writeLocked, boolean stopped, HeartBeatHandler heartbeatHandler)
 					throws IOException {
 		this.writeLock = writeLocked;
 		this.stopped = stopped;
@@ -43,7 +40,7 @@ public class ClientConnection implements Runnable {
 		this.metadataHandler = metadataHandler;
 		this.commModule = new KVCommModule(clientSocket.getOutputStream(),
 				clientSocket.getInputStream());
-		this.heartbeatQueue = heartbeatQueue;
+		this.heartbeatHandler = heartbeatHandler;
 	}
 
 	public void run() {
@@ -53,44 +50,60 @@ public class ClientConnection implements Runnable {
 
 			String key = request.getKey();
 			String value = request.getValue();
+			StatusType status = request.getStatus();
 			logger.info("Requested from client : "
 					+ request);
-			if (stopped) {
+			
+			if (status == StatusType.HEARTBEAT) {
+				heartbeatHandler.handleReceivedHeartBeat(new KVMessageImpl(key, value, StatusType.HEARTBEAT));
+				return;
+				
+			} else if (stopped) {
 				serverAnswer = new KVMessageImpl(key, value,
 						StatusType.SERVER_STOPPED);
 			} else {
 				serverAnswer = handleCommand(key, value,
-						request.getStatus());
+						status);
 			}
 			logger.info("Answer to client : "
 					+ serverAnswer);
 
 			if (serverAnswer != null) {
 				commModule.sendKVMessage(serverAnswer);
-				if (request.getStatus().equals(StatusType.PUT)) {
-					propagateToReplicas(key, value);
-				}
-			} else if (!request.getStatus().equals(StatusType.HEARTBEAT)){
-				logger.error("Invalid answer to request : " + request);
+			} else {
+				logger.error("Null answer to request !");
 			}
+
+			try {
+				tearDownConnection();
+			} catch (IOException e) {
+				logger.error("An error occurred when tearing down the connection \n" + e );
+			}
+
+			if (serverAnswer != null && status == StatusType.PUT_PROPAGATE
+					&& hasToPropagateRequest(serverAnswer.getStatus())) {
+				propagateToReplicas(key, value);
+			}
+			
 		} catch (IOException e) {
-			logger.error("A connection error occurred - Application terminated "
+			logger.error("A connection error occurred - Connection terminated "
 					+ e);
 		} catch (NoSuchAlgorithmException e) {
-			logger.fatal("A hashing error occurred - Application terminated "
+			logger.fatal("A hashing error occurred - Connection terminated "
 					+ e);
 		}
+	}
 
-		try {
-			tearDownConnection();
-		} catch (IOException e) {
-			logger.error("An error occurred when tearing down the connection \n" + e );
-		}
+	private boolean hasToPropagateRequest(StatusType answerStatus) {
+		return answerStatus != StatusType.SERVER_NOT_RESPONSIBLE
+				&& answerStatus != StatusType.SERVER_WRITE_LOCK
+				&& answerStatus != StatusType.DELETE_ERROR
+				&& answerStatus != StatusType.PUT_ERROR;
 	}
 
 	private void propagateToReplicas(String key, String value) throws UnknownHostException, IOException, NoSuchAlgorithmException {
 		NodeData rep1 = metadataHandler.getReplica1();
-		KVStore kvStore = new KVStore(rep1.getIpAddress(), rep1.getPortNumber());
+		KVStore kvStore = new KVStoreServer(rep1.getAddress());
 		try {
 			kvStore.connect();
 			kvStore.put(key, value);
@@ -102,7 +115,7 @@ public class ClientConnection implements Runnable {
 		}
 
 		NodeData rep2 = metadataHandler.getReplica2();
-		kvStore = new KVStore(rep2.getIpAddress(), rep2.getPortNumber());
+		kvStore = new KVStoreServer(rep2.getAddress());
 		try {
 			kvStore.connect();
 			kvStore.put(key, value);
@@ -124,6 +137,16 @@ public class ClientConnection implements Runnable {
 			}
 			return sharedCacheManager.get(key);
 		case PUT:
+			if (!metadataHandler.isReadResponsibleFor(key)) {
+				return new KVMessageImpl(key, metadataHandler.toString(),
+						StatusType.SERVER_NOT_RESPONSIBLE);
+			} else if (writeLock) {
+				return new KVMessageImpl(key, value,
+						StatusType.SERVER_WRITE_LOCK);
+			} else {
+				return sharedCacheManager.put(key, value);
+			}
+		case PUT_PROPAGATE:
 			if (!metadataHandler.isWriteResponsibleFor(key)) {
 				return new KVMessageImpl(key, metadataHandler.toString(),
 						StatusType.SERVER_NOT_RESPONSIBLE);
@@ -133,10 +156,7 @@ public class ClientConnection implements Runnable {
 			} else {
 				return sharedCacheManager.put(key, value);
 			}
-		case HEARTBEAT:
-			heartbeatQueue.add(new KVMessageImpl(key, value, StatusType.HEARTBEAT));
-			return null;
-
+			
 		default:
 			return null;
 		}
@@ -147,7 +167,7 @@ public class ClientConnection implements Runnable {
 			commModule.closeStreams();
 			clientSocket.close();
 			clientSocket = null;
-			logger.info("Connection closed.");
+			logger.debug("Connection closed.");
 		}
 	}
 }

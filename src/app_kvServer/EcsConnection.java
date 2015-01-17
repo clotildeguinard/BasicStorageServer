@@ -1,23 +1,19 @@
 package app_kvServer;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.List;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.log4j.Logger;
 
 import common.communication.KVAdminCommModule;
-import common.communication.KVCommModule;
-import common.communication.KVSocketListener;
-import common.communication.KVSocketListener.SocketStatus;
 import common.messages.KVAdminMessage;
 import common.messages.KVAdminMessageImpl;
-import common.messages.KVMessage;
 import common.messages.KVAdminMessage.StatusType;
+import common.metadata.Address;
 
-public class EcsConnection implements Runnable {
+public class EcsConnection extends Thread {
 	private final KVServer kvServer;
 	protected Socket ecsSocket;
 	private KVAdminCommModule commModule;
@@ -25,12 +21,11 @@ public class EcsConnection implements Runnable {
 
 	private boolean stopECSConnection = true;
 	private boolean hasToShutdownServer = false;
-	List<KVAdminMessage> suspQueue;
+	LinkedBlockingQueue<KVAdminMessage> suspicionMsgQueue = new LinkedBlockingQueue<KVAdminMessage>();
 
-	public EcsConnection(int port, Socket ecsSocket, KVServer kvServer, List<KVAdminMessage> SuspQueue) throws UnknownHostException {
+	public EcsConnection(int port, Socket ecsSocket, KVServer kvServer) throws UnknownHostException {
 		this.kvServer = kvServer;
 		this.ecsSocket = ecsSocket;
-		this.suspQueue = SuspQueue;
 		try {
 			commModule = new KVAdminCommModule(ecsSocket.getOutputStream(), ecsSocket.getInputStream());
 		} catch (IOException e1) {
@@ -39,16 +34,17 @@ public class EcsConnection implements Runnable {
 		}
 	}
 
+	public void handleSuspNode(KVAdminMessage suspicionMsg) {
+		suspicionMsgQueue.add(suspicionMsg);
+	}
+
 	public void run() {
 		stopECSConnection = false;
 
 		while(!stopECSConnection) {
 			try {
-				if (suspQueue.size() >= 1){
-					for(KVAdminMessage suspicion : suspQueue){
-						commModule.sendKVAdminMessage(suspicion);
-						suspQueue.remove(suspicion);
-					}
+				while (suspicionMsgQueue.size() > 0) {
+					commModule.sendKVAdminMessage(suspicionMsgQueue.peek());
 				}
 				KVAdminMessage request = commModule.receiveKVAdminMessage();
 				logger.info("Requested from ECS : " + request);
@@ -78,7 +74,6 @@ public class EcsConnection implements Runnable {
 		} catch (IOException e) {
 			logger.error("An error occurred when tearing down the connection \n" + e );
 		}
-		
 	}
 
 	private KVAdminMessage handleCommand(String key, String value, StatusType statusType) throws IOException {
@@ -103,13 +98,25 @@ public class EcsConnection implements Runnable {
 			return new KVAdminMessageImpl("ok", null, StatusType.UPDATE_METADATA);
 
 		case MOVE_DATA:
-			String[] destinationServer = value.split(":");
+			String[] destination = value.split(":");
+			String[] rangeToMove = key.split(":");
+			KVAdminMessage answer = null;
 			try {
-				kvServer.moveData(key, destinationServer[0], Integer.parseInt(destinationServer[1]));
+				answer = copyData(rangeToMove, new Address(destination[0], Integer.parseInt(destination[1])));
+				kvServer.deleteData(rangeToMove[0], rangeToMove[1]);
 			} catch (IOException e) {
 				return new KVAdminMessageImpl(null, null, StatusType.MOVE_DATA);
 			}
-			return new KVAdminMessageImpl("ok", null, StatusType.MOVE_DATA);
+			return answer;
+
+		case COPY_DATA:
+			String[] destin = value.split(":");
+			String[] range2Move = key.split(":");
+			try {
+				return copyData(range2Move, new Address(destin[0], Integer.parseInt(destin[1])));
+			} catch (IOException e) {
+				return new KVAdminMessageImpl(null, null, StatusType.MOVE_DATA);
+			}
 
 		case LOCK_WRITE:
 			kvServer.lockWrite();
@@ -124,30 +131,22 @@ public class EcsConnection implements Runnable {
 			return new KVAdminMessageImpl("ok", null, StatusType.STOP);
 
 		case SHUTDOWN:
-			kvServer.stop();
 			stopECSConnection = true;
 			hasToShutdownServer = true;
 			logger.info("Exiting");
 			return new KVAdminMessageImpl("ok", null, StatusType.SHUTDOWN);
 
-		case MOVE_DATA_BIS:
-			String[] destinationServers = value.split(":");
-			String[] RangeToMove = key.split(":");
-			try {
-				kvServer.moveData(key, destinationServers[0], Integer.parseInt(destinationServers[1]));
-			} catch (IOException e) {
-				return new KVAdminMessageImpl(null, null, StatusType.MOVE_DATA);
-			}
-			return new KVAdminMessageImpl("ok", null, StatusType.MOVE_DATA);
-
-			
-			
 		default:
 			logger.warn("The instruction has an unknown status : " + statusType);
 		}
 		return null;	
 	}
-	
+
+	private KVAdminMessage copyData(String[] rangeToMove, Address destinationServer) throws NumberFormatException, IOException {
+		kvServer.copyData(rangeToMove[0], rangeToMove[1], destinationServer);
+		return new KVAdminMessageImpl("ok", null, StatusType.MOVE_DATA);
+	}
+
 	private void tearDownConnection() throws IOException {
 
 		if (ecsSocket != null) {
@@ -157,5 +156,4 @@ public class EcsConnection implements Runnable {
 			logger.info("Connection closed with ECS.");
 		}
 	}
-
 }

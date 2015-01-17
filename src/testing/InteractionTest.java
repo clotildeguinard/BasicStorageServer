@@ -3,7 +3,8 @@ package testing;
 import org.apache.log4j.Level;
 import org.junit.Test;
 
-import app_kvClient.KVStore;
+import app_kvApi.KVStore;
+import app_kvApi.KVStoreClient;
 import junit.framework.TestCase;
 import logger.LogSetup;
 import common.messages.KVMessage;
@@ -15,17 +16,16 @@ public class InteractionTest extends TestCase {
 	private KVStore kvClient;
 	
 	public void setUp() {
-		kvClient = new KVStore("localhost", 50000);
+		kvClient = new KVStoreClient("localhost", 50000);
 		try {
-			new LogSetup("./testing/test.log", Level.ALL);
-//			kvClient.connect();
+			kvClient.connect();
 		} catch (Exception e) {
 		}
 	}
 
-//	public void tearDown() {
-//		kvClient.disconnect();
-//	}
+	public void tearDown() {
+		kvClient.disconnect();
+	}
 	
 	
 	@Test
@@ -45,6 +45,7 @@ public class InteractionTest extends TestCase {
 			ex.printStackTrace();
 		}
 		assertNull(ex);
+		assertNotNull(response);
 		assertEquals(StatusType.PUT_SUCCESS, response.getStatus());
 		System.out.println("-----------------------------------------------------------------------");
 	}
@@ -81,12 +82,14 @@ public class InteractionTest extends TestCase {
 			
 		} catch (Exception e) {
 			ex = e;
-		}
-		if (ex!= null) {
 			ex.printStackTrace();
 		}
-		assertTrue(ex == null && response.getStatus() == StatusType.PUT_UPDATE
-				&& response.getValue().equals(updatedValue));
+
+		assertNull(ex);
+		assertNotNull(response);
+		assertEquals(StatusType.PUT_UPDATE, response.getStatus());
+		assertEquals(updatedValue, response.getValue());
+		
 		System.out.println("-----------------------------------------------------------------------");
 	}
 	
@@ -104,11 +107,11 @@ public class InteractionTest extends TestCase {
 			
 		} catch (Exception e) {
 			ex = e;
-		}
-		if (ex!= null) {
 			ex.printStackTrace();
 		}
+		
 		assertNull(ex);
+		assertNotNull(response);
 		assertEquals(StatusType.DELETE_SUCCESS, response.getStatus());
 		System.out.println("-----------------------------------------------------------------------");
 	}
@@ -125,12 +128,12 @@ public class InteractionTest extends TestCase {
 			response = kvClient.get(key);
 		} catch (Exception e) {
 			ex = e;
-		}
-		if (ex!= null) {
 			ex.printStackTrace();
 		}
+
 		assertNull(ex);
-		assertEquals("bar1", response.getValue());
+		assertNotNull(response);
+		assertEquals(value, response.getValue());
 		System.out.println("-----------------------------------------------------------------------");
 	}
 
@@ -146,10 +149,10 @@ public class InteractionTest extends TestCase {
 			e.printStackTrace();
 			ex = e;
 		}
-if (ex!= null) {
-	ex.printStackTrace();
-}
-		assertTrue(ex == null && response.getStatus() == StatusType.GET_ERROR);
+
+		assertNull(ex);
+		assertNotNull(response);
+		assertEquals(StatusType.GET_ERROR, response.getStatus());
 		System.out.println("-----------------------------------------------------------------------");
 	}
 	

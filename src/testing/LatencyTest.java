@@ -3,13 +3,11 @@ package testing;
 import java.io.IOException;
 
 import org.apache.log4j.Level;
-import org.junit.Before;
 import org.junit.Test;
 
 import app_kvClient.KVClient;
 import app_kvEcs.ECSInterface;
 import app_kvServer.KVServer;
-import app_kvServer.KVServer.ECSSocketLoop;
 import junit.framework.TestCase;
 import logger.LogSetup;
 
@@ -18,19 +16,10 @@ public class LatencyTest extends TestCase {
 	private static ECSInterface ecs;
 	private static KVClient kvclient;
 
-	static {
-		try {
-			new LogSetup("testing/test.log", Level.WARN);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-	}
-
 	public void before(int cacheSize, int nbNodes) {	
-		KVServer kvServer;
+
 		for (int i = 0; i < nbNodes; i++) {
-			kvServer = new KVServer(50000 + i);
-			new Thread(kvServer.new ECSSocketLoop()).start();
+			new KVServer(50000 + i);
 		}
 
 		ecs = new ECSInterface("./testing/ecs.config.txt");
@@ -45,14 +34,14 @@ public class LatencyTest extends TestCase {
 			kvclient.handleCommand("quit");
 		}
 		if (ecs != null) {
-			ecs.handleCommand("shutdown");
+			ecs.handleCommand("quit");
 		}
 	}
 
 	@Test
 	public void test1() {
-		task(50, 50, 1);
-//		task(50, 25, 1);
+		task(50, 25, 3);
+//      task(50, 25, 1);
 //		task(50, 50, 1);
 		
 //		task(50, 5, 3);
@@ -74,19 +63,19 @@ public class LatencyTest extends TestCase {
 			}
 			long time1 = System.currentTimeMillis();
 			System.out.println("Task with " + nbRequests + " requests, " + nbNodes + " nodes and cacheSize " + cacheSize + " took : " + (time1 - startTime) + " ms");
-
-			// Task2
-
-			ecs.handleCommand("addnode " + cacheSize + " FIFO");
-			long time2 = System.currentTimeMillis();
-			System.out.println("Task2 : " + (time2 - time1) + " ms");
-
-
-			// Task3
-
-			ecs.handleCommand("removenode");
-			long time3 = System.currentTimeMillis();
-			System.out.println("Task3 : " + (time3 - time2) + " ms");
+//
+//			// Task2
+//
+//			ecs.handleCommand("addnode " + cacheSize + " FIFO");
+//			long time2 = System.currentTimeMillis();
+//			System.out.println("Task2 : " + (time2 - time1) + " ms");
+//
+//
+//			// Task3
+//
+//			ecs.handleCommand("removenode");
+//			long time3 = System.currentTimeMillis();
+//			System.out.println("Task3 : " + (time3 - time2) + " ms");
 
 
 			System.out.println("BenchmarkTest1 : " + (System.currentTimeMillis() - startTime) + " ms");

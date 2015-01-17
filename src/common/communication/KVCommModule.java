@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import common.messages.KVMessage;
@@ -46,5 +47,9 @@ public class KVCommModule extends CommModule implements KVSocketListener {
 
 	public boolean latestIsNull() {
 		return latest == null;
+	}
+
+	public void setLoggerLevel(Level wantedLevel) {
+		logger.setLevel(wantedLevel);	
 	}
 }

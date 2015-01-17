@@ -12,8 +12,6 @@ import junit.framework.TestCase;
 
 public class DataCacheTest extends TestCase {
 	
-
-	
 	@Test
 	public void testLRU() {
 		KVMessage answer;

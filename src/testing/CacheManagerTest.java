@@ -19,7 +19,6 @@ public class CacheManagerTest extends TestCase {
 	public void testCacheManager() {
 		IOException ex = null;
 		try {
-			new LogSetup("./testing/server.log", Level.ALL);
 			CacheManager c = new CacheManager(new FIFOStrategy(3), new Storage("./testing/", "50000"));
 			
 			KVMessage result = c.put("hello", "everybody");

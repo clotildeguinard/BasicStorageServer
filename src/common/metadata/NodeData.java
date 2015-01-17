@@ -1,49 +1,43 @@
 package common.metadata;
 
 public class NodeData {
-	private String ipAddress;
-	private int portNumber;
+	private Address address;
 	private String maxHashKey;
-	private String minHashKey;
-	private String maxHashKey2;
-	private String minReadHashKey;
+	private String minWriteHashKey;
+	private String maxR2minR1HashKey;
+	private String minR2HashKey;
 	private String name;
 
 	
-	public NodeData(String name, String ipAddress, int portNumber, String minHashKey,
-			String maxHashKey, String minReadHashKey, String maxHashKey2) {
+	public NodeData(String name, String ipAddress, int portNumber,
+			String maxHashKey, String minWriteHashKey, String maxR2minR1HashKey, String minR2HashKey) {
 		this.name = name;
-		this.ipAddress = ipAddress;
-		this.portNumber = portNumber;
+		this.address = new Address(ipAddress, portNumber);
 		this.maxHashKey = maxHashKey;
-		this.minHashKey = minHashKey;
-		this.maxHashKey2 = maxHashKey2;
-		this.minReadHashKey = minReadHashKey;
+		this.minWriteHashKey = minWriteHashKey;
+		this.maxR2minR1HashKey = maxR2minR1HashKey;
+		this.minR2HashKey = minR2HashKey;
 		
 	}
 
-	public String getIpAddress() {
-		return ipAddress;
+	public Address getAddress() {
+		return address;
 	}
 
-	public int getPortNumber() {
-		return portNumber;
-	}
-
-	public String getMinHashKey() {
-		return minHashKey;
+	public String getMinWriteHashKey() {
+		return minWriteHashKey;
 	}
 
 	public String getMaxHashKey() {
 		return maxHashKey;
 	}
 	
-	public String getMaxHashKey2() {
-		return maxHashKey2;
+	public String getMaxR2minR1HashKey() {
+		return maxR2minR1HashKey;
 	}
 
-	public String getMinReadHashKey() {
-		return minReadHashKey;
+	public String getMinR2HashKey() {
+		return minR2HashKey;
 	}
 
 	public String getName() {
