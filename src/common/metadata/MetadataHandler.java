@@ -15,7 +15,7 @@ public class MetadataHandler {
 	private final static String fieldSeparator = ";";
 	private final static String lineSeparator = "/";
 	private final static String hashingAlgorithm = "MD5";
-	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
+	private final Logger logger = Logger.getLogger(MetadataHandler.class);
 	protected String minR2HashKey;
 	protected String maxR2minR1HashKey;
 	protected String minWriteHashKey;
@@ -84,7 +84,6 @@ public class MetadataHandler {
 	}
 
 	/**
-	 * used locally (kvstore and server) and by server
 	 * @param key
 	 * @param minHash
 	 * @param maxHash
@@ -108,7 +107,7 @@ public class MetadataHandler {
 			logger.warn("Hash of key " + key + " was null!");
 			return false;
 		} catch (NoSuchAlgorithmException e) {
-			Logger.getLogger(getClass().getSimpleName()).fatal("Hashing algorithm " + hashingAlgorithm + " could not be found!");
+			logger.fatal("Hashing algorithm " + hashingAlgorithm + " could not be found!");
 			throw(e);
 		}
 	}
@@ -132,7 +131,6 @@ public class MetadataHandler {
 
 
 	/**
-	 * used by ECS
 	 * @param ip
 	 * @param portNumber
 	 * @return

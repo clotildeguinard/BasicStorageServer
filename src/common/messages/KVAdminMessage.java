@@ -13,6 +13,8 @@ public interface KVAdminMessage {
 		COPY_DATA,
 		START,
 		STOP,
+		START_HEARTBEAT,
+		STOP_HEARTBEAT,
 		SHUTDOWN;
 	}
 

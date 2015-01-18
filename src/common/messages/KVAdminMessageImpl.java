@@ -2,12 +2,11 @@ package common.messages;
 
 import org.apache.log4j.Logger;
 
-import common.messages.KVMessage.StatusType;
 
 public class KVAdminMessageImpl implements KVAdminMessage {
 	public String key;
 	public String value;
-	public static StatusType statusType;
+	public StatusType statusType;
 	private final static Logger logger = Logger.getLogger("KVMessageImpl");
 
 	public KVAdminMessageImpl(String key, String value, StatusType statusType) {
@@ -58,7 +57,7 @@ public class KVAdminMessageImpl implements KVAdminMessage {
 
 	}
 
-	public static KVAdminMessage unmarshal(TextMessage text) {
+	public static KVAdminMessage unmarshal(TextMessage text) throws IllegalStateException {
 
 		String xml = text.getMsg();
 		try {
@@ -66,16 +65,24 @@ public class KVAdminMessageImpl implements KVAdminMessage {
 			String value = unmarshalParameter(xml, "value");
 			String status = unmarshalParameter(xml, "status");
 
-			StatusType statusType = null;
 			if (status != null) {
-				statusType = StatusType.valueOf(status.toUpperCase());
-			}
+				try {
+					StatusType statusType = StatusType.valueOf(status.toUpperCase());
+					return new KVAdminMessageImpl(key, value, statusType);
+				} catch (IllegalArgumentException e) {
+					try {
+						common.messages.KVMessage.StatusType.valueOf(status.toUpperCase());
+						throw new IllegalStateException("Client taken as the ECS ! Must repeat request !");
 
-			return new KVAdminMessageImpl(key, value, statusType);
-		} catch (IndexOutOfBoundsException e) {
+					} catch (IllegalArgumentException ex) {
+
+					}
+				}
+			}
+		} catch (IndexOutOfBoundsException | IllegalArgumentException e) {
 			logger.warn("Impossible to unmarshal received message : " + xml);
-			return null;
 		}
+		return null;
 	}
 
 	private static String unmarshalParameter(String xml, String parameter) throws IndexOutOfBoundsException {

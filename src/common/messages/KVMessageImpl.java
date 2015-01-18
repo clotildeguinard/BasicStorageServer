@@ -2,6 +2,8 @@ package common.messages;
 
 import org.apache.log4j.Logger;
 
+import common.messages.KVAdminMessage.StatusType;
+
 public class KVMessageImpl implements KVMessage {
 	public String key;
 	public String value;
@@ -64,17 +66,24 @@ public class KVMessageImpl implements KVMessage {
 			String value = unmarshalParameter(xml, "value");
 			String status = unmarshalParameter(xml, "status");
 
-			StatusType statusType = null;
 			if (status != null) {
-				statusType = StatusType.valueOf(status.toUpperCase());
-			}
+				try {
+					StatusType statusType = StatusType.valueOf(status.toUpperCase());
+					return new KVMessageImpl(key, value, statusType);
+				} catch (IllegalArgumentException e) {
+					try {
+						common.messages.KVAdminMessage.StatusType.valueOf(status.toUpperCase());
+						throw new IllegalStateException("Connected to ECS instead of a client or an other node !");
 
-			return new KVMessageImpl(key, value, statusType);
+					} catch (IllegalArgumentException ex) {
+
+					}
+				}
+			}
 		} catch (IndexOutOfBoundsException | IllegalArgumentException e) {
 			logger.warn("Impossible to unmarshal received message : " + xml);
-			return null;
 		}
-
+		return null;
 	}
 
 	private static String unmarshalParameter(String xml, String parameter) throws IndexOutOfBoundsException {

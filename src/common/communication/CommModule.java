@@ -3,6 +3,8 @@ package common.communication;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.SocketException;
+
 import common.messages.TextMessage;
 
 public class CommModule {
@@ -22,7 +24,7 @@ public class CommModule {
 	 * @param output 
 	 * @throws IOException some I/O error regarding the output stream 
 	 */
-	public void sendMessage(TextMessage msg) throws IOException {
+	public void sendMessage(TextMessage msg) throws SocketException, IOException {
 		byte[] msgBytes = msg.getMsgBytes();
 		output.write(msgBytes, 0, msgBytes.length);
 		output.flush();

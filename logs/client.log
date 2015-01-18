@@ -397,3 +397,338 @@
 2015-01-17 13:10:12,556 DEBUG [Thread-1] app_kvApi.KVStore: Connection closed.
 2015-01-17 13:10:12,650 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
 2015-01-17 13:10:30,260 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_UPDATE foo bar
+2015-01-17 19:42:16,412 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50000
+2015-01-17 19:42:16,428 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_STOPPED foo bar
+2015-01-17 19:42:16,428 DEBUG [Thread-1] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:42:16,428 DEBUG [Thread-1] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:42:16,537 DEBUG [main] app_kvApi.KVStore: Answer to put : SERVER_STOPPED foo bar
+2015-01-17 19:42:31,431 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50000
+2015-01-17 19:42:31,447 DEBUG [Thread-2] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;ade5f7a15861c8318a8693d8a0c1c156/node4;localhost;50003;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/
+2015-01-17 19:42:31,447 DEBUG [Thread-2] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:42:31,447 DEBUG [Thread-2] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:42:31,556 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:42:31,556 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:42:31,556 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:42:31,603 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-17 19:42:31,603 DEBUG [Thread-3] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:42:31,603 DEBUG [Thread-3] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:42:31,681 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-17 19:43:09,145 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:09,145 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:09,145 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:09,145 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:09,145 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:43:09,145 DEBUG [Thread-4] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:09,145 DEBUG [Thread-4] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:09,145 DEBUG [Thread-4] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:43:23,447 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:23,447 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:23,447 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:23,447 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:23,447 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:43:23,463 DEBUG [Thread-5] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:23,463 DEBUG [Thread-5] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:23,463 DEBUG [Thread-5] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:43:29,275 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:29,275 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:29,275 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:29,275 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:29,275 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:43:29,291 DEBUG [Thread-6] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:29,291 DEBUG [Thread-6] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:29,291 DEBUG [Thread-6] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:43:32,979 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:32,994 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:32,994 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:32,994 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:32,994 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:43:32,994 DEBUG [Thread-7] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:32,994 DEBUG [Thread-7] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:32,994 DEBUG [Thread-7] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:43:35,479 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:35,479 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:35,479 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:35,479 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:35,479 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:43:35,479 DEBUG [Thread-8] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:35,479 DEBUG [Thread-8] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:35,495 DEBUG [Thread-8] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:43:37,323 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:37,323 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:37,323 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:37,323 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:37,323 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:43:37,323 DEBUG [Thread-9] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:37,323 DEBUG [Thread-9] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:37,323 DEBUG [Thread-9] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:43:42,701 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:42,701 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:42,701 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:42,701 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:42,701 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:43:42,701 DEBUG [Thread-10] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:42,701 DEBUG [Thread-10] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:42,701 DEBUG [Thread-10] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:43:46,326 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:46,326 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:46,326 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:46,326 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:46,326 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:43:46,326 DEBUG [Thread-11] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:46,326 DEBUG [Thread-11] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:46,326 DEBUG [Thread-11] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:43:47,654 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:47,654 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:47,654 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:47,654 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:47,654 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:43:47,654 DEBUG [Thread-12] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:47,654 DEBUG [Thread-12] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:47,654 DEBUG [Thread-12] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:43:48,795 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:48,795 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:48,795 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:48,795 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:48,795 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:43:48,795 DEBUG [Thread-13] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:48,795 DEBUG [Thread-13] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:48,795 DEBUG [Thread-13] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:43:49,842 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:49,842 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:49,842 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:49,842 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:49,842 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:43:49,842 DEBUG [Thread-14] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:49,842 DEBUG [Thread-14] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:49,842 DEBUG [Thread-14] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:43:51,217 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:51,217 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:51,217 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:51,217 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:43:51,217 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:43:51,217 DEBUG [Thread-15] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:43:51,217 DEBUG [Thread-15] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:43:51,217 DEBUG [Thread-15] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:07,097 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:07,097 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:07,097 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:07,097 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:07,097 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:44:07,097 DEBUG [Thread-16] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:07,097 DEBUG [Thread-16] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:07,097 DEBUG [Thread-16] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:10,129 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:10,129 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:10,129 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:10,129 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:10,129 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:44:10,129 DEBUG [Thread-17] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:10,129 DEBUG [Thread-17] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:10,129 DEBUG [Thread-17] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:11,457 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:11,457 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:11,457 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:11,457 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:11,457 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:44:11,472 DEBUG [Thread-18] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:11,472 DEBUG [Thread-18] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:11,472 DEBUG [Thread-18] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:12,723 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:12,723 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:12,723 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:12,723 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:12,723 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:44:12,723 DEBUG [Thread-19] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:12,723 DEBUG [Thread-19] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:12,723 DEBUG [Thread-19] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:17,785 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:17,785 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:17,785 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:17,785 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:17,785 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:44:17,801 DEBUG [Thread-20] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:17,801 DEBUG [Thread-20] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:17,801 DEBUG [Thread-20] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:19,176 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:19,176 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:19,176 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:19,176 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:19,176 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:44:19,176 DEBUG [Thread-21] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:19,176 DEBUG [Thread-21] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:19,176 DEBUG [Thread-21] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:31,508 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:31,508 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:31,508 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:31,508 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:31,508 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:44:31,508 DEBUG [Thread-22] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:31,508 DEBUG [Thread-22] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:31,508 DEBUG [Thread-22] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:33,602 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:33,602 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:33,602 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:33,602 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:33,602 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:44:33,602 DEBUG [Thread-23] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:33,602 DEBUG [Thread-23] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:33,602 DEBUG [Thread-23] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:36,836 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:36,836 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:36,836 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:36,836 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:36,836 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:44:36,852 DEBUG [Thread-24] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:36,852 DEBUG [Thread-24] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:36,852 DEBUG [Thread-24] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:39,899 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:39,899 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:39,899 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:39,899 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:39,899 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:44:39,899 DEBUG [Thread-25] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:39,899 DEBUG [Thread-25] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:39,899 DEBUG [Thread-25] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:46,746 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:46,746 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:46,746 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:46,746 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:46,746 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:44:46,746 DEBUG [Thread-26] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:46,746 DEBUG [Thread-26] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:46,746 DEBUG [Thread-26] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:47,871 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:47,871 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:47,871 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:47,871 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:47,871 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:44:47,871 DEBUG [Thread-27] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:47,871 DEBUG [Thread-27] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:47,871 DEBUG [Thread-27] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:49,027 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:49,027 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:49,027 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:49,027 DEBUG [main] MetadataHandlerClient: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-17 19:44:49,027 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:44:49,027 DEBUG [Thread-28] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-17 19:44:49,027 DEBUG [Thread-28] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:49,027 DEBUG [Thread-28] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:59,465 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:44:59,465 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:44:59,481 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:44:59,481 DEBUG [Thread-29] common.communication.KVCommModule: New received message : PUT_SUCCESS goo gar
+2015-01-17 19:44:59,481 DEBUG [Thread-29] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:44:59,481 DEBUG [Thread-29] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:44:59,590 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS goo gar
+2015-01-17 19:45:08,687 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:08,687 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:08,687 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:08,687 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:08,687 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:45:08,687 DEBUG [Thread-30] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:08,687 DEBUG [Thread-30] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:08,687 DEBUG [Thread-30] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:13,219 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:13,219 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:13,219 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:13,219 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:13,219 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:45:13,219 DEBUG [Thread-31] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:13,219 DEBUG [Thread-31] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:13,219 DEBUG [Thread-31] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:15,172 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:15,172 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:15,172 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:15,172 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:15,172 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:45:15,172 DEBUG [Thread-32] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:15,172 DEBUG [Thread-32] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:15,172 DEBUG [Thread-32] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:21,347 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:21,347 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:21,347 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:21,347 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:21,347 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:45:21,347 DEBUG [Thread-33] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:21,347 DEBUG [Thread-33] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:21,347 DEBUG [Thread-33] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:24,379 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:24,379 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:24,379 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:24,379 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:24,379 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:45:24,379 DEBUG [Thread-34] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:24,379 DEBUG [Thread-34] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:24,379 DEBUG [Thread-34] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:25,332 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:25,332 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:25,332 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:25,332 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:25,332 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:45:25,332 DEBUG [Thread-35] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:25,332 DEBUG [Thread-35] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:25,332 DEBUG [Thread-35] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:27,285 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:27,285 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:27,285 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:27,285 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:27,285 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:45:27,285 DEBUG [Thread-36] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:27,285 DEBUG [Thread-36] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:27,285 DEBUG [Thread-36] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:29,379 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:29,379 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:29,379 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:29,379 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:29,379 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:45:29,379 DEBUG [Thread-37] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:29,379 DEBUG [Thread-37] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:29,379 DEBUG [Thread-37] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:30,301 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:30,301 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:30,301 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:30,301 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:30,301 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:45:30,301 DEBUG [Thread-38] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:30,301 DEBUG [Thread-38] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:30,301 DEBUG [Thread-38] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:31,738 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:31,738 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:31,738 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:31,738 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:31,738 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:45:31,738 DEBUG [Thread-39] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:31,738 DEBUG [Thread-39] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:31,738 DEBUG [Thread-39] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:33,285 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:33,285 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:33,285 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:33,285 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:33,285 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50003
+2015-01-17 19:45:33,285 DEBUG [Thread-40] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:33,285 DEBUG [Thread-40] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:33,285 DEBUG [Thread-40] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:34,582 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:34,582 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:34,582 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:34,582 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:34,582 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:45:34,582 DEBUG [Thread-41] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:34,582 DEBUG [Thread-41] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:34,582 DEBUG [Thread-41] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:35,692 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:35,692 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:35,692 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:35,692 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:35,692 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:45:35,692 DEBUG [Thread-42] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:35,692 DEBUG [Thread-42] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:35,692 DEBUG [Thread-42] app_kvApi.KVStore: Connection closed.
+2015-01-17 19:45:37,645 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:37,645 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:37,645 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:37,645 DEBUG [main] MetadataHandlerClient: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-17 19:45:37,645 DEBUG [main] app_kvApi.KVStore: Trying to connect to localhost:50001
+2015-01-17 19:45:37,661 DEBUG [Thread-43] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
+2015-01-17 19:45:37,661 DEBUG [Thread-43] app_kvApi.KVStore: KVStore stopped
+2015-01-17 19:45:37,661 DEBUG [Thread-43] app_kvApi.KVStore: Connection closed.

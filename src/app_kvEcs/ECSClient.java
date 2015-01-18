@@ -11,9 +11,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 import logger.LogSetup;
 
@@ -25,22 +27,26 @@ import common.communication.KVSocketListener;
 import common.messages.KVAdminMessage;
 import common.messages.KVAdminMessageImpl;
 import common.messages.TextMessage;
-import common.messages.KVMessage.StatusType;
+import common.metadata.Address;
 import common.metadata.MetadataHandler;
 import common.metadata.NodeData;
 
 public class ECSClient implements KVSocketListener {
-
-	private List<String[]> possibleRemainingNodes;
-	private List<String> sortedNodeHashes;
-	private List<ConfigStore> sortedConfigStores;
-
-	private int nbUsedNodes = 0;
-	private MetadataHandler metadataHandler;
-
 	private static final Logger logger = Logger.getLogger(ECSClient.class);
 	private final static String hashingAlgorithm = "MD5";
 	private final static String PROMPT = "ECSClient> ";
+
+	private boolean isHandlingSuspiciousNode = false;
+	private HashMap<Address, Long> suspicionMap = new HashMap<>();
+
+	private List<String[]> possibleRemainingNodes;
+	private List<String> sortedNodeHashes;
+	private List<ConfigCommInterface> sortedConfigStores;
+	private int defaultCacheSize;
+	private Strategy defaultDisplacementStrategy;
+
+	private int nbUsedNodes = 0;
+	private MetadataHandler metadataHandler;
 
 	public ECSClient(String configLocation) {
 		this.possibleRemainingNodes = new ArrayList<String[]>();
@@ -119,12 +125,15 @@ public class ECSClient implements KVSocketListener {
 	 */
 	public int initService(int numberOfNodes, int cacheSize, Strategy displacementStrategy)
 			throws NoSuchAlgorithmException, IOException{
+		this.defaultCacheSize = cacheSize;
+		this.defaultDisplacementStrategy = displacementStrategy;
+
 		if (numberOfNodes > possibleRemainingNodes.size()) {
 			numberOfNodes = possibleRemainingNodes.size();
 		}
 
 		logger.debug("Initiating the service...");
-		sortedConfigStores = new ArrayList<ConfigStore>();
+		sortedConfigStores = new ArrayList<ConfigCommInterface>();
 		sortedNodeHashes = new ArrayList<>();
 
 		for (int k = 0; k < numberOfNodes ; k++) {
@@ -138,14 +147,15 @@ public class ECSClient implements KVSocketListener {
 		// TODO launch nodes via SSH with arg <port>
 
 		String metadata = metadataHandler.toString();
-		for (ConfigStore cs : sortedConfigStores) {
-			cs.addListener(this);
+		for (ConfigCommInterface cs : sortedConfigStores) {
+			((ConfigStore) cs).addListener(this);
 			cs.initKVServer(metadata, cacheSize, displacementStrategy);
 		}
 
 		logger.debug("Possible nodes : \n" + printPossible());
 		logger.debug("Used nodes : \n" + printNodes());
 
+		startHeartbeats();
 		nbUsedNodes = numberOfNodes;
 		return nbUsedNodes;
 	}
@@ -169,9 +179,10 @@ public class ECSClient implements KVSocketListener {
 	 * i.e. disable answer to queries from clients
 	 */
 	protected void start(){
-		for (ConfigStore cs : sortedConfigStores) {
+		logger.info("Starting all used nodes.");
+		for (ConfigCommInterface cs : sortedConfigStores) {
 			if (!cs.startServer()) {
-				logger.error("Some server may not have been started correctly.");
+				logger.error("Server " + ((ConfigStore) cs).getServerAddress() + " may not have been started correctly.");
 			}
 		}
 	}
@@ -184,9 +195,10 @@ public class ECSClient implements KVSocketListener {
 		if (sortedConfigStores == null) {
 			return;
 		}
-		for (ConfigStore cs : sortedConfigStores) {
+		logger.info("Stopping all used nodes.");
+		for (ConfigCommInterface cs : sortedConfigStores) {
 			if (!cs.stopServer()) {
-				logger.error("Some server may not have been stopped correctly.");
+				logger.error("Server " + ((ConfigStore) cs).getServerAddress() + " may not have been stopped correctly.");
 			}
 		}
 	}
@@ -199,9 +211,10 @@ public class ECSClient implements KVSocketListener {
 		if (sortedConfigStores == null) {
 			return;
 		}
-		for (ConfigStore cs : sortedConfigStores) {
+		logger.info("Shutting down all used nodes.");
+		for (ConfigCommInterface cs : sortedConfigStores) {
 			if (!cs.shutdown()) {
-				logger.error("Some server may not have been shut down correctly.");
+				logger.error("Server " + ((ConfigStore) cs).getServerAddress() + " may not have been shut down correctly.");
 			}
 			cs = null;
 		}
@@ -209,20 +222,37 @@ public class ECSClient implements KVSocketListener {
 		sortedNodeHashes = null;
 		nbUsedNodes = 0;
 	}
-	
+
+	protected void stopHeartbeats(){
+		logger.info("Stopping heartbeat on all used nodes");
+		for (ConfigCommInterface cs : sortedConfigStores) {
+			if (!cs.stopHeartbeat()) {
+				logger.error("Server " + ((ConfigStore) cs).getServerAddress() + " may not have been stopped to heartbeat correctly.");
+			}
+		}
+	}
+
+	protected void startHeartbeats(){
+		logger.info("Starting heartbeat on all used nodes");
+		for (ConfigCommInterface cs : sortedConfigStores) {
+			if (!cs.startHeartbeat()) {
+				logger.error("Server " + ((ConfigStore) cs).getServerAddress() + " may not have been started to heartbeat correctly.");
+			}
+		}
+	}
+
 	/**
 	 * Send updated metadata to all nodes participating in the service
 	 */
 	protected void updateAllMetadata() {
 		String updatedMetadata = metadataHandler.toString();
-		for (ConfigStore c : sortedConfigStores) {
+		for (ConfigCommInterface c : sortedConfigStores) {
 			try {
 				if (!c.updateMetadata(updatedMetadata)) {
-					logger.error("The metadata may not have been updated correctly on a given server.");
+					logger.error("The metadata may not have been updated correctly on server " + ((ConfigStore) c).getServerAddress());
 				}
 			} catch (InterruptedException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error("The metadata may not have been updated correctly on server " + ((ConfigStore) c).getServerAddress());
 			}
 		}
 		logger.info("Metadata updated for all nodes");
@@ -235,69 +265,80 @@ public class ECSClient implements KVSocketListener {
 	 * @return number of nodes participating in the service
 	 * @throws NoSuchElementException
 	 * @throws NoSuchAlgorithmException
+	 * @throws IOException 
 	 */
 	protected int addNode(int cacheSize, Strategy displacementStrategy)
-			throws NoSuchElementException, NoSuchAlgorithmException{
+			throws NoSuchElementException, NoSuchAlgorithmException, IOException{
+
 		int size = possibleRemainingNodes.size(); 
 		if (size < 1) {
 			throw new NoSuchElementException("There is no more node to add.");
 		}
 
-		int random = (int) (Math.random() * (size - 1));
-		String[] newNodeParams = possibleRemainingNodes.remove(random);
-		logger.debug("Adding node " + newNodeParams[0]);
+		stopHeartbeats();
+
 		try {
-			addNodeToLists(newNodeParams);
-		} catch (IllegalArgumentException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			int random = (int) (Math.random() * (size - 1));
+			String[] newNodeParams = possibleRemainingNodes.remove(random);
+			logger.debug("Adding node " + newNodeParams[0]);
+			try {
+				addNodeToLists(newNodeParams);
+			} catch (IllegalArgumentException e1) {
+				possibleRemainingNodes.add(newNodeParams);
+				logger.error("ECS config file may contain an error", e1);
+				throw(e1);
+			} catch (IOException e1) {
+				possibleRemainingNodes.add(newNodeParams);
+				logger.error("Could not add node", e1);
+				throw(e1);
+			}
+			String nodeName = newNodeParams[0];
+
+			sortNodeLists();
+			metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
+
+			// TODO launch node via SSH with arg <port>
+
+			int index = findCsIndex(nodeName);
+			ConfigCommInterface newNodeCS = sortedConfigStores.get(index);
+			((ConfigStore) newNodeCS).addListener(this);
+
+			String updatedMetadata = metadataHandler.toString();
+			if (!newNodeCS.initKVServer(updatedMetadata, cacheSize, displacementStrategy)) {
+				logger.error("The new node may not have been initialized correctly.");
+			} else {
+				logger.info("New node initialized.");
+			}
+			if (!newNodeCS.startServer()) {
+				logger.error("The new node may not have been started correctly.");
+			} else {
+				logger.info("New node started.");
+			}
+
+			ConfigCommInterface nextNodeCS = sortedConfigStores.get((index + 1) % sortedConfigStores.size());
+			ConfigCommInterface nextnextNodeCS = sortedConfigStores.get((index + 2) % sortedConfigStores.size());
+
+			redistributeDataAdd(index, newNodeParams, nextNodeCS, nextnextNodeCS);
+
+			updateAllMetadata();
+
+			if (!nextNodeCS.unlockWrite()) {
+				logger.error("The successor node may not have been write-unlocked correctly.");
+			} else {
+				logger.info("Successor node write-unlocked.");
+			}
+
+			logger.debug("Possible nodes : \n" + printPossible());
+			logger.debug("Used nodes : \n" + printNodes());
+
+			return ++nbUsedNodes; 
+
+		} finally {
+			startHeartbeats();
 		}
-		String nodeName = newNodeParams[0];
-
-		sortNodeLists();
-		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
-
-		// TODO launch node via SSH with arg <port>
-
-		int index = findCsIndex(nodeName);
-		ConfigStore newNodeCS = sortedConfigStores.get(index);
-		newNodeCS.addListener(this);
-
-		String updatedMetadata = metadataHandler.toString();
-		if (!newNodeCS.initKVServer(updatedMetadata, cacheSize, displacementStrategy)) {
-			logger.error("The node may not have been initialized correctly.");
-		} else {
-			logger.info("New node initialized.");
-		}
-		if (!newNodeCS.startServer()) {
-			logger.error("The node may not have been started correctly.");
-		} else {
-			logger.info("New node started.");
-		}
-
-		ConfigStore nextNodeCS = sortedConfigStores.get((index + 1) % sortedConfigStores.size());
-		ConfigStore nextnextNodeCS = sortedConfigStores.get((index + 2) % sortedConfigStores.size());
-
-		redistributeDataAdd(index, newNodeParams, nextNodeCS, nextnextNodeCS);
-
-		updateAllMetadata();
-
-		if (!nextNodeCS.unlockWrite()) {
-			logger.error("The successor node may not have been write-unlocked correctly.");
-		} else {
-			logger.info("Successor node write-unlocked.");
-		}
-
-		logger.debug("Possible nodes : \n" + printPossible());
-		logger.debug("Used nodes : \n" + printNodes());
-
-		return ++nbUsedNodes;
 	}
 
-	private void redistributeDataAdd(int indexOfNewNode, String[] newNodeParams, ConfigStore nextNodeCS, ConfigStore nextnextNodeCS) {
+	private void redistributeDataAdd(int indexOfNewNode, String[] newNodeParams, ConfigCommInterface nextNodeCS, ConfigCommInterface nextnextNodeCS) {
 		String[] newNodeAddress = new String[] {newNodeParams[1], newNodeParams[2]};
 		NodeData newNodeData = metadataHandler.getNodeData(newNodeAddress[0], Integer.valueOf(newNodeAddress[1]));
 
@@ -306,7 +347,7 @@ public class ECSClient implements KVSocketListener {
 		} else {
 			logger.info("Successor node write-locked.");
 		}
-		
+
 		// COPY owner range from NEXT to NEW
 		if (!nextNodeCS.copyData(newNodeAddress, newNodeData.getMinWriteHashKey(), newNodeData.getMaxHashKey())) {
 			logger.error("The owner data may not have been copied correctly.");
@@ -320,7 +361,7 @@ public class ECSClient implements KVSocketListener {
 		} else {
 			logger.info("R2 data moved to new node.");
 		}
-		
+
 		if (!nextnextNodeCS.lockWrite()) {
 			logger.error("The after-successor node may not have been write-locked correctly.");
 		} else {
@@ -344,43 +385,50 @@ public class ECSClient implements KVSocketListener {
 		if (nbUsedNodes <= 1) {
 			return 0;
 		}
+		stopHeartbeats();
 
-		int random = (int) (Math.random() * (sortedConfigStores.size() - 1));
-		String toRemoveName = sortedNodeHashes.get(random*4);
-		logger.info("Removing node " + toRemoveName);
-		int toRemoveIndex = findCsIndex(toRemoveName);
+		try {
 
-		String toRemoveIp = sortedNodeHashes.get(toRemoveIndex*4 + 1);
-		int toRemovePort = Integer.valueOf(sortedNodeHashes.get(toRemoveIndex*4 + 2));
-		
-		NodeData removedNodeData = metadataHandler.getNodeData(toRemoveIp, toRemovePort);
-		ConfigStore removedNodeCS = removeNodeFromLists(toRemoveName);
-		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
+			int random = (int) (Math.random() * (sortedConfigStores.size() - 1));
+			String toRemoveName = sortedNodeHashes.get(random*4);
+			logger.info("Removing node " + toRemoveName);
+			int toRemoveIndex = findCsIndex(toRemoveName);
 
-		removedNodeCS.lockWrite();
-		System.out.println("successor node is " + sortedNodeHashes.get(toRemoveIndex*4));
-	
-		redistributeDataRemove(toRemoveIndex, removedNodeData, removedNodeCS);
+			String toRemoveIp = sortedNodeHashes.get(toRemoveIndex*4 + 1);
+			int toRemovePort = Integer.valueOf(sortedNodeHashes.get(toRemoveIndex*4 + 2));
 
-		updateAllMetadata();
-		
-		if (!removedNodeCS.shutdown()) {
-			logger.error("The removed node may not have been shut down correctly.");
+			NodeData removedNodeData = metadataHandler.getNodeData(toRemoveIp, toRemovePort);
+			ConfigCommInterface removedNodeCS = removeNodeFromLists(toRemoveName);
+			metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
+
+			removedNodeCS.lockWrite();
+			System.out.println("successor node is " + sortedNodeHashes.get(toRemoveIndex*4));
+
+			redistributeDataRemove(toRemoveIndex, removedNodeData, removedNodeCS);
+
+			updateAllMetadata();
+
+			if (!removedNodeCS.shutdown()) {
+				logger.error("The removed node may not have been shut down correctly.");
+			}
+
+			logger.debug("Possible nodes : \n" + printPossible());
+			logger.debug("Used nodes : \n" + printNodes());
+
+			return --nbUsedNodes;
+			
+		} finally {
+			startHeartbeats();
 		}
-
-		logger.debug("Possible nodes : \n" + printPossible());
-		logger.debug("Used nodes : \n" + printNodes());
-
-		return --nbUsedNodes;
 	}
-	
-	private void redistributeDataRemove(int toRemoveIndex, NodeData removedNodeData, ConfigStore toRemoveNodeCS) throws IOException {		
-		ConfigStore nextNodeCS = sortedConfigStores.get(toRemoveIndex % sortedConfigStores.size());
-		ConfigStore nextnextNodeCS = sortedConfigStores.get((toRemoveIndex + 1) % sortedConfigStores.size());
+
+	private void redistributeDataRemove(int toRemoveIndex, NodeData removedNodeData, ConfigCommInterface toRemoveNodeCS) throws IOException {		
+		ConfigCommInterface nextNodeCS = sortedConfigStores.get(toRemoveIndex % sortedConfigStores.size());
+		ConfigCommInterface nextnextNodeCS = sortedConfigStores.get((toRemoveIndex + 1) % sortedConfigStores.size());
 		String newMetadata = metadataHandler.toString();
 		String[] nextNodeAddress = new String[] {sortedNodeHashes.get((toRemoveIndex * 4 + 1) % sortedNodeHashes.size()), sortedNodeHashes.get((toRemoveIndex * 4 + 2) % sortedNodeHashes.size())};
 		String[] nextnextNodeAddress = new String[] {sortedNodeHashes.get((toRemoveIndex * 4 + 5) % sortedNodeHashes.size()), sortedNodeHashes.get((toRemoveIndex * 4 + 6) % sortedNodeHashes.size())};
-		
+
 		try {
 			if (!nextNodeCS.updateMetadata(newMetadata)) {
 				logger.error("The metadata may not have been updated correctly on successor node.");
@@ -388,18 +436,17 @@ public class ECSClient implements KVSocketListener {
 				logger.info("Metadata updated on successor node.");
 			}
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("The metadata may not have been updated correctly on successor node.");
 		}
 
 		// COPY r2 range from TOREMOVE to NEXT
-		
+
 		if (!toRemoveNodeCS.copyData(nextNodeAddress, removedNodeData.getMinR2HashKey(), removedNodeData.getMaxR2minR1HashKey())) {
 			logger.error("The R2 data may not have been copied correctly.");
 		} else {
 			logger.info("R2 data copied to next node.");
 		}
-		
+
 		try {
 			if (!nextnextNodeCS.updateMetadata(newMetadata)) {
 				logger.error("The metadata may not have been updated correctly on after-successor node.");
@@ -408,8 +455,7 @@ public class ECSClient implements KVSocketListener {
 			}
 
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("The metadata may not have been updated correctly on after-successor node.");
 		}
 
 		// COPY r1 range from TOREMOVE to NEXT-NEXT
@@ -419,17 +465,62 @@ public class ECSClient implements KVSocketListener {
 			logger.info("R1 data copied to next-next node.");
 		}
 	}
-	
+
 	/**
-	 * Remove suspicious node from the pool of participating nodes
-	 * and bring the data back to consistency by copying it from replicas
+	 * Handles suspicious node
+	 * if is not being handled
+	 * and if is reported by the two neighbours
 	 * @param ip
 	 * @param port
-	 * @return
 	 * @throws NoSuchAlgorithmException
 	 * @throws IOException
 	 */
-	protected int handleSuspiciousNode(String ip, int port) throws NoSuchAlgorithmException, IOException{
+	protected void handleSuspiciousNode(String ip, int port) throws NoSuchAlgorithmException, IOException{
+
+		if (isHandlingSuspiciousNode) {
+			logger.info("Is already handling some suspicious node");
+			return;
+		} else {
+			Address a = new Address(ip, port);
+			synchronized(this) {
+				System.out.println(a + " " + suspicionMap.containsKey(a));
+				if (suspicionMap.containsKey(a)) {
+					System.out.println(System.currentTimeMillis() - suspicionMap.get(a));
+				} else {
+					Set<Address> i = suspicionMap.keySet();
+					for (Address ad : i) {
+						System.out.println("different from " + ad);
+					}
+				}
+				if (suspicionMap.containsKey(a) && (System.currentTimeMillis() - suspicionMap.get(a) < 7450) ) {
+					logger.info("Has to handle suspicious node " + a);
+					isHandlingSuspiciousNode = true;
+					stopHeartbeats();
+					handleSuspiciousNodeBis(ip, port);
+					startHeartbeats();
+					suspicionMap.remove(a);
+					isHandlingSuspiciousNode = false;
+				} else {
+					logger.info("put " + a + " in map");
+					suspicionMap.put(a, System.currentTimeMillis());
+				}
+			}
+		}
+
+	}
+
+	/**
+	 * Remove suspicious node from the pool of participating nodes,
+	 * bring the data back to consistency by copying it from replicas
+	 * and re-add random node
+	 * @param ip
+	 * @param port
+	 * @return number of used nodes
+	 * @throws NoSuchAlgorithmException
+	 * @throws IOException
+	 */
+	protected void handleSuspiciousNodeBis(String ip, int port) throws NoSuchAlgorithmException, IOException {
+
 		int suspIndex = 0;
 		String suspName = null;
 		for (int i = 0; i<sortedNodeHashes.size(); i+=4){
@@ -439,18 +530,18 @@ public class ECSClient implements KVSocketListener {
 			}
 		}
 		logger.info("Suspicious node " + suspName);
-		
+
 		NodeData suspNodeData = metadataHandler.getNodeData(ip, port);
-		ConfigStore suspNodeCS = removeNodeFromLists(suspName);
+		ConfigCommInterface suspNodeCS = removeNodeFromLists(suspName);
 		metadataHandler = new MetadataHandler(getMetadata(sortedNodeHashes));
 
 		suspNodeCS.lockWrite();
-		System.out.println("successor node is " + sortedNodeHashes.get(suspIndex*4));
-	
+		System.out.println("Successor node is " + sortedNodeHashes.get(suspIndex*4));
+
 		redistributeDataSuspicious(suspIndex, suspNodeData, sortedConfigStores.get((suspIndex - 1 + sortedConfigStores.size()) % sortedConfigStores.size()));
 
 		updateAllMetadata();
-		
+
 		if (!suspNodeCS.shutdown()) {
 			logger.error("The removed node may not have been shut down correctly.");
 		}
@@ -458,16 +549,16 @@ public class ECSClient implements KVSocketListener {
 		logger.debug("Possible nodes : \n" + printPossible());
 		logger.debug("Used nodes : \n" + printNodes());
 
-		return --nbUsedNodes;	
+		addNode(defaultCacheSize, defaultDisplacementStrategy);
 	}
 
-	private void redistributeDataSuspicious(int suspIndex, NodeData suspNodeData, ConfigStore previousNodeCS) throws IOException {		
-		ConfigStore nextNodeCS = sortedConfigStores.get(suspIndex % sortedConfigStores.size());
-		ConfigStore nextnextNodeCS = sortedConfigStores.get((suspIndex + 1) % sortedConfigStores.size());
+	private void redistributeDataSuspicious(int suspIndex, NodeData suspNodeData, ConfigCommInterface previousNodeCS) throws IOException {		
+		ConfigCommInterface nextNodeCS = sortedConfigStores.get(suspIndex % sortedConfigStores.size());
+		ConfigCommInterface nextnextNodeCS = sortedConfigStores.get((suspIndex + 1) % sortedConfigStores.size());
 		String newMetadata = metadataHandler.toString();
 		String[] nextNodeAddress = new String[] {sortedNodeHashes.get((suspIndex * 4 + 1) % sortedNodeHashes.size()), sortedNodeHashes.get((suspIndex * 4 + 2) % sortedNodeHashes.size())};
 		String[] nextnextNodeAddress = new String[] {sortedNodeHashes.get((suspIndex * 4 + 5) % sortedNodeHashes.size()), sortedNodeHashes.get((suspIndex * 4 + 6) % sortedNodeHashes.size())};
-		
+
 		try {
 			if (!nextNodeCS.updateMetadata(newMetadata)) {
 				logger.error("The metadata may not have been updated correctly on successor node.");
@@ -475,18 +566,17 @@ public class ECSClient implements KVSocketListener {
 				logger.info("Metadata updated on successor node.");
 			}
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("The metadata may not have been updated correctly on successor node.");
 		}
 
 		// COPY r2 range of SUSP from PREVIOUS to NEXT
-		
+
 		if (!previousNodeCS.copyData(nextNodeAddress, suspNodeData.getMinR2HashKey(), suspNodeData.getMaxR2minR1HashKey())) {
 			logger.error("The R2 data of suspicious node may not have been copied correctly.");
 		} else {
 			logger.info("R2 data of suspicious node copied to next node.");
 		}
-		
+
 		try {
 			if (!nextnextNodeCS.updateMetadata(newMetadata)) {
 				logger.error("The metadata may not have been updated correctly on after-successor node.");
@@ -495,8 +585,7 @@ public class ECSClient implements KVSocketListener {
 			}
 
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("The metadata may not have been updated correctly on after-successor node.");
 		}
 
 		// COPY r1 range of SUSP from PREVIOUS to NEXT-NEXT
@@ -506,7 +595,7 @@ public class ECSClient implements KVSocketListener {
 			logger.info("R1 data of suspicious node copied to next-next node.");
 		}
 	}
-	
+
 	private int findCsIndex(String nodeName) {
 		int max = sortedNodeHashes.size();
 		for (int i=0; i<max; i += 4) {
@@ -518,7 +607,7 @@ public class ECSClient implements KVSocketListener {
 	}
 
 
-	private ConfigStore removeNodeFromLists(String nodeName) {
+	private ConfigCommInterface removeNodeFromLists(String nodeName) {
 		int size = sortedNodeHashes.size();		
 		int index = 0;
 		for(int i = 0; i < size; i+=4){
@@ -605,33 +694,11 @@ public class ECSClient implements KVSocketListener {
 				handleSuspiciousNode(message.getKey(), Integer.valueOf(message.getValue()));
 			} catch (NumberFormatException | NoSuchAlgorithmException
 					| IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error("Suspicion message could not be interpreted" , e);
 			}
 		}
 	}
 
-	/**
-	 * Main entry point for the ECSClient application. 
-	 * @param args contains the loglevel at args[0].
-	 * @throws NoSuchAlgorithmException 
-	 */
-	public static void main(String[] args) {
-		try {
-			if(args.length != 1) {
-				System.out.println("Error! Invalid number of arguments!");
-				System.out.println("Usage: ECS <loglevel> !");
-			} else {
-				new LogSetup("logs/ecs.log", Level.toLevel(args[0]));
-				ECSInterface app = new ECSInterface();
-				app.run();
-			}
-		} catch (IOException e) {
-			System.out.println("Error! Unable to initialize logger!");
-			e.printStackTrace();
-			System.exit(1);
-		}
-	}
 
 	private String printNodes() {
 		String s = "";
@@ -665,6 +732,26 @@ public class ECSClient implements KVSocketListener {
 		return s;
 	}
 
-
+	/**
+	 * Main entry point for the ECSClient application. 
+	 * @param args contains the loglevel at args[0].
+	 * @throws NoSuchAlgorithmException 
+	 */
+	public static void main(String[] args) {
+		try {
+			if(args.length != 1) {
+				System.out.println("Error! Invalid number of arguments!");
+				System.out.println("Usage: ECS <loglevel> !");
+			} else {
+				new LogSetup("logs/ecs.log", Level.toLevel(args[0]));
+				ECSInterface app = new ECSInterface();
+				app.run();
+			}
+		} catch (IOException e) {
+			System.out.println("Error! Unable to initialize logger!");
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
 
 }

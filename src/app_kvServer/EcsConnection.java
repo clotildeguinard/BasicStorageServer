@@ -21,8 +21,7 @@ public class EcsConnection extends Thread {
 
 	private boolean stopECSConnection = true;
 	private boolean hasToShutdownServer = false;
-	LinkedBlockingQueue<KVAdminMessage> suspicionMsgQueue = new LinkedBlockingQueue<KVAdminMessage>();
-
+	
 	public EcsConnection(int port, Socket ecsSocket, KVServer kvServer) throws UnknownHostException {
 		this.kvServer = kvServer;
 		this.ecsSocket = ecsSocket;
@@ -35,7 +34,12 @@ public class EcsConnection extends Thread {
 	}
 
 	public void handleSuspNode(KVAdminMessage suspicionMsg) {
-		suspicionMsgQueue.add(suspicionMsg);
+		try {
+			commModule.sendKVAdminMessage(suspicionMsg);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void run() {
@@ -43,10 +47,14 @@ public class EcsConnection extends Thread {
 
 		while(!stopECSConnection) {
 			try {
-				while (suspicionMsgQueue.size() > 0) {
-					commModule.sendKVAdminMessage(suspicionMsgQueue.peek());
+				KVAdminMessage request = null;
+				try {
+					request = commModule.receiveKVAdminMessage();
+				} catch (IllegalStateException e) {
+					logger.warn(e.getMessage());
+					kvServer.restartEcsConnection();
+					return;
 				}
-				KVAdminMessage request = commModule.receiveKVAdminMessage();
 				logger.info("Requested from ECS : " + request);
 
 				String key = request.getKey();
@@ -125,7 +133,15 @@ public class EcsConnection extends Thread {
 		case UNLOCK_WRITE:
 			kvServer.unLockWrite();
 			return new KVAdminMessageImpl("ok", null, StatusType.UNLOCK_WRITE);
-
+			
+		case START_HEARTBEAT:
+			kvServer.startHeartbeat();
+			return new KVAdminMessageImpl("ok", null, StatusType.START_HEARTBEAT);
+			
+		case STOP_HEARTBEAT:
+			kvServer.stopHeartbeat();
+			return new KVAdminMessageImpl("ok", null, StatusType.STOP_HEARTBEAT);
+			
 		case STOP:
 			kvServer.stop();
 			return new KVAdminMessageImpl("ok", null, StatusType.STOP);

@@ -23,7 +23,7 @@ public class KVCommModule extends CommModule implements KVSocketListener {
 		sendMessage(((KVMessageImpl) message).marshal());
 	}
 
-	public KVMessage receiveKVMessage() throws IOException {
+	public KVMessage receiveKVMessage() throws IllegalStateException, IOException {
 		TextMessage xmlText = receiveMessage();
 		return KVMessageImpl.unmarshal(xmlText);
 	}

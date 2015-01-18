@@ -17,6 +17,8 @@ public interface ConfigCommInterface {
 			Strategy strategy);
 	public boolean startServer();
 	public boolean stopServer();
+	public boolean startHeartbeat();
+	public boolean stopHeartbeat();
 	public boolean shutdown();
 
 }

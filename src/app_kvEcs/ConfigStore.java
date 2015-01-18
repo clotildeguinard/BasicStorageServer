@@ -14,6 +14,7 @@ import common.communication.KVSocketListener.SocketStatus;
 import common.messages.KVAdminMessage;
 import common.messages.KVAdminMessageImpl;
 import common.messages.TextMessage;
+import common.metadata.Address;
 
 /**
  * send requests to the server, requires call to the defined communication
@@ -29,8 +30,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	private Socket ecsSocket;
 	private Set<KVSocketListener> listeners;
 	private boolean isRunning = false;
-	private final String serverIp;
-	private final int serverPort;
+	private final Address serverAddress;
 
 	private static final Logger logger = Logger.getLogger(ConfigStore.class);
 	private static final int MAX_TRIALS = 3;
@@ -39,20 +39,19 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	/**
 	 * Initialize KVStore with address and port of KVServer
 	 * 
-	 * @param address
-	 *            the address of the KVServer
+	 * @param ip
+	 *            the ip of the KVServer
 	 * @param port
 	 *            the port of the KVServer
 	 * @throws IOException 
 	 */
 	public ConfigStore(String ip, int port) throws IllegalArgumentException, IOException {
-		this.serverIp = ip;
-		this.serverPort = port;
+		this.serverAddress = new Address(ip, port);
 		connect();
 	}
-
-	public String[] getIpAndPort() {
-		return new String[] {serverIp, Integer.toString(serverPort)};
+	
+	public Address getServerAddress() {
+		return serverAddress;
 	}
 
 	public void addListener(KVSocketListener listener) {
@@ -60,10 +59,10 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	}
 
 	private void connect() throws IOException {
-		ecsSocket = new Socket(serverIp, serverPort);
+		ecsSocket = new Socket(serverAddress.getIp(), serverAddress.getPort());
 		commModule = new KVAdminCommModule(ecsSocket.getOutputStream(),
 				ecsSocket.getInputStream());
-		logger.info("Connected to " + serverIp + ":" + serverPort);
+		logger.info("Connected to " + serverAddress);
 		listeners = new HashSet<KVSocketListener>();
 		addListener(commModule);
 		isRunning = true;
@@ -71,7 +70,6 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	}
 
 	public void disconnect() {
-
 		try {
 			tearDownConnection();
 			if (listeners != null) {
@@ -91,7 +89,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 			commModule.closeStreams();
 			ecsSocket.close();
 			ecsSocket = null;
-			logger.info("Connection closed with " + serverIp + ":" + serverPort);
+			logger.info("Connection closed with " + serverAddress);
 		}
 	}
 
@@ -101,6 +99,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	 * or aborted by the server.
 	 */
 	public void run() {
+		boolean connectionLostError = false;
 		try {
 			while (isRunning) {
 				try {
@@ -109,29 +108,38 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 						listener.handleNewMessage(latestMsg);
 					}
 				} catch (IOException ioe) {
+					connectionLostError = true;
 					if (isRunning) {
-						logger.error("Connection lost! \n" );
-						ioe.printStackTrace();
 						try {
 							tearDownConnection();
-							for (KVSocketListener listener : listeners) {
-								listener.handleStatus(SocketStatus.CONNECTION_LOST);
-							}
 						} catch (IOException e) {
-							logger.error("Unable to close connection!");
+							isRunning = false;
 						}
 					}
 				}
 			}
-			logger.info("Connection with server stopped");
 		} finally {
-			if (isRunning) {
-				disconnect();
+			if (connectionLostError) {
+				try {
+					connect();
+					connectionLostError = false;
+					logger.info("Connection lost and recovered.");
+				} catch (IOException e) {
+					logger.error("Connection lost, unable to reconnect !");
+					for (KVSocketListener listener : listeners) {
+						listener.handleStatus(SocketStatus.CONNECTION_LOST);
+					}
+				}
+			} else {
+				if (isRunning) {
+					disconnect();
+				}
+				logger.info("Connection with server stopped");
 			}
 		}
 	}
 
-	public KVAdminMessage sendAndWaitAnswer(KVAdminMessage request, int max_waiting_ms) {
+	public boolean sendWaitAndCheckAnswer(KVAdminMessage request, int max_waiting_ms) {
 		for (int i = 0; i < MAX_TRIALS ; i++) {
 			try {
 				commModule.sendKVAdminMessage(request);
@@ -139,7 +147,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 			} catch (IOException e) {
 				if (i == MAX_TRIALS - 1) {
 					logger.warn("Was unable to send request. \n" + e);
-					return null;
+					return false;
 				}
 			}
 		}
@@ -150,14 +158,23 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				logger.warn("Waiting for answer was interrupted !");
-				return null;
+				return false;
 			}
 			t += 50;
 		}
 		if (t >= max_waiting_ms) {
-			return null;
+			return false;
 		}
-		return commModule.getLatest();
+		KVAdminMessage answer = commModule.getLatest();
+		if (answer == null || answer.getKey() == null) {
+			return false;
+		} else if (answer.getKey().equals("ok")) {
+			return true;
+		} else if (answer.getKey().equals("error")) {
+			return sendWaitAndCheckAnswer(request, max_waiting_ms);
+		} else {
+			return false;
+		}
 	}
 
 	@Override
@@ -166,8 +183,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 
 		KVAdminMessage msg = new KVAdminMessageImpl(null, metadata,
 				common.messages.KVAdminMessage.StatusType.UPDATE_METADATA);
-		KVAdminMessage answer = sendAndWaitAnswer(msg, STANDARD_WAITING_MS);
-		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
+		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
+		
 	}
 
 
@@ -175,8 +192,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	public boolean lockWrite() {
 		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
 				common.messages.KVAdminMessage.StatusType.LOCK_WRITE);
-		KVAdminMessage answer = sendAndWaitAnswer(msg, STANDARD_WAITING_MS);
-		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
+		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
+		
 	}
 
 
@@ -184,8 +201,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	public boolean unlockWrite() {
 		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
 				common.messages.KVAdminMessage.StatusType.UNLOCK_WRITE);
-		KVAdminMessage answer = sendAndWaitAnswer(msg, STANDARD_WAITING_MS);
-		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
+		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
+		
 	}
 
 
@@ -194,8 +211,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		try {
 			KVAdminMessage msg = new KVAdminMessageImpl(null, null,
 					common.messages.KVAdminMessage.StatusType.SHUTDOWN);
-			KVAdminMessage answer = sendAndWaitAnswer(msg, STANDARD_WAITING_MS);
-			return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
+			return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
+			
 		} finally {
 			disconnect();
 		}
@@ -205,8 +222,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	public boolean moveData(String[] destinationServer, String minHashToMove, String maxHashToMove) {
 		KVAdminMessage msg = new KVAdminMessageImpl(minHashToMove + ":" + maxHashToMove, destinationServer[0] + ":" + destinationServer[1],
 				common.messages.KVAdminMessage.StatusType.MOVE_DATA);
-		KVAdminMessage answer = sendAndWaitAnswer(msg, 60000);
-		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
+		return sendWaitAndCheckAnswer(msg, 60000);
+		
 	}
 
 	@Override
@@ -214,8 +231,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 			String maxHashToMove) {
 		KVAdminMessage msg = new KVAdminMessageImpl(minHashToMove + ":" + maxHashToMove, destinationServer[0] + ":" + destinationServer[1],
 				common.messages.KVAdminMessage.StatusType.COPY_DATA);
-		KVAdminMessage answer = sendAndWaitAnswer(msg, 60000);
-		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
+		return sendWaitAndCheckAnswer(msg, 60000);
+		
 	}
 
 
@@ -224,24 +241,40 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 			Strategy strategy) {
 		KVAdminMessage msg = new KVAdminMessageImpl(metadata, cacheSize + ":" + strategy,
 				common.messages.KVAdminMessage.StatusType.INIT_KVSERVER);
-		KVAdminMessage answer = sendAndWaitAnswer(msg, STANDARD_WAITING_MS);
-		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
+		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
+		
 	}
 
 	@Override
 	public boolean stopServer() {
 		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
 				common.messages.KVAdminMessage.StatusType.STOP);
-		KVAdminMessage answer = sendAndWaitAnswer(msg, STANDARD_WAITING_MS);
-		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
+		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
+		
 	}
 
 	@Override
 	public boolean startServer() {
 		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
 				common.messages.KVAdminMessage.StatusType.START);
-		KVAdminMessage answer = sendAndWaitAnswer(msg, STANDARD_WAITING_MS);
-		return (answer != null && answer.getKey() != null && answer.getKey().equals("ok"));
+		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
+		
+	}
+
+	@Override
+	public boolean startHeartbeat() {
+		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
+				common.messages.KVAdminMessage.StatusType.START_HEARTBEAT);
+		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
+		
+	}
+
+	@Override
+	public boolean stopHeartbeat() {
+		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
+				common.messages.KVAdminMessage.StatusType.STOP_HEARTBEAT);
+		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
+		
 	}
 
 }

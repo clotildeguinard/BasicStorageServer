@@ -163,6 +163,9 @@ public class ECSInterface {
 					} catch (NoSuchElementException e) {
 						System.out.println("\t There is no more node to be added."
 								+ "\n\t Please use another command.");
+					} catch (IOException e) {
+						System.out.println("\t Adding failed."
+								+ "\n\t Please try again.");
 					}
 				}
 				break;

@@ -6,7 +6,6 @@ import java.net.BindException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketException;
 import java.security.NoSuchAlgorithmException;
 
 import logger.LogSetup;
@@ -27,13 +26,13 @@ public class KVServer {
 	private static final String storageLocation = "./src/app_kvServer/";
 	private static final Logger logger = Logger.getLogger(KVServer.class);
 	protected final int port;
-	
+
 	private MetadataHandlerServer metadataHandler;
 	protected ServerSocket serverSocket = null;
 	protected CacheManager cacheManager;
 	private EcsConnection ecsConnection;
 	private HeartBeatHandler heartBeatHandler;
-	
+
 	protected boolean isStopped = true;
 	private boolean shutdown = false;
 	private boolean writeLocked = false;
@@ -46,13 +45,12 @@ public class KVServer {
 	 */
 	public KVServer(int port) {
 		this.port = port;
+		restartEcsConnection();
+	}
+
+	public void restartEcsConnection() {
 		Thread ecsWaitingThread = new Thread(new ECSWaitingThread());
 		ecsWaitingThread.start();
-//		try {
-//			ecsWaitingThread.join();
-//		} catch (InterruptedException e) {
-//			shutdown();
-//		}
 	}
 
 	/**
@@ -87,13 +85,10 @@ public class KVServer {
 		}
 		metadataHandler = new MetadataHandlerServer("127.0.0.1", port);
 		updateMetadata(metadata);
-		
+
 		initialized = true;
 
 		new Thread(new ClientAccepterThread()).start();
-
-		heartBeatHandler = new HeartBeatHandler(metadataHandler, ecsConnection);
-		new Thread(heartBeatHandler).start();
 	}
 
 	public void start() {
@@ -108,15 +103,7 @@ public class KVServer {
 
 	public void shutdown() {
 		stop();
-		shutdown = true;
-		if (heartBeatHandler != null) {
-			heartBeatHandler.shutdown();
-		}
-		try {
-			heartBeatHandler.join();
-		} catch (InterruptedException e) {
-			logger.error("Interrupted when trying to join heartbeat thread");
-		}
+		stopHeartbeat();
 		try {
 			if (serverSocket != null) {
 				serverSocket.close();
@@ -124,6 +111,7 @@ public class KVServer {
 		} catch (IOException e) {
 			// Do nothing.
 		}
+		shutdown = true;
 	}
 
 	private void openServerSocket() throws IOException {
@@ -185,7 +173,7 @@ public class KVServer {
 				logger.error("Server not initialized");
 				return;
 			}
-			
+
 			if (serverSocket == null) {
 				try {
 					openServerSocket();
@@ -205,20 +193,17 @@ public class KVServer {
 					ClientConnection clientConnection = 
 							new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped, heartBeatHandler);
 					new Thread(clientConnection).start();
-				} catch (SocketException e1) {
-					shutdown();
-					//				logger.error("Unable to establish connection with a client. \n", e1);
-					//				logger.debug("Server socket bound : " + serverSocket.isBound());
-					//				logger.debug("Server socket closed : " + serverSocket.isClosed());
 				} catch (IOException e) {
-					shutdown();
-					logger.error("Unable to establish connection with a client. \n", e);
+					if (!shutdown) {
+						logger.error("Unable to establish connection with a client. \n", e);
+						shutdown();
+					}
 				}
 			}
 			try {
 				serverSocket.close();
 			} catch (IOException e) {
-				throw new RuntimeException("Error closing connection with clients.", e);
+				logger.error("Error closing connection with clients. \n", e);
 			}
 			logger.info("Server stopped to listen to clients.");
 		}
@@ -307,6 +292,26 @@ public class KVServer {
 		logger.info("Server write-unlocked");
 	}
 
+	public void startHeartbeat() {
+		if (heartBeatHandler == null) {
+			heartBeatHandler = new HeartBeatHandler(metadataHandler, ecsConnection);
+			new Thread(heartBeatHandler).start();
+		}
+	}
+
+	public void stopHeartbeat() {
+		if (heartBeatHandler != null) {
+			heartBeatHandler.shutdown();
+			try {
+				heartBeatHandler.join();
+				heartBeatHandler = null;
+			} catch (InterruptedException e) {
+				logger.error("Interrupted when trying to join heartbeat thread");
+			}
+		}
+
+	}
+
 
 	/**
 	 * Main entry point for the echo server application. 
@@ -319,8 +324,7 @@ public class KVServer {
 				System.out.println("Usage: Server <port> <loglevel> !");
 			} else {
 				new LogSetup("logs/server.log", Level.toLevel(args[1]));
-				KVServer kvServer = new KVServer(Integer.parseInt(args[0]));
-				//				new Thread(kvServer.new ECSSocketLoop()).start();
+				new KVServer(Integer.parseInt(args[0]));
 			}
 		} catch (IOException e) {
 			System.out.println("Error! Unable to initialize logger!");

@@ -30,12 +30,26 @@ public class Address {
 				|| (ip.equals(equivLocalhost) && ip1.equals("localhost")));
 	}
 	
+	@Override
 	public String toString() {
 		return ip + ":" + port;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o == this) {
+			return true;
+		}
+		if (!(o instanceof Address)) {
+			return false;
+		}
+		return this.isSameAddress((Address) o);
+	}
 	
-	
-	
+	@Override
+	public int hashCode() {
+		return (this.toString()).hashCode();
+	}
 	
 
 }

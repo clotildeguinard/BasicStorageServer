@@ -3,6 +3,7 @@ package common.communication;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.SocketException;
 
 import org.apache.log4j.Logger;
 
@@ -19,12 +20,12 @@ public class KVAdminCommModule extends CommModule implements KVSocketListener {
 	}
 
 	
-	public void sendKVAdminMessage(KVAdminMessage message) throws IOException {
+	public synchronized void sendKVAdminMessage(KVAdminMessage message) throws SocketException, IOException {
 		sendMessage(((KVAdminMessageImpl) message).marshal());
 	}
 
 
-	public KVAdminMessage receiveKVAdminMessage() throws IOException {
+	public KVAdminMessage receiveKVAdminMessage() throws IllegalStateException, IOException {
 		TextMessage xmlText = receiveMessage();
 		return KVAdminMessageImpl.unmarshal(xmlText);
 	}

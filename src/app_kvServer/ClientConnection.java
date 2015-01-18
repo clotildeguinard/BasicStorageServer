@@ -45,7 +45,14 @@ public class ClientConnection implements Runnable {
 
 	public void run() {
 		try {
-			KVMessage request = commModule.receiveKVMessage();
+			KVMessage request = null;
+			try {
+				request = commModule.receiveKVMessage();
+			} catch (IllegalStateException e) {
+				logger.warn(e.getMessage());
+				commModule.sendKVMessage(new KVMessageImpl("error", null, request.getStatus()));
+				return;
+			}
 			KVMessage serverAnswer = null;
 
 			String key = request.getKey();
@@ -54,7 +61,7 @@ public class ClientConnection implements Runnable {
 			logger.info("Requested from client : "
 					+ request);
 			
-			if (status == StatusType.HEARTBEAT) {
+			if (status == StatusType.HEARTBEAT && heartbeatHandler != null) {
 				heartbeatHandler.handleReceivedHeartBeat(new KVMessageImpl(key, value, StatusType.HEARTBEAT));
 				return;
 				
