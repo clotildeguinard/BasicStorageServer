@@ -2,17 +2,18 @@ package app_kvEcs;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
 
 import app_kvServer.cache_strategies.Strategy;
-import common.communication.KVAdminCommModule;
-import common.communication.KVSocketListener;
-import common.communication.KVSocketListener.SocketStatus;
-import common.messages.KVAdminMessage;
-import common.messages.KVAdminMessageImpl;
+import common.communication.AdminCommModule;
+import common.communication.SocketListener;
+import common.communication.SocketListener.SocketStatus;
+import common.messages.AdminMessage;
+import common.messages.AdminMessageImpl;
 import common.messages.TextMessage;
 import common.metadata.Address;
 
@@ -26,9 +27,9 @@ import common.metadata.Address;
 
 public class ConfigStore extends Thread implements ConfigCommInterface {
 
-	private KVAdminCommModule commModule;
+	private AdminCommModule commModule;
 	private Socket ecsSocket;
-	private Set<KVSocketListener> listeners;
+	private Set<SocketListener> listeners;
 	private boolean isRunning = false;
 	private final Address serverAddress;
 
@@ -50,20 +51,21 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		connect();
 	}
 	
+	@Override
 	public Address getServerAddress() {
 		return serverAddress;
 	}
 
-	public void addListener(KVSocketListener listener) {
+	public void addListener(SocketListener listener) {
 		listeners.add(listener);
 	}
 
 	private void connect() throws IOException {
 		ecsSocket = new Socket(serverAddress.getIp(), serverAddress.getPort());
-		commModule = new KVAdminCommModule(ecsSocket.getOutputStream(),
+		commModule = new AdminCommModule(ecsSocket.getOutputStream(),
 				ecsSocket.getInputStream());
 		logger.info("Connected to " + serverAddress);
-		listeners = new HashSet<KVSocketListener>();
+		listeners = new HashSet<SocketListener>();
 		addListener(commModule);
 		isRunning = true;
 		new Thread(this).start();
@@ -73,7 +75,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		try {
 			tearDownConnection();
 			if (listeners != null) {
-				for (KVSocketListener listener : listeners) {
+				for (SocketListener listener : listeners) {
 					listener.handleStatus(SocketStatus.DISCONNECTED);
 				}
 			}
@@ -104,12 +106,12 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 			while (isRunning) {
 				try {
 					TextMessage latestMsg = commModule.receiveMessage();
-					for (KVSocketListener listener : listeners) {
+					for (SocketListener listener : listeners) {
 						listener.handleNewMessage(latestMsg);
 					}
 				} catch (IOException ioe) {
-					connectionLostError = true;
 					if (isRunning) {
+						connectionLostError = true;
 						try {
 							tearDownConnection();
 						} catch (IOException e) {
@@ -126,7 +128,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 					logger.info("Connection lost and recovered.");
 				} catch (IOException e) {
 					logger.error("Connection lost, unable to reconnect !");
-					for (KVSocketListener listener : listeners) {
+					for (SocketListener listener : listeners) {
 						listener.handleStatus(SocketStatus.CONNECTION_LOST);
 					}
 				}
@@ -139,7 +141,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		}
 	}
 
-	public boolean sendWaitAndCheckAnswer(KVAdminMessage request, int max_waiting_ms) {
+	public boolean sendWaitAndCheckAnswer(AdminMessage request, int max_waiting_ms) {
 		for (int i = 0; i < MAX_TRIALS ; i++) {
 			try {
 				commModule.sendKVAdminMessage(request);
@@ -165,7 +167,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		if (t >= max_waiting_ms) {
 			return false;
 		}
-		KVAdminMessage answer = commModule.getLatest();
+		AdminMessage answer = commModule.getLatest();
 		if (answer == null || answer.getKey() == null) {
 			return false;
 		} else if (answer.getKey().equals("ok")) {
@@ -181,8 +183,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	public boolean updateMetadata(String metadata) throws IOException,
 	InterruptedException {
 
-		KVAdminMessage msg = new KVAdminMessageImpl(null, metadata,
-				common.messages.KVAdminMessage.StatusType.UPDATE_METADATA);
+		AdminMessage msg = new AdminMessageImpl(null, metadata,
+				common.messages.AdminMessage.StatusType.UPDATE_METADATA);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
 		
 	}
@@ -190,8 +192,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 
 	@Override
 	public boolean lockWrite() {
-		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
-				common.messages.KVAdminMessage.StatusType.LOCK_WRITE);
+		AdminMessage msg = new AdminMessageImpl(null, null,
+				common.messages.AdminMessage.StatusType.LOCK_WRITE);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
 		
 	}
@@ -199,8 +201,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 
 	@Override
 	public boolean unlockWrite() {
-		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
-				common.messages.KVAdminMessage.StatusType.UNLOCK_WRITE);
+		AdminMessage msg = new AdminMessageImpl(null, null,
+				common.messages.AdminMessage.StatusType.UNLOCK_WRITE);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
 		
 	}
@@ -209,8 +211,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	@Override
 	public boolean shutdown() {
 		try {
-			KVAdminMessage msg = new KVAdminMessageImpl(null, null,
-					common.messages.KVAdminMessage.StatusType.SHUTDOWN);
+			AdminMessage msg = new AdminMessageImpl(null, null,
+					common.messages.AdminMessage.StatusType.SHUTDOWN);
 			return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
 			
 		} finally {
@@ -219,18 +221,18 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	}
 
 	@Override
-	public boolean moveData(String[] destinationServer, String minHashToMove, String maxHashToMove) {
-		KVAdminMessage msg = new KVAdminMessageImpl(minHashToMove + ":" + maxHashToMove, destinationServer[0] + ":" + destinationServer[1],
-				common.messages.KVAdminMessage.StatusType.MOVE_DATA);
+	public boolean moveData(Address destinationServer, String minHashToMove, String maxHashToMove) {
+		AdminMessage msg = new AdminMessageImpl(minHashToMove + ":" + maxHashToMove, destinationServer.toString(),
+				common.messages.AdminMessage.StatusType.MOVE_DATA);
 		return sendWaitAndCheckAnswer(msg, 60000);
 		
 	}
 
 	@Override
-	public boolean copyData(String[] destinationServer, String minHashToMove,
+	public boolean copyData(Address destinationServer, String minHashToMove,
 			String maxHashToMove) {
-		KVAdminMessage msg = new KVAdminMessageImpl(minHashToMove + ":" + maxHashToMove, destinationServer[0] + ":" + destinationServer[1],
-				common.messages.KVAdminMessage.StatusType.COPY_DATA);
+		AdminMessage msg = new AdminMessageImpl(minHashToMove + ":" + maxHashToMove, destinationServer.toString(),
+				common.messages.AdminMessage.StatusType.COPY_DATA);
 		return sendWaitAndCheckAnswer(msg, 60000);
 		
 	}
@@ -239,40 +241,40 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	@Override
 	public boolean initKVServer(String metadata, int cacheSize,
 			Strategy strategy) {
-		KVAdminMessage msg = new KVAdminMessageImpl(metadata, cacheSize + ":" + strategy,
-				common.messages.KVAdminMessage.StatusType.INIT_KVSERVER);
+		AdminMessage msg = new AdminMessageImpl(metadata, cacheSize + ":" + strategy,
+				common.messages.AdminMessage.StatusType.INIT_KVSERVER);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
 		
 	}
 
 	@Override
 	public boolean stopServer() {
-		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
-				common.messages.KVAdminMessage.StatusType.STOP);
+		AdminMessage msg = new AdminMessageImpl(null, null,
+				common.messages.AdminMessage.StatusType.STOP);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
 		
 	}
 
 	@Override
 	public boolean startServer() {
-		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
-				common.messages.KVAdminMessage.StatusType.START);
+		AdminMessage msg = new AdminMessageImpl(null, null,
+				common.messages.AdminMessage.StatusType.START);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
 		
 	}
 
 	@Override
 	public boolean startHeartbeat() {
-		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
-				common.messages.KVAdminMessage.StatusType.START_HEARTBEAT);
+		AdminMessage msg = new AdminMessageImpl(null, null,
+				common.messages.AdminMessage.StatusType.START_HEARTBEAT);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
 		
 	}
 
 	@Override
 	public boolean stopHeartbeat() {
-		KVAdminMessage msg = new KVAdminMessageImpl(null, null,
-				common.messages.KVAdminMessage.StatusType.STOP_HEARTBEAT);
+		AdminMessage msg = new AdminMessageImpl(null, null,
+				common.messages.AdminMessage.StatusType.STOP_HEARTBEAT);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
 		
 	}

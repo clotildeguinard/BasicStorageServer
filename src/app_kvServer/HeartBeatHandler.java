@@ -7,7 +7,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.log4j.Logger;
 
-import common.messages.KVAdminMessageImpl;
+import common.messages.AdminMessageImpl;
 import common.messages.KVMessage;
 import common.metadata.Address;
 import common.metadata.MetadataHandlerServer;
@@ -58,7 +58,6 @@ public class HeartBeatHandler extends Thread {
 			}
 
 			checkReceivedHeartbeats(leftAddress, rightAddress);
-
 		}
 		logger.debug("Heartbeat terminated");
 	}
@@ -82,15 +81,15 @@ public class HeartBeatHandler extends Thread {
 		} else {
 			if (!aliveR) {
 				logger.info("Right neighbour " + rightAddress + " is suspicious");
-				ecsConnection.handleSuspNode(new KVAdminMessageImpl(rightAddress.getIp(),
+				ecsConnection.denounceSuspNode(new AdminMessageImpl(rightAddress.getIp(),
 						Integer.toString(rightAddress.getPort()),
-						common.messages.KVAdminMessage.StatusType.SUSPICIOUS ));
+						common.messages.AdminMessage.StatusType.SUSPICIOUS ));
 			}
 			if (!aliveL) {
 				logger.info("Left neighbour " + leftAddress + " is suspicious");
-				ecsConnection.handleSuspNode(new KVAdminMessageImpl(leftAddress.getIp(),
+				ecsConnection.denounceSuspNode(new AdminMessageImpl(leftAddress.getIp(),
 						Integer.toString(leftAddress.getPort()),
-						common.messages.KVAdminMessage.StatusType.SUSPICIOUS ));
+						common.messages.AdminMessage.StatusType.SUSPICIOUS ));
 			}
 		}
 	}
@@ -102,18 +101,15 @@ public class HeartBeatHandler extends Thread {
 
 		try {
 			kvStoreL.heartbeat(metadataHandler.getMyAddress());
-			logger.debug("Heartbeating left neighbour " + leftAddress);
 		} catch (SocketException soe) {
 			logger.warn("Socket exception when sending heartbeat  to " + leftAddress + "\n");
 		}
 		
 		try {
 			kvStoreR.heartbeat(metadataHandler.getMyAddress());
-			logger.debug("Heartbeating right neighbour " + rightAddress);
 		} catch (SocketException soe) {
 			logger.warn("Socket exception when sending heartbeat  to " + rightAddress + "\n");
 		}
-		
 	}
 
 }

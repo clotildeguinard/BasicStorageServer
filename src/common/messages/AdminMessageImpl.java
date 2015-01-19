@@ -2,15 +2,14 @@ package common.messages;
 
 import org.apache.log4j.Logger;
 
-import common.messages.AdminMessage.StatusType;
 
-public class KVMessageImpl implements KVMessage {
+public class AdminMessageImpl implements AdminMessage {
 	public String key;
 	public String value;
-	public static StatusType statusType;
+	public StatusType statusType;
 	private final static Logger logger = Logger.getLogger("KVMessageImpl");
 
-	public KVMessageImpl(String key, String value, StatusType statusType) {
+	public AdminMessageImpl(String key, String value, StatusType statusType) {
 		this.key = key;
 		this.value = value;
 		this.statusType = statusType;
@@ -46,19 +45,19 @@ public class KVMessageImpl implements KVMessage {
 	public TextMessage marshal() {
 		StringBuilder q1=new StringBuilder();
 
-		q1.append("<kvmessage>");
+		q1.append("<kvadminmessage>");
 		q1.append("<status>"+ getStatus().toString().toLowerCase() + "</status>");
 		q1.append ("<key>"+getKey()+"</key>");
 		q1.append ("<value>"+getValue()+"</value>");
 
-		q1.append("</kvmessage>");
-		String s=q1.toString();
+		q1.append("</kvadminmessage>");
+		String s = q1.toString();
 
 		return new TextMessage(s);
 
 	}
 
-	public static KVMessage unmarshal(TextMessage text) {
+	public static AdminMessage unmarshal(TextMessage text) throws IllegalStateException {
 
 		String xml = text.getMsg();
 		try {
@@ -69,11 +68,11 @@ public class KVMessageImpl implements KVMessage {
 			if (status != null) {
 				try {
 					StatusType statusType = StatusType.valueOf(status.toUpperCase());
-					return new KVMessageImpl(key, value, statusType);
+					return new AdminMessageImpl(key, value, statusType);
 				} catch (IllegalArgumentException e) {
 					try {
-						common.messages.AdminMessage.StatusType.valueOf(status.toUpperCase());
-						throw new IllegalStateException("Connected to ECS instead of a client or an other node !");
+						common.messages.KVMessage.StatusType.valueOf(status.toUpperCase());
+						throw new IllegalStateException("Client taken as the ECS ! Must repeat request !");
 
 					} catch (IllegalArgumentException ex) {
 
@@ -87,13 +86,15 @@ public class KVMessageImpl implements KVMessage {
 	}
 
 	private static String unmarshalParameter(String xml, String parameter) throws IndexOutOfBoundsException {
-			String start_tag = "<" + parameter + ">";
-			String end_tag = "</" + parameter + ">";
-			int beginIndex = xml.indexOf(start_tag)
-					+ parameter.length() + 2;
-			int endIndex = xml.indexOf(end_tag);
-			return xml.substring(beginIndex, endIndex);
+
+		String start_tag = "<" + parameter + ">";
+		String end_tag = "</" + parameter + ">";
+		int beginIndex = xml.indexOf(start_tag)
+				+ parameter.length() + 2;
+		int endIndex = xml.indexOf(end_tag);
+		return xml.substring(beginIndex, endIndex);
 	}
+
 
 	@Override
 	public String toString() {

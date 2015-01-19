@@ -3,6 +3,7 @@ package app_kvServer;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 
 import app_kvApi.KVStore;
@@ -43,6 +44,7 @@ public class ClientConnection implements Runnable {
 		this.heartbeatHandler = heartbeatHandler;
 	}
 
+	@Override
 	public void run() {
 		try {
 			KVMessage request = null;
@@ -53,44 +55,8 @@ public class ClientConnection implements Runnable {
 				commModule.sendKVMessage(new KVMessageImpl("error", null, request.getStatus()));
 				return;
 			}
-			KVMessage serverAnswer = null;
-
-			String key = request.getKey();
-			String value = request.getValue();
-			StatusType status = request.getStatus();
-			logger.info("Requested from client : "
-					+ request);
 			
-			if (status == StatusType.HEARTBEAT && heartbeatHandler != null) {
-				heartbeatHandler.handleReceivedHeartBeat(new KVMessageImpl(key, value, StatusType.HEARTBEAT));
-				return;
-				
-			} else if (stopped) {
-				serverAnswer = new KVMessageImpl(key, value,
-						StatusType.SERVER_STOPPED);
-			} else {
-				serverAnswer = handleCommand(key, value,
-						status);
-			}
-			logger.info("Answer to client : "
-					+ serverAnswer);
-
-			if (serverAnswer != null) {
-				commModule.sendKVMessage(serverAnswer);
-			} else {
-				logger.error("Null answer to request !");
-			}
-
-			try {
-				tearDownConnection();
-			} catch (IOException e) {
-				logger.error("An error occurred when tearing down the connection \n" + e );
-			}
-
-			if (serverAnswer != null && status == StatusType.PUT_PROPAGATE
-					&& hasToPropagateRequest(serverAnswer.getStatus())) {
-				propagateToReplicas(key, value);
-			}
+			handleRequest(request);
 			
 		} catch (IOException e) {
 			logger.error("A connection error occurred - Connection terminated "
@@ -98,6 +64,52 @@ public class ClientConnection implements Runnable {
 		} catch (NoSuchAlgorithmException e) {
 			logger.fatal("A hashing error occurred - Connection terminated "
 					+ e);
+		}
+	}
+	
+	public void catchUpRequest(KVMessage request) throws NoSuchAlgorithmException, SocketException, IOException {
+		handleRequest(request);
+		tearDownConnection();
+	}
+	
+	private void handleRequest(KVMessage request) throws NoSuchAlgorithmException, SocketException, IOException {
+		KVMessage serverAnswer = null;
+
+		String key = request.getKey();
+		String value = request.getValue();
+		StatusType status = request.getStatus();
+		logger.info("Requested from client : "
+				+ request);
+		
+		if (status == StatusType.HEARTBEAT && heartbeatHandler != null) {
+			heartbeatHandler.handleReceivedHeartBeat(new KVMessageImpl(key, value, StatusType.HEARTBEAT));
+			return;
+			
+		} else if (stopped) {
+			serverAnswer = new KVMessageImpl(key, value,
+					StatusType.SERVER_STOPPED);
+		} else {
+			serverAnswer = executeCommand(key, value,
+					status);
+		}
+		logger.info("Answer to client : "
+				+ serverAnswer);
+
+		if (serverAnswer != null) {
+			commModule.sendKVMessage(serverAnswer);
+		} else {
+			logger.error("Null answer to request !");
+		}
+
+		try {
+			tearDownConnection();
+		} catch (IOException e) {
+			logger.error("An error occurred when tearing down the connection \n" + e );
+		}
+
+		if (serverAnswer != null && status == StatusType.PUT_PROPAGATE
+				&& hasToPropagateRequest(serverAnswer.getStatus())) {
+			propagateToReplicas(key, value);
 		}
 	}
 
@@ -134,7 +146,7 @@ public class ClientConnection implements Runnable {
 		}
 	}
 
-	private KVMessage handleCommand(String key, String value,
+	private KVMessage executeCommand(String key, String value,
 			StatusType requestStatus) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		switch (requestStatus) {
 		case GET:

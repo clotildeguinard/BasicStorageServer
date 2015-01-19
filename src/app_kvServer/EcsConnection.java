@@ -2,64 +2,51 @@ package app_kvServer;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.log4j.Logger;
 
-import common.communication.KVAdminCommModule;
-import common.messages.KVAdminMessage;
-import common.messages.KVAdminMessageImpl;
-import common.messages.KVAdminMessage.StatusType;
+import common.communication.AdminCommModule;
+import common.messages.AdminMessage;
+import common.messages.AdminMessageImpl;
+import common.messages.AdminMessage.StatusType;
+import common.messages.KVMessageImpl;
 import common.metadata.Address;
 
 public class EcsConnection extends Thread {
 	private final KVServer kvServer;
 	protected Socket ecsSocket;
-	private KVAdminCommModule commModule;
+	private AdminCommModule commModule;
 	private final static Logger logger = Logger.getLogger(EcsConnection.class);
 
-	private boolean stopECSConnection = true;
+	private boolean stopECSConnection = false;
 	private boolean hasToShutdownServer = false;
-	
-	public EcsConnection(int port, Socket ecsSocket, KVServer kvServer) throws UnknownHostException {
+
+	public EcsConnection(int port, Socket ecsSocket, KVServer kvServer) throws IOException {
 		this.kvServer = kvServer;
 		this.ecsSocket = ecsSocket;
-		try {
-			commModule = new KVAdminCommModule(ecsSocket.getOutputStream(), ecsSocket.getInputStream());
-		} catch (IOException e1) {
-			stopECSConnection = true;
-			logger.error("A connection error occurred - Application terminated " + e1);
-		}
+		commModule = new AdminCommModule(ecsSocket.getOutputStream(), ecsSocket.getInputStream());
 	}
 
-	public void handleSuspNode(KVAdminMessage suspicionMsg) {
+	public void denounceSuspNode(AdminMessage suspicionMsg) {
 		try {
 			commModule.sendKVAdminMessage(suspicionMsg);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 
 	public void run() {
-		stopECSConnection = false;
+		boolean hasToStartOtherEcsConnection = false;
+		boolean hasToKeepConnectionAlive = false;
 
-		while(!stopECSConnection) {
-			try {
-				KVAdminMessage request = null;
-				try {
-					request = commModule.receiveKVAdminMessage();
-				} catch (IllegalStateException e) {
-					logger.warn(e.getMessage());
-					kvServer.restartEcsConnection();
-					return;
-				}
+		try {
+
+			while(!stopECSConnection) {
+				AdminMessage request = commModule.receiveKVAdminMessage();
 				logger.info("Requested from ECS : " + request);
 
 				String key = request.getKey();
 				String value = request.getValue();
-				KVAdminMessage serverAnswer = handleCommand(key, value, request.getStatus());
+				AdminMessage serverAnswer = handleCommand(key, value, request.getStatus());
 				logger.info("Answer to ECS : " + serverAnswer);
 
 				if (serverAnswer != null) {
@@ -67,24 +54,41 @@ public class EcsConnection extends Thread {
 				} else {
 					logger.warn("Invalid answer to request : " + request);	
 				}
-			} catch (IOException e){
-				stopECSConnection = true;
-				hasToShutdownServer = true;
-				logger.fatal("An error occurred in ECS connection " + e);
-			} finally {
-				if (hasToShutdownServer) {
-					kvServer.shutdown();
-				}
 			}
+
+		} catch (IllegalStateException e) {
+			logger.warn(e.getMessage());
+			try {
+				kvServer.transferRequestToClient(ecsSocket,
+						KVMessageImpl.unmarshal(commModule.getLatestXmlTxt()));
+			} catch (IOException e1) {
+				logger.warn("Client request could not be transferred"
+						+ " from ecsCommModule to clientCommModule.");
+			}
+			hasToKeepConnectionAlive = true;
+			hasToStartOtherEcsConnection = true;
+		} catch (IOException e){
+			logger.fatal("Must shut down the server because of IOException : " + e.getMessage());
+			hasToShutdownServer = true;
 		}
-		try {
-			tearDownConnection();
-		} catch (IOException e) {
-			logger.error("An error occurred when tearing down the connection \n" + e );
+		finally {
+			try {
+				if (!hasToKeepConnectionAlive) {
+					tearDownConnection();
+				}
+			} catch (IOException e) {
+				logger.error("An error occurred when tearing down the connection \n" + e );
+			}
+			if (hasToShutdownServer) {
+				kvServer.shutdown();
+			} else if (hasToStartOtherEcsConnection) {
+				kvServer.startEcsConnection();
+			}
 		}
 	}
 
-	private KVAdminMessage handleCommand(String key, String value, StatusType statusType) throws IOException {
+
+	private AdminMessage handleCommand(String key, String value, StatusType statusType) throws IOException {
 		switch (statusType) {
 
 		case INIT_KVSERVER:
@@ -93,27 +97,27 @@ public class EcsConnection extends Thread {
 			try {
 				kvServer.initKVServer(key, cacheSize, parameters[1]);
 			} catch (IOException e) {
-				return new KVAdminMessageImpl(null, null, StatusType.INIT_KVSERVER);
+				return new AdminMessageImpl(null, null, StatusType.INIT_KVSERVER);
 			}
-			return new KVAdminMessageImpl("ok", null, StatusType.INIT_KVSERVER);
+			return new AdminMessageImpl("ok", null, StatusType.INIT_KVSERVER);
 
 		case START:
 			kvServer.start();
-			return new KVAdminMessageImpl("ok", null, StatusType.START);
+			return new AdminMessageImpl("ok", null, StatusType.START);
 
 		case UPDATE_METADATA:
 			kvServer.updateMetadata(value);
-			return new KVAdminMessageImpl("ok", null, StatusType.UPDATE_METADATA);
+			return new AdminMessageImpl("ok", null, StatusType.UPDATE_METADATA);
 
 		case MOVE_DATA:
 			String[] destination = value.split(":");
 			String[] rangeToMove = key.split(":");
-			KVAdminMessage answer = null;
+			AdminMessage answer = null;
 			try {
 				answer = copyData(rangeToMove, new Address(destination[0], Integer.parseInt(destination[1])));
 				kvServer.deleteData(rangeToMove[0], rangeToMove[1]);
 			} catch (IOException e) {
-				return new KVAdminMessageImpl(null, null, StatusType.MOVE_DATA);
+				return new AdminMessageImpl(null, null, StatusType.MOVE_DATA);
 			}
 			return answer;
 
@@ -123,34 +127,34 @@ public class EcsConnection extends Thread {
 			try {
 				return copyData(range2Move, new Address(destin[0], Integer.parseInt(destin[1])));
 			} catch (IOException e) {
-				return new KVAdminMessageImpl(null, null, StatusType.MOVE_DATA);
+				return new AdminMessageImpl(null, null, StatusType.MOVE_DATA);
 			}
 
 		case LOCK_WRITE:
 			kvServer.lockWrite();
-			return new KVAdminMessageImpl("ok", null, StatusType.LOCK_WRITE);
+			return new AdminMessageImpl("ok", null, StatusType.LOCK_WRITE);
 
 		case UNLOCK_WRITE:
 			kvServer.unLockWrite();
-			return new KVAdminMessageImpl("ok", null, StatusType.UNLOCK_WRITE);
-			
+			return new AdminMessageImpl("ok", null, StatusType.UNLOCK_WRITE);
+
 		case START_HEARTBEAT:
 			kvServer.startHeartbeat();
-			return new KVAdminMessageImpl("ok", null, StatusType.START_HEARTBEAT);
-			
+			return new AdminMessageImpl("ok", null, StatusType.START_HEARTBEAT);
+
 		case STOP_HEARTBEAT:
 			kvServer.stopHeartbeat();
-			return new KVAdminMessageImpl("ok", null, StatusType.STOP_HEARTBEAT);
-			
+			return new AdminMessageImpl("ok", null, StatusType.STOP_HEARTBEAT);
+
 		case STOP:
 			kvServer.stop();
-			return new KVAdminMessageImpl("ok", null, StatusType.STOP);
+			return new AdminMessageImpl("ok", null, StatusType.STOP);
 
 		case SHUTDOWN:
 			stopECSConnection = true;
 			hasToShutdownServer = true;
 			logger.info("Exiting");
-			return new KVAdminMessageImpl("ok", null, StatusType.SHUTDOWN);
+			return new AdminMessageImpl("ok", null, StatusType.SHUTDOWN);
 
 		default:
 			logger.warn("The instruction has an unknown status : " + statusType);
@@ -158,12 +162,13 @@ public class EcsConnection extends Thread {
 		return null;	
 	}
 
-	private KVAdminMessage copyData(String[] rangeToMove, Address destinationServer) throws NumberFormatException, IOException {
+	private AdminMessage copyData(String[] rangeToMove, Address destinationServer) throws NumberFormatException, IOException {
 		kvServer.copyData(rangeToMove[0], rangeToMove[1], destinationServer);
-		return new KVAdminMessageImpl("ok", null, StatusType.MOVE_DATA);
+		return new AdminMessageImpl("ok", null, StatusType.MOVE_DATA);
 	}
 
 	private void tearDownConnection() throws IOException {
+		stopECSConnection = true;
 
 		if (ecsSocket != null) {
 			commModule.closeStreams();

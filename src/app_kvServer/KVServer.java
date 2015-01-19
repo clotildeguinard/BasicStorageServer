@@ -6,6 +6,7 @@ import java.net.BindException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.security.NoSuchAlgorithmException;
 
 import logger.LogSetup;
@@ -13,6 +14,7 @@ import logger.LogSetup;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import common.messages.KVMessage;
 import common.metadata.Address;
 import common.metadata.MetadataHandlerServer;
 import app_kvApi.KVStore;
@@ -45,10 +47,10 @@ public class KVServer {
 	 */
 	public KVServer(int port) {
 		this.port = port;
-		restartEcsConnection();
+		startEcsConnection();
 	}
 
-	public void restartEcsConnection() {
+	public void startEcsConnection() {
 		Thread ecsWaitingThread = new Thread(new ECSWaitingThread());
 		ecsWaitingThread.start();
 	}
@@ -102,6 +104,7 @@ public class KVServer {
 	}
 
 	public void shutdown() {
+		shutdown = true;
 		stop();
 		stopHeartbeat();
 		try {
@@ -111,7 +114,6 @@ public class KVServer {
 		} catch (IOException e) {
 			// Do nothing.
 		}
-		shutdown = true;
 	}
 
 	private void openServerSocket() throws IOException {
@@ -147,6 +149,7 @@ public class KVServer {
 			}
 			try {
 				Socket ecs = serverSocket.accept();   
+
 				ecsConnection = 
 						new EcsConnection(port, ecs, KVServer.this);
 				ecsConnection.start();
@@ -156,7 +159,7 @@ public class KVServer {
 						+  " on port " + ecs.getPort());
 			} catch (IOException e) {
 				logger.error("Error! " +
-						"Unable to establish connection with ECS. \n", e);
+						"Unable to establish connection with ECS because of : " + e.getMessage());
 			}
 		}
 	}
@@ -183,8 +186,9 @@ public class KVServer {
 				}
 			}
 
-			while (!shutdown){
-				try {
+			try {
+				
+				while (!shutdown){
 					Socket client = serverSocket.accept();
 					logger.debug("Connected to client " 
 							+ client.getInetAddress().getHostName() 
@@ -193,19 +197,25 @@ public class KVServer {
 					ClientConnection clientConnection = 
 							new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped, heartBeatHandler);
 					new Thread(clientConnection).start();
-				} catch (IOException e) {
-					if (!shutdown) {
-						logger.error("Unable to establish connection with a client. \n", e);
-						shutdown();
-					}
+				}
+				
+			} catch (IOException e) {
+				if (!shutdown) {
+					logger.error("Unable to establish connection with a client because of : " + e.getMessage());
+					shutdown();
 				}
 			}
-			try {
-				serverSocket.close();
-			} catch (IOException e) {
-				logger.error("Error closing connection with clients. \n", e);
-			}
 			logger.info("Server stopped to listen to clients.");
+		}
+	}
+
+	public void transferRequestToClient(Socket socket, KVMessage latestMsg) throws IOException {
+		ClientConnection clientConnection = 
+				new ClientConnection(port, socket, cacheManager, metadataHandler, writeLocked, isStopped, heartBeatHandler);
+		try {
+			clientConnection.catchUpRequest(latestMsg);
+			logger.debug("Request transferred from ecsCommModule to clientCommModule.");
+		} catch (NoSuchAlgorithmException | IOException e) {
 		}
 	}
 

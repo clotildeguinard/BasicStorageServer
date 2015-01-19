@@ -2,7 +2,7 @@ package app_kvApi;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.net.SocketTimeoutException;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
@@ -13,8 +13,8 @@ import org.apache.log4j.Logger;
 
 import common.communication.KVCommInterface;
 import common.communication.KVCommModule;
-import common.communication.KVSocketListener;
-import common.communication.KVSocketListener.SocketStatus;
+import common.communication.SocketListener;
+import common.communication.SocketListener.SocketStatus;
 import common.messages.KVMessage;
 import common.messages.TextMessage;
 import common.metadata.Address;
@@ -34,7 +34,7 @@ public abstract class KVStore extends Thread implements KVCommInterface {
 	private KVCommModule commModule;
 	protected static final Logger logger = Logger.getLogger(KVStore.class);
 	private Socket clientSocket;
-	private Set<KVSocketListener> listeners;
+	private Set<SocketListener> listeners;
 	private boolean isRunning = false;
 	protected MetadataHandler metadataHandler;
 	protected static final int MAX_TRIALS = 3;
@@ -58,7 +58,7 @@ public abstract class KVStore extends Thread implements KVCommInterface {
 
 	protected abstract void initMetadata(String defaultIp, int defaultPort);
 
-	public void addListener(KVSocketListener listener) {
+	public void addListener(SocketListener listener) {
 		listeners.add(listener);
 	}
 
@@ -74,28 +74,23 @@ public abstract class KVStore extends Thread implements KVCommInterface {
 	}
 
 	protected void connect(Address address) throws IOException {
-		logger.debug("Trying to connect to " + address);
+		logger.debug("Connecting to " + address);
 		clientSocket = new Socket(address.getIp(), address.getPort());
 
 		commModule = new KVCommModule(clientSocket.getOutputStream(),
 				clientSocket.getInputStream());
-		listeners = new HashSet<KVSocketListener>();
+		listeners = new HashSet<SocketListener>();
 		addListener(commModule);
-		//		setRunning(true);
-		//		clientSocket.setSoTimeout(MAX_WAITING_MS);
+
 		connection = new KVStoreConnectionThread();
 		connection.start();
-	}
-
-	private void setRunning(boolean isRunning) {
-		this.isRunning = isRunning;
 	}
 
 	public void disconnect() {
 		try {
 			tearDownConnection();
 			if (listeners != null) {
-				for (KVSocketListener listener : listeners) {
+				for (SocketListener listener : listeners) {
 					listener.handleStatus(SocketStatus.DISCONNECTED);
 				}
 			}
@@ -105,13 +100,10 @@ public abstract class KVStore extends Thread implements KVCommInterface {
 	}
 
 	private synchronized void tearDownConnection() throws IOException {
-		//		setRunning(false);
-
 		if (clientSocket != null) {
 			commModule.closeStreams();
 			clientSocket.close();
 			clientSocket = null;
-			logger.debug("Connection closed.");
 		}
 	}
 
@@ -122,20 +114,17 @@ public abstract class KVStore extends Thread implements KVCommInterface {
 	public class KVStoreConnectionThread extends Thread {
 		public void run() {
 			try {
-				//				while (isRunning) {
 				try {
 					TextMessage latestMsg = commModule.receiveMessage();
-					for (KVSocketListener listener : listeners) {
+					for (SocketListener listener : listeners) {
 						listener.handleNewMessage(latestMsg);
 					}
-					//					} catch (SocketTimeoutException te) {
-					//						// do nothing
 				} catch (IOException ioe) {
 					if (isRunning) {
 						logger.error("Connection lost!");
 						try {
 							tearDownConnection();
-							for (KVSocketListener listener : listeners) {
+							for (SocketListener listener : listeners) {
 								listener.handleStatus(SocketStatus.CONNECTION_LOST);
 							}
 						} catch (IOException e) {
@@ -143,12 +132,8 @@ public abstract class KVStore extends Thread implements KVCommInterface {
 						}
 					}
 				}
-				//				}
-				logger.debug("KVStore stopped");
 			} finally {
-				//				if (isRunning) {
 				disconnect();
-				//				}
 			}
 		}
 	}
@@ -162,7 +147,11 @@ public abstract class KVStore extends Thread implements KVCommInterface {
 	NoSuchAlgorithmException;
 
 	protected KVMessage sendAndWaitAnswer(KVMessage request) throws IOException, InterruptedException {
-		commModule.sendKVMessage(request);
+		try {
+			commModule.sendKVMessage(request);
+		} catch (SocketException se) {
+			return null;
+		}
 
 		int t = 0;
 		while (t < MAX_WAITING_MS && commModule.latestIsNull()) {

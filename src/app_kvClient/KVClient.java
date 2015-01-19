@@ -12,10 +12,10 @@ import org.apache.log4j.Logger;
 
 import app_kvApi.KVStore;
 import app_kvApi.KVStoreClient;
-import common.communication.KVSocketListener;
+import common.communication.SocketListener;
 import common.messages.TextMessage;
 
-public class KVClient implements KVSocketListener {
+public class KVClient implements SocketListener {
 
 	private static final Logger logger = Logger.getLogger(KVClient.class);
 	private static final String PROMPT = "KVClient> ";

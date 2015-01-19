@@ -3,6 +3,7 @@ package common.communication;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.SocketException;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -11,7 +12,7 @@ import common.messages.KVMessage;
 import common.messages.KVMessageImpl;
 import common.messages.TextMessage;
 
-public class KVCommModule extends CommModule implements KVSocketListener {
+public class KVCommModule extends CommModule implements SocketListener {
 	private final static Logger logger = Logger.getLogger(KVCommModule.class);
 	private KVMessage latest;
 
@@ -19,8 +20,13 @@ public class KVCommModule extends CommModule implements KVSocketListener {
 		super(output, input);
 	}
 
-	public void sendKVMessage(KVMessage message) throws IOException {
-		sendMessage(((KVMessageImpl) message).marshal());
+	public void sendKVMessage(KVMessage message) throws SocketException, IOException {
+		try {
+			sendMessage(((KVMessageImpl) message).marshal());
+		} catch (SocketException se) {
+			logger.error("Message " + message + " could not be sent because of : " + se.getMessage());
+			throw(se);
+		}
 	}
 
 	public KVMessage receiveKVMessage() throws IllegalStateException, IOException {
