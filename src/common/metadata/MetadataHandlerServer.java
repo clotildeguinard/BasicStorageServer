@@ -2,8 +2,8 @@ package common.metadata;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class MetadataHandlerServer extends MetadataHandler {
@@ -20,17 +20,18 @@ public class MetadataHandlerServer extends MetadataHandler {
 	 * Find left and right neighbours of current node
 	 * @return
 	 */
-	public List<NodeData> getNeighbours(){
+	public Set<Address> getNeighboursAddresses(){
 
-		List<NodeData> neighbours = new ArrayList<>(2);
+		Set<Address> neighbours = new HashSet<>();
 		int MAX = metadata.size();
 		for (int i = 0; i < MAX; i++) {
 			Address a = metadata.get(i).getAddress();
 			if (myAddress.isSameAddress(a)) {
-				neighbours.add(metadata.get((i + 1) % MAX));
-				neighbours.add(metadata.get((i - 1 + MAX) % MAX));
+				neighbours.add(metadata.get((i + 1) % MAX).getAddress());
+				neighbours.add(metadata.get((i - 1 + MAX) % MAX).getAddress());
 			}
 		}
+		neighbours.remove(myAddress);
 		return neighbours;		
 	}
 	
@@ -41,7 +42,12 @@ public class MetadataHandlerServer extends MetadataHandler {
 	 * @throws UnsupportedEncodingException
 	 */
 	public boolean isReadResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		return isInRange(key, minR2HashKey, maxHashKey);
+		for (NodeData n : myNodeData) {
+			if (isInRange(key, n.getMinR2HashKey(), n.getMaxHashKey())) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -51,7 +57,12 @@ public class MetadataHandlerServer extends MetadataHandler {
 	 * @throws UnsupportedEncodingException
 	 */
 	public boolean isWriteResponsibleFor(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		return isInRange(key, minWriteHashKey, maxHashKey);
+		for (NodeData n : myNodeData) {
+			if (isInRange(key, n.getMinWriteHashKey(), n.getMaxHashKey())) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**

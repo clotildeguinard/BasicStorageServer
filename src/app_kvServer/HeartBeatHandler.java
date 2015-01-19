@@ -2,7 +2,7 @@ package app_kvServer;
 
 import java.io.IOException;
 import java.net.SocketException;
-import java.util.List;
+import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.log4j.Logger;
@@ -11,7 +11,6 @@ import common.messages.AdminMessageImpl;
 import common.messages.KVMessage;
 import common.metadata.Address;
 import common.metadata.MetadataHandlerServer;
-import common.metadata.NodeData;
 import app_kvApi.KVStoreServer;
 
 
@@ -41,12 +40,10 @@ public class HeartBeatHandler extends Thread {
 
 		while(!shutdown){		
 
-			List<NodeData> neighbours = metadataHandler.getNeighbours();
-			Address leftAddress = neighbours.get(0).getAddress();
-			Address rightAddress = neighbours.get(1).getAddress();
-
+			Set<Address> neighbours = metadataHandler.getNeighboursAddresses();
+			
 			try {
-				sendHeartbeats(leftAddress, rightAddress);
+				sendHeartbeats(neighbours);
 			} catch (IOException | InterruptedException e) {
 				logger.error("An error occurred when sending heartbeats \n", e);
 			}
@@ -57,58 +54,39 @@ public class HeartBeatHandler extends Thread {
 				logger.warn("Interrupted when sleeping");
 			}
 
-			checkReceivedHeartbeats(leftAddress, rightAddress);
+			checkReceivedHeartbeats(neighbours);
 		}
 		logger.debug("Heartbeat terminated");
 	}
 
-	private void checkReceivedHeartbeats(Address leftAddress,
-			Address rightAddress) {
-		boolean aliveL = false;
-		boolean aliveR = false;
-
+	private void checkReceivedHeartbeats(Set<Address> neighbours) {
+		
 		while (receivedHeartbeats.size() > 0) {
 			Address receivedHB = receivedHeartbeats.poll();
-			if (receivedHB.isSameAddress(leftAddress)) {
-				aliveL = true;
-			} else if (receivedHB.isSameAddress(rightAddress)) {
-				aliveR = true;
-			}
+			neighbours.remove(receivedHB);
 		}
 
-		if (aliveL && aliveR) {
-			logger.debug("Both neighbours are alive.");
+		if (neighbours.isEmpty()) {
+			logger.debug("All neighbours are alive.");
 		} else {
-			if (!aliveR) {
-				logger.info("Right neighbour " + rightAddress + " is suspicious");
-				ecsConnection.denounceSuspNode(new AdminMessageImpl(rightAddress.getIp(),
-						Integer.toString(rightAddress.getPort()),
-						common.messages.AdminMessage.StatusType.SUSPICIOUS ));
-			}
-			if (!aliveL) {
-				logger.info("Left neighbour " + leftAddress + " is suspicious");
-				ecsConnection.denounceSuspNode(new AdminMessageImpl(leftAddress.getIp(),
-						Integer.toString(leftAddress.getPort()),
+			for (Address n : neighbours) {
+				logger.info("Neighbour " + n + " is suspicious");
+				ecsConnection.denounceSuspNode(new AdminMessageImpl(n.getIp(),
+						Integer.toString(n.getPort()),
 						common.messages.AdminMessage.StatusType.SUSPICIOUS ));
 			}
 		}
 	}
 
-	private void sendHeartbeats(Address leftAddress, Address rightAddress) throws IOException, InterruptedException {
+	private void sendHeartbeats(Set<Address> neighbours) throws IOException, InterruptedException {
 
-		KVStoreServer kvStoreL = new KVStoreServer(leftAddress);
-		KVStoreServer kvStoreR = new KVStoreServer(rightAddress);
-
-		try {
-			kvStoreL.heartbeat(metadataHandler.getMyAddress());
-		} catch (SocketException soe) {
-			logger.warn("Socket exception when sending heartbeat  to " + leftAddress + "\n");
-		}
-		
-		try {
-			kvStoreR.heartbeat(metadataHandler.getMyAddress());
-		} catch (SocketException soe) {
-			logger.warn("Socket exception when sending heartbeat  to " + rightAddress + "\n");
+		for (Address a : neighbours) {
+			KVStoreServer kvStore = new KVStoreServer(a);
+			try {
+				kvStore.heartbeat(metadataHandler.getMyAddress());
+			} catch (SocketException soe) {
+				logger.warn("Socket exception when sending heartbeat  to " + a + "\n");
+			}
 		}
 	}
 

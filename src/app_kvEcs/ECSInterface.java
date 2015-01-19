@@ -176,16 +176,18 @@ public class ECSInterface {
 							+ "\n\t Please use INIT command.");
 					break;
 				}
-				int remainingNodes = ecsClient.removeNode();
-				if (remainingNodes == 0) {
+				int remainingNodes = 0;
+				try {
+					remainingNodes = ecsClient.removeNode();
+					System.out.println("\t Node removed successfully."
+							+ "\n\t There are " + remainingNodes + " remaining nodes"
+									+ " in the system.");
+				} catch (IllegalArgumentException e) {
 					System.out.println("\t There is only one node currently."
 							+ "\n\t If you delete it your data will be lost."
-							+ "\n\t Please use SHUTDOWN if you want to delete it.");
-				} else {
-					System.out.println("\t Node removed successfully."
-							+ "\n\t There are " + remainingNodes + " remaining nodes in the system.");
+							+ "\n\t Please use SHUTDOWN if you really want to delete it.");
 				}
-				break;
+					break;
 
 			case QUIT:	
 				appStopped = true;

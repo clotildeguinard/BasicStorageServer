@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -16,10 +17,7 @@ public class MetadataHandler {
 	private final static String lineSeparator = "/";
 	private final static String hashingAlgorithm = "MD5";
 	private final Logger logger = Logger.getLogger(MetadataHandler.class);
-	protected String minR2HashKey;
-	protected String maxR2minR1HashKey;
-	protected String minWriteHashKey;
-	protected String maxHashKey;
+	protected List<NodeData> myNodeData = new ArrayList<>();
 	protected final Address myAddress;
 
 	/**
@@ -55,13 +53,11 @@ public class MetadataHandler {
 				return;
 			}
 			Address a = new Address(data[1], Integer.parseInt(data[2]));
+			NodeData nodeData = new NodeData(data[0], data[1], Integer.parseInt(data[2]),
+					data[3], data[4], data[5], data[6]);
 			if (myAddress.isSameAddress(a)) {
-				maxHashKey = data[3];
-				minWriteHashKey = data[4];
-				maxR2minR1HashKey = data[5];
-				minR2HashKey = data[6];
+				myNodeData.add(nodeData);
 			}
-			NodeData nodeData = new NodeData(data[0], data[1], Integer.parseInt(data[2]), data[3], data[4], data[5], data[6]);
 			tmpMetadata.add(nodeData);
 		}
 		this.metadata = tmpMetadata;	

@@ -327,9 +327,9 @@ public class ECSClient extends ECSUtils implements SocketListener {
 	 * @return number of participating nodes
 	 * @throws IOException
 	 */
-	protected int removeNode() throws IOException{
+	protected int removeNode() throws IOException, IllegalArgumentException {
 		if (nbUsedNodes <= 1) {
-			return 0;
+			throw new IllegalArgumentException();
 		}
 
 		try {

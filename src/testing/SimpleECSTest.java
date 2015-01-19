@@ -24,7 +24,7 @@ public class SimpleECSTest extends TestCase {
 
 		try {
 			long startTime = System.currentTimeMillis();
-			ecs.handleCommand("init 1 5 LRU");
+			ecs.handleCommand("init 3 5 LRU");
 			ecs.handleCommand("start");
 			ecs.handleCommand("start");
 			ecs.handleCommand("stop");

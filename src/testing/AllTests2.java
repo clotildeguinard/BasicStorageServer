@@ -25,8 +25,8 @@ public class AllTests2 {
 	public static Test suite() {
 		TestSuite clientSuite = new TestSuite("Basic Storage ServerTest-Suite");
 
-//		clientSuite.addTestSuite(SimpleECSTest.class);
-		clientSuite.addTestSuite(LatencyTest.class);
+		clientSuite.addTestSuite(SimpleECSTest.class);
+//		clientSuite.addTestSuite(LatencyTest.class);
 //		clientSuite.addTestSuite(ManyClientsTest.class);
 		return clientSuite;
 	}
