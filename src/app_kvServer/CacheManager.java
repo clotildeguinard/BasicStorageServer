@@ -32,6 +32,11 @@ public class CacheManager implements Iterable<Pair<String, String>> {
 	 * @return a kvmessage with status of the request
 	 */
 	public synchronized KVMessage put(String key, String value)  {
+		boolean isDelete = value.equals("null");
+		boolean isUpdate = false;
+		if (!isDelete) {
+			isUpdate = get(key).getStatus().equals(StatusType.GET_SUCCESS);
+		}
 
 		KVMessage cacheAnswerWithRejectedKV = dataCache.put(key, value);
 		if (cacheAnswerWithRejectedKV.getKey() != null) {
@@ -46,27 +51,14 @@ public class CacheManager implements Iterable<Pair<String, String>> {
 		}
 		StatusType status = cacheAnswerWithRejectedKV.getStatus();
 
-		if (status.equals(StatusType.PUT_SUCCESS)) {
-			try {
-				KVMessage checkIfOverwrite = storage.get(key);
-				if (checkIfOverwrite.getStatus().equals(StatusType.GET_SUCCESS)) {
-					status = StatusType.PUT_UPDATE;
-				}
-			} catch (FileNotFoundException e) {
-				logger.error("A file was not found when trying to write the record", e);
-				return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
-			} catch (IOException e) {
-				logger.error("A connection error occurred when trying to write the record", e);
-				return new KVMessageImpl(key, value, StatusType.PUT_ERROR);
-			}
-		}
-		
-		if (value.equals("null")) {
+		if (isDelete) {
 			if (status.equals(StatusType.PUT_SUCCESS) || status.equals(StatusType.PUT_UPDATE)) {		
-				return new KVMessageImpl(key, value, StatusType.DELETE_SUCCESS);
+				status = StatusType.DELETE_SUCCESS;
 			} else if (status.equals(StatusType.PUT_ERROR)) {
-				return new KVMessageImpl(key, value, StatusType.DELETE_ERROR);
+				status = StatusType.DELETE_ERROR;
 			}
+		} else if (status.equals(StatusType.PUT_SUCCESS) && isUpdate) {
+			status = StatusType.PUT_UPDATE;
 		}
 		
 		return new KVMessageImpl(key, value, status);

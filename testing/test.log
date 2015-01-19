@@ -15341,3 +15341,1740 @@ java.io.IOException: Stream closed
 2015-01-17 15:50:43,211 DEBUG [Thread-990] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo89 bar89
 2015-01-17 15:50:43,239 INFO  [main] app_kvEcs.ConfigStore: Connection closed with localhost:50003
 2015-01-17 15:50:43,239 INFO  [main] app_kvEcs.ECSInterface: Exiting
+2015-01-19 19:24:57,838 INFO  [Thread-1] app_kvServer.KVServer: Server listening on port: 50001
+2015-01-19 19:24:57,838 INFO  [Thread-2] app_kvServer.KVServer: Server listening on port: 50002
+2015-01-19 19:24:57,838 INFO  [Thread-0] app_kvServer.KVServer: Server listening on port: 50000
+2015-01-19 19:24:57,964 DEBUG [main] app_kvEcs.ECSClient: Initiating the service...
+2015-01-19 19:24:57,982 INFO  [main] app_kvEcs.ConfigStore: Connected to localhost:50000
+2015-01-19 19:24:57,984 INFO  [Thread-0] app_kvServer.KVServer: Connected to ECS 127.0.0.1 on port 59433
+2015-01-19 19:24:57,999 INFO  [main] app_kvEcs.ConfigStore: Connected to localhost:50001
+2015-01-19 19:24:58,000 INFO  [Thread-1] app_kvServer.KVServer: Connected to ECS 127.0.0.1 on port 59434
+2015-01-19 19:24:58,000 INFO  [main] app_kvEcs.ConfigStore: Connected to localhost:50002
+2015-01-19 19:24:58,001 INFO  [Thread-2] app_kvServer.KVServer: Connected to ECS 127.0.0.1 on port 59435
+2015-01-19 19:24:58,001 DEBUG [main] app_kvEcs.ECSUtils: Sorting the nodes...
+2015-01-19 19:24:58,006 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/ 5:LRU
+2015-01-19 19:24:58,010 INFO  [Thread-4] app_kvServer.KVServer: Server metadata updated.
+2015-01-19 19:24:58,011 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2015-01-19 19:24:58,011 DEBUG [Thread-12] app_kvServer.KVServer: Server listening to clients...
+2015-01-19 19:24:58,012 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : INIT_KVSERVER ok null
+2015-01-19 19:24:58,055 INFO  [Thread-7] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/ 5:LRU
+2015-01-19 19:24:58,056 INFO  [Thread-7] app_kvServer.KVServer: Server metadata updated.
+2015-01-19 19:24:58,057 INFO  [Thread-7] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2015-01-19 19:24:58,057 DEBUG [Thread-13] app_kvServer.KVServer: Server listening to clients...
+2015-01-19 19:24:58,058 DEBUG [Thread-8] common.communication.AdminCommModule: New received message : INIT_KVSERVER ok null
+2015-01-19 19:24:58,105 INFO  [Thread-10] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/ 5:LRU
+2015-01-19 19:24:58,107 INFO  [Thread-10] app_kvServer.KVServer: Server metadata updated.
+2015-01-19 19:24:58,107 INFO  [Thread-10] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2015-01-19 19:24:58,107 DEBUG [Thread-14] app_kvServer.KVServer: Server listening to clients...
+2015-01-19 19:24:58,108 DEBUG [Thread-11] common.communication.AdminCommModule: New received message : INIT_KVSERVER ok null
+2015-01-19 19:24:58,155 DEBUG [main] app_kvEcs.ECSClient: Possible nodes : 
+node4;localhost;50003;
+node5;localhost;50004;
+node6;localhost;50005;
+node7;localhost;50006;
+node8;localhost;50007;
+node9;localhost;50008;
+node10;localhost;50009;
+
+2015-01-19 19:24:58,155 DEBUG [main] app_kvEcs.ECSClient: Used nodes : 
+node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b
+node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869
+node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0
+
+2015-01-19 19:24:58,155 INFO  [main] app_kvEcs.ECSClient: Starting heartbeat on all used nodes
+2015-01-19 19:24:58,156 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : START_HEARTBEAT null null
+2015-01-19 19:24:58,157 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : START_HEARTBEAT ok null
+2015-01-19 19:24:58,158 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : START_HEARTBEAT ok null
+2015-01-19 19:24:58,159 DEBUG [Thread-16] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:24:58,160 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59438
+2015-01-19 19:24:58,163 INFO  [Thread-20] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50000
+2015-01-19 19:24:58,163 INFO  [Thread-20] app_kvServer.ClientConnection: Answer to client : SERVER_STOPPED 127.0.0.1 50000
+2015-01-19 19:24:58,163 DEBUG [Thread-19] common.communication.KVCommModule: New received message : SERVER_STOPPED 127.0.0.1 50000
+2015-01-19 19:24:58,165 DEBUG [Thread-20] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:58,205 INFO  [Thread-7] app_kvServer.EcsConnection: Requested from ECS : START_HEARTBEAT null null
+2015-01-19 19:24:58,205 INFO  [Thread-7] app_kvServer.EcsConnection: Answer to ECS : START_HEARTBEAT ok null
+2015-01-19 19:24:58,206 DEBUG [Thread-22] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:24:58,206 DEBUG [Thread-8] common.communication.AdminCommModule: New received message : START_HEARTBEAT ok null
+2015-01-19 19:24:58,207 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59439
+2015-01-19 19:24:58,207 INFO  [Thread-26] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50001
+2015-01-19 19:24:58,208 INFO  [Thread-26] app_kvServer.ClientConnection: Answer to client : SERVER_STOPPED 127.0.0.1 50001
+2015-01-19 19:24:58,208 DEBUG [Thread-26] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:58,208 DEBUG [Thread-25] common.communication.KVCommModule: New received message : SERVER_STOPPED 127.0.0.1 50001
+2015-01-19 19:24:58,256 INFO  [Thread-10] app_kvServer.EcsConnection: Requested from ECS : START_HEARTBEAT null null
+2015-01-19 19:24:58,257 INFO  [Thread-10] app_kvServer.EcsConnection: Answer to ECS : START_HEARTBEAT ok null
+2015-01-19 19:24:58,258 DEBUG [Thread-28] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:24:58,259 DEBUG [Thread-11] common.communication.AdminCommModule: New received message : START_HEARTBEAT ok null
+2015-01-19 19:24:58,260 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59440
+2015-01-19 19:24:58,262 DEBUG [Thread-16] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:24:58,262 INFO  [Thread-32] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50002
+2015-01-19 19:24:58,268 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59441
+2015-01-19 19:24:58,269 INFO  [Thread-34] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50000
+2015-01-19 19:24:58,306 INFO  [main] app_kvEcs.ECSClient: Starting all used nodes.
+2015-01-19 19:24:58,307 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:24:58,307 DEBUG [Thread-4] app_kvServer.KVServer: Starting the server
+2015-01-19 19:24:58,307 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:24:58,308 DEBUG [Thread-22] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:24:58,308 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:24:58,309 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59442
+2015-01-19 19:24:58,310 INFO  [Thread-36] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50001
+2015-01-19 19:24:58,356 INFO  [Thread-7] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:24:58,356 DEBUG [Thread-7] app_kvServer.KVServer: Starting the server
+2015-01-19 19:24:58,356 INFO  [Thread-7] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:24:58,357 DEBUG [Thread-8] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:24:58,407 INFO  [Thread-10] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:24:58,407 DEBUG [Thread-10] app_kvServer.KVServer: Starting the server
+2015-01-19 19:24:58,407 INFO  [Thread-10] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:24:58,408 DEBUG [Thread-11] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:24:59,033 DEBUG [main] app_kvApi.KVStore: Connecting to 127.0.0.1:50000
+2015-01-19 19:24:59,034 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59443
+2015-01-19 19:24:59,035 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:24:59,036 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:24:59,036 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59444
+2015-01-19 19:24:59,037 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59445
+2015-01-19 19:24:59,038 INFO  [Thread-44] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE updateTestValue initial
+2015-01-19 19:24:59,038 DEBUG [Thread-44] common.metadata.MetadataHandler: Hashed updateTestValue --> f9decec56a3efe53b695cf3cc2e63c3
+2015-01-19 19:24:59,039 INFO  [Thread-44] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:24:59,039 DEBUG [Thread-44] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,039 DEBUG [Thread-44] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:24:59,040 DEBUG [Thread-43] common.communication.KVCommModule: New received message : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:24:59,040 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59446
+2015-01-19 19:24:59,041 INFO  [Thread-47] app_kvServer.ClientConnection: Requested from client : PUT updateTestValue initial
+2015-01-19 19:24:59,041 INFO  [Thread-47] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:24:59,041 DEBUG [Thread-47] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,042 DEBUG [Thread-46] common.communication.KVCommModule: New received message : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:24:59,137 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:24:59,137 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:24:59,138 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59447
+2015-01-19 19:24:59,138 INFO  [Thread-49] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE updateTestValue updated
+2015-01-19 19:24:59,139 DEBUG [Thread-49] common.metadata.MetadataHandler: Hashed updateTestValue --> f9decec56a3efe53b695cf3cc2e63c3
+2015-01-19 19:24:59,139 INFO  [Thread-49] app_kvServer.ClientConnection: Answer to client : PUT_UPDATE updateTestValue updated
+2015-01-19 19:24:59,139 DEBUG [Thread-49] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,139 DEBUG [Thread-49] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:24:59,139 DEBUG [Thread-48] common.communication.KVCommModule: New received message : PUT_UPDATE updateTestValue updated
+2015-01-19 19:24:59,140 DEBUG [Thread-44] app_kvApi.KVStore: Answer to put : PUT_UPDATE updateTestValue initial
+2015-01-19 19:24:59,140 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59448
+2015-01-19 19:24:59,140 DEBUG [Thread-44] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:24:59,141 INFO  [Thread-53] app_kvServer.ClientConnection: Requested from client : PUT updateTestValue updated
+2015-01-19 19:24:59,141 INFO  [Thread-53] app_kvServer.ClientConnection: Answer to client : PUT_UPDATE updateTestValue updated
+2015-01-19 19:24:59,141 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59449
+2015-01-19 19:24:59,141 DEBUG [Thread-53] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,142 INFO  [Thread-55] app_kvServer.ClientConnection: Requested from client : PUT updateTestValue initial
+2015-01-19 19:24:59,142 DEBUG [Thread-51] common.communication.KVCommModule: New received message : PUT_UPDATE updateTestValue updated
+2015-01-19 19:24:59,142 INFO  [Thread-55] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:24:59,142 DEBUG [Thread-55] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,143 DEBUG [Thread-54] common.communication.KVCommModule: New received message : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:24:59,239 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS updateTestValue updated
+2015-01-19 19:24:59,241 DEBUG [Thread-49] app_kvApi.KVStore: Answer to put : PUT_SUCCESS updateTestValue updated
+2015-01-19 19:24:59,241 DEBUG [Thread-49] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:24:59,242 DEBUG [Thread-44] app_kvApi.KVStore: Answer to put : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:24:59,251 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59450
+2015-01-19 19:24:59,252 INFO  [Thread-58] app_kvServer.ClientConnection: Requested from client : PUT updateTestValue updated
+2015-01-19 19:24:59,252 INFO  [Thread-58] app_kvServer.ClientConnection: Answer to client : PUT_UPDATE updateTestValue updated
+2015-01-19 19:24:59,252 DEBUG [Thread-58] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,252 DEBUG [Thread-57] common.communication.KVCommModule: New received message : PUT_UPDATE updateTestValue updated
+2015-01-19 19:24:59,291 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:24:59,293 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:24:59,293 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59451
+2015-01-19 19:24:59,303 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59452
+2015-01-19 19:24:59,373 INFO  [Thread-62] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE deleteTestValue toDelete
+2015-01-19 19:24:59,373 DEBUG [Thread-62] common.metadata.MetadataHandler: Hashed deleteTestValue --> bd812ed0d32604d7a72514de71c5beab
+2015-01-19 19:24:59,374 INFO  [Thread-62] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:24:59,374 DEBUG [Thread-62] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,374 DEBUG [Thread-62] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:24:59,375 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59453
+2015-01-19 19:24:59,376 DEBUG [Thread-63] common.communication.KVCommModule: New received message : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:24:59,377 DEBUG [Thread-49] app_kvApi.KVStore: Answer to put : PUT_SUCCESS updateTestValue updated
+2015-01-19 19:24:59,377 INFO  [Thread-65] app_kvServer.ClientConnection: Requested from client : PUT deleteTestValue toDelete
+2015-01-19 19:24:59,378 INFO  [Thread-65] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:24:59,378 DEBUG [Thread-65] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,380 DEBUG [Thread-66] common.communication.KVCommModule: New received message : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:24:59,409 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:24:59,410 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:24:59,411 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59454
+2015-01-19 19:24:59,411 INFO  [Thread-68] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE deleteTestValue null
+2015-01-19 19:24:59,412 DEBUG [Thread-68] common.metadata.MetadataHandler: Hashed deleteTestValue --> bd812ed0d32604d7a72514de71c5beab
+2015-01-19 19:24:59,412 INFO  [Thread-68] app_kvServer.ClientConnection: Answer to client : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:24:59,412 DEBUG [Thread-67] common.communication.KVCommModule: New received message : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:24:59,413 DEBUG [Thread-68] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,413 DEBUG [Thread-68] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:24:59,414 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59455
+2015-01-19 19:24:59,415 INFO  [Thread-71] app_kvServer.ClientConnection: Requested from client : PUT deleteTestValue null
+2015-01-19 19:24:59,415 INFO  [Thread-71] app_kvServer.ClientConnection: Answer to client : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:24:59,415 DEBUG [Thread-71] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,415 DEBUG [Thread-70] common.communication.KVCommModule: New received message : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:24:59,477 DEBUG [Thread-62] app_kvApi.KVStore: Answer to put : DELETE_SUCCESS deleteTestValue toDelete
+2015-01-19 19:24:59,477 DEBUG [Thread-62] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:24:59,478 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59456
+2015-01-19 19:24:59,479 INFO  [Thread-74] app_kvServer.ClientConnection: Requested from client : PUT deleteTestValue toDelete
+2015-01-19 19:24:59,479 INFO  [Thread-74] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:24:59,479 DEBUG [Thread-74] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,480 DEBUG [Thread-73] common.communication.KVCommModule: New received message : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:24:59,512 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS deleteTestValue null
+2015-01-19 19:24:59,521 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:24:59,521 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:24:59,522 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59457
+2015-01-19 19:24:59,522 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59458
+2015-01-19 19:24:59,522 DEBUG [Thread-68] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE deleteTestValue null
+2015-01-19 19:24:59,523 DEBUG [Thread-68] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:24:59,523 INFO  [Thread-79] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo bar
+2015-01-19 19:24:59,523 DEBUG [Thread-79] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-19 19:24:59,523 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59459
+2015-01-19 19:24:59,524 INFO  [Thread-79] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2015-01-19 19:24:59,524 DEBUG [Thread-79] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,524 DEBUG [Thread-79] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:24:59,524 WARN  [Thread-76] KVMessageImpl: Impossible to unmarshal received message : km>tuuestu<e><k>leb<vae<kmg
+2015-01-19 19:24:59,524 DEBUG [Thread-76] common.communication.KVCommModule: New received message : null
+2015-01-19 19:24:59,525 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59460
+2015-01-19 19:24:59,543 INFO  [Thread-82] app_kvServer.ClientConnection: Requested from client : PUT deleteTestValue null
+2015-01-19 19:24:59,543 INFO  [Thread-82] app_kvServer.ClientConnection: Answer to client : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:24:59,544 DEBUG [Thread-81] common.communication.KVCommModule: New received message : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:24:59,544 DEBUG [Thread-82] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,545 INFO  [Thread-85] app_kvServer.ClientConnection: Requested from client : PUT foo bar
+2015-01-19 19:24:59,545 INFO  [Thread-85] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2015-01-19 19:24:59,545 DEBUG [Thread-85] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,546 DEBUG [Thread-84] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-19 19:24:59,579 DEBUG [Thread-62] app_kvApi.KVStore: Answer to put : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:24:59,636 DEBUG [Thread-68] app_kvApi.KVStore: Answer to put : PUT_SUCCESS deleteTestValue null
+2015-01-19 19:24:59,636 DEBUG [Thread-79] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-19 19:24:59,636 DEBUG [Thread-79] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:24:59,637 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59461
+2015-01-19 19:24:59,650 INFO  [Thread-88] app_kvServer.ClientConnection: Requested from client : PUT foo bar
+2015-01-19 19:24:59,650 INFO  [Thread-88] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2015-01-19 19:24:59,651 DEBUG [Thread-88] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:24:59,651 DEBUG [Thread-87] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-19 19:24:59,748 DEBUG [Thread-79] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-19 19:25:01,405 DEBUG [Thread-28] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:25:01,406 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59462
+2015-01-19 19:25:01,410 INFO  [Thread-90] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50002
+2015-01-19 19:25:02,758 DEBUG [main] app_kvApi.KVStore: Answer to put : null
+2015-01-19 19:25:02,761 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:25:02,761 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59463
+2015-01-19 19:25:02,762 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:25:02,762 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59464
+2015-01-19 19:25:02,772 INFO  [Thread-95] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo1 bar1
+2015-01-19 19:25:02,772 DEBUG [Thread-95] common.metadata.MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2015-01-19 19:25:02,773 INFO  [Thread-95] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo1 bar1
+2015-01-19 19:25:02,773 DEBUG [Thread-95] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:25:02,773 DEBUG [Thread-95] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:25:02,774 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59465
+2015-01-19 19:25:02,839 INFO  [Thread-98] app_kvServer.ClientConnection: Requested from client : PUT foo1 bar1
+2015-01-19 19:25:02,839 INFO  [Thread-98] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo1 bar1
+2015-01-19 19:25:02,839 DEBUG [Thread-98] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:25:02,873 DEBUG [Thread-97] common.communication.KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2015-01-19 19:25:02,907 DEBUG [Thread-95] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo1 bar1
+2015-01-19 19:25:02,907 DEBUG [Thread-95] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:25:02,908 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59466
+2015-01-19 19:25:02,941 INFO  [Thread-101] app_kvServer.ClientConnection: Requested from client : PUT foo1 bar1
+2015-01-19 19:25:02,941 INFO  [Thread-101] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo1 bar1
+2015-01-19 19:25:02,942 DEBUG [Thread-100] common.communication.KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2015-01-19 19:25:02,942 DEBUG [Thread-101] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:25:03,034 DEBUG [Thread-95] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo1 bar1
+2015-01-19 19:25:06,486 DEBUG [main] app_kvApi.KVStore: Answer to put : null
+2015-01-19 19:25:06,486 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:25:06,487 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59468
+2015-01-19 19:25:06,528 INFO  [Thread-103] app_kvServer.ClientConnection: Requested from client : GET foo1 null
+2015-01-19 19:25:06,528 INFO  [Thread-103] app_kvServer.ClientConnection: Answer to client : GET_SUCCESS foo1 bar1
+2015-01-19 19:25:06,528 DEBUG [Thread-103] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:25:06,529 DEBUG [Thread-102] common.communication.KVCommModule: New received message : GET_SUCCESS foo1 bar1
+2015-01-19 19:25:06,615 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:25:06,616 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:25:06,616 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59469
+2015-01-19 19:25:06,616 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59470
+2015-01-19 19:25:06,694 INFO  [Thread-108] app_kvServer.ClientConnection: Requested from client : GET an unset value null
+2015-01-19 19:25:06,695 INFO  [Thread-108] app_kvServer.ClientConnection: Answer to client : GET_ERROR an unset value null
+2015-01-19 19:25:06,695 DEBUG [Thread-105] common.communication.KVCommModule: New received message : GET_ERROR an unset value null
+2015-01-19 19:25:06,748 DEBUG [Thread-108] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:50,820 INFO  [Thread-2] app_kvServer.KVServer: Server listening on port: 50002
+2015-01-19 19:41:50,820 INFO  [Thread-1] app_kvServer.KVServer: Server listening on port: 50001
+2015-01-19 19:41:50,820 INFO  [Thread-0] app_kvServer.KVServer: Server listening on port: 50000
+2015-01-19 19:41:50,933 DEBUG [main] app_kvEcs.ECSClient: Initiating the service...
+2015-01-19 19:41:50,961 INFO  [main] app_kvEcs.ConfigStore: Connected to localhost:50000
+2015-01-19 19:41:50,963 INFO  [Thread-0] app_kvServer.KVServer: Connected to ECS 127.0.0.1 on port 59710
+2015-01-19 19:41:50,975 INFO  [main] app_kvEcs.ConfigStore: Connected to localhost:50001
+2015-01-19 19:41:50,975 INFO  [Thread-1] app_kvServer.KVServer: Connected to ECS 127.0.0.1 on port 59711
+2015-01-19 19:41:50,976 INFO  [main] app_kvEcs.ConfigStore: Connected to localhost:50002
+2015-01-19 19:41:50,976 INFO  [Thread-2] app_kvServer.KVServer: Connected to ECS 127.0.0.1 on port 59712
+2015-01-19 19:41:50,976 DEBUG [main] app_kvEcs.ECSUtils: Sorting the nodes...
+2015-01-19 19:41:50,982 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/ 5:LRU
+2015-01-19 19:41:50,987 INFO  [Thread-4] app_kvServer.KVServer: Server metadata updated.
+2015-01-19 19:41:50,988 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2015-01-19 19:41:50,988 DEBUG [Thread-12] app_kvServer.KVServer: Server listening to clients...
+2015-01-19 19:41:50,989 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : INIT_KVSERVER ok null
+2015-01-19 19:41:51,032 INFO  [Thread-7] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/ 5:LRU
+2015-01-19 19:41:51,033 INFO  [Thread-7] app_kvServer.KVServer: Server metadata updated.
+2015-01-19 19:41:51,034 INFO  [Thread-7] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2015-01-19 19:41:51,034 DEBUG [Thread-13] app_kvServer.KVServer: Server listening to clients...
+2015-01-19 19:41:51,034 DEBUG [Thread-8] common.communication.AdminCommModule: New received message : INIT_KVSERVER ok null
+2015-01-19 19:41:51,082 INFO  [Thread-10] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/ 5:LRU
+2015-01-19 19:41:51,083 INFO  [Thread-10] app_kvServer.KVServer: Server metadata updated.
+2015-01-19 19:41:51,083 INFO  [Thread-10] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2015-01-19 19:41:51,084 DEBUG [Thread-14] app_kvServer.KVServer: Server listening to clients...
+2015-01-19 19:41:51,084 DEBUG [Thread-11] common.communication.AdminCommModule: New received message : INIT_KVSERVER ok null
+2015-01-19 19:41:51,131 DEBUG [main] app_kvEcs.ECSClient: Possible nodes : 
+node4;localhost;50003;
+node5;localhost;50004;
+node6;localhost;50005;
+node7;localhost;50006;
+node8;localhost;50007;
+node9;localhost;50008;
+node10;localhost;50009;
+
+2015-01-19 19:41:51,131 DEBUG [main] app_kvEcs.ECSClient: Used nodes : 
+node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b
+node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869
+node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0
+
+2015-01-19 19:41:51,131 INFO  [main] app_kvEcs.ECSClient: Starting heartbeat on all used nodes
+2015-01-19 19:41:51,132 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : START_HEARTBEAT null null
+2015-01-19 19:41:51,133 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : START_HEARTBEAT ok null
+2015-01-19 19:41:51,134 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : START_HEARTBEAT ok null
+2015-01-19 19:41:51,135 DEBUG [Thread-16] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:41:51,136 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59713
+2015-01-19 19:41:51,139 INFO  [Thread-20] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50000
+2015-01-19 19:41:51,140 INFO  [Thread-20] app_kvServer.ClientConnection: Answer to client : SERVER_STOPPED 127.0.0.1 50000
+2015-01-19 19:41:51,140 DEBUG [Thread-20] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:51,140 DEBUG [Thread-19] common.communication.KVCommModule: New received message : SERVER_STOPPED 127.0.0.1 50000
+2015-01-19 19:41:51,182 INFO  [Thread-7] app_kvServer.EcsConnection: Requested from ECS : START_HEARTBEAT null null
+2015-01-19 19:41:51,182 INFO  [Thread-7] app_kvServer.EcsConnection: Answer to ECS : START_HEARTBEAT ok null
+2015-01-19 19:41:51,183 DEBUG [Thread-22] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:41:51,183 DEBUG [Thread-8] common.communication.AdminCommModule: New received message : START_HEARTBEAT ok null
+2015-01-19 19:41:51,184 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59714
+2015-01-19 19:41:51,184 INFO  [Thread-26] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50001
+2015-01-19 19:41:51,184 INFO  [Thread-26] app_kvServer.ClientConnection: Answer to client : SERVER_STOPPED 127.0.0.1 50001
+2015-01-19 19:41:51,184 DEBUG [Thread-26] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:51,185 DEBUG [Thread-25] common.communication.KVCommModule: New received message : SERVER_STOPPED 127.0.0.1 50001
+2015-01-19 19:41:51,233 INFO  [Thread-10] app_kvServer.EcsConnection: Requested from ECS : START_HEARTBEAT null null
+2015-01-19 19:41:51,233 INFO  [Thread-10] app_kvServer.EcsConnection: Answer to ECS : START_HEARTBEAT ok null
+2015-01-19 19:41:51,236 DEBUG [Thread-11] common.communication.AdminCommModule: New received message : START_HEARTBEAT ok null
+2015-01-19 19:41:51,236 DEBUG [Thread-28] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:51,239 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59715
+2015-01-19 19:41:51,240 DEBUG [Thread-16] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:41:51,241 INFO  [Thread-32] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50002
+2015-01-19 19:41:51,245 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59716
+2015-01-19 19:41:51,247 INFO  [Thread-34] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50000
+2015-01-19 19:41:51,284 DEBUG [Thread-22] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:51,284 INFO  [main] app_kvEcs.ECSClient: Starting all used nodes.
+2015-01-19 19:41:51,284 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:41:51,284 DEBUG [Thread-4] app_kvServer.KVServer: Starting the server
+2015-01-19 19:41:51,285 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:41:51,285 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59717
+2015-01-19 19:41:51,285 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:41:51,285 INFO  [Thread-36] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50001
+2015-01-19 19:41:51,334 INFO  [Thread-7] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:41:51,334 DEBUG [Thread-7] app_kvServer.KVServer: Starting the server
+2015-01-19 19:41:51,335 INFO  [Thread-7] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:41:51,335 DEBUG [Thread-8] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:41:51,385 INFO  [Thread-10] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:41:51,385 DEBUG [Thread-10] app_kvServer.KVServer: Starting the server
+2015-01-19 19:41:51,386 INFO  [Thread-10] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:41:51,387 DEBUG [Thread-11] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:41:51,986 DEBUG [main] app_kvApi.KVStore: Connecting to 127.0.0.1:50000
+2015-01-19 19:41:51,987 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59718
+2015-01-19 19:41:51,989 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:51,990 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59719
+2015-01-19 19:41:51,990 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:51,991 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59720
+2015-01-19 19:41:51,992 INFO  [Thread-44] app_kvServer.ClientConnection: Requested from client : GET an unset value null
+2015-01-19 19:41:51,992 INFO  [Thread-44] app_kvServer.ClientConnection: Answer to client : GET_ERROR an unset value null
+2015-01-19 19:41:51,992 DEBUG [Thread-44] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:51,993 DEBUG [Thread-43] common.communication.KVCommModule: New received message : GET_ERROR an unset value null
+2015-01-19 19:41:52,091 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:52,092 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:52,092 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59721
+2015-01-19 19:41:52,093 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59722
+2015-01-19 19:41:52,093 INFO  [Thread-49] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE updateTestValue initial
+2015-01-19 19:41:52,094 DEBUG [Thread-49] common.metadata.MetadataHandler: Hashed updateTestValue --> f9decec56a3efe53b695cf3cc2e63c3
+2015-01-19 19:41:52,095 INFO  [Thread-49] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:41:52,095 DEBUG [Thread-49] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:52,095 DEBUG [Thread-49] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:41:52,096 DEBUG [Thread-48] common.communication.KVCommModule: New received message : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:41:52,096 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59723
+2015-01-19 19:41:52,097 INFO  [Thread-52] app_kvServer.ClientConnection: Requested from client : PUT updateTestValue initial
+2015-01-19 19:41:52,097 INFO  [Thread-52] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:41:52,097 DEBUG [Thread-52] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:52,098 DEBUG [Thread-51] common.communication.KVCommModule: New received message : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:41:52,194 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:41:52,194 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:52,197 DEBUG [Thread-49] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE updateTestValue initial
+2015-01-19 19:41:52,197 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59724
+2015-01-19 19:41:52,197 DEBUG [Thread-49] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:41:52,200 INFO  [Thread-55] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE updateTestValue updated
+2015-01-19 19:41:52,200 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59725
+2015-01-19 19:41:52,200 DEBUG [Thread-55] common.metadata.MetadataHandler: Hashed updateTestValue --> f9decec56a3efe53b695cf3cc2e63c3
+2015-01-19 19:41:52,201 INFO  [Thread-55] app_kvServer.ClientConnection: Answer to client : PUT_UPDATE updateTestValue updated
+2015-01-19 19:41:52,202 INFO  [Thread-57] app_kvServer.ClientConnection: Requested from client : PUT updateTestValue initial
+2015-01-19 19:41:52,202 DEBUG [Thread-55] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:52,203 DEBUG [Thread-55] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:41:52,203 INFO  [Thread-57] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:41:52,204 DEBUG [Thread-53] common.communication.KVCommModule: New received message : PUT_UPDATE updateTestValue updated
+2015-01-19 19:41:52,204 DEBUG [Thread-57] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:52,206 DEBUG [Thread-56] common.communication.KVCommModule: New received message : PUT_SUCCESS updateTestValue initial
+2015-01-19 19:41:52,206 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59726
+2015-01-19 19:41:52,218 INFO  [Thread-60] app_kvServer.ClientConnection: Requested from client : PUT updateTestValue updated
+2015-01-19 19:41:52,219 INFO  [Thread-60] app_kvServer.ClientConnection: Answer to client : PUT_UPDATE updateTestValue updated
+2015-01-19 19:41:52,255 DEBUG [Thread-59] common.communication.KVCommModule: New received message : PUT_UPDATE updateTestValue updated
+2015-01-19 19:41:52,256 DEBUG [Thread-60] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:52,297 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE updateTestValue updated
+2015-01-19 19:41:52,298 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:52,299 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59727
+2015-01-19 19:41:52,299 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:52,300 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59728
+2015-01-19 19:41:52,316 DEBUG [Thread-49] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE updateTestValue initial
+2015-01-19 19:41:52,317 INFO  [Thread-65] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE deleteTestValue toDelete
+2015-01-19 19:41:52,318 DEBUG [Thread-55] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE updateTestValue updated
+2015-01-19 19:41:52,318 DEBUG [Thread-65] common.metadata.MetadataHandler: Hashed deleteTestValue --> bd812ed0d32604d7a72514de71c5beab
+2015-01-19 19:41:52,318 DEBUG [Thread-55] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:41:52,318 INFO  [Thread-65] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:41:52,318 DEBUG [Thread-65] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:52,319 DEBUG [Thread-65] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:41:52,319 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59729
+2015-01-19 19:41:52,324 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59730
+2015-01-19 19:41:52,325 INFO  [Thread-69] app_kvServer.ClientConnection: Requested from client : PUT deleteTestValue toDelete
+2015-01-19 19:41:52,325 INFO  [Thread-69] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:41:52,325 DEBUG [Thread-69] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:52,326 DEBUG [Thread-68] common.communication.KVCommModule: New received message : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:41:52,358 INFO  [Thread-71] app_kvServer.ClientConnection: Requested from client : PUT updateTestValue updated
+2015-01-19 19:41:52,358 INFO  [Thread-71] app_kvServer.ClientConnection: Answer to client : PUT_UPDATE updateTestValue updated
+2015-01-19 19:41:52,359 DEBUG [Thread-70] common.communication.KVCommModule: New received message : PUT_UPDATE updateTestValue updated
+2015-01-19 19:41:52,359 DEBUG [Thread-71] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:52,440 DEBUG [Thread-65] app_kvApi.KVStore: Answer to put : PUT_UPDATE deleteTestValue toDelete
+2015-01-19 19:41:52,440 DEBUG [Thread-65] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:41:52,441 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59732
+2015-01-19 19:41:52,446 DEBUG [Thread-55] app_kvApi.KVStore: Answer to put : PUT updateTestValue updated
+2015-01-19 19:41:52,457 INFO  [Thread-74] app_kvServer.ClientConnection: Requested from client : PUT deleteTestValue toDelete
+2015-01-19 19:41:52,459 INFO  [Thread-74] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:41:52,460 DEBUG [Thread-73] common.communication.KVCommModule: New received message : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:41:52,460 DEBUG [Thread-74] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:52,548 DEBUG [Thread-65] app_kvApi.KVStore: Answer to put : PUT_SUCCESS deleteTestValue toDelete
+2015-01-19 19:41:54,533 DEBUG [Thread-28] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:41:54,534 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59733
+2015-01-19 19:41:54,552 INFO  [Thread-76] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50002
+2015-01-19 19:41:55,734 DEBUG [main] app_kvApi.KVStore: Answer to put : null
+2015-01-19 19:41:55,734 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:55,735 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59734
+2015-01-19 19:41:55,766 INFO  [Thread-78] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE deleteTestValue null
+2015-01-19 19:41:55,767 DEBUG [Thread-78] common.metadata.MetadataHandler: Hashed deleteTestValue --> bd812ed0d32604d7a72514de71c5beab
+2015-01-19 19:41:55,767 INFO  [Thread-78] app_kvServer.ClientConnection: Answer to client : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:41:55,767 DEBUG [Thread-78] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:55,767 DEBUG [Thread-78] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:41:55,768 DEBUG [Thread-77] common.communication.KVCommModule: New received message : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:41:55,768 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59735
+2015-01-19 19:41:55,800 INFO  [Thread-81] app_kvServer.ClientConnection: Requested from client : PUT deleteTestValue null
+2015-01-19 19:41:55,800 INFO  [Thread-81] app_kvServer.ClientConnection: Answer to client : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:41:55,800 DEBUG [Thread-81] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:55,817 DEBUG [Thread-80] common.communication.KVCommModule: New received message : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:41:55,850 DEBUG [main] app_kvApi.KVStore: Answer to put : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:41:55,851 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:55,851 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59736
+2015-01-19 19:41:55,852 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:55,853 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59737
+2015-01-19 19:41:55,893 DEBUG [Thread-78] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE deleteTestValue null
+2015-01-19 19:41:55,931 DEBUG [Thread-78] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:41:55,932 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59738
+2015-01-19 19:41:55,932 INFO  [Thread-86] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo bar
+2015-01-19 19:41:55,932 DEBUG [Thread-86] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-19 19:41:55,933 INFO  [Thread-86] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2015-01-19 19:41:55,949 INFO  [Thread-89] app_kvServer.ClientConnection: Requested from client : PUT deleteTestValue null
+2015-01-19 19:41:55,949 INFO  [Thread-89] app_kvServer.ClientConnection: Answer to client : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:41:55,949 DEBUG [Thread-89] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:55,949 DEBUG [Thread-86] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:55,950 DEBUG [Thread-86] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:41:55,951 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59739
+2015-01-19 19:41:56,014 DEBUG [Thread-88] common.communication.KVCommModule: New received message : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:41:56,091 DEBUG [Thread-78] app_kvApi.KVStore: Answer to put : DELETE_SUCCESS deleteTestValue null
+2015-01-19 19:41:56,091 INFO  [Thread-92] app_kvServer.ClientConnection: Requested from client : PUT foo bar
+2015-01-19 19:41:56,091 INFO  [Thread-92] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2015-01-19 19:41:56,092 DEBUG [Thread-91] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-19 19:41:56,131 DEBUG [Thread-92] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:56,230 DEBUG [Thread-86] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-19 19:41:56,233 DEBUG [Thread-86] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:41:56,233 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59740
+2015-01-19 19:41:56,302 INFO  [Thread-95] app_kvServer.ClientConnection: Requested from client : PUT foo bar
+2015-01-19 19:41:56,302 INFO  [Thread-95] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo bar
+2015-01-19 19:41:56,303 DEBUG [Thread-95] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:56,336 DEBUG [Thread-94] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-19 19:41:56,369 DEBUG [Thread-86] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-19 19:41:59,788 DEBUG [main] app_kvApi.KVStore: Answer to put : null
+2015-01-19 19:41:59,793 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:59,794 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:59,794 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59741
+2015-01-19 19:41:59,795 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59742
+2015-01-19 19:41:59,881 INFO  [Thread-100] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo1 bar1
+2015-01-19 19:41:59,881 DEBUG [Thread-100] common.metadata.MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2015-01-19 19:41:59,881 INFO  [Thread-100] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo1 bar1
+2015-01-19 19:41:59,882 DEBUG [Thread-100] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:59,882 DEBUG [Thread-100] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:41:59,882 DEBUG [Thread-97] common.communication.KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2015-01-19 19:41:59,883 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59743
+2015-01-19 19:41:59,917 INFO  [Thread-102] app_kvServer.ClientConnection: Requested from client : PUT foo1 bar1
+2015-01-19 19:41:59,918 INFO  [Thread-102] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo1 bar1
+2015-01-19 19:41:59,918 DEBUG [Thread-102] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:41:59,918 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo1 bar1
+2015-01-19 19:41:59,951 DEBUG [Thread-100] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo1 bar1
+2015-01-19 19:41:59,951 DEBUG [Thread-100] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:41:59,952 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59744
+2015-01-19 19:41:59,951 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:41:59,953 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59745
+2015-01-19 19:41:59,919 DEBUG [Thread-103] common.communication.KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2015-01-19 19:41:59,986 INFO  [Thread-106] app_kvServer.ClientConnection: Requested from client : PUT foo1 bar1
+2015-01-19 19:41:59,986 INFO  [Thread-106] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo1 bar1
+2015-01-19 19:42:00,048 INFO  [Thread-108] app_kvServer.ClientConnection: Requested from client : GET foo1 null
+2015-01-19 19:42:00,048 INFO  [Thread-108] app_kvServer.ClientConnection: Answer to client : GET_SUCCESS foo1 bar1
+2015-01-19 19:42:00,083 DEBUG [Thread-108] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:42:00,083 DEBUG [Thread-106] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:42:00,117 DEBUG [Thread-107] common.communication.KVCommModule: New received message : GET_SUCCESS foo1 bar1
+2015-01-19 19:42:00,123 DEBUG [Thread-105] common.communication.KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2015-01-19 19:42:00,249 DEBUG [Thread-100] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo1 bar1
+2015-01-19 19:44:08,104 INFO  [Thread-1] app_kvServer.KVServer: Server listening on port: 50001
+2015-01-19 19:44:08,104 INFO  [Thread-0] app_kvServer.KVServer: Server listening on port: 50000
+2015-01-19 19:44:08,104 INFO  [Thread-2] app_kvServer.KVServer: Server listening on port: 50002
+2015-01-19 19:44:08,129 DEBUG [main] app_kvEcs.ECSClient: Initiating the service...
+2015-01-19 19:44:08,142 INFO  [main] app_kvEcs.ConfigStore: Connected to localhost:50000
+2015-01-19 19:44:08,145 INFO  [Thread-0] app_kvServer.KVServer: Connected to ECS 127.0.0.1 on port 59788
+2015-01-19 19:44:08,156 DEBUG [main] app_kvEcs.ECSUtils: Sorting the nodes...
+2015-01-19 19:44:08,157 DEBUG [main] app_kvEcs.ECSUtils: No sorting: only one node.
+2015-01-19 19:44:08,163 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b;447aca9968653a3d3a2a977ee6ca884b/ 5:LRU
+2015-01-19 19:44:08,168 INFO  [Thread-4] app_kvServer.KVServer: Server metadata updated.
+2015-01-19 19:44:08,169 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2015-01-19 19:44:08,169 DEBUG [Thread-6] app_kvServer.KVServer: Server listening to clients...
+2015-01-19 19:44:08,170 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : INIT_KVSERVER ok null
+2015-01-19 19:44:08,211 DEBUG [main] app_kvEcs.ECSClient: Possible nodes : 
+node2;localhost;50001;
+node3;localhost;50002;
+node4;localhost;50003;
+node5;localhost;50004;
+node6;localhost;50005;
+node7;localhost;50006;
+node8;localhost;50007;
+node9;localhost;50008;
+node10;localhost;50009;
+
+2015-01-19 19:44:08,211 DEBUG [main] app_kvEcs.ECSClient: Used nodes : 
+node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b
+
+2015-01-19 19:44:08,211 INFO  [main] app_kvEcs.ECSClient: Starting heartbeat on all used nodes
+2015-01-19 19:44:08,212 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : START_HEARTBEAT null null
+2015-01-19 19:44:08,215 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : START_HEARTBEAT ok null
+2015-01-19 19:44:08,215 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : START_HEARTBEAT ok null
+2015-01-19 19:44:08,216 DEBUG [Thread-8] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:08,217 DEBUG [Thread-6] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59789
+2015-01-19 19:44:08,220 INFO  [Thread-12] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50000
+2015-01-19 19:44:08,261 INFO  [main] app_kvEcs.ECSClient: Starting all used nodes.
+2015-01-19 19:44:08,261 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:44:08,261 DEBUG [Thread-4] app_kvServer.KVServer: Starting the server
+2015-01-19 19:44:08,261 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:44:08,262 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:44:08,311 INFO  [main] app_kvEcs.ECSClient: Starting all used nodes.
+2015-01-19 19:44:08,311 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:44:08,311 DEBUG [Thread-4] app_kvServer.KVServer: Starting the server
+2015-01-19 19:44:08,311 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:44:08,312 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:44:08,361 INFO  [main] app_kvEcs.ECSClient: Stopping all used nodes.
+2015-01-19 19:44:08,361 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : STOP null null
+2015-01-19 19:44:08,361 DEBUG [Thread-4] app_kvServer.KVServer: Stopping the server
+2015-01-19 19:44:08,362 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : STOP ok null
+2015-01-19 19:44:08,362 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : STOP ok null
+2015-01-19 19:44:08,412 INFO  [main] app_kvEcs.ECSClient: Stopping all used nodes.
+2015-01-19 19:44:08,413 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : STOP null null
+2015-01-19 19:44:08,413 DEBUG [Thread-4] app_kvServer.KVServer: Stopping the server
+2015-01-19 19:44:08,414 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : STOP ok null
+2015-01-19 19:44:08,415 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : STOP ok null
+2015-01-19 19:44:08,463 INFO  [main] app_kvEcs.ECSClient: Starting all used nodes.
+2015-01-19 19:44:08,463 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:44:08,463 DEBUG [Thread-4] app_kvServer.KVServer: Starting the server
+2015-01-19 19:44:08,464 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:44:08,464 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:44:08,514 INFO  [main] app_kvEcs.ECSClient: Shutting down all used nodes.
+2015-01-19 19:44:08,515 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : SHUTDOWN null null
+2015-01-19 19:44:08,516 INFO  [Thread-4] app_kvServer.EcsConnection: Exiting
+2015-01-19 19:44:08,516 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : SHUTDOWN ok null
+2015-01-19 19:44:08,518 INFO  [Thread-4] app_kvServer.EcsConnection: Connection closed with ECS.
+2015-01-19 19:44:08,518 DEBUG [Thread-4] app_kvServer.KVServer: Stopping the server
+2015-01-19 19:44:08,519 INFO  [Thread-6] app_kvServer.KVServer: Server stopped to listen to clients.
+2015-01-19 19:44:08,520 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : SHUTDOWN ok null
+2015-01-19 19:44:08,564 INFO  [main] app_kvEcs.ConfigStore: Connection closed with localhost:50000
+2015-01-19 19:44:08,565 INFO  [main] app_kvEcs.ECSInterface: Exiting
+2015-01-19 19:44:16,138 INFO  [Thread-0] app_kvServer.KVServer: Server listening on port: 50000
+2015-01-19 19:44:16,138 INFO  [Thread-1] app_kvServer.KVServer: Server listening on port: 50001
+2015-01-19 19:44:16,138 INFO  [Thread-2] app_kvServer.KVServer: Server listening on port: 50002
+2015-01-19 19:44:16,143 DEBUG [main] app_kvEcs.ECSClient: Initiating the service...
+2015-01-19 19:44:16,154 INFO  [main] app_kvEcs.ConfigStore: Connected to localhost:50000
+2015-01-19 19:44:16,156 INFO  [Thread-0] app_kvServer.KVServer: Connected to ECS 127.0.0.1 on port 59794
+2015-01-19 19:44:16,166 INFO  [main] app_kvEcs.ConfigStore: Connected to localhost:50001
+2015-01-19 19:44:16,166 INFO  [Thread-1] app_kvServer.KVServer: Connected to ECS 127.0.0.1 on port 59795
+2015-01-19 19:44:16,166 INFO  [main] app_kvEcs.ConfigStore: Connected to localhost:50002
+2015-01-19 19:44:16,167 INFO  [Thread-2] app_kvServer.KVServer: Connected to ECS 127.0.0.1 on port 59796
+2015-01-19 19:44:16,167 DEBUG [main] app_kvEcs.ECSUtils: Sorting the nodes...
+2015-01-19 19:44:16,172 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/ 25:FIFO
+2015-01-19 19:44:16,176 INFO  [Thread-4] app_kvServer.KVServer: Server metadata updated.
+2015-01-19 19:44:16,177 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2015-01-19 19:44:16,177 DEBUG [Thread-12] app_kvServer.KVServer: Server listening to clients...
+2015-01-19 19:44:16,178 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : INIT_KVSERVER ok null
+2015-01-19 19:44:16,222 INFO  [Thread-7] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/ 25:FIFO
+2015-01-19 19:44:16,223 INFO  [Thread-7] app_kvServer.KVServer: Server metadata updated.
+2015-01-19 19:44:16,224 INFO  [Thread-7] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2015-01-19 19:44:16,224 DEBUG [Thread-13] app_kvServer.KVServer: Server listening to clients...
+2015-01-19 19:44:16,224 DEBUG [Thread-8] common.communication.AdminCommModule: New received message : INIT_KVSERVER ok null
+2015-01-19 19:44:16,275 INFO  [Thread-10] app_kvServer.EcsConnection: Requested from ECS : INIT_KVSERVER node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/ 25:FIFO
+2015-01-19 19:44:16,279 INFO  [Thread-10] app_kvServer.KVServer: Server metadata updated.
+2015-01-19 19:44:16,280 INFO  [Thread-10] app_kvServer.EcsConnection: Answer to ECS : INIT_KVSERVER ok null
+2015-01-19 19:44:16,280 DEBUG [Thread-14] app_kvServer.KVServer: Server listening to clients...
+2015-01-19 19:44:16,283 DEBUG [Thread-11] common.communication.AdminCommModule: New received message : INIT_KVSERVER ok null
+2015-01-19 19:44:16,322 DEBUG [main] app_kvEcs.ECSClient: Possible nodes : 
+node4;localhost;50003;
+node5;localhost;50004;
+node6;localhost;50005;
+node7;localhost;50006;
+node8;localhost;50007;
+node9;localhost;50008;
+node10;localhost;50009;
+
+2015-01-19 19:44:16,322 DEBUG [main] app_kvEcs.ECSClient: Used nodes : 
+node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b
+node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869
+node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0
+
+2015-01-19 19:44:16,322 INFO  [main] app_kvEcs.ECSClient: Starting heartbeat on all used nodes
+2015-01-19 19:44:16,323 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : START_HEARTBEAT null null
+2015-01-19 19:44:16,327 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : START_HEARTBEAT ok null
+2015-01-19 19:44:16,328 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : START_HEARTBEAT ok null
+2015-01-19 19:44:16,329 DEBUG [Thread-16] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:16,331 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59797
+2015-01-19 19:44:16,335 INFO  [Thread-20] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50000
+2015-01-19 19:44:16,335 INFO  [Thread-20] app_kvServer.ClientConnection: Answer to client : SERVER_STOPPED 127.0.0.1 50000
+2015-01-19 19:44:16,335 DEBUG [Thread-19] common.communication.KVCommModule: New received message : SERVER_STOPPED 127.0.0.1 50000
+2015-01-19 19:44:16,337 DEBUG [Thread-20] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:16,373 INFO  [Thread-7] app_kvServer.EcsConnection: Requested from ECS : START_HEARTBEAT null null
+2015-01-19 19:44:16,373 INFO  [Thread-7] app_kvServer.EcsConnection: Answer to ECS : START_HEARTBEAT ok null
+2015-01-19 19:44:16,374 DEBUG [Thread-22] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:16,374 DEBUG [Thread-8] common.communication.AdminCommModule: New received message : START_HEARTBEAT ok null
+2015-01-19 19:44:16,375 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59798
+2015-01-19 19:44:16,375 INFO  [Thread-26] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50001
+2015-01-19 19:44:16,375 INFO  [Thread-26] app_kvServer.ClientConnection: Answer to client : SERVER_STOPPED 127.0.0.1 50001
+2015-01-19 19:44:16,376 DEBUG [Thread-26] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:16,376 DEBUG [Thread-25] common.communication.KVCommModule: New received message : SERVER_STOPPED 127.0.0.1 50001
+2015-01-19 19:44:16,423 INFO  [Thread-10] app_kvServer.EcsConnection: Requested from ECS : START_HEARTBEAT null null
+2015-01-19 19:44:16,423 INFO  [Thread-10] app_kvServer.EcsConnection: Answer to ECS : START_HEARTBEAT ok null
+2015-01-19 19:44:16,423 DEBUG [Thread-28] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:16,424 DEBUG [Thread-11] common.communication.AdminCommModule: New received message : START_HEARTBEAT ok null
+2015-01-19 19:44:16,424 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59799
+2015-01-19 19:44:16,425 INFO  [Thread-32] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50002
+2015-01-19 19:44:16,434 DEBUG [Thread-16] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:16,434 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59800
+2015-01-19 19:44:16,435 INFO  [Thread-34] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50000
+2015-01-19 19:44:16,473 INFO  [main] app_kvEcs.ECSClient: Starting all used nodes.
+2015-01-19 19:44:16,473 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:44:16,473 DEBUG [Thread-4] app_kvServer.KVServer: Starting the server
+2015-01-19 19:44:16,473 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:44:16,474 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:44:16,475 DEBUG [Thread-22] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:16,475 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59801
+2015-01-19 19:44:16,476 INFO  [Thread-36] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50001
+2015-01-19 19:44:16,524 INFO  [Thread-7] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:44:16,524 DEBUG [Thread-7] app_kvServer.KVServer: Starting the server
+2015-01-19 19:44:16,525 INFO  [Thread-7] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:44:16,527 DEBUG [Thread-8] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:44:16,573 INFO  [Thread-10] app_kvServer.EcsConnection: Requested from ECS : START null null
+2015-01-19 19:44:16,573 DEBUG [Thread-10] app_kvServer.KVServer: Starting the server
+2015-01-19 19:44:16,574 INFO  [Thread-10] app_kvServer.EcsConnection: Answer to ECS : START ok null
+2015-01-19 19:44:16,575 DEBUG [Thread-11] common.communication.AdminCommModule: New received message : START ok null
+2015-01-19 19:44:16,628 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:16,629 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59802
+2015-01-19 19:44:16,631 INFO  [Thread-39] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo0 bar0
+2015-01-19 19:44:16,631 DEBUG [Thread-39] common.metadata.MetadataHandler: Hashed foo0 --> 94d805cf7254459b3930ef40ef00336d
+2015-01-19 19:44:16,633 INFO  [Thread-39] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo0 bar0
+2015-01-19 19:44:16,633 DEBUG [Thread-39] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:16,634 DEBUG [Thread-39] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:16,634 DEBUG [Thread-38] common.communication.KVCommModule: New received message : PUT_SUCCESS foo0 bar0
+2015-01-19 19:44:16,636 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59803
+2015-01-19 19:44:16,637 INFO  [Thread-42] app_kvServer.ClientConnection: Requested from client : PUT foo0 bar0
+2015-01-19 19:44:16,637 INFO  [Thread-42] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo0 bar0
+2015-01-19 19:44:16,638 DEBUG [Thread-42] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:16,639 DEBUG [Thread-41] common.communication.KVCommModule: New received message : PUT_SUCCESS foo0 bar0
+2015-01-19 19:44:16,729 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo0 bar0
+2015-01-19 19:44:16,729 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:16,731 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59805
+2015-01-19 19:44:16,732 INFO  [Thread-44] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo1 bar1
+2015-01-19 19:44:16,732 DEBUG [Thread-44] common.metadata.MetadataHandler: Hashed foo1 --> 299a0be4a5a79e6a59fdd251b19d78bb
+2015-01-19 19:44:16,733 INFO  [Thread-44] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo1 bar1
+2015-01-19 19:44:16,733 DEBUG [Thread-44] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:16,734 DEBUG [Thread-44] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:16,734 DEBUG [Thread-43] common.communication.KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2015-01-19 19:44:16,735 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59806
+2015-01-19 19:44:16,736 DEBUG [Thread-39] app_kvApi.KVStore: Answer to put : PUT foo0 bar0
+2015-01-19 19:44:16,736 DEBUG [Thread-39] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:16,736 INFO  [Thread-47] app_kvServer.ClientConnection: Requested from client : PUT foo1 bar1
+2015-01-19 19:44:16,737 INFO  [Thread-47] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo1 bar1
+2015-01-19 19:44:16,737 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59807
+2015-01-19 19:44:16,737 DEBUG [Thread-47] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:16,738 DEBUG [Thread-46] common.communication.KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2015-01-19 19:44:16,739 INFO  [Thread-50] app_kvServer.ClientConnection: Requested from client : PUT foo0 bar0
+2015-01-19 19:44:16,739 INFO  [Thread-50] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo0 bar0
+2015-01-19 19:44:16,740 DEBUG [Thread-50] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:16,740 DEBUG [Thread-49] common.communication.KVCommModule: New received message : PUT_SUCCESS foo0 bar0
+2015-01-19 19:44:16,831 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo1 bar1
+2015-01-19 19:44:16,831 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:16,833 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59808
+2015-01-19 19:44:16,834 INFO  [Thread-52] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo2 bar2
+2015-01-19 19:44:16,834 DEBUG [Thread-52] common.metadata.MetadataHandler: Hashed foo2 --> 92e0057157f69e22a364d6b22dd6bbd5
+2015-01-19 19:44:16,835 INFO  [Thread-52] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo2 bar2
+2015-01-19 19:44:16,835 DEBUG [Thread-52] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:16,836 DEBUG [Thread-44] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo1 bar1
+2015-01-19 19:44:16,836 DEBUG [Thread-52] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:16,836 DEBUG [Thread-44] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:16,836 DEBUG [Thread-51] common.communication.KVCommModule: New received message : PUT_SUCCESS foo2 bar2
+2015-01-19 19:44:16,838 DEBUG [Thread-39] app_kvApi.KVStore: Answer to put : PUT foo0 bar0
+2015-01-19 19:44:16,838 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59810
+2015-01-19 19:44:16,838 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59809
+2015-01-19 19:44:16,839 INFO  [Thread-57] app_kvServer.ClientConnection: Requested from client : PUT foo1 bar1
+2015-01-19 19:44:16,840 INFO  [Thread-58] app_kvServer.ClientConnection: Requested from client : PUT foo2 bar2
+2015-01-19 19:44:16,840 INFO  [Thread-57] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo1 bar1
+2015-01-19 19:44:16,840 INFO  [Thread-58] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo2 bar2
+2015-01-19 19:44:16,841 DEBUG [Thread-58] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:16,841 DEBUG [Thread-56] common.communication.KVCommModule: New received message : PUT_SUCCESS foo1 bar1
+2015-01-19 19:44:16,841 DEBUG [Thread-57] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:16,841 DEBUG [Thread-55] common.communication.KVCommModule: New received message : PUT_SUCCESS foo2 bar2
+2015-01-19 19:44:16,933 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo2 bar2
+2015-01-19 19:44:16,933 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:16,950 DEBUG [Thread-52] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo2 bar2
+2015-01-19 19:44:16,952 DEBUG [Thread-44] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo1 bar1
+2015-01-19 19:44:16,986 DEBUG [Thread-52] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:16,987 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59812
+2015-01-19 19:44:16,952 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59811
+2015-01-19 19:44:17,009 INFO  [Thread-61] app_kvServer.ClientConnection: Requested from client : PUT foo2 bar2
+2015-01-19 19:44:17,010 INFO  [Thread-61] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo2 bar2
+2015-01-19 19:44:17,010 DEBUG [Thread-61] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,011 DEBUG [Thread-62] common.communication.KVCommModule: New received message : PUT_SUCCESS foo2 bar2
+2015-01-19 19:44:17,012 INFO  [Thread-63] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo3 bar3
+2015-01-19 19:44:17,012 DEBUG [Thread-63] common.metadata.MetadataHandler: Hashed foo3 --> cecf7c1a4c5640928a3a73459bb3d977
+2015-01-19 19:44:17,012 INFO  [Thread-63] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo3 bar3
+2015-01-19 19:44:17,013 DEBUG [Thread-59] common.communication.KVCommModule: New received message : PUT_SUCCESS foo3 bar3
+2015-01-19 19:44:17,013 DEBUG [Thread-63] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,013 DEBUG [Thread-63] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:17,014 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59813
+2015-01-19 19:44:17,016 INFO  [Thread-65] app_kvServer.ClientConnection: Requested from client : PUT foo3 bar3
+2015-01-19 19:44:17,018 INFO  [Thread-65] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo3 bar3
+2015-01-19 19:44:17,018 DEBUG [Thread-65] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,019 DEBUG [Thread-66] common.communication.KVCommModule: New received message : PUT_SUCCESS foo3 bar3
+2015-01-19 19:44:17,037 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo3 bar3
+2015-01-19 19:44:17,037 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:17,038 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59814
+2015-01-19 19:44:17,041 INFO  [Thread-68] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo4 bar4
+2015-01-19 19:44:17,043 DEBUG [Thread-68] common.metadata.MetadataHandler: Hashed foo4 --> 1255e970941d7da002de246b63e8ceb4
+2015-01-19 19:44:17,043 INFO  [Thread-68] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo4 bar4
+2015-01-19 19:44:17,044 DEBUG [Thread-67] common.communication.KVCommModule: New received message : PUT_SUCCESS foo4 bar4
+2015-01-19 19:44:17,044 DEBUG [Thread-68] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,044 DEBUG [Thread-68] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:17,045 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59815
+2015-01-19 19:44:17,047 INFO  [Thread-71] app_kvServer.ClientConnection: Requested from client : PUT foo4 bar4
+2015-01-19 19:44:17,047 INFO  [Thread-71] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo4 bar4
+2015-01-19 19:44:17,047 DEBUG [Thread-71] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,048 DEBUG [Thread-70] common.communication.KVCommModule: New received message : PUT_SUCCESS foo4 bar4
+2015-01-19 19:44:17,088 DEBUG [Thread-52] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo2 bar2
+2015-01-19 19:44:17,115 DEBUG [Thread-63] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo3 bar3
+2015-01-19 19:44:17,116 DEBUG [Thread-63] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:17,116 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59816
+2015-01-19 19:44:17,117 INFO  [Thread-74] app_kvServer.ClientConnection: Requested from client : PUT foo3 bar3
+2015-01-19 19:44:17,117 INFO  [Thread-74] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo3 bar3
+2015-01-19 19:44:17,118 DEBUG [Thread-74] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,118 DEBUG [Thread-73] common.communication.KVCommModule: New received message : PUT_SUCCESS foo3 bar3
+2015-01-19 19:44:17,151 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo4 bar4
+2015-01-19 19:44:17,151 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:17,152 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59817
+2015-01-19 19:44:17,152 DEBUG [Thread-68] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo4 bar4
+2015-01-19 19:44:17,153 DEBUG [Thread-68] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:17,153 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59818
+2015-01-19 19:44:17,156 INFO  [Thread-79] app_kvServer.ClientConnection: Requested from client : PUT foo4 bar4
+2015-01-19 19:44:17,157 INFO  [Thread-76] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo5 bar5
+2015-01-19 19:44:17,157 INFO  [Thread-79] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo4 bar4
+2015-01-19 19:44:17,157 DEBUG [Thread-76] common.metadata.MetadataHandler: Hashed foo5 --> 989beaf85b1ee11a83eba52b29635e5e
+2015-01-19 19:44:17,157 DEBUG [Thread-79] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,157 INFO  [Thread-76] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo5 bar5
+2015-01-19 19:44:17,157 DEBUG [Thread-78] common.communication.KVCommModule: New received message : PUT_SUCCESS foo4 bar4
+2015-01-19 19:44:17,158 DEBUG [Thread-76] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,158 DEBUG [Thread-76] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:17,158 DEBUG [Thread-75] common.communication.KVCommModule: New received message : PUT_SUCCESS foo5 bar5
+2015-01-19 19:44:17,159 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59819
+2015-01-19 19:44:17,160 INFO  [Thread-82] app_kvServer.ClientConnection: Requested from client : PUT foo5 bar5
+2015-01-19 19:44:17,160 INFO  [Thread-82] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo5 bar5
+2015-01-19 19:44:17,160 DEBUG [Thread-82] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,161 DEBUG [Thread-81] common.communication.KVCommModule: New received message : PUT_SUCCESS foo5 bar5
+2015-01-19 19:44:17,217 DEBUG [Thread-63] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo3 bar3
+2015-01-19 19:44:17,253 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo5 bar5
+2015-01-19 19:44:17,253 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:17,254 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59820
+2015-01-19 19:44:17,255 INFO  [Thread-84] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo6 bar6
+2015-01-19 19:44:17,255 DEBUG [Thread-68] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo4 bar4
+2015-01-19 19:44:17,255 DEBUG [Thread-84] common.metadata.MetadataHandler: Hashed foo6 --> 2bbea8703b8c6111607b879b823365c3
+2015-01-19 19:44:17,255 INFO  [Thread-84] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo6 bar6
+2015-01-19 19:44:17,255 DEBUG [Thread-84] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,256 DEBUG [Thread-84] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:17,256 DEBUG [Thread-83] common.communication.KVCommModule: New received message : PUT_SUCCESS foo6 bar6
+2015-01-19 19:44:17,256 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59821
+2015-01-19 19:44:17,257 INFO  [Thread-87] app_kvServer.ClientConnection: Requested from client : PUT foo6 bar6
+2015-01-19 19:44:17,258 INFO  [Thread-87] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo6 bar6
+2015-01-19 19:44:17,258 DEBUG [Thread-87] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,258 DEBUG [Thread-86] common.communication.KVCommModule: New received message : PUT_SUCCESS foo6 bar6
+2015-01-19 19:44:17,259 DEBUG [Thread-76] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo5 bar5
+2015-01-19 19:44:17,259 DEBUG [Thread-76] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:17,260 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59822
+2015-01-19 19:44:17,261 INFO  [Thread-90] app_kvServer.ClientConnection: Requested from client : PUT foo5 bar5
+2015-01-19 19:44:17,261 INFO  [Thread-90] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo5 bar5
+2015-01-19 19:44:17,261 DEBUG [Thread-90] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,262 DEBUG [Thread-89] common.communication.KVCommModule: New received message : PUT_SUCCESS foo5 bar5
+2015-01-19 19:44:17,354 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo6 bar6
+2015-01-19 19:44:17,354 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:17,355 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59823
+2015-01-19 19:44:17,356 INFO  [Thread-92] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo7 bar7
+2015-01-19 19:44:17,356 DEBUG [Thread-92] common.metadata.MetadataHandler: Hashed foo7 --> 34d0386cd777da1942b657c896849284
+2015-01-19 19:44:17,356 INFO  [Thread-92] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo7 bar7
+2015-01-19 19:44:17,356 DEBUG [Thread-92] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,357 DEBUG [Thread-91] common.communication.KVCommModule: New received message : PUT_SUCCESS foo7 bar7
+2015-01-19 19:44:17,357 DEBUG [Thread-92] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:17,357 DEBUG [Thread-84] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo6 bar6
+2015-01-19 19:44:17,357 DEBUG [Thread-84] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:17,358 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59824
+2015-01-19 19:44:17,358 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59825
+2015-01-19 19:44:17,359 INFO  [Thread-96] app_kvServer.ClientConnection: Requested from client : PUT foo7 bar7
+2015-01-19 19:44:17,359 INFO  [Thread-96] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo7 bar7
+2015-01-19 19:44:17,359 DEBUG [Thread-96] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,359 DEBUG [Thread-95] common.communication.KVCommModule: New received message : PUT_SUCCESS foo7 bar7
+2015-01-19 19:44:17,361 INFO  [Thread-97] app_kvServer.ClientConnection: Requested from client : PUT foo6 bar6
+2015-01-19 19:44:17,361 INFO  [Thread-97] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo6 bar6
+2015-01-19 19:44:17,362 DEBUG [Thread-98] common.communication.KVCommModule: New received message : PUT_SUCCESS foo6 bar6
+2015-01-19 19:44:17,362 DEBUG [Thread-97] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,362 DEBUG [Thread-76] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo5 bar5
+2015-01-19 19:44:17,455 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo7 bar7
+2015-01-19 19:44:17,456 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:17,456 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59826
+2015-01-19 19:44:17,457 DEBUG [Thread-92] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo7 bar7
+2015-01-19 19:44:17,457 DEBUG [Thread-92] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:17,459 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59827
+2015-01-19 19:44:17,460 INFO  [Thread-100] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo8 bar8
+2015-01-19 19:44:17,460 DEBUG [Thread-100] common.metadata.MetadataHandler: Hashed foo8 --> de1f431be28e559c68c8e9e3e3e6c063
+2015-01-19 19:44:17,460 INFO  [Thread-100] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo8 bar8
+2015-01-19 19:44:17,461 DEBUG [Thread-99] common.communication.KVCommModule: New received message : PUT_SUCCESS foo8 bar8
+2015-01-19 19:44:17,461 DEBUG [Thread-100] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,461 DEBUG [Thread-100] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:17,462 DEBUG [Thread-84] app_kvApi.KVStore: Answer to put : PUT foo6 bar6
+2015-01-19 19:44:17,462 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59828
+2015-01-19 19:44:17,463 INFO  [Thread-103] app_kvServer.ClientConnection: Requested from client : PUT foo7 bar7
+2015-01-19 19:44:17,463 INFO  [Thread-103] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo7 bar7
+2015-01-19 19:44:17,463 DEBUG [Thread-103] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,464 DEBUG [Thread-102] common.communication.KVCommModule: New received message : PUT_SUCCESS foo7 bar7
+2015-01-19 19:44:17,464 INFO  [Thread-106] app_kvServer.ClientConnection: Requested from client : PUT foo8 bar8
+2015-01-19 19:44:17,465 INFO  [Thread-106] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo8 bar8
+2015-01-19 19:44:17,465 DEBUG [Thread-105] common.communication.KVCommModule: New received message : PUT_SUCCESS foo8 bar8
+2015-01-19 19:44:17,465 DEBUG [Thread-106] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,557 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo8 bar8
+2015-01-19 19:44:17,557 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:17,558 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59829
+2015-01-19 19:44:17,559 INFO  [Thread-108] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo9 bar9
+2015-01-19 19:44:17,559 DEBUG [Thread-108] common.metadata.MetadataHandler: Hashed foo9 --> d83e76ab134a8d9071ce5b37a8fae474
+2015-01-19 19:44:17,559 INFO  [Thread-108] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo9 bar9
+2015-01-19 19:44:17,560 DEBUG [Thread-107] common.communication.KVCommModule: New received message : PUT_SUCCESS foo9 bar9
+2015-01-19 19:44:17,560 DEBUG [Thread-108] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,560 DEBUG [Thread-108] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:17,561 DEBUG [Thread-92] app_kvApi.KVStore: Answer to put : PUT foo7 bar7
+2015-01-19 19:44:17,561 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59830
+2015-01-19 19:44:17,562 INFO  [Thread-111] app_kvServer.ClientConnection: Requested from client : PUT foo9 bar9
+2015-01-19 19:44:17,562 INFO  [Thread-111] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo9 bar9
+2015-01-19 19:44:17,563 DEBUG [Thread-110] common.communication.KVCommModule: New received message : PUT_SUCCESS foo9 bar9
+2015-01-19 19:44:17,563 DEBUG [Thread-111] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,563 DEBUG [Thread-100] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo8 bar8
+2015-01-19 19:44:17,563 DEBUG [Thread-100] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:17,564 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59831
+2015-01-19 19:44:17,565 INFO  [Thread-114] app_kvServer.ClientConnection: Requested from client : PUT foo8 bar8
+2015-01-19 19:44:17,565 INFO  [Thread-114] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo8 bar8
+2015-01-19 19:44:17,566 DEBUG [Thread-113] common.communication.KVCommModule: New received message : PUT_SUCCESS foo8 bar8
+2015-01-19 19:44:17,567 DEBUG [Thread-114] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,658 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo9 bar9
+2015-01-19 19:44:17,658 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:17,659 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59832
+2015-01-19 19:44:17,660 INFO  [Thread-116] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo10 bar10
+2015-01-19 19:44:17,661 DEBUG [Thread-116] common.metadata.MetadataHandler: Hashed foo10 --> b69415e1c7e12ee387aa8d5661328734
+2015-01-19 19:44:17,661 INFO  [Thread-116] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo10 bar10
+2015-01-19 19:44:17,662 DEBUG [Thread-115] common.communication.KVCommModule: New received message : PUT_SUCCESS foo10 bar10
+2015-01-19 19:44:17,662 DEBUG [Thread-116] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,662 DEBUG [Thread-116] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:17,663 DEBUG [Thread-108] app_kvApi.KVStore: Answer to put : PUT foo9 bar9
+2015-01-19 19:44:17,663 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59833
+2015-01-19 19:44:17,663 DEBUG [Thread-108] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:17,664 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59834
+2015-01-19 19:44:17,666 INFO  [Thread-120] app_kvServer.ClientConnection: Requested from client : PUT foo10 bar10
+2015-01-19 19:44:17,666 INFO  [Thread-120] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo10 bar10
+2015-01-19 19:44:17,667 DEBUG [Thread-118] common.communication.KVCommModule: New received message : PUT_SUCCESS foo10 bar10
+2015-01-19 19:44:17,667 DEBUG [Thread-120] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,667 DEBUG [Thread-100] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo8 bar8
+2015-01-19 19:44:17,668 INFO  [Thread-122] app_kvServer.ClientConnection: Requested from client : PUT foo9 bar9
+2015-01-19 19:44:17,668 INFO  [Thread-122] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo9 bar9
+2015-01-19 19:44:17,668 DEBUG [Thread-122] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,669 DEBUG [Thread-121] common.communication.KVCommModule: New received message : PUT_SUCCESS foo9 bar9
+2015-01-19 19:44:17,759 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo10 bar10
+2015-01-19 19:44:17,759 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:17,760 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59835
+2015-01-19 19:44:17,761 INFO  [Thread-124] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo11 bar11
+2015-01-19 19:44:17,761 DEBUG [Thread-124] common.metadata.MetadataHandler: Hashed foo11 --> cab903e4f6c48b6bc500a45ee161a37
+2015-01-19 19:44:17,761 INFO  [Thread-124] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo11 bar11
+2015-01-19 19:44:17,761 DEBUG [Thread-124] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,762 DEBUG [Thread-124] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:17,762 DEBUG [Thread-123] common.communication.KVCommModule: New received message : PUT_SUCCESS foo11 bar11
+2015-01-19 19:44:17,763 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59836
+2015-01-19 19:44:17,763 DEBUG [Thread-116] app_kvApi.KVStore: Answer to put : PUT foo10 bar10
+2015-01-19 19:44:17,763 DEBUG [Thread-116] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:17,764 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59837
+2015-01-19 19:44:17,765 INFO  [Thread-127] app_kvServer.ClientConnection: Requested from client : PUT foo11 bar11
+2015-01-19 19:44:17,765 INFO  [Thread-127] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo11 bar11
+2015-01-19 19:44:17,766 DEBUG [Thread-126] common.communication.KVCommModule: New received message : PUT_SUCCESS foo11 bar11
+2015-01-19 19:44:17,766 DEBUG [Thread-127] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,766 DEBUG [Thread-108] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo9 bar9
+2015-01-19 19:44:17,767 INFO  [Thread-130] app_kvServer.ClientConnection: Requested from client : PUT foo10 bar10
+2015-01-19 19:44:17,767 INFO  [Thread-130] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo10 bar10
+2015-01-19 19:44:17,767 DEBUG [Thread-130] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,768 DEBUG [Thread-129] common.communication.KVCommModule: New received message : PUT_SUCCESS foo10 bar10
+2015-01-19 19:44:17,866 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo11 bar11
+2015-01-19 19:44:17,867 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:17,868 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59838
+2015-01-19 19:44:17,868 DEBUG [Thread-124] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo11 bar11
+2015-01-19 19:44:17,868 DEBUG [Thread-124] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:17,869 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59839
+2015-01-19 19:44:17,869 DEBUG [Thread-116] app_kvApi.KVStore: Answer to put : PUT foo10 bar10
+2015-01-19 19:44:17,872 INFO  [Thread-132] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo12 bar12
+2015-01-19 19:44:17,876 DEBUG [Thread-132] common.metadata.MetadataHandler: Hashed foo12 --> d8b26aad2cca4de3e559632d80d3c717
+2015-01-19 19:44:17,876 INFO  [Thread-132] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo12 bar12
+2015-01-19 19:44:17,877 DEBUG [Thread-131] common.communication.KVCommModule: New received message : PUT_SUCCESS foo12 bar12
+2015-01-19 19:44:17,878 DEBUG [Thread-132] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,878 DEBUG [Thread-132] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:17,879 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59840
+2015-01-19 19:44:17,880 INFO  [Thread-135] app_kvServer.ClientConnection: Requested from client : PUT foo11 bar11
+2015-01-19 19:44:17,880 INFO  [Thread-135] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo11 bar11
+2015-01-19 19:44:17,881 DEBUG [Thread-135] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,881 DEBUG [Thread-134] common.communication.KVCommModule: New received message : PUT_SUCCESS foo11 bar11
+2015-01-19 19:44:17,883 INFO  [Thread-138] app_kvServer.ClientConnection: Requested from client : PUT foo12 bar12
+2015-01-19 19:44:17,884 INFO  [Thread-138] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo12 bar12
+2015-01-19 19:44:17,884 DEBUG [Thread-138] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,884 DEBUG [Thread-137] common.communication.KVCommModule: New received message : PUT_SUCCESS foo12 bar12
+2015-01-19 19:44:17,978 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo12 bar12
+2015-01-19 19:44:17,978 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:17,980 DEBUG [Thread-124] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo11 bar11
+2015-01-19 19:44:17,980 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59841
+2015-01-19 19:44:17,981 DEBUG [Thread-132] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo12 bar12
+2015-01-19 19:44:17,981 DEBUG [Thread-132] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:17,981 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59842
+2015-01-19 19:44:17,982 INFO  [Thread-140] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo13 bar13
+2015-01-19 19:44:17,982 DEBUG [Thread-140] common.metadata.MetadataHandler: Hashed foo13 --> 6e4b0622ebf3efdf0042334dbe594c48
+2015-01-19 19:44:17,983 INFO  [Thread-140] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo13 bar13
+2015-01-19 19:44:17,983 DEBUG [Thread-139] common.communication.KVCommModule: New received message : PUT_SUCCESS foo13 bar13
+2015-01-19 19:44:17,983 DEBUG [Thread-140] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,984 DEBUG [Thread-140] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:17,984 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59843
+2015-01-19 19:44:17,985 INFO  [Thread-143] app_kvServer.ClientConnection: Requested from client : PUT foo12 bar12
+2015-01-19 19:44:17,985 INFO  [Thread-143] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo12 bar12
+2015-01-19 19:44:17,986 DEBUG [Thread-142] common.communication.KVCommModule: New received message : PUT_SUCCESS foo12 bar12
+2015-01-19 19:44:17,986 DEBUG [Thread-143] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,987 INFO  [Thread-146] app_kvServer.ClientConnection: Requested from client : PUT foo13 bar13
+2015-01-19 19:44:17,987 INFO  [Thread-146] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo13 bar13
+2015-01-19 19:44:17,987 DEBUG [Thread-146] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:17,987 DEBUG [Thread-145] common.communication.KVCommModule: New received message : PUT_SUCCESS foo13 bar13
+2015-01-19 19:44:18,081 DEBUG [Thread-132] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo12 bar12
+2015-01-19 19:44:18,082 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo13 bar13
+2015-01-19 19:44:18,082 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:18,083 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59844
+2015-01-19 19:44:18,084 INFO  [Thread-148] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo14 bar14
+2015-01-19 19:44:18,084 DEBUG [Thread-148] common.metadata.MetadataHandler: Hashed foo14 --> 2e8eb88e63cd534ea7288f0ace024c10
+2015-01-19 19:44:18,084 INFO  [Thread-148] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo14 bar14
+2015-01-19 19:44:18,085 DEBUG [Thread-147] common.communication.KVCommModule: New received message : PUT_SUCCESS foo14 bar14
+2015-01-19 19:44:18,085 DEBUG [Thread-148] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,085 DEBUG [Thread-148] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:18,086 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59845
+2015-01-19 19:44:18,087 DEBUG [Thread-140] app_kvApi.KVStore: Answer to put : PUT foo13 bar13
+2015-01-19 19:44:18,087 DEBUG [Thread-140] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:18,088 INFO  [Thread-151] app_kvServer.ClientConnection: Requested from client : PUT foo14 bar14
+2015-01-19 19:44:18,088 INFO  [Thread-151] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo14 bar14
+2015-01-19 19:44:18,088 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59846
+2015-01-19 19:44:18,089 DEBUG [Thread-151] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,089 DEBUG [Thread-150] common.communication.KVCommModule: New received message : PUT foo14 bar14
+2015-01-19 19:44:18,089 INFO  [Thread-154] app_kvServer.ClientConnection: Requested from client : PUT foo13 bar13
+2015-01-19 19:44:18,090 INFO  [Thread-154] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo13 bar13
+2015-01-19 19:44:18,090 DEBUG [Thread-153] common.communication.KVCommModule: New received message : PUT_SUCCESS foo13 bar13
+2015-01-19 19:44:18,090 DEBUG [Thread-154] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,183 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo14 bar14
+2015-01-19 19:44:18,184 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:18,185 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59847
+2015-01-19 19:44:18,186 DEBUG [Thread-148] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo14 bar14
+2015-01-19 19:44:18,186 DEBUG [Thread-148] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:18,187 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59848
+2015-01-19 19:44:18,187 INFO  [Thread-156] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo15 bar15
+2015-01-19 19:44:18,187 DEBUG [Thread-156] common.metadata.MetadataHandler: Hashed foo15 --> 1e056d736a2450d74024951b251df925
+2015-01-19 19:44:18,188 INFO  [Thread-156] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo15 bar15
+2015-01-19 19:44:18,188 DEBUG [Thread-156] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,188 DEBUG [Thread-156] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:18,188 DEBUG [Thread-155] common.communication.KVCommModule: New received message : PUT_SUCCESS foo15 bar15
+2015-01-19 19:44:18,189 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59849
+2015-01-19 19:44:18,189 DEBUG [Thread-140] app_kvApi.KVStore: Answer to put : PUT foo13 bar13
+2015-01-19 19:44:18,189 INFO  [Thread-159] app_kvServer.ClientConnection: Requested from client : PUT foo14 bar14
+2015-01-19 19:44:18,189 INFO  [Thread-159] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo14 bar14
+2015-01-19 19:44:18,190 DEBUG [Thread-159] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,190 DEBUG [Thread-158] common.communication.KVCommModule: New received message : PUT_SUCCESS foo14 bar14
+2015-01-19 19:44:18,191 INFO  [Thread-162] app_kvServer.ClientConnection: Requested from client : PUT foo15 bar15
+2015-01-19 19:44:18,191 INFO  [Thread-162] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo15 bar15
+2015-01-19 19:44:18,191 DEBUG [Thread-161] common.communication.KVCommModule: New received message : PUT_SUCCESS foo15 bar15
+2015-01-19 19:44:18,192 DEBUG [Thread-162] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,286 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo15 bar15
+2015-01-19 19:44:18,286 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:18,287 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59851
+2015-01-19 19:44:18,288 DEBUG [Thread-148] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo14 bar14
+2015-01-19 19:44:18,288 INFO  [Thread-163] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo16 bar16
+2015-01-19 19:44:18,288 DEBUG [Thread-163] common.metadata.MetadataHandler: Hashed foo16 --> dbb6b523904ec67f2f9ead405c2e8201
+2015-01-19 19:44:18,289 INFO  [Thread-163] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo16 bar16
+2015-01-19 19:44:18,289 DEBUG [Thread-164] common.communication.KVCommModule: New received message : PUT_SUCCESS foo16 bar16
+2015-01-19 19:44:18,289 DEBUG [Thread-163] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,290 DEBUG [Thread-163] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:18,291 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59852
+2015-01-19 19:44:18,291 DEBUG [Thread-156] app_kvApi.KVStore: Answer to put : PUT foo15 bar15
+2015-01-19 19:44:18,291 DEBUG [Thread-156] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:18,292 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59853
+2015-01-19 19:44:18,293 INFO  [Thread-167] app_kvServer.ClientConnection: Requested from client : PUT foo16 bar16
+2015-01-19 19:44:18,294 INFO  [Thread-167] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo16 bar16
+2015-01-19 19:44:18,294 DEBUG [Thread-167] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,294 DEBUG [Thread-166] common.communication.KVCommModule: New received message : PUT_SUCCESS foo16 bar16
+2015-01-19 19:44:18,295 INFO  [Thread-170] app_kvServer.ClientConnection: Requested from client : PUT foo15 bar15
+2015-01-19 19:44:18,295 INFO  [Thread-170] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo15 bar15
+2015-01-19 19:44:18,295 DEBUG [Thread-170] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,296 DEBUG [Thread-169] common.communication.KVCommModule: New received message : PUT_SUCCESS foo15 bar15
+2015-01-19 19:44:18,388 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo16 bar16
+2015-01-19 19:44:18,388 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:18,389 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59854
+2015-01-19 19:44:18,390 INFO  [Thread-172] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo17 bar17
+2015-01-19 19:44:18,390 DEBUG [Thread-172] common.metadata.MetadataHandler: Hashed foo17 --> 9ef79d6edd85ab41f4fd1d30d32c394e
+2015-01-19 19:44:18,390 INFO  [Thread-172] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo17 bar17
+2015-01-19 19:44:18,392 DEBUG [Thread-172] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,392 DEBUG [Thread-171] common.communication.KVCommModule: New received message : PUT_SUCCESS foo17 bar17
+2015-01-19 19:44:18,392 DEBUG [Thread-172] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:18,393 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59855
+2015-01-19 19:44:18,398 DEBUG [Thread-163] app_kvApi.KVStore: Answer to put : PUT foo16 bar16
+2015-01-19 19:44:18,398 DEBUG [Thread-163] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:18,399 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59856
+2015-01-19 19:44:18,399 DEBUG [Thread-156] app_kvApi.KVStore: Answer to put : PUT foo15 bar15
+2015-01-19 19:44:18,400 INFO  [Thread-175] app_kvServer.ClientConnection: Requested from client : PUT foo17 bar17
+2015-01-19 19:44:18,400 INFO  [Thread-175] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo17 bar17
+2015-01-19 19:44:18,401 DEBUG [Thread-174] common.communication.KVCommModule: New received message : PUT_SUCCESS foo17 bar17
+2015-01-19 19:44:18,402 DEBUG [Thread-175] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,402 INFO  [Thread-178] app_kvServer.ClientConnection: Requested from client : PUT foo16 bar16
+2015-01-19 19:44:18,414 INFO  [Thread-178] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo16 bar16
+2015-01-19 19:44:18,418 DEBUG [Thread-177] common.communication.KVCommModule: New received message : PUT_SUCCESS foo16 bar16
+2015-01-19 19:44:18,418 DEBUG [Thread-178] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,489 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo17 bar17
+2015-01-19 19:44:18,490 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:18,491 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59857
+2015-01-19 19:44:18,492 INFO  [Thread-180] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo18 bar18
+2015-01-19 19:44:18,493 DEBUG [Thread-180] common.metadata.MetadataHandler: Hashed foo18 --> 70a52abe2eefae11520ddcc8b763f01c
+2015-01-19 19:44:18,493 INFO  [Thread-180] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo18 bar18
+2015-01-19 19:44:18,493 DEBUG [Thread-179] common.communication.KVCommModule: New received message : PUT_SUCCESS foo18 bar18
+2015-01-19 19:44:18,494 DEBUG [Thread-180] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,494 DEBUG [Thread-180] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:18,494 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59858
+2015-01-19 19:44:18,495 DEBUG [Thread-172] app_kvApi.KVStore: Answer to put : PUT foo17 bar17
+2015-01-19 19:44:18,495 DEBUG [Thread-172] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:18,496 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59859
+2015-01-19 19:44:18,497 INFO  [Thread-183] app_kvServer.ClientConnection: Requested from client : PUT foo18 bar18
+2015-01-19 19:44:18,497 INFO  [Thread-183] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo18 bar18
+2015-01-19 19:44:18,497 DEBUG [Thread-183] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,497 DEBUG [Thread-182] common.communication.KVCommModule: New received message : PUT_SUCCESS foo18 bar18
+2015-01-19 19:44:18,499 INFO  [Thread-186] app_kvServer.ClientConnection: Requested from client : PUT foo17 bar17
+2015-01-19 19:44:18,500 INFO  [Thread-186] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo17 bar17
+2015-01-19 19:44:18,500 DEBUG [Thread-186] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,500 DEBUG [Thread-185] common.communication.KVCommModule: New received message : PUT_SUCCESS foo17 bar17
+2015-01-19 19:44:18,500 DEBUG [Thread-163] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo16 bar16
+2015-01-19 19:44:18,591 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo18 bar18
+2015-01-19 19:44:18,591 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:18,592 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59860
+2015-01-19 19:44:18,592 INFO  [Thread-188] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo19 bar19
+2015-01-19 19:44:18,593 DEBUG [Thread-188] common.metadata.MetadataHandler: Hashed foo19 --> 9945a1f6137a8a818953b0bbcda90b1e
+2015-01-19 19:44:18,593 INFO  [Thread-188] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo19 bar19
+2015-01-19 19:44:18,593 DEBUG [Thread-187] common.communication.KVCommModule: New received message : PUT_SUCCESS foo19 bar19
+2015-01-19 19:44:18,594 DEBUG [Thread-188] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,594 DEBUG [Thread-188] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:18,595 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59861
+2015-01-19 19:44:18,595 DEBUG [Thread-180] app_kvApi.KVStore: Answer to put : PUT foo18 bar18
+2015-01-19 19:44:18,595 DEBUG [Thread-180] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:18,596 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59862
+2015-01-19 19:44:18,597 INFO  [Thread-191] app_kvServer.ClientConnection: Requested from client : PUT foo19 bar19
+2015-01-19 19:44:18,598 INFO  [Thread-191] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo19 bar19
+2015-01-19 19:44:18,598 DEBUG [Thread-191] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,598 DEBUG [Thread-190] common.communication.KVCommModule: New received message : PUT_SUCCESS foo19 bar19
+2015-01-19 19:44:18,599 DEBUG [Thread-172] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo17 bar17
+2015-01-19 19:44:18,600 INFO  [Thread-194] app_kvServer.ClientConnection: Requested from client : PUT foo18 bar18
+2015-01-19 19:44:18,600 INFO  [Thread-194] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo18 bar18
+2015-01-19 19:44:18,600 DEBUG [Thread-194] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,601 DEBUG [Thread-193] common.communication.KVCommModule: New received message : PUT_SUCCESS foo18 bar18
+2015-01-19 19:44:18,695 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo19 bar19
+2015-01-19 19:44:18,696 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:18,700 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59863
+2015-01-19 19:44:18,700 DEBUG [Thread-188] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo19 bar19
+2015-01-19 19:44:18,701 DEBUG [Thread-188] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:18,714 DEBUG [Thread-180] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo18 bar18
+2015-01-19 19:44:18,715 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59864
+2015-01-19 19:44:18,716 INFO  [Thread-196] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo20 bar20
+2015-01-19 19:44:18,716 DEBUG [Thread-196] common.metadata.MetadataHandler: Hashed foo20 --> ccc05c533f72507acda690546e46e546
+2015-01-19 19:44:18,716 INFO  [Thread-196] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo20 bar20
+2015-01-19 19:44:18,716 DEBUG [Thread-196] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,717 DEBUG [Thread-195] common.communication.KVCommModule: New received message : PUT_SUCCESS foo20 bar20
+2015-01-19 19:44:18,717 DEBUG [Thread-196] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:18,718 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59865
+2015-01-19 19:44:18,723 INFO  [Thread-199] app_kvServer.ClientConnection: Requested from client : PUT foo19 bar19
+2015-01-19 19:44:18,723 INFO  [Thread-199] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo19 bar19
+2015-01-19 19:44:18,723 DEBUG [Thread-199] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,724 DEBUG [Thread-198] common.communication.KVCommModule: New received message : PUT_SUCCESS foo19 bar19
+2015-01-19 19:44:18,725 INFO  [Thread-202] app_kvServer.ClientConnection: Requested from client : PUT foo20 bar20
+2015-01-19 19:44:18,726 INFO  [Thread-202] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo20 bar20
+2015-01-19 19:44:18,726 DEBUG [Thread-201] common.communication.KVCommModule: New received message : PUT_SUCCESS foo20 bar20
+2015-01-19 19:44:18,727 DEBUG [Thread-202] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,800 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo20 bar20
+2015-01-19 19:44:18,800 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:18,801 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59866
+2015-01-19 19:44:18,802 INFO  [Thread-204] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo21 bar21
+2015-01-19 19:44:18,802 DEBUG [Thread-204] common.metadata.MetadataHandler: Hashed foo21 --> 76740dbfae5fd5b43718a3c5f674b54a
+2015-01-19 19:44:18,802 INFO  [Thread-204] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo21 bar21
+2015-01-19 19:44:18,802 DEBUG [Thread-204] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,803 DEBUG [Thread-203] common.communication.KVCommModule: New received message : PUT_SUCCESS foo21 bar21
+2015-01-19 19:44:18,803 DEBUG [Thread-204] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:18,804 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59867
+2015-01-19 19:44:18,804 INFO  [Thread-207] app_kvServer.ClientConnection: Requested from client : PUT foo21 bar21
+2015-01-19 19:44:18,805 INFO  [Thread-207] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo21 bar21
+2015-01-19 19:44:18,805 DEBUG [Thread-206] common.communication.KVCommModule: New received message : PUT_SUCCESS foo21 bar21
+2015-01-19 19:44:18,805 DEBUG [Thread-207] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,815 DEBUG [Thread-188] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo19 bar19
+2015-01-19 19:44:18,818 DEBUG [Thread-196] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo20 bar20
+2015-01-19 19:44:18,818 DEBUG [Thread-196] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:18,819 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59868
+2015-01-19 19:44:18,819 INFO  [Thread-210] app_kvServer.ClientConnection: Requested from client : PUT foo20 bar20
+2015-01-19 19:44:18,820 INFO  [Thread-210] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo20 bar20
+2015-01-19 19:44:18,820 DEBUG [Thread-209] common.communication.KVCommModule: New received message : PUT_SUCCESS foo20 bar20
+2015-01-19 19:44:18,820 DEBUG [Thread-210] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,903 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo21 bar21
+2015-01-19 19:44:18,904 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:18,905 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59870
+2015-01-19 19:44:18,905 DEBUG [Thread-204] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo21 bar21
+2015-01-19 19:44:18,905 DEBUG [Thread-204] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:18,906 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59871
+2015-01-19 19:44:18,907 INFO  [Thread-212] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo22 bar22
+2015-01-19 19:44:18,907 DEBUG [Thread-212] common.metadata.MetadataHandler: Hashed foo22 --> eb9a733d4d7d8d422bdfa671c39f0bef
+2015-01-19 19:44:18,907 INFO  [Thread-212] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo22 bar22
+2015-01-19 19:44:18,907 DEBUG [Thread-212] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,908 DEBUG [Thread-212] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:18,908 DEBUG [Thread-211] common.communication.KVCommModule: New received message : PUT_SUCCESS foo22 bar22
+2015-01-19 19:44:18,909 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59872
+2015-01-19 19:44:18,909 INFO  [Thread-215] app_kvServer.ClientConnection: Requested from client : PUT foo21 bar21
+2015-01-19 19:44:18,909 INFO  [Thread-215] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo21 bar21
+2015-01-19 19:44:18,910 DEBUG [Thread-214] common.communication.KVCommModule: New received message : PUT_SUCCESS foo21 bar21
+2015-01-19 19:44:18,910 DEBUG [Thread-215] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,912 INFO  [Thread-218] app_kvServer.ClientConnection: Requested from client : PUT foo22 bar22
+2015-01-19 19:44:18,912 INFO  [Thread-218] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo22 bar22
+2015-01-19 19:44:18,912 DEBUG [Thread-217] common.communication.KVCommModule: New received message : PUT_SUCCESS foo22 bar22
+2015-01-19 19:44:18,913 DEBUG [Thread-218] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:18,919 DEBUG [Thread-196] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo20 bar20
+2015-01-19 19:44:19,007 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo22 bar22
+2015-01-19 19:44:19,007 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:19,008 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59873
+2015-01-19 19:44:19,009 DEBUG [Thread-204] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo21 bar21
+2015-01-19 19:44:19,010 DEBUG [Thread-212] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo22 bar22
+2015-01-19 19:44:19,010 DEBUG [Thread-212] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:19,011 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59874
+2015-01-19 19:44:19,011 INFO  [Thread-220] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo23 bar23
+2015-01-19 19:44:19,012 DEBUG [Thread-220] common.metadata.MetadataHandler: Hashed foo23 --> 8d372dee18fd9222bb53e511fa702c00
+2015-01-19 19:44:19,012 INFO  [Thread-220] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo23 bar23
+2015-01-19 19:44:19,012 DEBUG [Thread-219] common.communication.KVCommModule: New received message : PUT_SUCCESS foo23 bar23
+2015-01-19 19:44:19,013 DEBUG [Thread-220] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,013 DEBUG [Thread-220] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:19,013 INFO  [Thread-223] app_kvServer.ClientConnection: Requested from client : PUT foo22 bar22
+2015-01-19 19:44:19,014 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59875
+2015-01-19 19:44:19,014 INFO  [Thread-223] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo22 bar22
+2015-01-19 19:44:19,014 DEBUG [Thread-223] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,014 DEBUG [Thread-222] common.communication.KVCommModule: New received message : PUT_SUCCESS foo22 bar22
+2015-01-19 19:44:19,015 INFO  [Thread-226] app_kvServer.ClientConnection: Requested from client : PUT foo23 bar23
+2015-01-19 19:44:19,015 INFO  [Thread-226] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo23 bar23
+2015-01-19 19:44:19,015 DEBUG [Thread-226] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,015 DEBUG [Thread-225] common.communication.KVCommModule: New received message : PUT_SUCCESS foo23 bar23
+2015-01-19 19:44:19,110 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo23 bar23
+2015-01-19 19:44:19,111 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:19,112 DEBUG [Thread-212] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo22 bar22
+2015-01-19 19:44:19,112 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59876
+2015-01-19 19:44:19,112 INFO  [Thread-228] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo24 bar24
+2015-01-19 19:44:19,113 DEBUG [Thread-228] common.metadata.MetadataHandler: Hashed foo24 --> 89f133f62ed962f156a55f6753db238f
+2015-01-19 19:44:19,113 INFO  [Thread-228] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo24 bar24
+2015-01-19 19:44:19,113 DEBUG [Thread-227] common.communication.KVCommModule: New received message : PUT_SUCCESS foo24 bar24
+2015-01-19 19:44:19,114 DEBUG [Thread-228] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,114 DEBUG [Thread-220] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo23 bar23
+2015-01-19 19:44:19,114 DEBUG [Thread-228] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:19,114 DEBUG [Thread-220] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:19,115 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59877
+2015-01-19 19:44:19,115 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59878
+2015-01-19 19:44:19,116 INFO  [Thread-233] app_kvServer.ClientConnection: Requested from client : PUT foo24 bar24
+2015-01-19 19:44:19,116 INFO  [Thread-233] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo24 bar24
+2015-01-19 19:44:19,116 DEBUG [Thread-231] common.communication.KVCommModule: New received message : PUT_SUCCESS foo24 bar24
+2015-01-19 19:44:19,117 DEBUG [Thread-233] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,117 INFO  [Thread-234] app_kvServer.ClientConnection: Requested from client : PUT foo23 bar23
+2015-01-19 19:44:19,118 INFO  [Thread-234] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo23 bar23
+2015-01-19 19:44:19,118 DEBUG [Thread-232] common.communication.KVCommModule: New received message : PUT_SUCCESS foo23 bar23
+2015-01-19 19:44:19,119 DEBUG [Thread-234] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,212 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo24 bar24
+2015-01-19 19:44:19,213 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:19,213 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59879
+2015-01-19 19:44:19,214 DEBUG [Thread-220] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo23 bar23
+2015-01-19 19:44:19,214 DEBUG [Thread-228] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo24 bar24
+2015-01-19 19:44:19,214 DEBUG [Thread-228] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:19,216 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59880
+2015-01-19 19:44:19,219 INFO  [Thread-236] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo25 bar25
+2015-01-19 19:44:19,219 DEBUG [Thread-236] common.metadata.MetadataHandler: Hashed foo25 --> a994fa2ea839911f45d959a9eedaf461
+2015-01-19 19:44:19,223 INFO  [Thread-239] app_kvServer.ClientConnection: Requested from client : PUT foo24 bar24
+2015-01-19 19:44:19,224 INFO  [Thread-239] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo24 bar24
+2015-01-19 19:44:19,224 DEBUG [Thread-239] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,224 DEBUG [Thread-238] common.communication.KVCommModule: New received message : PUT_SUCCESS foo24 bar24
+2015-01-19 19:44:19,226 INFO  [Thread-236] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo25 bar25
+2015-01-19 19:44:19,227 DEBUG [Thread-235] common.communication.KVCommModule: New received message : PUT_SUCCESS foo25 bar25
+2015-01-19 19:44:19,227 DEBUG [Thread-236] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,227 DEBUG [Thread-236] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:19,228 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59881
+2015-01-19 19:44:19,230 INFO  [Thread-242] app_kvServer.ClientConnection: Requested from client : PUT foo25 bar25
+2015-01-19 19:44:19,232 INFO  [Thread-242] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo25 bar25
+2015-01-19 19:44:19,233 DEBUG [Thread-241] common.communication.KVCommModule: New received message : PUT_SUCCESS foo25 bar25
+2015-01-19 19:44:19,233 DEBUG [Thread-242] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,315 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo25 bar25
+2015-01-19 19:44:19,315 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:19,316 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59882
+2015-01-19 19:44:19,316 INFO  [Thread-244] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo26 bar26
+2015-01-19 19:44:19,317 DEBUG [Thread-244] common.metadata.MetadataHandler: Hashed foo26 --> 765add08ae0b152d702ed55e3776db26
+2015-01-19 19:44:19,318 DEBUG [Thread-228] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo24 bar24
+2015-01-19 19:44:19,321 INFO  [Thread-244] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo26 bar26
+2015-01-19 19:44:19,322 DEBUG [Thread-243] common.communication.KVCommModule: New received message : PUT_SUCCESS foo26 bar26
+2015-01-19 19:44:19,322 DEBUG [Thread-244] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,322 DEBUG [Thread-244] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:19,323 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59883
+2015-01-19 19:44:19,325 INFO  [Thread-247] app_kvServer.ClientConnection: Requested from client : PUT foo26 bar26
+2015-01-19 19:44:19,327 INFO  [Thread-247] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo26 bar26
+2015-01-19 19:44:19,327 DEBUG [Thread-247] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,327 DEBUG [Thread-246] common.communication.KVCommModule: New received message : PUT_SUCCESS foo26 bar26
+2015-01-19 19:44:19,329 DEBUG [Thread-236] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo25 bar25
+2015-01-19 19:44:19,330 DEBUG [Thread-236] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:19,330 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59884
+2015-01-19 19:44:19,332 INFO  [Thread-250] app_kvServer.ClientConnection: Requested from client : PUT foo25 bar25
+2015-01-19 19:44:19,337 INFO  [Thread-250] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo25 bar25
+2015-01-19 19:44:19,338 DEBUG [Thread-249] common.communication.KVCommModule: New received message : PUT_SUCCESS foo25 bar25
+2015-01-19 19:44:19,338 DEBUG [Thread-250] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,416 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo26 bar26
+2015-01-19 19:44:19,417 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:19,417 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59885
+2015-01-19 19:44:19,418 INFO  [Thread-252] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo27 bar27
+2015-01-19 19:44:19,418 DEBUG [Thread-252] common.metadata.MetadataHandler: Hashed foo27 --> 17fef3484a48f1b2e307c2bbf9e0ebca
+2015-01-19 19:44:19,423 DEBUG [Thread-244] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo26 bar26
+2015-01-19 19:44:19,423 DEBUG [Thread-244] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:19,424 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59886
+2015-01-19 19:44:19,425 INFO  [Thread-255] app_kvServer.ClientConnection: Requested from client : PUT foo26 bar26
+2015-01-19 19:44:19,426 INFO  [Thread-252] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo27 bar27
+2015-01-19 19:44:19,426 DEBUG [Thread-251] common.communication.KVCommModule: New received message : PUT_SUCCESS foo27 bar27
+2015-01-19 19:44:19,426 DEBUG [Thread-252] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,426 DEBUG [Thread-252] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:19,427 INFO  [Thread-255] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo26 bar26
+2015-01-19 19:44:19,427 DEBUG [Thread-255] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,427 DEBUG [Thread-254] common.communication.KVCommModule: New received message : PUT_SUCCESS foo26 bar26
+2015-01-19 19:44:19,427 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59887
+2015-01-19 19:44:19,429 INFO  [Thread-258] app_kvServer.ClientConnection: Requested from client : PUT foo27 bar27
+2015-01-19 19:44:19,431 DEBUG [Thread-236] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo25 bar25
+2015-01-19 19:44:19,434 INFO  [Thread-258] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo27 bar27
+2015-01-19 19:44:19,434 DEBUG [Thread-257] common.communication.KVCommModule: New received message : PUT_SUCCESS foo27 bar27
+2015-01-19 19:44:19,434 DEBUG [Thread-258] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,436 DEBUG [Thread-28] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:19,438 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59888
+2015-01-19 19:44:19,439 INFO  [Thread-260] app_kvServer.ClientConnection: Requested from client : HEARTBEAT 127.0.0.1 50002
+2015-01-19 19:44:19,519 DEBUG [main] app_kvApi.KVStore: Answer to put : HEARTBEAT foo27 bar27
+2015-01-19 19:44:19,521 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:19,522 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59889
+2015-01-19 19:44:19,522 INFO  [Thread-262] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo28 bar28
+2015-01-19 19:44:19,522 DEBUG [Thread-262] common.metadata.MetadataHandler: Hashed foo28 --> c9afe71d02fd6625e2fa95abcffc339f
+2015-01-19 19:44:19,526 DEBUG [Thread-244] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo26 bar26
+2015-01-19 19:44:19,527 INFO  [Thread-262] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo28 bar28
+2015-01-19 19:44:19,527 DEBUG [Thread-261] common.communication.KVCommModule: New received message : PUT_SUCCESS foo28 bar28
+2015-01-19 19:44:19,527 DEBUG [Thread-262] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,528 DEBUG [Thread-262] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:19,528 DEBUG [Thread-252] app_kvApi.KVStore: Answer to put : PUT foo27 bar27
+2015-01-19 19:44:19,528 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59890
+2015-01-19 19:44:19,529 DEBUG [Thread-252] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:19,531 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59891
+2015-01-19 19:44:19,533 INFO  [Thread-266] app_kvServer.ClientConnection: Requested from client : PUT foo28 bar28
+2015-01-19 19:44:19,535 INFO  [Thread-268] app_kvServer.ClientConnection: Requested from client : PUT foo27 bar27
+2015-01-19 19:44:19,536 INFO  [Thread-268] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo27 bar27
+2015-01-19 19:44:19,537 DEBUG [Thread-268] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,537 DEBUG [Thread-267] common.communication.KVCommModule: New received message : PUT_SUCCESS foo27 bar27
+2015-01-19 19:44:19,538 INFO  [Thread-266] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo28 bar28
+2015-01-19 19:44:19,539 DEBUG [Thread-266] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,539 DEBUG [Thread-264] common.communication.KVCommModule: New received message : PUT_SUCCESS foo28 bar28
+2015-01-19 19:44:19,622 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo28 bar28
+2015-01-19 19:44:19,623 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:19,623 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59892
+2015-01-19 19:44:19,624 INFO  [Thread-270] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo29 bar29
+2015-01-19 19:44:19,624 DEBUG [Thread-270] common.metadata.MetadataHandler: Hashed foo29 --> d3867bdc183d9029377b2e6035e5a5c7
+2015-01-19 19:44:19,632 INFO  [Thread-270] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo29 bar29
+2015-01-19 19:44:19,632 DEBUG [Thread-270] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,632 DEBUG [Thread-269] common.communication.KVCommModule: New received message : PUT_SUCCESS foo29 bar29
+2015-01-19 19:44:19,633 DEBUG [Thread-270] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:19,634 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59893
+2015-01-19 19:44:19,634 DEBUG [Thread-262] app_kvApi.KVStore: Answer to put : PUT foo28 bar28
+2015-01-19 19:44:19,634 DEBUG [Thread-262] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:19,635 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59894
+2015-01-19 19:44:19,635 DEBUG [Thread-252] app_kvApi.KVStore: Answer to put : PUT foo27 bar27
+2015-01-19 19:44:19,636 INFO  [Thread-273] app_kvServer.ClientConnection: Requested from client : PUT foo29 bar29
+2015-01-19 19:44:19,639 INFO  [Thread-276] app_kvServer.ClientConnection: Requested from client : PUT foo28 bar28
+2015-01-19 19:44:19,642 INFO  [Thread-273] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo29 bar29
+2015-01-19 19:44:19,642 DEBUG [Thread-272] common.communication.KVCommModule: New received message : PUT_SUCCESS foo29 bar29
+2015-01-19 19:44:19,642 DEBUG [Thread-273] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,642 INFO  [Thread-276] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo28 bar28
+2015-01-19 19:44:19,643 DEBUG [Thread-276] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,643 DEBUG [Thread-275] common.communication.KVCommModule: New received message : PUT_SUCCESS foo28 bar28
+2015-01-19 19:44:19,726 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo29 bar29
+2015-01-19 19:44:19,727 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:19,728 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59895
+2015-01-19 19:44:19,729 INFO  [Thread-278] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo30 bar30
+2015-01-19 19:44:19,729 DEBUG [Thread-278] common.metadata.MetadataHandler: Hashed foo30 --> 62af8aa71a7ad0614ae10beade103589
+2015-01-19 19:44:19,734 INFO  [Thread-278] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo30 bar30
+2015-01-19 19:44:19,735 DEBUG [Thread-278] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,735 DEBUG [Thread-277] common.communication.KVCommModule: New received message : PUT_SUCCESS foo30 bar30
+2015-01-19 19:44:19,736 DEBUG [Thread-278] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:19,737 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59896
+2015-01-19 19:44:19,737 DEBUG [Thread-270] app_kvApi.KVStore: Answer to put : PUT foo29 bar29
+2015-01-19 19:44:19,737 DEBUG [Thread-270] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:19,738 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59897
+2015-01-19 19:44:19,738 DEBUG [Thread-262] app_kvApi.KVStore: Answer to put : PUT foo28 bar28
+2015-01-19 19:44:19,740 INFO  [Thread-281] app_kvServer.ClientConnection: Requested from client : PUT foo30 bar30
+2015-01-19 19:44:19,742 INFO  [Thread-284] app_kvServer.ClientConnection: Requested from client : PUT foo29 bar29
+2015-01-19 19:44:19,745 INFO  [Thread-281] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo30 bar30
+2015-01-19 19:44:19,745 DEBUG [Thread-281] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,745 DEBUG [Thread-280] common.communication.KVCommModule: New received message : PUT_SUCCESS foo30 bar30
+2015-01-19 19:44:19,747 INFO  [Thread-284] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo29 bar29
+2015-01-19 19:44:19,747 DEBUG [Thread-283] common.communication.KVCommModule: New received message : PUT_SUCCESS foo29 bar29
+2015-01-19 19:44:19,747 DEBUG [Thread-284] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,828 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo30 bar30
+2015-01-19 19:44:19,828 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:19,829 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59898
+2015-01-19 19:44:19,835 INFO  [Thread-286] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo31 bar31
+2015-01-19 19:44:19,835 DEBUG [Thread-286] common.metadata.MetadataHandler: Hashed foo31 --> 32a47aca533db6cdb82b9cc592d42d22
+2015-01-19 19:44:19,840 DEBUG [Thread-278] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo30 bar30
+2015-01-19 19:44:19,841 DEBUG [Thread-278] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:19,841 DEBUG [Thread-270] app_kvApi.KVStore: Answer to put : PUT foo29 bar29
+2015-01-19 19:44:19,842 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59899
+2015-01-19 19:44:19,845 INFO  [Thread-289] app_kvServer.ClientConnection: Requested from client : PUT foo30 bar30
+2015-01-19 19:44:19,846 INFO  [Thread-286] app_kvServer.ClientConnection: Answer to client : PUT foo31 bar31
+2015-01-19 19:44:19,846 DEBUG [Thread-286] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,846 DEBUG [Thread-285] common.communication.KVCommModule: New received message : PUT foo31 bar31
+2015-01-19 19:44:19,846 DEBUG [Thread-286] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:19,847 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59900
+2015-01-19 19:44:19,848 INFO  [Thread-292] app_kvServer.ClientConnection: Requested from client : PUT foo31 bar31
+2015-01-19 19:44:19,851 INFO  [Thread-289] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo30 bar30
+2015-01-19 19:44:19,852 DEBUG [Thread-288] common.communication.KVCommModule: New received message : PUT_SUCCESS foo30 bar30
+2015-01-19 19:44:19,852 DEBUG [Thread-289] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,852 INFO  [Thread-292] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo31 bar31
+2015-01-19 19:44:19,852 DEBUG [Thread-292] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,852 DEBUG [Thread-291] common.communication.KVCommModule: New received message : PUT_SUCCESS foo31 bar31
+2015-01-19 19:44:19,932 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo31 bar31
+2015-01-19 19:44:19,933 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:19,934 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59901
+2015-01-19 19:44:19,934 INFO  [Thread-294] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo32 bar32
+2015-01-19 19:44:19,935 DEBUG [Thread-294] common.metadata.MetadataHandler: Hashed foo32 --> 19b03fa498375faedc62bfae2ea4e206
+2015-01-19 19:44:19,940 INFO  [Thread-294] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo32 bar32
+2015-01-19 19:44:19,941 DEBUG [Thread-294] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,941 DEBUG [Thread-293] common.communication.KVCommModule: New received message : PUT_SUCCESS foo32 bar32
+2015-01-19 19:44:19,941 DEBUG [Thread-294] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:19,942 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59902
+2015-01-19 19:44:19,943 DEBUG [Thread-278] app_kvApi.KVStore: Answer to put : PUT foo30 bar30
+2015-01-19 19:44:19,943 INFO  [Thread-297] app_kvServer.ClientConnection: Requested from client : PUT foo32 bar32
+2015-01-19 19:44:19,946 INFO  [Thread-297] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo32 bar32
+2015-01-19 19:44:19,946 DEBUG [Thread-297] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,946 DEBUG [Thread-296] common.communication.KVCommModule: New received message : PUT_SUCCESS foo32 bar32
+2015-01-19 19:44:19,947 DEBUG [Thread-286] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo31 bar31
+2015-01-19 19:44:19,947 DEBUG [Thread-286] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:19,948 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59903
+2015-01-19 19:44:19,948 INFO  [Thread-300] app_kvServer.ClientConnection: Requested from client : PUT foo31 bar31
+2015-01-19 19:44:19,952 INFO  [Thread-300] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo31 bar31
+2015-01-19 19:44:19,952 DEBUG [Thread-300] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:19,952 DEBUG [Thread-299] common.communication.KVCommModule: New received message : PUT_SUCCESS foo31 bar31
+2015-01-19 19:44:20,033 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo32 bar32
+2015-01-19 19:44:20,033 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:20,034 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59904
+2015-01-19 19:44:20,035 INFO  [Thread-302] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo33 bar33
+2015-01-19 19:44:20,035 DEBUG [Thread-302] common.metadata.MetadataHandler: Hashed foo33 --> 85547608ba93bdb18480eb0f19bc526e
+2015-01-19 19:44:20,043 INFO  [Thread-302] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo33 bar33
+2015-01-19 19:44:20,043 DEBUG [Thread-301] common.communication.KVCommModule: New received message : PUT_SUCCESS foo33 bar33
+2015-01-19 19:44:20,044 DEBUG [Thread-302] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,044 DEBUG [Thread-294] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo32 bar32
+2015-01-19 19:44:20,044 DEBUG [Thread-294] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:20,045 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59905
+2015-01-19 19:44:20,045 DEBUG [Thread-302] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:20,046 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59906
+2015-01-19 19:44:20,051 INFO  [Thread-306] app_kvServer.ClientConnection: Requested from client : PUT foo32 bar32
+2015-01-19 19:44:20,053 INFO  [Thread-308] app_kvServer.ClientConnection: Requested from client : PUT foo33 bar33
+2015-01-19 19:44:20,055 DEBUG [Thread-286] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo31 bar31
+2015-01-19 19:44:20,057 INFO  [Thread-308] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo33 bar33
+2015-01-19 19:44:20,057 DEBUG [Thread-308] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,057 DEBUG [Thread-307] common.communication.KVCommModule: New received message : PUT_SUCCESS foo33 bar33
+2015-01-19 19:44:20,058 INFO  [Thread-306] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo32 bar32
+2015-01-19 19:44:20,058 DEBUG [Thread-306] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,058 DEBUG [Thread-305] common.communication.KVCommModule: New received message : PUT_SUCCESS foo32 bar32
+2015-01-19 19:44:20,139 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo33 bar33
+2015-01-19 19:44:20,140 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:20,141 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59907
+2015-01-19 19:44:20,141 INFO  [Thread-310] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo34 bar34
+2015-01-19 19:44:20,142 DEBUG [Thread-310] common.metadata.MetadataHandler: Hashed foo34 --> 6aa3bcad5067a7634d78eb0594d7a20e
+2015-01-19 19:44:20,147 INFO  [Thread-310] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo34 bar34
+2015-01-19 19:44:20,148 DEBUG [Thread-309] common.communication.KVCommModule: New received message : PUT_SUCCESS foo34 bar34
+2015-01-19 19:44:20,148 DEBUG [Thread-294] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo32 bar32
+2015-01-19 19:44:20,148 DEBUG [Thread-310] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,149 DEBUG [Thread-310] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:20,150 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59908
+2015-01-19 19:44:20,148 DEBUG [Thread-302] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo33 bar33
+2015-01-19 19:44:20,150 DEBUG [Thread-302] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:20,151 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59909
+2015-01-19 19:44:20,151 INFO  [Thread-313] app_kvServer.ClientConnection: Requested from client : PUT foo34 bar34
+2015-01-19 19:44:20,153 INFO  [Thread-316] app_kvServer.ClientConnection: Requested from client : PUT foo33 bar33
+2015-01-19 19:44:20,155 INFO  [Thread-313] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo34 bar34
+2015-01-19 19:44:20,156 DEBUG [Thread-312] common.communication.KVCommModule: New received message : PUT_SUCCESS foo34 bar34
+2015-01-19 19:44:20,156 DEBUG [Thread-313] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,158 INFO  [Thread-316] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo33 bar33
+2015-01-19 19:44:20,158 DEBUG [Thread-316] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,159 DEBUG [Thread-315] common.communication.KVCommModule: New received message : PUT_SUCCESS foo33 bar33
+2015-01-19 19:44:20,248 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo34 bar34
+2015-01-19 19:44:20,248 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:20,249 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59910
+2015-01-19 19:44:20,257 DEBUG [Thread-302] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo33 bar33
+2015-01-19 19:44:20,258 DEBUG [Thread-310] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo34 bar34
+2015-01-19 19:44:20,258 INFO  [Thread-318] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo35 bar35
+2015-01-19 19:44:20,258 DEBUG [Thread-318] common.metadata.MetadataHandler: Hashed foo35 --> 921210add8c1f12ef4b425131b422c0a
+2015-01-19 19:44:20,259 DEBUG [Thread-310] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:20,260 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59911
+2015-01-19 19:44:20,265 INFO  [Thread-318] app_kvServer.ClientConnection: Answer to client : PUT foo35 bar35
+2015-01-19 19:44:20,265 DEBUG [Thread-317] common.communication.KVCommModule: New received message : PUT foo35 bar35
+2015-01-19 19:44:20,266 INFO  [Thread-321] app_kvServer.ClientConnection: Requested from client : PUT foo34 bar34
+2015-01-19 19:44:20,268 DEBUG [Thread-318] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,268 DEBUG [Thread-318] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:20,269 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59912
+2015-01-19 19:44:20,269 INFO  [Thread-321] app_kvServer.ClientConnection: Answer to client : PUT foo34 bar34
+2015-01-19 19:44:20,270 DEBUG [Thread-320] common.communication.KVCommModule: New received message : PUT foo34 bar34
+2015-01-19 19:44:20,271 DEBUG [Thread-321] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,271 INFO  [Thread-324] app_kvServer.ClientConnection: Requested from client : PUT foo35 bar35
+2015-01-19 19:44:20,274 INFO  [Thread-324] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo35 bar35
+2015-01-19 19:44:20,276 DEBUG [Thread-324] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,276 DEBUG [Thread-323] common.communication.KVCommModule: New received message : PUT_SUCCESS foo35 bar35
+2015-01-19 19:44:20,349 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo35 bar35
+2015-01-19 19:44:20,350 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:20,351 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59913
+2015-01-19 19:44:20,355 INFO  [Thread-326] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo36 bar36
+2015-01-19 19:44:20,355 DEBUG [Thread-326] common.metadata.MetadataHandler: Hashed foo36 --> 17b34d68b70b71542f528702854d86e
+2015-01-19 19:44:20,361 DEBUG [Thread-310] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo34 bar34
+2015-01-19 19:44:20,362 INFO  [Thread-326] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo36 bar36
+2015-01-19 19:44:20,363 DEBUG [Thread-325] common.communication.KVCommModule: New received message : PUT_SUCCESS foo36 bar36
+2015-01-19 19:44:20,364 DEBUG [Thread-326] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,364 DEBUG [Thread-326] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:20,365 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59914
+2015-01-19 19:44:20,366 INFO  [Thread-329] app_kvServer.ClientConnection: Requested from client : PUT foo36 bar36
+2015-01-19 19:44:20,367 INFO  [Thread-329] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo36 bar36
+2015-01-19 19:44:20,368 DEBUG [Thread-328] common.communication.KVCommModule: New received message : PUT_SUCCESS foo36 bar36
+2015-01-19 19:44:20,369 DEBUG [Thread-329] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,369 DEBUG [Thread-318] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo35 bar35
+2015-01-19 19:44:20,369 DEBUG [Thread-318] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:20,370 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59915
+2015-01-19 19:44:20,375 INFO  [Thread-332] app_kvServer.ClientConnection: Requested from client : PUT foo35 bar35
+2015-01-19 19:44:20,378 INFO  [Thread-332] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo35 bar35
+2015-01-19 19:44:20,378 DEBUG [Thread-332] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,378 DEBUG [Thread-331] common.communication.KVCommModule: New received message : PUT_SUCCESS foo35 bar35
+2015-01-19 19:44:20,451 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo36 bar36
+2015-01-19 19:44:20,451 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:20,452 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59916
+2015-01-19 19:44:20,453 INFO  [Thread-334] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo37 bar37
+2015-01-19 19:44:20,453 DEBUG [Thread-334] common.metadata.MetadataHandler: Hashed foo37 --> 7c7e88e03a6d9112fc3d4537beaf2d84
+2015-01-19 19:44:20,458 INFO  [Thread-334] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo37 bar37
+2015-01-19 19:44:20,459 DEBUG [Thread-333] common.communication.KVCommModule: New received message : PUT_SUCCESS foo37 bar37
+2015-01-19 19:44:20,459 DEBUG [Thread-334] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,460 DEBUG [Thread-334] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:20,460 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59917
+2015-01-19 19:44:20,462 INFO  [Thread-337] app_kvServer.ClientConnection: Requested from client : PUT foo37 bar37
+2015-01-19 19:44:20,465 INFO  [Thread-337] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo37 bar37
+2015-01-19 19:44:20,465 DEBUG [Thread-336] common.communication.KVCommModule: New received message : PUT_SUCCESS foo37 bar37
+2015-01-19 19:44:20,465 DEBUG [Thread-326] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo36 bar36
+2015-01-19 19:44:20,466 DEBUG [Thread-337] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,466 DEBUG [Thread-326] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:20,467 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59918
+2015-01-19 19:44:20,467 INFO  [Thread-340] app_kvServer.ClientConnection: Requested from client : PUT foo36 bar36
+2015-01-19 19:44:20,470 INFO  [Thread-340] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo36 bar36
+2015-01-19 19:44:20,472 DEBUG [Thread-339] common.communication.KVCommModule: New received message : PUT_SUCCESS foo36 bar36
+2015-01-19 19:44:20,472 DEBUG [Thread-340] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,472 DEBUG [Thread-318] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo35 bar35
+2015-01-19 19:44:20,552 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo37 bar37
+2015-01-19 19:44:20,553 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:20,553 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59919
+2015-01-19 19:44:20,554 INFO  [Thread-342] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo38 bar38
+2015-01-19 19:44:20,554 DEBUG [Thread-342] common.metadata.MetadataHandler: Hashed foo38 --> 62618605be218379758a18ebc2c60d05
+2015-01-19 19:44:20,560 DEBUG [Thread-334] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo37 bar37
+2015-01-19 19:44:20,560 DEBUG [Thread-334] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:20,561 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59920
+2015-01-19 19:44:20,563 INFO  [Thread-345] app_kvServer.ClientConnection: Requested from client : PUT foo37 bar37
+2015-01-19 19:44:20,564 INFO  [Thread-342] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo38 bar38
+2015-01-19 19:44:20,565 DEBUG [Thread-341] common.communication.KVCommModule: New received message : PUT_SUCCESS foo38 bar38
+2015-01-19 19:44:20,565 DEBUG [Thread-342] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,565 DEBUG [Thread-342] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:20,566 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59921
+2015-01-19 19:44:20,567 INFO  [Thread-345] app_kvServer.ClientConnection: Answer to client : PUT foo37 bar37
+2015-01-19 19:44:20,568 DEBUG [Thread-345] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,569 INFO  [Thread-348] app_kvServer.ClientConnection: Requested from client : PUT foo38 bar38
+2015-01-19 19:44:20,570 DEBUG [Thread-326] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo36 bar36
+2015-01-19 19:44:20,571 DEBUG [Thread-344] common.communication.KVCommModule: New received message : PUT foo37 bar37
+2015-01-19 19:44:20,572 INFO  [Thread-348] app_kvServer.ClientConnection: Answer to client : PUT foo38 bar38
+2015-01-19 19:44:20,572 DEBUG [Thread-347] common.communication.KVCommModule: New received message : PUT foo38 bar38
+2015-01-19 19:44:20,572 DEBUG [Thread-348] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,653 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT foo38 bar38
+2015-01-19 19:44:20,653 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:20,654 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59922
+2015-01-19 19:44:20,654 INFO  [Thread-350] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo39 bar39
+2015-01-19 19:44:20,655 DEBUG [Thread-350] common.metadata.MetadataHandler: Hashed foo39 --> acfd87eda730be36569e8b06a46ba00e
+2015-01-19 19:44:20,660 INFO  [Thread-350] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo39 bar39
+2015-01-19 19:44:20,661 DEBUG [Thread-350] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,661 DEBUG [Thread-349] common.communication.KVCommModule: New received message : PUT_SUCCESS foo39 bar39
+2015-01-19 19:44:20,661 DEBUG [Thread-350] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:20,662 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59923
+2015-01-19 19:44:20,663 DEBUG [Thread-334] app_kvApi.KVStore: Answer to put : PUT foo37 bar37
+2015-01-19 19:44:20,663 INFO  [Thread-353] app_kvServer.ClientConnection: Requested from client : PUT foo39 bar39
+2015-01-19 19:44:20,665 INFO  [Thread-353] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo39 bar39
+2015-01-19 19:44:20,666 DEBUG [Thread-352] common.communication.KVCommModule: New received message : PUT_SUCCESS foo39 bar39
+2015-01-19 19:44:20,667 DEBUG [Thread-353] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,668 DEBUG [Thread-342] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo38 bar38
+2015-01-19 19:44:20,668 DEBUG [Thread-342] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:20,669 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59924
+2015-01-19 19:44:20,670 INFO  [Thread-356] app_kvServer.ClientConnection: Requested from client : PUT foo38 bar38
+2015-01-19 19:44:20,673 INFO  [Thread-356] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo38 bar38
+2015-01-19 19:44:20,673 DEBUG [Thread-355] common.communication.KVCommModule: New received message : PUT_SUCCESS foo38 bar38
+2015-01-19 19:44:20,673 DEBUG [Thread-356] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,754 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo39 bar39
+2015-01-19 19:44:20,755 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:20,757 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59925
+2015-01-19 19:44:20,758 INFO  [Thread-358] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo40 bar40
+2015-01-19 19:44:20,758 DEBUG [Thread-358] common.metadata.MetadataHandler: Hashed foo40 --> b4b01338e14b15d3e1d447c76bb29ade
+2015-01-19 19:44:20,772 DEBUG [Thread-350] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo39 bar39
+2015-01-19 19:44:20,773 DEBUG [Thread-342] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo38 bar38
+2015-01-19 19:44:20,773 DEBUG [Thread-350] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:20,774 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59926
+2015-01-19 19:44:20,776 INFO  [Thread-361] app_kvServer.ClientConnection: Requested from client : PUT foo39 bar39
+2015-01-19 19:44:20,778 INFO  [Thread-358] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo40 bar40
+2015-01-19 19:44:20,778 DEBUG [Thread-357] common.communication.KVCommModule: New received message : PUT_SUCCESS foo40 bar40
+2015-01-19 19:44:20,779 DEBUG [Thread-358] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,779 DEBUG [Thread-358] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:20,780 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59927
+2015-01-19 19:44:20,786 INFO  [Thread-361] app_kvServer.ClientConnection: Answer to client : PUT foo39 bar39
+2015-01-19 19:44:20,787 DEBUG [Thread-361] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,787 DEBUG [Thread-360] common.communication.KVCommModule: New received message : PUT foo39 bar39
+2015-01-19 19:44:20,789 INFO  [Thread-364] app_kvServer.ClientConnection: Requested from client : PUT foo40 bar40
+2015-01-19 19:44:20,822 INFO  [Thread-364] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo40 bar40
+2015-01-19 19:44:20,822 DEBUG [Thread-364] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,823 DEBUG [Thread-363] common.communication.KVCommModule: New received message : PUT_SUCCESS foo40 bar40
+2015-01-19 19:44:20,858 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo40 bar40
+2015-01-19 19:44:20,858 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:20,859 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59928
+2015-01-19 19:44:20,860 INFO  [Thread-366] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo41 bar41
+2015-01-19 19:44:20,860 DEBUG [Thread-366] common.metadata.MetadataHandler: Hashed foo41 --> f8bb024f195f7ddbb24f72b08d2bef69
+2015-01-19 19:44:20,867 INFO  [Thread-366] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo41 bar41
+2015-01-19 19:44:20,867 DEBUG [Thread-366] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,867 DEBUG [Thread-365] common.communication.KVCommModule: New received message : PUT_SUCCESS foo41 bar41
+2015-01-19 19:44:20,867 DEBUG [Thread-366] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:20,868 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59929
+2015-01-19 19:44:20,869 INFO  [Thread-369] app_kvServer.ClientConnection: Requested from client : PUT foo41 bar41
+2015-01-19 19:44:20,871 INFO  [Thread-369] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo41 bar41
+2015-01-19 19:44:20,872 DEBUG [Thread-368] common.communication.KVCommModule: New received message : PUT_SUCCESS foo41 bar41
+2015-01-19 19:44:20,872 DEBUG [Thread-369] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,875 DEBUG [Thread-350] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo39 bar39
+2015-01-19 19:44:20,881 DEBUG [Thread-358] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo40 bar40
+2015-01-19 19:44:20,881 DEBUG [Thread-358] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:20,882 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59930
+2015-01-19 19:44:20,882 INFO  [Thread-372] app_kvServer.ClientConnection: Requested from client : PUT foo40 bar40
+2015-01-19 19:44:20,886 INFO  [Thread-372] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo40 bar40
+2015-01-19 19:44:20,887 DEBUG [Thread-371] common.communication.KVCommModule: New received message : PUT_SUCCESS foo40 bar40
+2015-01-19 19:44:20,887 DEBUG [Thread-372] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,959 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo41 bar41
+2015-01-19 19:44:20,960 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:20,960 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59931
+2015-01-19 19:44:20,961 INFO  [Thread-374] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo42 bar42
+2015-01-19 19:44:20,961 DEBUG [Thread-374] common.metadata.MetadataHandler: Hashed foo42 --> 97e2944de65e7a83f7527114eb69745
+2015-01-19 19:44:20,968 INFO  [Thread-374] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo42 bar42
+2015-01-19 19:44:20,968 DEBUG [Thread-374] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,969 DEBUG [Thread-373] common.communication.KVCommModule: New received message : PUT_SUCCESS foo42 bar42
+2015-01-19 19:44:20,969 DEBUG [Thread-366] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo41 bar41
+2015-01-19 19:44:20,969 DEBUG [Thread-374] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:20,969 DEBUG [Thread-366] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:20,970 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59932
+2015-01-19 19:44:20,971 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59933
+2015-01-19 19:44:20,975 INFO  [Thread-378] app_kvServer.ClientConnection: Requested from client : PUT foo42 bar42
+2015-01-19 19:44:20,977 INFO  [Thread-380] app_kvServer.ClientConnection: Requested from client : PUT foo41 bar41
+2015-01-19 19:44:20,981 INFO  [Thread-378] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo42 bar42
+2015-01-19 19:44:20,981 DEBUG [Thread-377] common.communication.KVCommModule: New received message : PUT_SUCCESS foo42 bar42
+2015-01-19 19:44:20,982 DEBUG [Thread-378] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:20,982 INFO  [Thread-380] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo41 bar41
+2015-01-19 19:44:20,983 DEBUG [Thread-379] common.communication.KVCommModule: New received message : PUT_SUCCESS foo41 bar41
+2015-01-19 19:44:20,983 DEBUG [Thread-358] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo40 bar40
+2015-01-19 19:44:20,984 DEBUG [Thread-380] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,060 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo42 bar42
+2015-01-19 19:44:21,060 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:21,061 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59934
+2015-01-19 19:44:21,062 INFO  [Thread-382] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo43 bar43
+2015-01-19 19:44:21,063 DEBUG [Thread-382] common.metadata.MetadataHandler: Hashed foo43 --> 804acf9dd882bf536d706173375ed5d1
+2015-01-19 19:44:21,068 INFO  [Thread-382] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo43 bar43
+2015-01-19 19:44:21,068 DEBUG [Thread-382] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,069 DEBUG [Thread-381] common.communication.KVCommModule: New received message : PUT_SUCCESS foo43 bar43
+2015-01-19 19:44:21,069 DEBUG [Thread-382] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:21,070 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59935
+2015-01-19 19:44:21,071 DEBUG [Thread-374] app_kvApi.KVStore: Answer to put : PUT foo42 bar42
+2015-01-19 19:44:21,072 INFO  [Thread-385] app_kvServer.ClientConnection: Requested from client : PUT foo43 bar43
+2015-01-19 19:44:21,073 DEBUG [Thread-374] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:21,074 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59936
+2015-01-19 19:44:21,074 DEBUG [Thread-366] app_kvApi.KVStore: Answer to put : PUT foo41 bar41
+2015-01-19 19:44:21,075 INFO  [Thread-388] app_kvServer.ClientConnection: Requested from client : PUT foo42 bar42
+2015-01-19 19:44:21,077 INFO  [Thread-385] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo43 bar43
+2015-01-19 19:44:21,078 DEBUG [Thread-384] common.communication.KVCommModule: New received message : PUT_SUCCESS foo43 bar43
+2015-01-19 19:44:21,078 DEBUG [Thread-385] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,079 INFO  [Thread-388] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo42 bar42
+2015-01-19 19:44:21,079 DEBUG [Thread-388] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,080 DEBUG [Thread-387] common.communication.KVCommModule: New received message : PUT_SUCCESS foo42 bar42
+2015-01-19 19:44:21,163 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo43 bar43
+2015-01-19 19:44:21,164 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:21,164 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59937
+2015-01-19 19:44:21,165 INFO  [Thread-390] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo44 bar44
+2015-01-19 19:44:21,165 DEBUG [Thread-390] common.metadata.MetadataHandler: Hashed foo44 --> ff6d1e8fc259ad77f64607ec6f9fcaed
+2015-01-19 19:44:21,171 DEBUG [Thread-382] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo43 bar43
+2015-01-19 19:44:21,171 DEBUG [Thread-382] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:21,172 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59938
+2015-01-19 19:44:21,173 INFO  [Thread-393] app_kvServer.ClientConnection: Requested from client : PUT foo43 bar43
+2015-01-19 19:44:21,175 INFO  [Thread-390] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo44 bar44
+2015-01-19 19:44:21,175 DEBUG [Thread-389] common.communication.KVCommModule: New received message : PUT_SUCCESS foo44 bar44
+2015-01-19 19:44:21,175 DEBUG [Thread-374] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo42 bar42
+2015-01-19 19:44:21,176 DEBUG [Thread-390] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,176 DEBUG [Thread-390] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:21,177 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59939
+2015-01-19 19:44:21,177 INFO  [Thread-393] app_kvServer.ClientConnection: Answer to client : PUT foo43 bar43
+2015-01-19 19:44:21,178 DEBUG [Thread-393] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,178 DEBUG [Thread-392] common.communication.KVCommModule: New received message : PUT foo43 bar43
+2015-01-19 19:44:21,180 INFO  [Thread-396] app_kvServer.ClientConnection: Requested from client : PUT foo44 bar44
+2015-01-19 19:44:21,182 INFO  [Thread-396] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo44 bar44
+2015-01-19 19:44:21,183 DEBUG [Thread-395] common.communication.KVCommModule: New received message : PUT_SUCCESS foo44 bar44
+2015-01-19 19:44:21,184 DEBUG [Thread-396] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,265 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo44 bar44
+2015-01-19 19:44:21,266 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:21,267 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59940
+2015-01-19 19:44:21,268 INFO  [Thread-398] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo45 bar45
+2015-01-19 19:44:21,268 DEBUG [Thread-398] common.metadata.MetadataHandler: Hashed foo45 --> a0c2685915a1f5a3fd53c62339b87f4
+2015-01-19 19:44:21,273 DEBUG [Thread-382] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo43 bar43
+2015-01-19 19:44:21,274 INFO  [Thread-398] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo45 bar45
+2015-01-19 19:44:21,275 DEBUG [Thread-397] common.communication.KVCommModule: New received message : PUT_SUCCESS foo45 bar45
+2015-01-19 19:44:21,275 DEBUG [Thread-398] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,275 DEBUG [Thread-398] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:21,276 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59941
+2015-01-19 19:44:21,278 INFO  [Thread-401] app_kvServer.ClientConnection: Requested from client : PUT foo45 bar45
+2015-01-19 19:44:21,280 DEBUG [Thread-390] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo44 bar44
+2015-01-19 19:44:21,280 DEBUG [Thread-390] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:21,281 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59942
+2015-01-19 19:44:21,282 INFO  [Thread-401] app_kvServer.ClientConnection: Answer to client : PUT foo45 bar45
+2015-01-19 19:44:21,282 DEBUG [Thread-401] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,283 INFO  [Thread-404] app_kvServer.ClientConnection: Requested from client : PUT foo44 bar44
+2015-01-19 19:44:21,285 DEBUG [Thread-400] common.communication.KVCommModule: New received message : PUT foo45 bar45
+2015-01-19 19:44:21,287 INFO  [Thread-404] app_kvServer.ClientConnection: Answer to client : PUT foo44 bar44
+2015-01-19 19:44:21,287 DEBUG [Thread-403] common.communication.KVCommModule: New received message : PUT foo44 bar44
+2015-01-19 19:44:21,288 DEBUG [Thread-404] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,367 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT foo45 bar45
+2015-01-19 19:44:21,368 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:21,368 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59943
+2015-01-19 19:44:21,369 INFO  [Thread-406] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo46 bar46
+2015-01-19 19:44:21,369 DEBUG [Thread-406] common.metadata.MetadataHandler: Hashed foo46 --> 45f3da35b646fdd389f6a91e13102ab3
+2015-01-19 19:44:21,369 INFO  [Thread-406] app_kvServer.ClientConnection: Answer to client : SERVER_NOT_RESPONSIBLE foo46 node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/
+2015-01-19 19:44:21,370 DEBUG [Thread-405] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo46 node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/
+2015-01-19 19:44:21,371 DEBUG [Thread-406] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,377 DEBUG [Thread-398] app_kvApi.KVStore: Answer to put : SERVER_NOT_RESPONSIBLE foo45 bar45
+2015-01-19 19:44:21,377 DEBUG [Thread-398] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:21,378 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59944
+2015-01-19 19:44:21,378 INFO  [Thread-409] app_kvServer.ClientConnection: Requested from client : PUT foo45 bar45
+2015-01-19 19:44:21,381 DEBUG [Thread-390] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo44 bar44
+2015-01-19 19:44:21,382 INFO  [Thread-409] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo45 bar45
+2015-01-19 19:44:21,382 DEBUG [Thread-409] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,382 DEBUG [Thread-408] common.communication.KVCommModule: New received message : PUT_SUCCESS foo45 bar45
+2015-01-19 19:44:21,469 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo46 node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/
+2015-01-19 19:44:21,469 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:21,470 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59945
+2015-01-19 19:44:21,485 DEBUG [Thread-398] app_kvApi.KVStore: Answer to put : PUT_PROPAGATE foo45 bar45
+2015-01-19 19:44:21,485 INFO  [Thread-411] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo47 bar47
+2015-01-19 19:44:21,485 DEBUG [Thread-411] common.metadata.MetadataHandler: Hashed foo47 --> 2796352a789e20e9c77b41ac677accbc
+2015-01-19 19:44:21,509 INFO  [Thread-411] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo47 bar47
+2015-01-19 19:44:21,509 DEBUG [Thread-411] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,509 DEBUG [Thread-411] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:21,509 DEBUG [Thread-410] common.communication.KVCommModule: New received message : PUT_SUCCESS foo47 bar47
+2015-01-19 19:44:21,510 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59946
+2015-01-19 19:44:21,517 INFO  [Thread-414] app_kvServer.ClientConnection: Requested from client : PUT foo47 bar47
+2015-01-19 19:44:21,520 INFO  [Thread-414] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo47 bar47
+2015-01-19 19:44:21,520 DEBUG [Thread-414] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,520 DEBUG [Thread-413] common.communication.KVCommModule: New received message : PUT_SUCCESS foo47 bar47
+2015-01-19 19:44:21,570 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo47 bar47
+2015-01-19 19:44:21,570 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:21,572 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59947
+2015-01-19 19:44:21,572 INFO  [Thread-416] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo48 bar48
+2015-01-19 19:44:21,573 DEBUG [Thread-416] common.metadata.MetadataHandler: Hashed foo48 --> 4bf1d80c0d492b85b5247aff0d92e4c5
+2015-01-19 19:44:21,575 INFO  [Thread-416] app_kvServer.ClientConnection: Answer to client : SERVER_NOT_RESPONSIBLE foo48 node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/
+2015-01-19 19:44:21,575 DEBUG [Thread-415] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo48 node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/
+2015-01-19 19:44:21,576 DEBUG [Thread-416] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,610 DEBUG [Thread-411] app_kvApi.KVStore: Answer to put : SERVER_NOT_RESPONSIBLE foo47 bar47
+2015-01-19 19:44:21,611 DEBUG [Thread-411] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:21,612 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59948
+2015-01-19 19:44:21,612 INFO  [Thread-419] app_kvServer.ClientConnection: Requested from client : PUT foo47 bar47
+2015-01-19 19:44:21,615 INFO  [Thread-419] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo47 bar47
+2015-01-19 19:44:21,616 DEBUG [Thread-418] common.communication.KVCommModule: New received message : PUT_SUCCESS foo47 bar47
+2015-01-19 19:44:21,616 DEBUG [Thread-419] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,674 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo48 node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;f286ae5dd8de98335a6283c1b67bb869;447aca9968653a3d3a2a977ee6ca884b;5a1d18d5194979b57a2d1634ad3f18c0/
+2015-01-19 19:44:21,676 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-19 19:44:21,677 DEBUG [Thread-12] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59949
+2015-01-19 19:44:21,677 INFO  [Thread-421] app_kvServer.ClientConnection: Requested from client : PUT_PROPAGATE foo49 bar49
+2015-01-19 19:44:21,678 DEBUG [Thread-421] common.metadata.MetadataHandler: Hashed foo49 --> c9b24afe0741fb4275a6b0450b15dab4
+2015-01-19 19:44:21,684 INFO  [Thread-421] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo49 bar49
+2015-01-19 19:44:21,685 DEBUG [Thread-421] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,685 DEBUG [Thread-420] common.communication.KVCommModule: New received message : PUT_SUCCESS foo49 bar49
+2015-01-19 19:44:21,685 DEBUG [Thread-421] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-19 19:44:21,686 DEBUG [Thread-14] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59950
+2015-01-19 19:44:21,687 INFO  [Thread-424] app_kvServer.ClientConnection: Requested from client : PUT foo49 bar49
+2015-01-19 19:44:21,691 INFO  [Thread-424] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo49 bar49
+2015-01-19 19:44:21,691 DEBUG [Thread-423] common.communication.KVCommModule: New received message : PUT_SUCCESS foo49 bar49
+2015-01-19 19:44:21,691 DEBUG [Thread-424] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,711 DEBUG [Thread-411] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo47 bar47
+2015-01-19 19:44:21,779 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo49 bar49
+2015-01-19 19:44:21,780 INFO  [main] app_kvEcs.ECSClient: Shutting down all used nodes.
+2015-01-19 19:44:21,780 INFO  [Thread-4] app_kvServer.EcsConnection: Requested from ECS : SHUTDOWN null null
+2015-01-19 19:44:21,780 INFO  [Thread-4] app_kvServer.EcsConnection: Exiting
+2015-01-19 19:44:21,780 INFO  [Thread-4] app_kvServer.EcsConnection: Answer to ECS : SHUTDOWN ok null
+2015-01-19 19:44:21,780 INFO  [Thread-4] app_kvServer.EcsConnection: Connection closed with ECS.
+2015-01-19 19:44:21,781 DEBUG [Thread-4] app_kvServer.KVServer: Stopping the server
+2015-01-19 19:44:21,781 DEBUG [Thread-5] common.communication.AdminCommModule: New received message : SHUTDOWN ok null
+2015-01-19 19:44:21,781 INFO  [Thread-12] app_kvServer.KVServer: Server stopped to listen to clients.
+2015-01-19 19:44:21,808 DEBUG [Thread-421] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo49 bar49
+2015-01-19 19:44:21,813 DEBUG [Thread-421] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-19 19:44:21,814 DEBUG [Thread-13] app_kvServer.KVServer: Connected to client 127.0.0.1 on port 59951
+2015-01-19 19:44:21,835 INFO  [Thread-427] app_kvServer.ClientConnection: Requested from client : PUT foo49 bar49
+2015-01-19 19:44:21,847 INFO  [main] app_kvEcs.ConfigStore: Connection closed with localhost:50000
+2015-01-19 19:44:21,854 INFO  [Thread-7] app_kvServer.EcsConnection: Requested from ECS : SHUTDOWN null null
+2015-01-19 19:44:21,855 INFO  [Thread-7] app_kvServer.EcsConnection: Exiting
+2015-01-19 19:44:21,855 INFO  [Thread-7] app_kvServer.EcsConnection: Answer to ECS : SHUTDOWN ok null
+2015-01-19 19:44:21,855 INFO  [Thread-7] app_kvServer.EcsConnection: Connection closed with ECS.
+2015-01-19 19:44:21,855 DEBUG [Thread-7] app_kvServer.KVServer: Stopping the server
+2015-01-19 19:44:21,855 DEBUG [Thread-8] common.communication.AdminCommModule: New received message : SHUTDOWN ok null
+2015-01-19 19:44:21,855 INFO  [Thread-13] app_kvServer.KVServer: Server stopped to listen to clients.
+2015-01-19 19:44:21,860 INFO  [main] app_kvEcs.ConfigStore: Connection closed with localhost:50001
+2015-01-19 19:44:21,860 INFO  [Thread-10] app_kvServer.EcsConnection: Requested from ECS : SHUTDOWN null null
+2015-01-19 19:44:21,860 INFO  [Thread-10] app_kvServer.EcsConnection: Exiting
+2015-01-19 19:44:21,860 INFO  [Thread-10] app_kvServer.EcsConnection: Answer to ECS : SHUTDOWN ok null
+2015-01-19 19:44:21,860 INFO  [Thread-10] app_kvServer.EcsConnection: Connection closed with ECS.
+2015-01-19 19:44:21,860 DEBUG [Thread-10] app_kvServer.KVServer: Stopping the server
+2015-01-19 19:44:21,861 DEBUG [Thread-11] common.communication.AdminCommModule: New received message : SHUTDOWN ok null
+2015-01-19 19:44:21,847 INFO  [Thread-427] app_kvServer.ClientConnection: Answer to client : PUT_SUCCESS foo49 bar49
+2015-01-19 19:44:21,891 DEBUG [Thread-427] app_kvServer.ClientConnection: Connection closed.
+2015-01-19 19:44:21,891 DEBUG [Thread-426] common.communication.KVCommModule: New received message : PUT_SUCCESS foo49 bar49
+2015-01-19 19:44:21,861 INFO  [Thread-14] app_kvServer.KVServer: Server stopped to listen to clients.
+2015-01-19 19:44:21,928 INFO  [main] app_kvEcs.ConfigStore: Connection closed with localhost:50002
+2015-01-19 19:44:21,928 INFO  [main] app_kvEcs.ECSInterface: Exiting

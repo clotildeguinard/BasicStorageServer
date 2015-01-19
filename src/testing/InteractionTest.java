@@ -40,7 +40,7 @@ public class InteractionTest extends TestCase {
 		} catch (Exception e) {
 			ex = e;
 		}
-		System.out.println(response);
+
 		if (ex!= null) {
 			ex.printStackTrace();
 		}
