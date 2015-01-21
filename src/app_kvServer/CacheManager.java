@@ -90,7 +90,7 @@ public class CacheManager implements Iterable<Pair<String, String>> {
 		}
 	}
     
-    public void flushCache() throws IOException {
+    public void flushCacheToStorage() throws IOException {
     	for (Pair<String, String> kv : dataCache) {
     		storage.put(kv.getKey(), kv.getValue());
     	}

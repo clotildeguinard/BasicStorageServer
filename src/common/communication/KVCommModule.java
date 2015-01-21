@@ -21,6 +21,7 @@ public class KVCommModule extends CommModule implements SocketListener {
 	}
 
 	public void sendKVMessage(KVMessage message) throws SocketException, IOException {
+		latest = null;
 		try {
 			sendMessage(((KVMessageImpl) message).marshal());
 		} catch (SocketException se) {

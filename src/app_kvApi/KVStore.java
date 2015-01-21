@@ -39,7 +39,6 @@ public abstract class KVStore extends Thread implements KVCommInterface {
 	protected MetadataHandler metadataHandler;
 	protected static final int MAX_TRIALS = 3;
 	private static final int MAX_WAITING_MS = 3000;
-	public Thread connection;
 
 	/**
 	 * Initialize KVStore with address and port of KVServer
@@ -82,8 +81,7 @@ public abstract class KVStore extends Thread implements KVCommInterface {
 		listeners = new HashSet<SocketListener>();
 		addListener(commModule);
 
-		connection = new KVStoreConnectionThread();
-		connection.start();
+		(new KVStoreConnectionThread()).start();
 	}
 
 	public void disconnect() {
@@ -163,7 +161,6 @@ public abstract class KVStore extends Thread implements KVCommInterface {
 		}
 		return commModule.getLatest();
 	}
-
 	public void setLoggerLevel(Level wantedLevel) {
 		logger.setLevel(wantedLevel);
 		commModule.setLoggerLevel(wantedLevel);

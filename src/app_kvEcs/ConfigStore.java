@@ -14,6 +14,7 @@ import common.communication.SocketListener;
 import common.communication.SocketListener.SocketStatus;
 import common.messages.AdminMessage;
 import common.messages.AdminMessageImpl;
+import common.messages.KVMessage.StatusType;
 import common.messages.TextMessage;
 import common.metadata.Address;
 
@@ -48,9 +49,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 	 */
 	public ConfigStore(String ip, int port) throws IllegalArgumentException, IOException {
 		this.serverAddress = new Address(ip, port);
-		connect();
 	}
-	
+
 	@Override
 	public Address getServerAddress() {
 		return serverAddress;
@@ -60,7 +60,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		listeners.add(listener);
 	}
 
-	private void connect() throws IOException {
+	public void connect() throws IOException {
 		ecsSocket = new Socket(serverAddress.getIp(), serverAddress.getPort());
 		commModule = new AdminCommModule(ecsSocket.getOutputStream(),
 				ecsSocket.getInputStream());
@@ -68,10 +68,10 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		listeners = new HashSet<SocketListener>();
 		addListener(commModule);
 		isRunning = true;
-		new Thread(this).start();
+		(new Thread(this)).start();
 	}
 
-	public void disconnect() {
+	private void disconnect() {
 		try {
 			tearDownConnection();
 			if (listeners != null) {
@@ -106,6 +106,11 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 			while (isRunning) {
 				try {
 					TextMessage latestMsg = commModule.receiveMessage();
+					// TODO improve
+					AdminMessage msg = AdminMessageImpl.unmarshal(latestMsg);
+					if (msg.getStatus().equals(common.messages.AdminMessage.StatusType.SHUTDOWN)) {
+						disconnect();
+					}
 					for (SocketListener listener : listeners) {
 						listener.handleNewMessage(latestMsg);
 					}
@@ -136,7 +141,6 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 				if (isRunning) {
 					disconnect();
 				}
-				logger.info("Connection with server stopped");
 			}
 		}
 	}
@@ -186,27 +190,24 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		AdminMessage msg = new AdminMessageImpl(null, metadata,
 				common.messages.AdminMessage.StatusType.UPDATE_METADATA);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
-		
-	}
 
+	}
 
 	@Override
 	public boolean lockWrite() {
 		AdminMessage msg = new AdminMessageImpl(null, null,
 				common.messages.AdminMessage.StatusType.LOCK_WRITE);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
-		
-	}
 
+	}
 
 	@Override
 	public boolean unlockWrite() {
 		AdminMessage msg = new AdminMessageImpl(null, null,
 				common.messages.AdminMessage.StatusType.UNLOCK_WRITE);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
-		
-	}
 
+	}
 
 	@Override
 	public boolean shutdown() {
@@ -214,9 +215,11 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 			AdminMessage msg = new AdminMessageImpl(null, null,
 					common.messages.AdminMessage.StatusType.SHUTDOWN);
 			return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
-			
+
 		} finally {
-			disconnect();
+			if (isRunning) {
+				disconnect();
+			}
 		}
 	}
 
@@ -225,7 +228,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		AdminMessage msg = new AdminMessageImpl(minHashToMove + ":" + maxHashToMove, destinationServer.toString(),
 				common.messages.AdminMessage.StatusType.MOVE_DATA);
 		return sendWaitAndCheckAnswer(msg, 60000);
-		
+
 	}
 
 	@Override
@@ -234,9 +237,8 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		AdminMessage msg = new AdminMessageImpl(minHashToMove + ":" + maxHashToMove, destinationServer.toString(),
 				common.messages.AdminMessage.StatusType.COPY_DATA);
 		return sendWaitAndCheckAnswer(msg, 60000);
-		
-	}
 
+	}
 
 	@Override
 	public boolean initKVServer(String metadata, int cacheSize,
@@ -244,7 +246,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		AdminMessage msg = new AdminMessageImpl(metadata, cacheSize + ":" + strategy,
 				common.messages.AdminMessage.StatusType.INIT_KVSERVER);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
-		
+
 	}
 
 	@Override
@@ -252,7 +254,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		AdminMessage msg = new AdminMessageImpl(null, null,
 				common.messages.AdminMessage.StatusType.STOP);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
-		
+
 	}
 
 	@Override
@@ -260,7 +262,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		AdminMessage msg = new AdminMessageImpl(null, null,
 				common.messages.AdminMessage.StatusType.START);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
-		
+
 	}
 
 	@Override
@@ -268,7 +270,7 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		AdminMessage msg = new AdminMessageImpl(null, null,
 				common.messages.AdminMessage.StatusType.START_HEARTBEAT);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
-		
+
 	}
 
 	@Override
@@ -276,7 +278,6 @@ public class ConfigStore extends Thread implements ConfigCommInterface {
 		AdminMessage msg = new AdminMessageImpl(null, null,
 				common.messages.AdminMessage.StatusType.STOP_HEARTBEAT);
 		return sendWaitAndCheckAnswer(msg, STANDARD_WAITING_MS);
-		
-	}
 
+	}
 }

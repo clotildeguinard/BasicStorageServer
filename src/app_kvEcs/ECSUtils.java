@@ -11,16 +11,24 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+
+import common.metadata.Address;
+import common.metadata.NodeData;
 
 public class ECSUtils {
 	protected static List<String[]> possibleRemainingNodes;
 	protected static List<String> sortedNodeHashes;
 	protected static List<ConfigCommInterface> sortedConfigStores;
+	protected static List<ConfigCommInterface> uniqueConfigStores;
+
 	private final static Logger logger = Logger.getLogger(ECSUtils.class);
 	private final static String hashingAlgorithm = "MD5";
+	private final static int nbVirtualNodes = 4;
+	private static int seed = 0;
 
 	protected ECSUtils() {}
 
@@ -90,75 +98,154 @@ public class ECSUtils {
 		}
 	}
 
-	protected void addNodeToLists(String[] nodeData)
+	protected void addNodeToLists(String name, String ip, int port)
 			throws NoSuchAlgorithmException, IllegalArgumentException, IOException {
-		//		launchSSH(nodeData[1], nodeData[2], "DEBUG");
+		for (String[] params : possibleRemainingNodes) {
+			if (params[0].equals(name)) {
+				possibleRemainingNodes.remove(params);
+				break;
+			}
+		}
+		
+		ConfigStore cs = new ConfigStore(ip, port);
+		uniqueConfigStores.add(cs);
 
-		sortedConfigStores.add(new ConfigStore(nodeData[1], Integer.parseInt(nodeData[2])));
+		for (int i = 0; i < nbVirtualNodes; i++) {
+			sortedConfigStores.add(cs);
 
-		String IpAndPort = new StringBuilder(nodeData[1]).append(";").append(nodeData[2]).toString();
+			String IpAndPort = new StringBuilder(ip).append(";").append(port)
+					.append(";").append(seed + i).toString();
 
-		String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm).
-				digest(IpAndPort.getBytes("UTF-8"))).toString(16);
+			String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm).
+					digest(IpAndPort.getBytes("UTF-8"))).toString(16);
 
-		sortedNodeHashes.add(nodeData[0]);
-		sortedNodeHashes.add(nodeData[1]);
-		sortedNodeHashes.add(nodeData[2]);
-		sortedNodeHashes.add(hashedKey);
+			sortedNodeHashes.add(name);
+			sortedNodeHashes.add(ip);
+			sortedNodeHashes.add(Integer.toString(port));
+			sortedNodeHashes.add(hashedKey);
+		}
+		seed += nbVirtualNodes;
 
 	}
 
-	protected void sortNodeLists(){
+	protected boolean sortNodeLists(){
 		logger.debug("Sorting the nodes...");
 		int size = sortedNodeHashes.size();
 		if (size <= 4) {
 			logger.debug("No sorting: only one node.");
-			return;
+			return true;
 		}
 		String current;
 
 		for (int i = 0; i < size ; i+=4){
-			String max = sortedNodeHashes.get(0);
-			int indexOfMax = 0;
+			String max = sortedNodeHashes.get(3);
+			int indexOfMax = 3;
+
 			for (int j = 3; j < size-i; j+=4){
-				current = sortedNodeHashes.get(i);
+				current = sortedNodeHashes.get(j);
 				if(current.compareTo(max) >= 0){
 					max = current;
-					indexOfMax = j;
+					indexOfMax = (j - 3 + size) % size;
 				}
 			}
-			Collections.swap(sortedNodeHashes, indexOfMax, size-1-i);
-			Collections.swap(sortedNodeHashes, indexOfMax-1, size-1-(i+1));
-			Collections.swap(sortedNodeHashes, indexOfMax-2, size-1-(i+2));
-			Collections.swap(sortedNodeHashes, indexOfMax-3, size-1-(i+3));
 
-			Collections.swap(sortedConfigStores, indexOfMax/4, (size-1-i)/4);
-		}				
+			Collections.swap(sortedNodeHashes, indexOfMax, size-4-i);
+			Collections.swap(sortedNodeHashes, indexOfMax+1, size-3-i);
+			Collections.swap(sortedNodeHashes, indexOfMax+2, size-2-i);
+			Collections.swap(sortedNodeHashes, indexOfMax+3, size-1-i);
+
+			Collections.swap(sortedConfigStores, indexOfMax/4, (size-4-i)/4);
+		}
+
+		return checkVirtualNodesAdjacency();
 	}
 
-	protected int findCsIndex(String nodeName) {
-		int max = sortedNodeHashes.size();
-		for (int i=0; i<max; i += 4) {
-			if (sortedNodeHashes.get(i).equals(nodeName)) {
-				return i/4;
+	private boolean checkVirtualNodesAdjacency() {
+		int MAX = sortedConfigStores.size();
+		if (MAX <= 2) {
+			//	TODO	launchSSH(nodeData[1], nodeData[2], "DEBUG");
+			return true;
+		}
+		for (int i = 0; i < MAX; i++) {
+			if (sortedConfigStores.get(i).equals(sortedConfigStores.get((i + 1) % MAX))
+					|| sortedConfigStores.get(i).equals(sortedConfigStores.get((i + 2) % MAX))) {
+				return false;
 			}
 		}
-		return -1;
+		//	TODO	launchSSH(nodeData[1], nodeData[2], "DEBUG");
+		return true;
 	}
 
+	protected java.util.List<NodeData> getMetadataFromSortedList() {
+		LinkedList<NodeData> list = new LinkedList<>();
+		int size = sortedNodeHashes.size();
 
-	protected ConfigCommInterface removeNodeFromLists(int index) {
-
-		String name = sortedNodeHashes.remove(index * 4); // remove name
-		String ip = sortedNodeHashes.remove(index * 4); // remove ip
-		String port = sortedNodeHashes.remove(index * 4); // remove port
-		sortedNodeHashes.remove(index * 4); // remove hash
-
-		possibleRemainingNodes.add(new String[] {name, ip, port});
-
-		return sortedConfigStores.remove(index);
+		for (int i=0; i<size; i+=4) {
+			String minWriteHashKey = sortedNodeHashes.get((i-1 + size) % size);
+			String maxR2minR1HashKey = sortedNodeHashes.get((i-5 + 2 * size) % size);
+			String minR2HashKey = sortedNodeHashes.get((i-9 + 3 * size) % size);
+			list.add(new NodeData(sortedNodeHashes.get(i), sortedNodeHashes.get(i+1),
+					Integer.valueOf(sortedNodeHashes.get(i+2)), sortedNodeHashes.get(i+3), minWriteHashKey, maxR2minR1HashKey, minR2HashKey));
+		}
+		return list;
 	}
 
+	protected List<Integer> findVirtualNodeIndexes(Address a) {
+		List<Integer> l = new ArrayList<Integer>();
+		for (int i = 0; i < sortedConfigStores.size(); i ++) {
+			if (sortedConfigStores.get(i).getServerAddress().isSameAddress(a)) {
+				l.add(i);
+			}
+		}
+		return l;
+	}
+
+	/**
+	 * Remove all virtual nodes corresponding to given server from used-virtualnodes-lists
+	 * @param toRemoveAddress
+	 * @return list of removed virtual nodes indexes
+	 */
+	protected List<Integer> removeNodeFromLists(Address toRemoveAddress) {
+		List<Integer> indexesTmp = new ArrayList<>();
+
+		int k = 0;
+		while (k < sortedConfigStores.size()) {
+			ConfigCommInterface c = sortedConfigStores.get(k);
+			if (toRemoveAddress.equals(c.getServerAddress())) {
+				sortedConfigStores.remove(k);
+				indexesTmp.add(k);
+			} else {
+				k++;
+			}
+		}
+
+		String name = null;
+		
+		for (int i : indexesTmp) {
+			int j = i * 4;
+			name = sortedNodeHashes.remove(j); // remove name
+			sortedNodeHashes.remove(j); // remove ip
+			sortedNodeHashes.remove(j); // remove port
+			sortedNodeHashes.remove(j); // remove hash
+		}
+		
+		possibleRemainingNodes.add(new String[] {name, toRemoveAddress.getIp(),
+				Integer.toString(toRemoveAddress.getPort())});
+
+		for (ConfigCommInterface cs : uniqueConfigStores) {
+			if (cs.getServerAddress().isSameAddress(toRemoveAddress)) {
+				uniqueConfigStores.remove(cs);
+				break;
+			}
+		}
+		
+		List<Integer> indexes = new ArrayList<>();
+		int MAX = uniqueConfigStores.size();
+		for (int i : indexesTmp) {
+			indexes.add(i % MAX);
+		}
+		return indexes;
+	}
 
 	protected String printNodes() {
 		String s = "";

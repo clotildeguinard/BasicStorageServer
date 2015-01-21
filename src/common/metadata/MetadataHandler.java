@@ -94,10 +94,7 @@ public class MetadataHandler {
 			return true;
 		}
 		try {
-			String hashedKey = new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
-					.digest(key.getBytes("UTF-8"))).toString(16);
-			logger.debug("Hashed " + key + " --> " + hashedKey);
-
+			String hashedKey = getHash(key);
 			return hashIsInRange(hashedKey, minHash, maxHash);	
 		} catch (NullPointerException e) {
 			logger.warn("Hash of key " + key + " was null!");
@@ -107,8 +104,13 @@ public class MetadataHandler {
 			throw(e);
 		}
 	}
+	
+	protected String getHash(String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		return new BigInteger(1,MessageDigest.getInstance(hashingAlgorithm)
+				.digest(key.getBytes("UTF-8"))).toString(16);
+	}
 
-	private boolean hashIsInRange(String hashedKey, String minHash, String maxHash)
+	protected boolean hashIsInRange(String hashedKey, String minHash, String maxHash)
 			throws UnsupportedEncodingException, NoSuchAlgorithmException {
 		if (minHash.equals(maxHash)) {
 			// i.e. there is only one node
@@ -122,23 +124,23 @@ public class MetadataHandler {
 	}
 
 	public NodeData getRandom() throws NoSuchElementException {
-		return metadata.get(0);
+		int random = (int) (Math.random() * (metadata.size() - 1));
+		return metadata.get(random);
 	}
 
 
 	/**
-	 * @param ip
-	 * @param portNumber
-	 * @return
+	 * @param address
+	 * @return nodeData of virtual nodes corresponding to given address
 	 */
-	public NodeData getNodeData(String ip, int portNumber) {
-		Address a = new Address(ip, portNumber);
+	public List<NodeData> getNodeDataList(Address a) {
+		List<NodeData> l = new ArrayList<NodeData>();
 		for (NodeData e : metadata) {
 			if (e.getAddress().isSameAddress(a)) {
-				return e;
+				l.add(e);
 			}
 		}
-		return null;
+		return l;
 	}
 
 }

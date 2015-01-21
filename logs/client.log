@@ -732,3 +732,1232 @@
 2015-01-17 19:45:37,661 DEBUG [Thread-43] common.communication.KVCommModule: New received message : GET_SUCCESS goo gar
 2015-01-17 19:45:37,661 DEBUG [Thread-43] app_kvApi.KVStore: KVStore stopped
 2015-01-17 19:45:37,661 DEBUG [Thread-43] app_kvApi.KVStore: Connection closed.
+2015-01-20 14:59:19,208 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 14:59:19,242 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156/node4;localhost;50003;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b/
+2015-01-20 14:59:19,355 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 14:59:19,357 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 14:59:19,358 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 14:59:19,358 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 14:59:19,376 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 14:59:19,461 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 15:00:04,267 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:04,267 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:04,268 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:04,268 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:04,268 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:00:04,273 DEBUG [Thread-3] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 15:00:06,184 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:06,184 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:06,184 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:06,185 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:06,185 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:00:06,188 DEBUG [Thread-4] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 15:00:07,320 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:07,321 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:07,321 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:07,321 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:07,322 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 15:00:07,337 DEBUG [Thread-5] common.communication.KVCommModule: New received message : GET_ERROR foo null
+2015-01-20 15:00:08,317 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:08,318 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:08,318 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:08,319 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:00:08,319 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 15:00:08,323 DEBUG [Thread-6] common.communication.KVCommModule: New received message : GET_ERROR foo null
+2015-01-20 15:09:46,427 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 15:09:46,458 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156/node4;localhost;50003;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b/
+2015-01-20 15:09:46,572 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:09:46,573 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:09:46,573 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:09:46,573 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:09:46,589 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 15:09:46,675 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 15:27:33,741 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 15:27:33,775 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156/node4;localhost;50003;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b/
+2015-01-20 15:27:33,888 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:27:33,889 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:27:33,891 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:27:33,891 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:27:33,924 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 15:27:33,996 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 15:28:41,626 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:41,627 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:41,627 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:41,628 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:41,628 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 15:28:41,633 DEBUG [Thread-3] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 15:28:43,265 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:43,265 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:43,266 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:43,266 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:43,266 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 15:28:43,271 DEBUG [Thread-4] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 15:28:44,280 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:44,280 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:44,281 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:44,281 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:44,281 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:28:44,286 DEBUG [Thread-5] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 15:28:45,428 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:45,428 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:45,429 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:45,429 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:45,429 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 15:28:45,433 DEBUG [Thread-6] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 15:28:47,767 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:47,767 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:47,768 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:47,768 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:47,768 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 15:28:47,772 DEBUG [Thread-7] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 15:28:48,709 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:48,710 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:48,710 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:48,711 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:48,711 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:28:48,714 DEBUG [Thread-8] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 15:28:49,958 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:49,958 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:49,959 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:49,959 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:28:49,960 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 15:28:49,963 DEBUG [Thread-9] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 15:30:01,141 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 15:30:01,172 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156/node4;localhost;50003;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b/
+2015-01-20 15:30:01,285 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:30:01,286 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:30:01,287 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:30:01,288 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:30:01,317 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 15:30:01,393 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 15:30:05,330 DEBUG [main] common.metadata.MetadataHandler: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-20 15:30:05,330 DEBUG [main] common.metadata.MetadataHandler: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-20 15:30:05,330 DEBUG [main] common.metadata.MetadataHandler: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-20 15:30:05,331 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:30:05,334 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS goo tru
+2015-01-20 15:30:05,431 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS goo tru
+2015-01-20 15:30:08,818 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 15:30:08,818 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 15:30:08,818 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 15:30:08,819 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:30:08,822 DEBUG [Thread-4] common.communication.KVCommModule: New received message : PUT_SUCCESS hello world
+2015-01-20 15:30:08,920 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS hello world
+2015-01-20 15:30:13,470 DEBUG [main] common.metadata.MetadataHandler: Hashed fai --> 32ad2ddd45504852223c5f8effe24d57
+2015-01-20 15:30:13,470 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 15:30:13,474 DEBUG [Thread-5] common.communication.KVCommModule: New received message : PUT_SUCCESS fai tooo
+2015-01-20 15:30:13,572 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS fai tooo
+2015-01-20 15:51:38,269 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 15:51:38,301 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE goo node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156/node4;localhost;50003;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b/
+2015-01-20 15:51:38,414 DEBUG [main] common.metadata.MetadataHandler: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-20 15:51:38,415 DEBUG [main] common.metadata.MetadataHandler: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-20 15:51:38,416 DEBUG [main] common.metadata.MetadataHandler: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-20 15:51:38,416 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:51:38,441 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS goo tru
+2015-01-20 15:51:38,519 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS goo tru
+2015-01-20 15:51:52,346 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:51:52,347 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:51:52,347 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 15:51:52,347 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:51:52,351 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 15:51:52,448 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 15:52:03,388 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 15:52:03,389 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 15:52:03,389 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 15:52:03,389 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 15:52:03,393 DEBUG [Thread-4] common.communication.KVCommModule: New received message : PUT_SUCCESS hey ho
+2015-01-20 15:52:03,491 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS hey ho
+2015-01-20 15:52:08,906 DEBUG [main] common.metadata.MetadataHandler: Hashed gon --> c6fac1b43c0b97c1a80e11267cca23e9
+2015-01-20 15:52:08,906 DEBUG [main] common.metadata.MetadataHandler: Hashed gon --> c6fac1b43c0b97c1a80e11267cca23e9
+2015-01-20 15:52:08,907 DEBUG [main] common.metadata.MetadataHandler: Hashed gon --> c6fac1b43c0b97c1a80e11267cca23e9
+2015-01-20 15:52:08,907 DEBUG [main] common.metadata.MetadataHandler: Hashed gon --> c6fac1b43c0b97c1a80e11267cca23e9
+2015-01-20 15:52:08,907 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 15:52:08,912 DEBUG [Thread-5] common.communication.KVCommModule: New received message : PUT_SUCCESS gon tran
+2015-01-20 15:52:09,009 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS gon tran
+2015-01-20 17:29:24,525 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:29:24,557 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156/node4;localhost;50003;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b/
+2015-01-20 17:29:24,670 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 17:29:24,671 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 17:29:24,673 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 17:29:24,674 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 17:29:24,720 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 17:29:24,776 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 17:29:50,840 DEBUG [main] common.metadata.MetadataHandler: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-20 17:29:50,841 DEBUG [main] common.metadata.MetadataHandler: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-20 17:29:50,841 DEBUG [main] common.metadata.MetadataHandler: Hashed goo --> 6cdcbae015da6f882373107c90209267
+2015-01-20 17:29:50,841 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 17:29:50,846 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS goo ha
+2015-01-20 17:29:50,944 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS goo ha
+2015-01-20 17:29:55,038 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:29:55,039 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:29:55,039 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:29:55,040 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 17:29:55,044 DEBUG [Thread-4] common.communication.KVCommModule: New received message : PUT_SUCCESS hey ho
+2015-01-20 17:29:55,142 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS hey ho
+2015-01-20 17:30:00,675 DEBUG [main] common.metadata.MetadataHandler: Hashed giraph --> 609777ddaa64312463b75cc47134eb94
+2015-01-20 17:30:00,675 DEBUG [main] common.metadata.MetadataHandler: Hashed giraph --> 609777ddaa64312463b75cc47134eb94
+2015-01-20 17:30:00,676 DEBUG [main] common.metadata.MetadataHandler: Hashed giraph --> 609777ddaa64312463b75cc47134eb94
+2015-01-20 17:30:00,676 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 17:30:00,680 DEBUG [Thread-5] common.communication.KVCommModule: New received message : PUT_SUCCESS giraph tronj
+2015-01-20 17:30:00,777 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS giraph tronj
+2015-01-20 17:30:05,984 DEBUG [main] common.metadata.MetadataHandler: Hashed ji --> 78b83774d3a907fbea42783d58a95204
+2015-01-20 17:30:05,985 DEBUG [main] common.metadata.MetadataHandler: Hashed ji --> 78b83774d3a907fbea42783d58a95204
+2015-01-20 17:30:05,985 DEBUG [main] common.metadata.MetadataHandler: Hashed ji --> 78b83774d3a907fbea42783d58a95204
+2015-01-20 17:30:05,986 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 17:30:05,990 DEBUG [Thread-6] common.communication.KVCommModule: New received message : PUT_SUCCESS ji ra
+2015-01-20 17:30:06,087 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS ji ra
+2015-01-20 17:30:10,426 DEBUG [main] common.metadata.MetadataHandler: Hashed tree --> c0af77cf8294ff93a5cdb2963ca9f038
+2015-01-20 17:30:10,426 DEBUG [main] common.metadata.MetadataHandler: Hashed tree --> c0af77cf8294ff93a5cdb2963ca9f038
+2015-01-20 17:30:10,427 DEBUG [main] common.metadata.MetadataHandler: Hashed tree --> c0af77cf8294ff93a5cdb2963ca9f038
+2015-01-20 17:30:10,427 DEBUG [main] common.metadata.MetadataHandler: Hashed tree --> c0af77cf8294ff93a5cdb2963ca9f038
+2015-01-20 17:30:10,428 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 17:30:10,456 DEBUG [Thread-7] common.communication.KVCommModule: New received message : PUT_SUCCESS tree fee
+2015-01-20 17:30:10,529 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS tree fee
+2015-01-20 17:30:15,718 DEBUG [main] common.metadata.MetadataHandler: Hashed jte --> 4a432488ec5c0fe0348b36efc16d04d4
+2015-01-20 17:30:15,719 DEBUG [main] common.metadata.MetadataHandler: Hashed jte --> 4a432488ec5c0fe0348b36efc16d04d4
+2015-01-20 17:30:15,719 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 17:30:15,724 DEBUG [Thread-8] common.communication.KVCommModule: New received message : PUT_SUCCESS jte dfg
+2015-01-20 17:30:15,820 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS jte dfg
+2015-01-20 17:31:00,718 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:00,740 DEBUG [Thread-1] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:05,736 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:05,739 DEBUG [Thread-2] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:11,527 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:11,530 DEBUG [Thread-3] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:12,808 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:12,812 DEBUG [Thread-4] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:13,851 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:13,854 DEBUG [Thread-5] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:15,508 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:15,511 DEBUG [Thread-6] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:16,706 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:16,709 DEBUG [Thread-7] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:17,756 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:17,759 DEBUG [Thread-8] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:18,916 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:18,921 DEBUG [Thread-9] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:19,855 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:19,858 DEBUG [Thread-10] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:20,847 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:20,850 DEBUG [Thread-11] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:21,901 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:21,904 DEBUG [Thread-12] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:22,849 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:22,852 DEBUG [Thread-13] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 17:31:25,543 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:25,546 DEBUG [Thread-14] common.communication.KVCommModule: New received message : GET_SUCCESS hey ho
+2015-01-20 17:31:30,130 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:30,133 DEBUG [Thread-15] common.communication.KVCommModule: New received message : GET_SUCCESS ji ra
+2015-01-20 17:31:36,239 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:36,243 DEBUG [Thread-16] common.communication.KVCommModule: New received message : GET_ERROR kre null
+2015-01-20 17:31:41,189 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:41,193 DEBUG [Thread-17] common.communication.KVCommModule: New received message : GET_ERROR lre null
+2015-01-20 17:31:55,439 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:55,443 DEBUG [Thread-18] common.communication.KVCommModule: New received message : GET_ERROR hello null
+2015-01-20 17:31:58,910 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:31:58,914 DEBUG [Thread-19] common.communication.KVCommModule: New received message : GET_ERROR friend null
+2015-01-20 17:32:05,502 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:32:05,506 DEBUG [Thread-20] common.communication.KVCommModule: New received message : GET_ERROR woooooo null
+2015-01-20 17:32:09,587 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:32:09,592 DEBUG [Thread-21] common.communication.KVCommModule: New received message : GET_ERROR prec null
+2015-01-20 17:32:16,273 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:32:16,280 DEBUG [Thread-22] common.communication.KVCommModule: New received message : PUT_SUCCESS gre tre
+2015-01-20 17:32:16,374 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS gre tre
+2015-01-20 17:32:53,526 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:32:53,532 DEBUG [Thread-23] common.communication.KVCommModule: New received message : GET_ERROR hello null
+2015-01-20 17:32:59,353 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:32:59,357 DEBUG [Thread-24] common.communication.KVCommModule: New received message : GET_SUCCESS ji ra
+2015-01-20 17:33:03,052 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:33:03,056 DEBUG [Thread-25] common.communication.KVCommModule: New received message : GET_SUCCESS hey ho
+2015-01-20 17:33:08,739 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:33:08,743 DEBUG [Thread-26] common.communication.KVCommModule: New received message : GET_ERROR pre null
+2015-01-20 17:33:15,129 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:33:15,133 DEBUG [Thread-27] common.communication.KVCommModule: New received message : GET_ERROR fee null
+2015-01-20 17:33:19,609 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:33:19,612 DEBUG [Thread-28] common.communication.KVCommModule: New received message : GET_SUCCESS tree fee
+2015-01-20 17:58:37,223 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:58:37,243 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_STOPPED foo bar
+2015-01-20 17:58:37,340 DEBUG [main] app_kvApi.KVStore: Answer to put : SERVER_STOPPED foo bar
+2015-01-20 17:58:47,060 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:58:47,067 DEBUG [Thread-2] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156/node4;localhost;50003;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b/
+2015-01-20 17:58:47,189 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 17:58:47,191 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 17:58:47,192 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 17:58:47,193 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 17:58:47,225 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 17:58:47,297 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 17:59:00,417 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 17:59:00,417 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 17:59:00,418 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 17:59:00,418 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 17:59:00,423 DEBUG [Thread-4] common.communication.KVCommModule: New received message : PUT_SUCCESS hello world
+2015-01-20 17:59:00,519 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS hello world
+2015-01-20 17:59:03,598 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:59:03,598 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:59:03,599 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:59:03,599 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 17:59:03,603 DEBUG [Thread-5] common.communication.KVCommModule: New received message : PUT_SUCCESS hey ho
+2015-01-20 17:59:03,700 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS hey ho
+2015-01-20 17:59:07,666 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:59:07,667 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:59:07,667 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:59:07,668 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 17:59:07,672 DEBUG [Thread-6] common.communication.KVCommModule: New received message : PUT_UPDATE hey ho
+2015-01-20 17:59:07,770 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE hey ho
+2015-01-20 17:59:16,035 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:59:16,035 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:59:16,035 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 17:59:16,036 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 17:59:16,040 DEBUG [Thread-7] common.communication.KVCommModule: New received message : PUT_UPDATE hey goo
+2015-01-20 17:59:16,137 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE hey goo
+2015-01-20 17:59:20,269 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 17:59:20,270 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 17:59:20,270 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 17:59:20,270 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 17:59:20,274 DEBUG [Thread-8] common.communication.KVCommModule: New received message : PUT_SUCCESS fi fo
+2015-01-20 17:59:20,371 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS fi fo
+2015-01-20 17:59:22,730 DEBUG [main] common.metadata.MetadataHandler: Hashed l --> 2db95e8e1a9267b7a1188556b2013b33
+2015-01-20 17:59:22,730 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:59:22,734 DEBUG [Thread-9] common.communication.KVCommModule: New received message : PUT_SUCCESS l ru
+2015-01-20 17:59:22,832 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS l ru
+2015-01-20 17:59:26,884 DEBUG [main] common.metadata.MetadataHandler: Hashed l --> 2db95e8e1a9267b7a1188556b2013b33
+2015-01-20 17:59:26,884 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:59:26,888 DEBUG [Thread-10] common.communication.KVCommModule: New received message : PUT_UPDATE l fu
+2015-01-20 17:59:26,986 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE l fu
+2015-01-20 17:59:32,422 DEBUG [main] common.metadata.MetadataHandler: Hashed kung --> 36cd4f3073c7e54858990eb201c7ccd6
+2015-01-20 17:59:32,422 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 17:59:32,429 DEBUG [Thread-11] common.communication.KVCommModule: New received message : PUT_SUCCESS kung fu
+2015-01-20 17:59:32,524 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS kung fu
+2015-01-20 18:03:29,455 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:03:29,488 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156/node4;localhost;50003;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b/
+2015-01-20 18:03:29,601 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:03:29,603 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:03:29,604 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:03:29,604 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:03:29,652 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 18:03:29,707 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 18:03:34,152 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 18:03:34,152 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 18:03:34,153 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 18:03:34,153 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:03:34,158 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS fi foo
+2015-01-20 18:03:34,254 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS fi foo
+2015-01-20 18:03:37,577 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-20 18:03:37,577 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-20 18:03:37,578 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-20 18:03:37,578 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:03:37,582 DEBUG [Thread-4] common.communication.KVCommModule: New received message : PUT_SUCCESS he llo
+2015-01-20 18:03:37,679 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS he llo
+2015-01-20 18:03:43,178 DEBUG [main] common.metadata.MetadataHandler: Hashed la --> c9089f3c9adaf0186f6ffb1ee8d6501c
+2015-01-20 18:03:43,179 DEBUG [main] common.metadata.MetadataHandler: Hashed la --> c9089f3c9adaf0186f6ffb1ee8d6501c
+2015-01-20 18:03:43,179 DEBUG [main] common.metadata.MetadataHandler: Hashed la --> c9089f3c9adaf0186f6ffb1ee8d6501c
+2015-01-20 18:03:43,180 DEBUG [main] common.metadata.MetadataHandler: Hashed la --> c9089f3c9adaf0186f6ffb1ee8d6501c
+2015-01-20 18:03:43,180 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:03:43,184 DEBUG [Thread-5] common.communication.KVCommModule: New received message : PUT_SUCCESS la bringue
+2015-01-20 18:03:43,281 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS la bringue
+2015-01-20 18:03:53,797 DEBUG [main] common.metadata.MetadataHandler: Hashed la --> c9089f3c9adaf0186f6ffb1ee8d6501c
+2015-01-20 18:03:53,797 DEBUG [main] common.metadata.MetadataHandler: Hashed la --> c9089f3c9adaf0186f6ffb1ee8d6501c
+2015-01-20 18:03:53,800 DEBUG [main] common.metadata.MetadataHandler: Hashed la --> c9089f3c9adaf0186f6ffb1ee8d6501c
+2015-01-20 18:03:53,801 DEBUG [main] common.metadata.MetadataHandler: Hashed la --> c9089f3c9adaf0186f6ffb1ee8d6501c
+2015-01-20 18:03:53,801 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:04:16,040 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 18:04:16,041 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 18:04:16,041 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 18:04:16,041 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 18:04:16,042 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:04:27,813 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-20 18:04:27,813 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-20 18:04:27,814 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-20 18:04:27,814 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-20 18:04:27,814 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:04:27,820 DEBUG [Thread-6] common.communication.KVCommModule: New received message : GET_SUCCESS he llo
+2015-01-20 18:11:22,792 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:11:22,826 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0/node3;localhost;50002;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156/node4;localhost;50003;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b;f286ae5dd8de98335a6283c1b67bb869/node2;localhost;50001;f286ae5dd8de98335a6283c1b67bb869;ade5f7a15861c8318a8693d8a0c1c156;5a1d18d5194979b57a2d1634ad3f18c0;447aca9968653a3d3a2a977ee6ca884b/
+2015-01-20 18:11:22,940 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:11:22,942 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:11:22,943 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:11:22,944 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:11:22,993 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 18:11:23,047 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 18:11:28,228 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 18:11:28,229 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 18:11:28,229 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 18:11:28,229 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:11:28,234 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS hello world
+2015-01-20 18:11:28,330 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS hello world
+2015-01-20 18:11:31,807 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 18:11:31,807 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 18:11:31,808 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 18:11:31,808 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:11:31,812 DEBUG [Thread-4] common.communication.KVCommModule: New received message : PUT_SUCCESS hey ho
+2015-01-20 18:11:31,910 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS hey ho
+2015-01-20 18:11:40,704 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 18:11:40,705 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 18:11:40,705 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 18:11:40,706 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 18:11:40,706 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:11:40,710 DEBUG [Thread-5] common.communication.KVCommModule: New received message : GET_SUCCESS hey ho
+2015-01-20 18:11:45,729 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:11:45,729 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:11:45,733 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:11:45,734 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:11:45,734 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:11:45,739 DEBUG [Thread-6] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:11:51,005 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 18:11:51,005 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 18:11:51,006 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 18:11:51,006 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 18:11:51,006 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:11:51,011 DEBUG [Thread-7] common.communication.KVCommModule: New received message : GET_SUCCESS hello world
+2015-01-20 18:12:11,956 DEBUG [main] common.metadata.MetadataHandler: Hashed bi --> 99d4fb3db1563c87da2cdfc0158b37c3
+2015-01-20 18:12:11,956 DEBUG [main] common.metadata.MetadataHandler: Hashed bi --> 99d4fb3db1563c87da2cdfc0158b37c3
+2015-01-20 18:12:11,956 DEBUG [main] common.metadata.MetadataHandler: Hashed bi --> 99d4fb3db1563c87da2cdfc0158b37c3
+2015-01-20 18:12:11,957 DEBUG [main] common.metadata.MetadataHandler: Hashed bi --> 99d4fb3db1563c87da2cdfc0158b37c3
+2015-01-20 18:12:11,957 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:12:11,962 DEBUG [Thread-8] common.communication.KVCommModule: New received message : GET_ERROR bi null
+2015-01-20 18:12:39,491 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 18:12:39,491 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 18:12:39,492 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 18:12:39,492 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 18:12:39,492 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:12:39,533 DEBUG [Thread-9] common.communication.KVCommModule: New received message : GET_SUCCESS hello world
+2015-01-20 18:12:43,651 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:12:43,652 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:12:43,652 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:12:43,652 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:12:43,653 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:12:43,722 DEBUG [Thread-10] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:12:46,420 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 18:12:46,421 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 18:12:46,421 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 18:12:46,421 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 18:12:46,422 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:12:46,464 DEBUG [Thread-11] common.communication.KVCommModule: New received message : GET_SUCCESS hey ho
+2015-01-20 18:12:57,513 DEBUG [main] common.metadata.MetadataHandler: Hashed giraph --> 609777ddaa64312463b75cc47134eb94
+2015-01-20 18:12:57,513 DEBUG [main] common.metadata.MetadataHandler: Hashed giraph --> 609777ddaa64312463b75cc47134eb94
+2015-01-20 18:12:57,514 DEBUG [main] common.metadata.MetadataHandler: Hashed giraph --> 609777ddaa64312463b75cc47134eb94
+2015-01-20 18:12:57,514 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:12:57,552 DEBUG [Thread-12] common.communication.KVCommModule: New received message : PUT_SUCCESS giraph high
+2015-01-20 18:12:57,615 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS giraph high
+2015-01-20 18:13:03,372 DEBUG [main] common.metadata.MetadataHandler: Hashed dog --> 6d80eb0c50b49a509b49f2424e8c805
+2015-01-20 18:13:03,372 DEBUG [main] common.metadata.MetadataHandler: Hashed dog --> 6d80eb0c50b49a509b49f2424e8c805
+2015-01-20 18:13:03,373 DEBUG [main] common.metadata.MetadataHandler: Hashed dog --> 6d80eb0c50b49a509b49f2424e8c805
+2015-01-20 18:13:03,373 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:13:03,425 DEBUG [Thread-13] common.communication.KVCommModule: New received message : PUT_SUCCESS dog 4
+2015-01-20 18:13:03,474 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS dog 4
+2015-01-20 18:13:10,097 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:10,098 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:10,098 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:10,098 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:10,099 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:13:10,166 DEBUG [Thread-14] common.communication.KVCommModule: New received message : PUT_SUCCESS ding dong
+2015-01-20 18:13:10,199 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS ding dong
+2015-01-20 18:13:18,487 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:18,487 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:18,487 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:18,488 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:18,488 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:13:18,529 DEBUG [Thread-15] common.communication.KVCommModule: New received message : GET_SUCCESS ding dong
+2015-01-20 18:13:22,824 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:22,825 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:22,825 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:22,826 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:22,826 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 18:13:22,875 DEBUG [Thread-16] common.communication.KVCommModule: New received message : GET_SUCCESS ding dong
+2015-01-20 18:13:42,076 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:42,076 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:42,077 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:42,077 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:42,077 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 18:13:42,207 DEBUG [Thread-17] common.communication.KVCommModule: New received message : GET_SUCCESS ding dong
+2015-01-20 18:13:48,281 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:48,282 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:48,282 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:48,283 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:48,283 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:13:48,404 DEBUG [Thread-18] common.communication.KVCommModule: New received message : GET_SUCCESS ding dong
+2015-01-20 18:13:49,480 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:49,480 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:49,480 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:49,481 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:49,481 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:13:49,641 DEBUG [Thread-19] common.communication.KVCommModule: New received message : GET_SUCCESS ding dong
+2015-01-20 18:13:50,404 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:50,405 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:50,405 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:50,405 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:50,406 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:13:50,522 DEBUG [Thread-20] common.communication.KVCommModule: New received message : GET_SUCCESS ding dong
+2015-01-20 18:13:51,354 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:51,354 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:51,355 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:51,355 DEBUG [main] common.metadata.MetadataHandler: Hashed ding --> c2eaa4c670cd4c1c537b2a2ae4fbeb5d
+2015-01-20 18:13:51,355 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:13:51,484 DEBUG [Thread-21] common.communication.KVCommModule: New received message : GET_SUCCESS ding dong
+2015-01-20 18:13:54,118 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:54,118 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:54,119 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:54,119 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:54,119 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:13:54,219 DEBUG [Thread-22] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:13:54,991 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:54,991 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:54,992 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:54,992 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:54,992 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:13:55,070 DEBUG [Thread-23] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:13:55,868 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:55,869 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:55,869 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:55,869 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:55,870 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:13:57,036 WARN  [main] app_kvApi.KVStore: IOException when requesting to server localhost:50003 : Connection refused: connect
+2015-01-20 18:13:57,036 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:13:57,169 DEBUG [Thread-24] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:13:58,753 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:58,753 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:58,754 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:58,754 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:58,754 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:13:58,877 DEBUG [Thread-25] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:13:59,704 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:59,705 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:59,705 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:59,705 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:13:59,705 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:13:59,801 DEBUG [Thread-26] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:00,528 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:00,529 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:00,529 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:00,529 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:00,529 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:14:01,541 WARN  [main] app_kvApi.KVStore: IOException when requesting to server localhost:50003 : Connection refused: connect
+2015-01-20 18:14:01,541 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:14:01,626 DEBUG [Thread-27] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:02,515 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:02,515 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:02,516 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:02,516 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:02,516 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:14:03,533 WARN  [main] app_kvApi.KVStore: IOException when requesting to server localhost:50003 : Connection refused: connect
+2015-01-20 18:14:03,533 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:14:03,618 DEBUG [Thread-28] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:04,505 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:04,505 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:04,505 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:04,506 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:04,506 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:14:04,577 DEBUG [Thread-29] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:05,552 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:05,553 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:05,553 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:05,554 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:05,554 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:14:05,670 DEBUG [Thread-30] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:06,652 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:06,653 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:06,653 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:06,653 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:06,654 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:14:06,795 DEBUG [Thread-31] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:07,624 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:07,624 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:07,624 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:07,625 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:07,625 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:14:07,727 DEBUG [Thread-32] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:08,630 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:08,631 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:08,631 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:08,631 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:08,632 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:14:09,640 WARN  [main] app_kvApi.KVStore: IOException when requesting to server localhost:50003 : Connection refused: connect
+2015-01-20 18:14:09,640 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:14:09,747 DEBUG [Thread-33] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:10,829 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:10,830 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:10,830 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:10,831 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:10,831 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:14:10,934 DEBUG [Thread-34] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:11,790 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:11,791 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:11,791 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:11,792 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:11,792 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:14:11,897 DEBUG [Thread-35] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:12,800 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:12,800 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:12,801 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:12,801 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:12,801 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:14:12,879 DEBUG [Thread-36] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:13,736 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:13,737 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:13,737 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:13,738 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:13,738 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:14:13,890 DEBUG [Thread-37] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:14,643 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:14,644 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:14,644 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:14,644 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:14,644 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 18:14:15,640 WARN  [main] app_kvApi.KVStore: IOException when requesting to server localhost:50003 : Connection refused: connect
+2015-01-20 18:14:15,640 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:14:15,775 DEBUG [Thread-38] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:16,866 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:16,866 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:16,867 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:16,867 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:16,867 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:14:16,963 DEBUG [Thread-39] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:17,755 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:17,756 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:17,756 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:17,756 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:17,756 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 18:14:17,837 DEBUG [Thread-40] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:18,643 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:18,644 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:18,644 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:18,644 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:18,644 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:14:18,744 DEBUG [Thread-41] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 18:14:19,531 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:19,531 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:19,531 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:19,532 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 18:14:19,532 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 18:14:19,645 DEBUG [Thread-42] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 19:20:34,218 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 19:20:34,241 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_STOPPED localhost;50002;0 he
+2015-01-20 19:20:34,337 DEBUG [main] app_kvApi.KVStore: Answer to put : SERVER_STOPPED localhost;50002;0 he
+2015-01-20 19:20:40,683 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 19:20:40,688 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS localhost;50002;0 he
+2015-01-20 19:20:40,785 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS localhost;50002;0 he
+2015-01-20 19:21:18,768 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 19:21:18,776 DEBUG [Thread-3] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE localhost;50002;2 node3;localhost;50002;136440fa88e8f83fef6120e33c2d34cd;f069af0e8fbc32fbd6568737e866299d;b25ffa2fa3da808c6ddcac927405fafa;983c038bb858e2efff95944cf32a593a/node1;localhost;50000;983c038bb858e2efff95944cf32a593a;136440fa88e8f83fef6120e33c2d34cd;f069af0e8fbc32fbd6568737e866299d;b25ffa2fa3da808c6ddcac927405fafa/node4;localhost;50003;b25ffa2fa3da808c6ddcac927405fafa;983c038bb858e2efff95944cf32a593a;136440fa88e8f83fef6120e33c2d34cd;f069af0e8fbc32fbd6568737e866299d/node2;localhost;50001;f069af0e8fbc32fbd6568737e866299d;b25ffa2fa3da808c6ddcac927405fafa;983c038bb858e2efff95944cf32a593a;136440fa88e8f83fef6120e33c2d34cd/
+2015-01-20 19:21:18,897 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:21:18,898 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 19:21:18,934 DEBUG [Thread-4] common.communication.KVCommModule: New received message : PUT_SUCCESS localhost;50002;2 he
+2015-01-20 19:21:19,001 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS localhost;50002;2 he
+2015-01-20 19:22:13,088 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:13,088 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:13,089 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:13,089 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:13,089 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 19:22:13,094 DEBUG [Thread-5] common.communication.KVCommModule: New received message : GET_SUCCESS localhost;50002;2 he
+2015-01-20 19:22:15,239 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:15,240 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:15,240 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:15,241 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:15,241 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 19:22:15,245 DEBUG [Thread-6] common.communication.KVCommModule: New received message : GET_SUCCESS localhost;50002;2 he
+2015-01-20 19:22:16,340 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:16,340 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:16,341 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:16,341 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:16,341 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 19:22:16,345 DEBUG [Thread-7] common.communication.KVCommModule: New received message : GET_SUCCESS localhost;50002;2 he
+2015-01-20 19:22:17,280 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:17,280 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:17,284 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:17,285 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:17,285 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 19:22:17,289 DEBUG [Thread-8] common.communication.KVCommModule: New received message : GET_SUCCESS localhost;50002;2 he
+2015-01-20 19:22:18,084 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:18,085 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:18,085 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:18,085 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:18,086 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 19:22:18,089 DEBUG [Thread-9] common.communication.KVCommModule: New received message : GET_SUCCESS localhost;50002;2 he
+2015-01-20 19:22:18,937 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:18,937 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:18,938 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:18,938 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:18,938 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 19:22:18,942 DEBUG [Thread-10] common.communication.KVCommModule: New received message : GET_SUCCESS localhost;50002;2 he
+2015-01-20 19:22:19,764 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:19,764 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:19,765 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:19,765 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:19,765 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 19:22:19,769 DEBUG [Thread-11] common.communication.KVCommModule: New received message : GET_SUCCESS localhost;50002;2 he
+2015-01-20 19:22:20,770 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:20,771 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:20,771 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:20,772 DEBUG [main] common.metadata.MetadataHandler: Hashed localhost;50002;2 --> 136440fa88e8f83fef6120e33c2d34cd
+2015-01-20 19:22:20,772 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 19:22:20,775 DEBUG [Thread-12] common.communication.KVCommModule: New received message : GET_SUCCESS localhost;50002;2 he
+2015-01-20 19:22:49,519 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 19:22:49,520 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 19:22:49,520 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 19:22:49,520 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 19:22:49,525 DEBUG [Thread-13] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 19:22:49,622 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 19:22:52,851 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 19:22:52,851 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 19:22:52,852 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 19:22:52,852 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 19:22:52,855 DEBUG [Thread-14] common.communication.KVCommModule: New received message : PUT_UPDATE foo bat
+2015-01-20 19:22:52,954 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE foo bat
+2015-01-20 19:22:58,656 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:22:58,657 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:22:58,657 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 19:22:58,661 DEBUG [Thread-15] common.communication.KVCommModule: New received message : PUT_SUCCESS hey ho
+2015-01-20 19:22:58,758 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS hey ho
+2015-01-20 19:23:01,574 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:23:01,574 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:23:01,575 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 19:23:01,578 DEBUG [Thread-16] common.communication.KVCommModule: New received message : PUT_UPDATE hey hop
+2015-01-20 19:23:01,676 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE hey hop
+2015-01-20 19:23:06,221 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:23:06,221 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:23:06,221 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 19:23:06,225 DEBUG [Thread-17] common.communication.KVCommModule: New received message : DELETE_SUCCESS hey null
+2015-01-20 19:23:06,323 DEBUG [main] app_kvApi.KVStore: Answer to put : DELETE_SUCCESS hey null
+2015-01-20 19:24:16,791 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:24:16,791 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:24:16,791 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 19:24:16,795 DEBUG [Thread-18] common.communication.KVCommModule: New received message : DELETE_SUCCESS hey null
+2015-01-20 19:24:16,893 DEBUG [main] app_kvApi.KVStore: Answer to put : DELETE_SUCCESS hey null
+2015-01-20 19:24:29,201 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 19:24:29,202 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 19:24:29,202 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 19:24:29,202 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 19:24:29,202 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 19:24:29,206 DEBUG [Thread-19] common.communication.KVCommModule: New received message : GET_SUCCESS foo bat
+2015-01-20 19:24:34,735 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:24:34,735 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:24:34,736 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:24:34,736 DEBUG [main] common.metadata.MetadataHandler: Hashed hey --> 6057f13c496ecf7fd777ceb9e79ae285
+2015-01-20 19:24:34,736 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 19:24:34,740 DEBUG [Thread-20] common.communication.KVCommModule: New received message : GET_SUCCESS hey null
+2015-01-20 20:45:27,136 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:45:27,167 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_STOPPED foo bar
+2015-01-20 20:45:27,277 DEBUG [main] app_kvApi.KVStore: Answer to put : SERVER_STOPPED foo bar
+2015-01-20 20:45:32,808 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:45:32,824 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 20:45:32,917 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 20:45:35,824 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:45:35,824 DEBUG [Thread-3] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 20:45:45,496 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:45:45,512 DEBUG [Thread-4] common.communication.KVCommModule: New received message : GET_ERROR he null
+2015-01-20 20:45:50,543 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:45:50,559 DEBUG [Thread-5] common.communication.KVCommModule: New received message : GET_ERROR kre null
+2015-01-20 20:45:54,715 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:45:54,715 DEBUG [Thread-6] common.communication.KVCommModule: New received message : GET_ERROR ttt null
+2015-01-20 20:46:00,341 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:46:00,341 DEBUG [Thread-7] common.communication.KVCommModule: New received message : GET_ERROR lom null
+2015-01-20 20:46:03,794 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:46:03,810 DEBUG [Thread-8] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE prot node3;localhost;50002;3a887d2342358444acd608dc516d9552;d5be75a89f2bd0819f42783b57299205;c75f38130942e823513398a9ca6a5fc0;a711338d58282eca527132b81ff59ff7/node2;localhost;50001;4bf85c0aaa5d9d31e426407689eca8f0;3a887d2342358444acd608dc516d9552;d5be75a89f2bd0819f42783b57299205;c75f38130942e823513398a9ca6a5fc0/node4;localhost;50003;5c388d8e835582aa634edbb10f3a6ee2;4bf85c0aaa5d9d31e426407689eca8f0;3a887d2342358444acd608dc516d9552;d5be75a89f2bd0819f42783b57299205/node4;localhost;50003;70c9f2c921d6aa2f0cd57a4803d02051;5c388d8e835582aa634edbb10f3a6ee2;4bf85c0aaa5d9d31e426407689eca8f0;3a887d2342358444acd608dc516d9552/node1;localhost;50000;983c038bb858e2efff95944cf32a593a;70c9f2c921d6aa2f0cd57a4803d02051;5c388d8e835582aa634edbb10f3a6ee2;4bf85c0aaa5d9d31e426407689eca8f0/node2;localhost;50001;a711338d58282eca527132b81ff59ff7;983c038bb858e2efff95944cf32a593a;70c9f2c921d6aa2f0cd57a4803d02051;5c388d8e835582aa634edbb10f3a6ee2/node1;localhost;50000;c75f38130942e823513398a9ca6a5fc0;a711338d58282eca527132b81ff59ff7;983c038bb858e2efff95944cf32a593a;70c9f2c921d6aa2f0cd57a4803d02051/node3;localhost;50002;d5be75a89f2bd0819f42783b57299205;c75f38130942e823513398a9ca6a5fc0;a711338d58282eca527132b81ff59ff7;983c038bb858e2efff95944cf32a593a/
+2015-01-20 20:46:03,919 DEBUG [main] common.metadata.MetadataHandler: Hashed prot --> 2a42284998e2ce6a3776ad3696dceed
+2015-01-20 20:46:03,919 DEBUG [main] common.metadata.MetadataHandler: Hashed prot --> 2a42284998e2ce6a3776ad3696dceed
+2015-01-20 20:46:03,919 DEBUG [main] common.metadata.MetadataHandler: Hashed prot --> 2a42284998e2ce6a3776ad3696dceed
+2015-01-20 20:46:03,919 DEBUG [main] common.metadata.MetadataHandler: Hashed prot --> 2a42284998e2ce6a3776ad3696dceed
+2015-01-20 20:46:03,935 DEBUG [main] common.metadata.MetadataHandler: Hashed prot --> 2a42284998e2ce6a3776ad3696dceed
+2015-01-20 20:46:03,935 DEBUG [main] common.metadata.MetadataHandler: Hashed prot --> 2a42284998e2ce6a3776ad3696dceed
+2015-01-20 20:46:03,935 DEBUG [main] common.metadata.MetadataHandler: Hashed prot --> 2a42284998e2ce6a3776ad3696dceed
+2015-01-20 20:46:03,935 DEBUG [main] common.metadata.MetadataHandler: Hashed prot --> 2a42284998e2ce6a3776ad3696dceed
+2015-01-20 20:46:03,935 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 20:46:03,950 DEBUG [Thread-9] common.communication.KVCommModule: New received message : GET_ERROR prot null
+2015-01-20 20:46:23,795 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:46:23,795 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:46:23,795 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 20:46:23,811 DEBUG [Thread-10] common.communication.KVCommModule: New received message : PUT_SUCCESS beer fresh
+2015-01-20 20:46:23,920 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS beer fresh
+2015-01-20 20:46:27,514 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:46:27,514 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 20:46:27,514 DEBUG [Thread-11] common.communication.KVCommModule: New received message : PUT_SUCCESS coca cola
+2015-01-20 20:46:27,624 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS coca cola
+2015-01-20 20:46:37,124 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:46:37,124 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:46:37,124 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:46:37,124 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:46:37,124 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:46:37,124 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:46:37,124 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:46:37,124 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:46:37,124 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 20:46:37,265 DEBUG [Thread-12] common.communication.KVCommModule: New received message : GET_SUCCESS beer fresh
+2015-01-20 20:46:39,827 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:46:39,827 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:46:39,827 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:46:39,827 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:46:39,827 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:46:39,827 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:46:39,827 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:46:39,827 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:46:39,827 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 20:46:39,968 DEBUG [Thread-13] common.communication.KVCommModule: New received message : GET_SUCCESS coca cola
+2015-01-20 20:46:43,374 DEBUG [main] common.metadata.MetadataHandler: Hashed fanta --> fd04791012b234e48d348cebb5e18790
+2015-01-20 20:46:43,374 DEBUG [main] common.metadata.MetadataHandler: Hashed fanta --> fd04791012b234e48d348cebb5e18790
+2015-01-20 20:46:43,374 DEBUG [main] common.metadata.MetadataHandler: Hashed fanta --> fd04791012b234e48d348cebb5e18790
+2015-01-20 20:46:43,374 DEBUG [main] common.metadata.MetadataHandler: Hashed fanta --> fd04791012b234e48d348cebb5e18790
+2015-01-20 20:46:43,374 DEBUG [main] common.metadata.MetadataHandler: Hashed fanta --> fd04791012b234e48d348cebb5e18790
+2015-01-20 20:46:43,374 DEBUG [main] common.metadata.MetadataHandler: Hashed fanta --> fd04791012b234e48d348cebb5e18790
+2015-01-20 20:46:43,374 DEBUG [main] common.metadata.MetadataHandler: Hashed fanta --> fd04791012b234e48d348cebb5e18790
+2015-01-20 20:46:43,374 DEBUG [main] common.metadata.MetadataHandler: Hashed fanta --> fd04791012b234e48d348cebb5e18790
+2015-01-20 20:46:43,374 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 20:46:43,468 DEBUG [Thread-14] common.communication.KVCommModule: New received message : GET_ERROR fanta null
+2015-01-20 20:46:46,890 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:46,890 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:46,890 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:46,890 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:46,890 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:46,890 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:46,890 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:46,890 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:46,890 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 20:46:46,937 DEBUG [Thread-15] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 20:46:51,328 DEBUG [main] common.metadata.MetadataHandler: Hashed mal --> 749dfe7c0cd3b291ec96d0bb8924cb46
+2015-01-20 20:46:51,328 DEBUG [main] common.metadata.MetadataHandler: Hashed mal --> 749dfe7c0cd3b291ec96d0bb8924cb46
+2015-01-20 20:46:51,328 DEBUG [main] common.metadata.MetadataHandler: Hashed mal --> 749dfe7c0cd3b291ec96d0bb8924cb46
+2015-01-20 20:46:51,328 DEBUG [main] common.metadata.MetadataHandler: Hashed mal --> 749dfe7c0cd3b291ec96d0bb8924cb46
+2015-01-20 20:46:51,328 DEBUG [main] common.metadata.MetadataHandler: Hashed mal --> 749dfe7c0cd3b291ec96d0bb8924cb46
+2015-01-20 20:46:51,328 DEBUG [main] common.metadata.MetadataHandler: Hashed mal --> 749dfe7c0cd3b291ec96d0bb8924cb46
+2015-01-20 20:46:51,328 DEBUG [main] common.metadata.MetadataHandler: Hashed mal --> 749dfe7c0cd3b291ec96d0bb8924cb46
+2015-01-20 20:46:51,328 DEBUG [main] common.metadata.MetadataHandler: Hashed mal --> 749dfe7c0cd3b291ec96d0bb8924cb46
+2015-01-20 20:46:51,328 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:46:52,344 WARN  [main] app_kvApi.KVStore: IOException when requesting to server localhost:50000 : Connection refused: connect
+2015-01-20 20:46:52,344 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-20 20:46:52,422 DEBUG [Thread-16] common.communication.KVCommModule: New received message : GET_ERROR mal null
+2015-01-20 20:46:57,047 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:57,047 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:57,047 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:57,047 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:57,047 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:57,047 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:57,047 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:46:57,047 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:47:08,376 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:08,376 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:08,376 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:08,376 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:08,376 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:08,376 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:08,376 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:08,376 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:47:15,329 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:47:15,329 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 20:47:15,423 DEBUG [Thread-17] common.communication.KVCommModule: New received message : PUT_UPDATE coca col
+2015-01-20 20:47:15,439 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE coca col
+2015-01-20 20:47:42,298 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:47:42,298 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:47:42,298 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:47:42,298 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:47:42,298 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:47:42,314 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:47:42,314 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:47:42,314 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 20:47:42,314 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 20:47:42,533 DEBUG [Thread-18] common.communication.KVCommModule: New received message : GET_SUCCESS coca col
+2015-01-20 20:47:46,814 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:47:46,814 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:47:46,814 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:47:46,814 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:47:46,814 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:47:46,814 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:47:46,814 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:47:46,814 DEBUG [main] common.metadata.MetadataHandler: Hashed beer --> 3e1867f5aee83045775fbe355e6a3ce1
+2015-01-20 20:47:46,830 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 20:47:47,470 DEBUG [Thread-19] common.communication.KVCommModule: New received message : GET_SUCCESS beer fresh
+2015-01-20 20:47:58,408 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:58,408 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:58,408 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:58,408 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:58,408 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:58,408 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:58,408 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:58,408 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:47:58,408 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 20:47:58,643 DEBUG [Thread-20] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-20 20:48:05,862 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:05,878 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:05,878 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:05,878 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:05,878 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:05,878 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:05,878 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:05,878 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 20:48:06,096 DEBUG [Thread-21] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;295ce04f591847c6b0fe292e12ca256c;d5be75a89f2bd0819f42783b57299205;a711338d58282eca527132b81ff59ff7;70c9f2c921d6aa2f0cd57a4803d02051/node3;localhost;50002;3a887d2342358444acd608dc516d9552;295ce04f591847c6b0fe292e12ca256c;d5be75a89f2bd0819f42783b57299205;a711338d58282eca527132b81ff59ff7/node2;localhost;50001;4bf85c0aaa5d9d31e426407689eca8f0;3a887d2342358444acd608dc516d9552;295ce04f591847c6b0fe292e12ca256c;d5be75a89f2bd0819f42783b57299205/node1;localhost;50000;5a921ed39b8c68c57747c6962f69503c;4bf85c0aaa5d9d31e426407689eca8f0;3a887d2342358444acd608dc516d9552;295ce04f591847c6b0fe292e12ca256c/node4;localhost;50003;5c388d8e835582aa634edbb10f3a6ee2;5a921ed39b8c68c57747c6962f69503c;4bf85c0aaa5d9d31e426407689eca8f0;3a887d2342358444acd608dc516d9552/node4;localhost;50003;70c9f2c921d6aa2f0cd57a4803d02051;5c388d8e835582aa634edbb10f3a6ee2;5a921ed39b8c68c57747c6962f69503c;4bf85c0aaa5d9d31e426407689eca8f0/node2;localhost;50001;a711338d58282eca527132b81ff59ff7;70c9f2c921d6aa2f0cd57a4803d02051;5c388d8e835582aa634edbb10f3a6ee2;5a921ed39b8c68c57747c6962f69503c/node3;localhost;50002;d5be75a89f2bd0819f42783b57299205;a711338d58282eca527132b81ff59ff7;70c9f2c921d6aa2f0cd57a4803d02051;5c388d8e835582aa634edbb10f3a6ee2/
+2015-01-20 20:48:06,206 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:06,206 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:06,206 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:06,206 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:06,206 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:06,206 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:06,206 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:06,206 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-20 20:48:06,206 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 20:48:06,768 DEBUG [Thread-22] common.communication.KVCommModule: New received message : PUT_UPDATE foo barr
+2015-01-20 20:48:06,862 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE foo barr
+2015-01-20 21:00:23,889 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 21:00:23,920 DEBUG [Thread-1] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-20 21:00:24,030 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-20 21:00:29,139 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 21:00:29,155 DEBUG [Thread-2] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE coca node3;localhost;50002;3a887d2342358444acd608dc516d9552;d5be75a89f2bd0819f42783b57299205;c75f38130942e823513398a9ca6a5fc0;a711338d58282eca527132b81ff59ff7/node2;localhost;50001;4bf85c0aaa5d9d31e426407689eca8f0;3a887d2342358444acd608dc516d9552;d5be75a89f2bd0819f42783b57299205;c75f38130942e823513398a9ca6a5fc0/node4;localhost;50003;5c388d8e835582aa634edbb10f3a6ee2;4bf85c0aaa5d9d31e426407689eca8f0;3a887d2342358444acd608dc516d9552;d5be75a89f2bd0819f42783b57299205/node4;localhost;50003;70c9f2c921d6aa2f0cd57a4803d02051;5c388d8e835582aa634edbb10f3a6ee2;4bf85c0aaa5d9d31e426407689eca8f0;3a887d2342358444acd608dc516d9552/node1;localhost;50000;983c038bb858e2efff95944cf32a593a;70c9f2c921d6aa2f0cd57a4803d02051;5c388d8e835582aa634edbb10f3a6ee2;4bf85c0aaa5d9d31e426407689eca8f0/node2;localhost;50001;a711338d58282eca527132b81ff59ff7;983c038bb858e2efff95944cf32a593a;70c9f2c921d6aa2f0cd57a4803d02051;5c388d8e835582aa634edbb10f3a6ee2/node1;localhost;50000;c75f38130942e823513398a9ca6a5fc0;a711338d58282eca527132b81ff59ff7;983c038bb858e2efff95944cf32a593a;70c9f2c921d6aa2f0cd57a4803d02051/node3;localhost;50002;d5be75a89f2bd0819f42783b57299205;c75f38130942e823513398a9ca6a5fc0;a711338d58282eca527132b81ff59ff7;983c038bb858e2efff95944cf32a593a/
+2015-01-20 21:00:29,264 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 21:00:29,264 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 21:00:29,264 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS coca cola
+2015-01-20 21:00:29,374 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS coca cola
+2015-01-20 21:00:35,374 DEBUG [main] common.metadata.MetadataHandler: Hashed fresh --> 76010858c8362d7302ef5f9436aa6639
+2015-01-20 21:00:35,374 DEBUG [main] common.metadata.MetadataHandler: Hashed fresh --> 76010858c8362d7302ef5f9436aa6639
+2015-01-20 21:00:35,374 DEBUG [main] common.metadata.MetadataHandler: Hashed fresh --> 76010858c8362d7302ef5f9436aa6639
+2015-01-20 21:00:35,390 DEBUG [main] common.metadata.MetadataHandler: Hashed fresh --> 76010858c8362d7302ef5f9436aa6639
+2015-01-20 21:00:35,390 DEBUG [main] common.metadata.MetadataHandler: Hashed fresh --> 76010858c8362d7302ef5f9436aa6639
+2015-01-20 21:00:35,390 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 21:00:35,390 DEBUG [Thread-4] common.communication.KVCommModule: New received message : PUT_SUCCESS fresh beer
+2015-01-20 21:00:35,499 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS fresh beer
+2015-01-20 21:00:39,171 DEBUG [main] common.metadata.MetadataHandler: Hashed fanta --> fd04791012b234e48d348cebb5e18790
+2015-01-20 21:00:39,171 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 21:00:39,171 DEBUG [Thread-5] common.communication.KVCommModule: New received message : PUT_SUCCESS fanta fanta
+2015-01-20 21:00:39,281 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS fanta fanta
+2015-01-20 21:00:43,875 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 21:00:43,875 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 21:00:43,875 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 21:00:43,875 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 21:00:43,875 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 21:00:43,875 DEBUG [Thread-6] common.communication.KVCommModule: New received message : PUT_SUCCESS hello world
+2015-01-20 21:00:43,984 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS hello world
+2015-01-20 21:00:46,406 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 21:00:46,406 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 21:00:46,406 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 21:00:46,406 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 21:00:46,406 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 21:00:46,406 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 21:00:46,421 DEBUG [Thread-7] common.communication.KVCommModule: New received message : PUT_SUCCESS fi fo
+2015-01-20 21:00:46,531 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS fi fo
+2015-01-20 21:00:56,672 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 21:00:56,672 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 21:00:56,672 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 21:00:56,672 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 21:00:56,672 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-20 21:00:56,672 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 21:00:56,672 DEBUG [Thread-8] common.communication.KVCommModule: New received message : PUT_UPDATE fi fo
+2015-01-20 21:00:56,781 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE fi fo
+2015-01-20 21:01:03,375 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-20 21:01:03,375 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-20 21:01:03,391 DEBUG [Thread-9] common.communication.KVCommModule: New received message : PUT_UPDATE coca cola
+2015-01-20 21:01:03,485 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE coca cola
+2015-01-20 21:01:07,110 DEBUG [main] common.metadata.MetadataHandler: Hashed fresh --> 76010858c8362d7302ef5f9436aa6639
+2015-01-20 21:01:07,110 DEBUG [main] common.metadata.MetadataHandler: Hashed fresh --> 76010858c8362d7302ef5f9436aa6639
+2015-01-20 21:01:07,110 DEBUG [main] common.metadata.MetadataHandler: Hashed fresh --> 76010858c8362d7302ef5f9436aa6639
+2015-01-20 21:01:07,110 DEBUG [main] common.metadata.MetadataHandler: Hashed fresh --> 76010858c8362d7302ef5f9436aa6639
+2015-01-20 21:01:07,110 DEBUG [main] common.metadata.MetadataHandler: Hashed fresh --> 76010858c8362d7302ef5f9436aa6639
+2015-01-20 21:01:07,110 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-20 21:01:07,110 DEBUG [Thread-10] common.communication.KVCommModule: New received message : PUT_UPDATE fresh beer
+2015-01-20 21:01:07,219 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE fresh beer
+2015-01-20 21:01:13,001 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 21:01:13,001 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 21:01:13,001 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 21:01:13,001 DEBUG [main] common.metadata.MetadataHandler: Hashed hello --> 5d41402abc4b2a76b9719d911017c592
+2015-01-20 21:01:13,001 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-20 21:01:13,017 DEBUG [Thread-11] common.communication.KVCommModule: New received message : PUT_UPDATE hello world
+2015-01-20 21:01:13,110 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE hello world
+2015-01-21 11:54:12,407 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:54:12,438 DEBUG [Thread-1] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-21 11:54:12,532 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-21 11:55:36,162 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:55:36,162 DEBUG [Thread-2] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-21 11:55:38,881 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:55:38,896 DEBUG [Thread-3] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-21 11:55:40,990 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:55:40,990 DEBUG [Thread-4] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-21 11:55:45,318 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:55:45,318 DEBUG [Thread-5] common.communication.KVCommModule: New received message : PUT_SUCCESS gre ye
+2015-01-21 11:55:45,428 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS gre ye
+2015-01-21 11:55:50,569 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:55:50,569 DEBUG [Thread-6] common.communication.KVCommModule: New received message : PUT_SUCCESS coca cola
+2015-01-21 11:55:50,678 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS coca cola
+2015-01-21 11:55:53,631 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:55:53,631 DEBUG [Thread-7] common.communication.KVCommModule: New received message : PUT_SUCCESS fi fo
+2015-01-21 11:55:53,741 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS fi fo
+2015-01-21 11:55:57,538 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:55:57,553 DEBUG [Thread-8] common.communication.KVCommModule: New received message : PUT_SUCCESS ya hoo
+2015-01-21 11:55:57,647 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS ya hoo
+2015-01-21 11:56:00,444 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:56:00,475 DEBUG [Thread-9] common.communication.KVCommModule: New received message : PUT_SUCCESS de ca
+2015-01-21 11:56:00,554 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS de ca
+2015-01-21 11:56:03,773 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:56:03,773 DEBUG [Thread-10] common.communication.KVCommModule: New received message : PUT_SUCCESS ca fe
+2015-01-21 11:56:03,882 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS ca fe
+2015-01-21 11:56:08,933 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:56:08,948 DEBUG [Thread-11] common.communication.KVCommModule: New received message : PUT_SUCCESS mai son
+2015-01-21 11:56:09,042 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS mai son
+2015-01-21 11:56:13,042 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:56:13,042 DEBUG [Thread-12] common.communication.KVCommModule: New received message : PUT_SUCCESS kung fu
+2015-01-21 11:56:13,151 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS kung fu
+2015-01-21 11:56:19,105 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:56:19,105 DEBUG [Thread-13] common.communication.KVCommModule: New received message : PUT_SUCCESS ying yang
+2015-01-21 11:56:19,214 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS ying yang
+2015-01-21 11:56:24,215 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 11:56:24,230 DEBUG [Thread-14] common.communication.KVCommModule: New received message : PUT_SUCCESS je tre
+2015-01-21 11:56:24,324 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS je tre
+2015-01-21 16:19:28,233 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:19:28,268 DEBUG [Thread-1] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-21 16:19:28,354 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-21 16:19:50,767 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:19:50,785 DEBUG [Thread-2] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE coca node3;localhost;50002;1e067a50b197b105823a79d70846ea98;f1d4140c9fbbdde8ac1e856560545ab8;ebcfac0a4e0c73dad647aa61bc6cb487;e5a2aeb80229e960bdc60af43ebaf2fd/node1;localhost;50000;53fded92944653ea23b668467507e9d0;1e067a50b197b105823a79d70846ea98;f1d4140c9fbbdde8ac1e856560545ab8;ebcfac0a4e0c73dad647aa61bc6cb487/node2;localhost;50001;55c504a23420291121f1b073f1412e39;53fded92944653ea23b668467507e9d0;1e067a50b197b105823a79d70846ea98;f1d4140c9fbbdde8ac1e856560545ab8/node4;localhost;50003;64f75e041512f5c669d9c3a609f1a5bf;55c504a23420291121f1b073f1412e39;53fded92944653ea23b668467507e9d0;1e067a50b197b105823a79d70846ea98/node3;localhost;50002;70c4e7a5beccdcbb9f7c8022845514a3;64f75e041512f5c669d9c3a609f1a5bf;55c504a23420291121f1b073f1412e39;53fded92944653ea23b668467507e9d0/node1;localhost;50000;7ef3df3c4feb065ec5b788c6c012fa25;70c4e7a5beccdcbb9f7c8022845514a3;64f75e041512f5c669d9c3a609f1a5bf;55c504a23420291121f1b073f1412e39/node4;localhost;50003;9eb8569b57bed9b06251162efe4f4c81;7ef3df3c4feb065ec5b788c6c012fa25;70c4e7a5beccdcbb9f7c8022845514a3;64f75e041512f5c669d9c3a609f1a5bf/node2;localhost;50001;ab222507b6817f7e99b5bc0576e8ddf8;9eb8569b57bed9b06251162efe4f4c81;7ef3df3c4feb065ec5b788c6c012fa25;70c4e7a5beccdcbb9f7c8022845514a3/node1;localhost;50000;b54aaf027fd2dba1867ee49f47b65594;ab222507b6817f7e99b5bc0576e8ddf8;9eb8569b57bed9b06251162efe4f4c81;7ef3df3c4feb065ec5b788c6c012fa25/node3;localhost;50002;bba1ddcae1639d2e8c2d8d57b1a83205;b54aaf027fd2dba1867ee49f47b65594;ab222507b6817f7e99b5bc0576e8ddf8;9eb8569b57bed9b06251162efe4f4c81/node2;localhost;50001;c30d0d553ad2c3863610a45fc6b938fe;bba1ddcae1639d2e8c2d8d57b1a83205;b54aaf027fd2dba1867ee49f47b65594;ab222507b6817f7e99b5bc0576e8ddf8/node4;localhost;50003;d37caa9ae9b350c320aeceaefef5dc68;c30d0d553ad2c3863610a45fc6b938fe;bba1ddcae1639d2e8c2d8d57b1a83205;b54aaf027fd2dba1867ee49f47b65594/node3;localhost;50002;e43fa06aca8953dc83e3db21c6c59ab5;d37caa9ae9b350c320aeceaefef5dc68;c30d0d553ad2c3863610a45fc6b938fe;bba1ddcae1639d2e8c2d8d57b1a83205/node2;localhost;50001;e5a2aeb80229e960bdc60af43ebaf2fd;e43fa06aca8953dc83e3db21c6c59ab5;d37caa9ae9b350c320aeceaefef5dc68;c30d0d553ad2c3863610a45fc6b938fe/node1;localhost;50000;ebcfac0a4e0c73dad647aa61bc6cb487;e5a2aeb80229e960bdc60af43ebaf2fd;e43fa06aca8953dc83e3db21c6c59ab5;d37caa9ae9b350c320aeceaefef5dc68/node4;localhost;50003;f1d4140c9fbbdde8ac1e856560545ab8;ebcfac0a4e0c73dad647aa61bc6cb487;e5a2aeb80229e960bdc60af43ebaf2fd;e43fa06aca8953dc83e3db21c6c59ab5/
+2015-01-21 16:19:50,896 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:50,898 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-21 16:19:50,911 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS coca cola
+2015-01-21 16:19:51,001 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS coca cola
+2015-01-21 16:19:57,715 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,715 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,716 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,716 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,716 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,717 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,717 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,717 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,718 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,718 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,719 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,719 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,720 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,720 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,724 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,725 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:19:57,725 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:19:57,729 DEBUG [Thread-4] common.communication.KVCommModule: New received message : GET_SUCCESS coca cola
+2015-01-21 16:20:01,304 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:01,304 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-21 16:20:01,309 DEBUG [Thread-5] common.communication.KVCommModule: New received message : DELETE_SUCCESS coca null
+2015-01-21 16:20:01,406 DEBUG [main] app_kvApi.KVStore: Answer to put : DELETE_SUCCESS coca null
+2015-01-21 16:20:05,141 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,141 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,141 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,142 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,142 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,142 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,143 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,143 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,144 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,144 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,145 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,145 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,145 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,146 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,146 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,147 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:20:05,147 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-21 16:20:05,151 DEBUG [Thread-6] common.communication.KVCommModule: New received message : GET_SUCCESS coca null
+2015-01-21 16:21:39,891 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,892 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,892 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,893 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,893 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,893 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,894 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,894 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,894 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,895 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,895 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,896 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,896 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,896 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,897 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,897 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:39,897 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-21 16:21:40,906 WARN  [main] app_kvApi.KVStore: IOException when requesting to server localhost:50001 : Connection refused: connect
+2015-01-21 16:21:40,906 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:21:40,962 DEBUG [Thread-7] common.communication.KVCommModule: New received message : GET_SUCCESS coca null
+2015-01-21 16:21:51,088 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,089 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,089 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,090 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,090 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,090 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,091 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,091 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,091 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,092 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,092 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,093 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,093 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,093 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,094 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,094 DEBUG [main] common.metadata.MetadataHandler: Hashed coca --> 12abfb4e81a7c23ce7a923c0e71819fd
+2015-01-21 16:21:51,094 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:21:51,171 DEBUG [Thread-8] common.communication.KVCommModule: New received message : GET_SUCCESS coca null
+2015-01-21 16:22:08,540 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,541 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,541 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,541 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,542 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,542 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,543 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,543 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,543 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,544 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,544 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,544 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,545 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,545 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,546 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,546 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:08,546 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:22:08,631 DEBUG [Thread-9] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-21 16:22:13,291 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,292 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,292 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,292 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,293 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,293 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,294 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,294 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,294 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,324 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,324 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,325 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,325 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,325 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,326 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,326 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:13,327 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:22:13,430 DEBUG [Thread-10] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-21 16:22:16,119 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,120 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,120 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,120 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,121 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,121 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,122 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,122 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,122 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,123 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,123 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,123 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,124 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,124 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,124 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,125 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:16,125 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-21 16:22:16,372 DEBUG [Thread-11] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-21 16:22:19,192 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,193 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,193 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,193 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,194 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,194 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,194 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,195 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,195 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,196 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,196 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,196 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,197 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,197 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,197 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,198 DEBUG [main] common.metadata.MetadataHandler: Hashed foo --> acbd18db4cc2f85cedef654fccc4a4d8
+2015-01-21 16:22:19,198 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-21 16:22:20,274 WARN  [main] app_kvApi.KVStore: IOException when requesting to server localhost:50001 : Connection refused: connect
+2015-01-21 16:22:20,274 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:22:20,342 DEBUG [Thread-12] common.communication.KVCommModule: New received message : GET_SUCCESS foo bar
+2015-01-21 16:22:31,726 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-21 16:22:31,727 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-21 16:22:31,727 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-21 16:22:31,727 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-21 16:22:31,728 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-21 16:22:31,728 DEBUG [main] common.metadata.MetadataHandler: Hashed fi --> 75778bf8fde7266d416b0089e7b8b793
+2015-01-21 16:22:31,728 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:22:31,797 DEBUG [Thread-13] common.communication.KVCommModule: New received message : PUT_SUCCESS fi fo
+2015-01-21 16:22:31,829 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS fi fo
+2015-01-21 16:22:35,347 DEBUG [main] common.metadata.MetadataHandler: Hashed gre --> 124c54355f396f0d1b0f653d105340b3
+2015-01-21 16:22:35,348 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-21 16:22:35,411 DEBUG [Thread-14] common.communication.KVCommModule: New received message : PUT_SUCCESS gre tre
+2015-01-21 16:22:35,449 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS gre tre
+2015-01-21 16:22:39,593 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-21 16:22:39,594 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-21 16:22:39,594 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-21 16:22:39,594 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-21 16:22:39,595 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-21 16:22:39,595 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-21 16:22:39,659 DEBUG [Thread-15] common.communication.KVCommModule: New received message : PUT_SUCCESS he ho
+2015-01-21 16:22:39,696 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS he ho
+2015-01-21 16:22:42,593 DEBUG [main] common.metadata.MetadataHandler: Hashed yi --> 10f9132e586392a6513eeeb303db630c
+2015-01-21 16:22:42,594 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-21 16:22:42,662 DEBUG [Thread-16] common.communication.KVCommModule: New received message : PUT_SUCCESS yi ya
+2015-01-21 16:22:42,694 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS yi ya
+2015-01-21 16:22:45,266 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,267 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,267 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,268 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,268 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,268 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,269 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,269 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,269 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,270 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,270 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,270 DEBUG [main] common.metadata.MetadataHandler: Hashed a --> cc175b9c0f1b6a831c399e269772661
+2015-01-21 16:22:45,271 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-21 16:22:45,387 DEBUG [Thread-17] common.communication.KVCommModule: New received message : PUT_SUCCESS a f
+2015-01-21 16:22:45,472 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS a f
+2015-01-21 16:22:48,746 DEBUG [main] common.metadata.MetadataHandler: Hashed j --> 363b122c528f54df4a0446b6bab05515
+2015-01-21 16:22:48,746 DEBUG [main] common.metadata.MetadataHandler: Hashed j --> 363b122c528f54df4a0446b6bab05515
+2015-01-21 16:22:48,746 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:22:48,827 DEBUG [Thread-18] common.communication.KVCommModule: New received message : PUT_SUCCESS j d
+2015-01-21 16:22:48,847 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS j d
+2015-01-21 16:22:53,834 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-21 16:22:53,835 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-21 16:22:53,835 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-21 16:22:53,836 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-21 16:22:53,836 DEBUG [main] common.metadata.MetadataHandler: Hashed he --> 6f96cfdfe5ccc627cadf24b41725caa4
+2015-01-21 16:22:53,836 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-21 16:22:54,025 DEBUG [Thread-19] common.communication.KVCommModule: New received message : PUT_UPDATE he tre
+2015-01-21 16:22:54,038 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE he tre
+2015-01-21 16:22:58,002 DEBUG [main] common.metadata.MetadataHandler: Hashed gra --> 4a17b63dd19d308b9c8becf7699b6f22
+2015-01-21 16:22:58,002 DEBUG [main] common.metadata.MetadataHandler: Hashed gra --> 4a17b63dd19d308b9c8becf7699b6f22
+2015-01-21 16:22:58,002 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:22:58,060 DEBUG [Thread-20] common.communication.KVCommModule: New received message : PUT_SUCCESS gra tre
+2015-01-21 16:22:58,103 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS gra tre
+2015-01-21 16:23:03,095 DEBUG [main] common.metadata.MetadataHandler: Hashed me --> ab86a1e1ef70dff97959067b723c5c24
+2015-01-21 16:23:03,096 DEBUG [main] common.metadata.MetadataHandler: Hashed me --> ab86a1e1ef70dff97959067b723c5c24
+2015-01-21 16:23:03,096 DEBUG [main] common.metadata.MetadataHandler: Hashed me --> ab86a1e1ef70dff97959067b723c5c24
+2015-01-21 16:23:03,096 DEBUG [main] common.metadata.MetadataHandler: Hashed me --> ab86a1e1ef70dff97959067b723c5c24
+2015-01-21 16:23:03,097 DEBUG [main] common.metadata.MetadataHandler: Hashed me --> ab86a1e1ef70dff97959067b723c5c24
+2015-01-21 16:23:03,097 DEBUG [main] common.metadata.MetadataHandler: Hashed me --> ab86a1e1ef70dff97959067b723c5c24
+2015-01-21 16:23:03,097 DEBUG [main] common.metadata.MetadataHandler: Hashed me --> ab86a1e1ef70dff97959067b723c5c24
+2015-01-21 16:23:03,098 DEBUG [main] common.metadata.MetadataHandler: Hashed me --> ab86a1e1ef70dff97959067b723c5c24
+2015-01-21 16:23:03,098 DEBUG [main] common.metadata.MetadataHandler: Hashed me --> ab86a1e1ef70dff97959067b723c5c24
+2015-01-21 16:23:03,098 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:23:03,218 DEBUG [Thread-21] common.communication.KVCommModule: New received message : PUT_SUCCESS me te
+2015-01-21 16:23:03,299 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS me te
+2015-01-21 16:23:08,574 DEBUG [main] common.metadata.MetadataHandler: Hashed be --> 910955a907e739b81ec8855763108a29
+2015-01-21 16:23:08,574 DEBUG [main] common.metadata.MetadataHandler: Hashed be --> 910955a907e739b81ec8855763108a29
+2015-01-21 16:23:08,574 DEBUG [main] common.metadata.MetadataHandler: Hashed be --> 910955a907e739b81ec8855763108a29
+2015-01-21 16:23:08,575 DEBUG [main] common.metadata.MetadataHandler: Hashed be --> 910955a907e739b81ec8855763108a29
+2015-01-21 16:23:08,575 DEBUG [main] common.metadata.MetadataHandler: Hashed be --> 910955a907e739b81ec8855763108a29
+2015-01-21 16:23:08,575 DEBUG [main] common.metadata.MetadataHandler: Hashed be --> 910955a907e739b81ec8855763108a29
+2015-01-21 16:23:08,576 DEBUG [main] common.metadata.MetadataHandler: Hashed be --> 910955a907e739b81ec8855763108a29
+2015-01-21 16:23:08,576 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-21 16:23:09,041 DEBUG [Thread-22] common.communication.KVCommModule: New received message : PUT_SUCCESS be rz
+2015-01-21 16:23:09,078 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS be rz
+2015-01-21 16:43:24,415 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:43:24,446 DEBUG [Thread-1] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-21 16:43:24,533 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-21 16:43:31,792 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:43:31,808 DEBUG [Thread-2] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE cca node1;localhost;50000;131d2ffa8feba52687d81d3497e42416;e20e1847e0d9fa23e91b31d7330671e4;c76b7bad62fe86176d71f4e91a316a95;c4f3884d9eec2ee28a21c7800b9ba73f/node2;localhost;50001;16b508fbefe19e18d869ad5517c0b634;131d2ffa8feba52687d81d3497e42416;e20e1847e0d9fa23e91b31d7330671e4;c76b7bad62fe86176d71f4e91a316a95/node4;localhost;50003;240ad5bfee336e55a126b8862e7eb05;16b508fbefe19e18d869ad5517c0b634;131d2ffa8feba52687d81d3497e42416;e20e1847e0d9fa23e91b31d7330671e4/node3;localhost;50002;26820e6259822321fd9bd90485230ed6;240ad5bfee336e55a126b8862e7eb05;16b508fbefe19e18d869ad5517c0b634;131d2ffa8feba52687d81d3497e42416/node2;localhost;50001;41e5b1bb65565ab10781fb6af8d02b50;26820e6259822321fd9bd90485230ed6;240ad5bfee336e55a126b8862e7eb05;16b508fbefe19e18d869ad5517c0b634/node1;localhost;50000;4e59ef2fa3c4044b6fc4bb2acadd43af;41e5b1bb65565ab10781fb6af8d02b50;26820e6259822321fd9bd90485230ed6;240ad5bfee336e55a126b8862e7eb05/node4;localhost;50003;4f806b6b64523106f3f5236344c522e;4e59ef2fa3c4044b6fc4bb2acadd43af;41e5b1bb65565ab10781fb6af8d02b50;26820e6259822321fd9bd90485230ed6/node2;localhost;50001;54251fed6e45e41560c40a0c6a9dd3a4;4f806b6b64523106f3f5236344c522e;4e59ef2fa3c4044b6fc4bb2acadd43af;41e5b1bb65565ab10781fb6af8d02b50/node3;localhost;50002;589c0676cb98ed03b012a93ff007059a;54251fed6e45e41560c40a0c6a9dd3a4;4f806b6b64523106f3f5236344c522e;4e59ef2fa3c4044b6fc4bb2acadd43af/node4;localhost;50003;719a66e7001874db03cbba80c0a526e0;589c0676cb98ed03b012a93ff007059a;54251fed6e45e41560c40a0c6a9dd3a4;4f806b6b64523106f3f5236344c522e/node1;localhost;50000;7c286c90ab2a3d68b77a46029774d3fc;719a66e7001874db03cbba80c0a526e0;589c0676cb98ed03b012a93ff007059a;54251fed6e45e41560c40a0c6a9dd3a4/node3;localhost;50002;7e8d582a3609eaa92660e1b715abf0b2;7c286c90ab2a3d68b77a46029774d3fc;719a66e7001874db03cbba80c0a526e0;589c0676cb98ed03b012a93ff007059a/node4;localhost;50003;ab2823bead50cce5104828a304fed584;7e8d582a3609eaa92660e1b715abf0b2;7c286c90ab2a3d68b77a46029774d3fc;719a66e7001874db03cbba80c0a526e0/node1;localhost;50000;c4f3884d9eec2ee28a21c7800b9ba73f;ab2823bead50cce5104828a304fed584;7e8d582a3609eaa92660e1b715abf0b2;7c286c90ab2a3d68b77a46029774d3fc/node2;localhost;50001;c76b7bad62fe86176d71f4e91a316a95;c4f3884d9eec2ee28a21c7800b9ba73f;ab2823bead50cce5104828a304fed584;7e8d582a3609eaa92660e1b715abf0b2/node3;localhost;50002;e20e1847e0d9fa23e91b31d7330671e4;c76b7bad62fe86176d71f4e91a316a95;c4f3884d9eec2ee28a21c7800b9ba73f;ab2823bead50cce5104828a304fed584/
+2015-01-21 16:43:31,923 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-21 16:43:31,942 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS cca cola
+2015-01-21 16:43:32,026 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS cca cola
+2015-01-21 16:44:18,528 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:44:18,556 DEBUG [Thread-4] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE coca node2;localhost;50001;2a918362c16825511f59fb2c923c700d;dafa45efd3d015b2ea673e35e3a196bc;ce77d0b07367b543eec9594f2d2e33c1;c8cb094186c7d0d9b632faaaad84fc09/node3;localhost;50002;2dbc45623e86ffe3fa326d5d68172911;2a918362c16825511f59fb2c923c700d;dafa45efd3d015b2ea673e35e3a196bc;ce77d0b07367b543eec9594f2d2e33c1/node1;localhost;50000;350c727c1d507e4826345a79f94a4852;2dbc45623e86ffe3fa326d5d68172911;2a918362c16825511f59fb2c923c700d;dafa45efd3d015b2ea673e35e3a196bc/node4;localhost;50003;3fa0c641c499492c4d57ab85be48b865;350c727c1d507e4826345a79f94a4852;2dbc45623e86ffe3fa326d5d68172911;2a918362c16825511f59fb2c923c700d/node2;localhost;50001;42d478ce66b409813c4f2ff33d7aad24;3fa0c641c499492c4d57ab85be48b865;350c727c1d507e4826345a79f94a4852;2dbc45623e86ffe3fa326d5d68172911/node1;localhost;50000;68e79a4c6d32d8994331525a7d515908;42d478ce66b409813c4f2ff33d7aad24;3fa0c641c499492c4d57ab85be48b865;350c727c1d507e4826345a79f94a4852/node3;localhost;50002;8d06984f16dba10a8356acf47357a890;68e79a4c6d32d8994331525a7d515908;42d478ce66b409813c4f2ff33d7aad24;3fa0c641c499492c4d57ab85be48b865/node2;localhost;50001;8fa2e3064c75c5e4f28d5916c464c2ce;8d06984f16dba10a8356acf47357a890;68e79a4c6d32d8994331525a7d515908;42d478ce66b409813c4f2ff33d7aad24/node4;localhost;50003;98777487fee0144e72113311d330d272;8fa2e3064c75c5e4f28d5916c464c2ce;8d06984f16dba10a8356acf47357a890;68e79a4c6d32d8994331525a7d515908/node3;localhost;50002;aee42d3a2613fddc13a362bf82bdc00f;98777487fee0144e72113311d330d272;8fa2e3064c75c5e4f28d5916c464c2ce;8d06984f16dba10a8356acf47357a890/node1;localhost;50000;b859e6e6deba7bdca1c842960de26ff5;aee42d3a2613fddc13a362bf82bdc00f;98777487fee0144e72113311d330d272;8fa2e3064c75c5e4f28d5916c464c2ce/node2;localhost;50001;bf323aadd8a510b795a215d491959f65;b859e6e6deba7bdca1c842960de26ff5;aee42d3a2613fddc13a362bf82bdc00f;98777487fee0144e72113311d330d272/node4;localhost;50003;c35c75fc3a40539b51807794c10b4c;bf323aadd8a510b795a215d491959f65;b859e6e6deba7bdca1c842960de26ff5;aee42d3a2613fddc13a362bf82bdc00f/node1;localhost;50000;c8cb094186c7d0d9b632faaaad84fc09;c35c75fc3a40539b51807794c10b4c;bf323aadd8a510b795a215d491959f65;b859e6e6deba7bdca1c842960de26ff5/node3;localhost;50002;ce77d0b07367b543eec9594f2d2e33c1;c8cb094186c7d0d9b632faaaad84fc09;c35c75fc3a40539b51807794c10b4c;bf323aadd8a510b795a215d491959f65/node4;localhost;50003;dafa45efd3d015b2ea673e35e3a196bc;ce77d0b07367b543eec9594f2d2e33c1;c8cb094186c7d0d9b632faaaad84fc09;c35c75fc3a40539b51807794c10b4c/
+2015-01-21 16:44:18,630 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-21 16:44:18,648 DEBUG [Thread-5] common.communication.KVCommModule: New received message : PUT_SUCCESS coca cola
+2015-01-21 16:44:18,731 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS coca cola
+2015-01-21 16:47:36,573 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:47:36,620 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node2;localhost;50001;1154f22b395174ac58822637a8852006;fcb845cea6fefb28669a597247836a0;d7d04aff478dee1237bb2321710efeda;d011ca1b33c932324a3c57ea4fb5f050/node3;localhost;50002;11fc4618bb231e6b59feeee1246aff75;1154f22b395174ac58822637a8852006;fcb845cea6fefb28669a597247836a0;d7d04aff478dee1237bb2321710efeda/node4;localhost;50003;372cf08c168b6b13c0055cf7c205b3d5;11fc4618bb231e6b59feeee1246aff75;1154f22b395174ac58822637a8852006;fcb845cea6fefb28669a597247836a0/node2;localhost;50001;3b453d40292b2392560a26ddae2d0e3b;372cf08c168b6b13c0055cf7c205b3d5;11fc4618bb231e6b59feeee1246aff75;1154f22b395174ac58822637a8852006/node3;localhost;50002;3bcf8d0ccb76d2f7145ab939896c3f10;3b453d40292b2392560a26ddae2d0e3b;372cf08c168b6b13c0055cf7c205b3d5;11fc4618bb231e6b59feeee1246aff75/node1;localhost;50000;514b795efafb2978bc4ea703886a5d80;3bcf8d0ccb76d2f7145ab939896c3f10;3b453d40292b2392560a26ddae2d0e3b;372cf08c168b6b13c0055cf7c205b3d5/node4;localhost;50003;7a6307ca8f887ce92a47680483bceacf;514b795efafb2978bc4ea703886a5d80;3bcf8d0ccb76d2f7145ab939896c3f10;3b453d40292b2392560a26ddae2d0e3b/node2;localhost;50001;b2150a927b74192828166562b5255760;7a6307ca8f887ce92a47680483bceacf;514b795efafb2978bc4ea703886a5d80;3bcf8d0ccb76d2f7145ab939896c3f10/node1;localhost;50000;b33288b84ee556703c63e8e0aa8acfb1;b2150a927b74192828166562b5255760;7a6307ca8f887ce92a47680483bceacf;514b795efafb2978bc4ea703886a5d80/node3;localhost;50002;b5e0b194b586a1bcc4a2138bb40a2b12;b33288b84ee556703c63e8e0aa8acfb1;b2150a927b74192828166562b5255760;7a6307ca8f887ce92a47680483bceacf/node4;localhost;50003;b700280d6afe2a6283364207b2cc3d08;b5e0b194b586a1bcc4a2138bb40a2b12;b33288b84ee556703c63e8e0aa8acfb1;b2150a927b74192828166562b5255760/node1;localhost;50000;b8d0fbbda7298d06221d76172ce45ce1;b700280d6afe2a6283364207b2cc3d08;b5e0b194b586a1bcc4a2138bb40a2b12;b33288b84ee556703c63e8e0aa8acfb1/node2;localhost;50001;c2eaf9f2702027134eb1882ba42f9fac;b8d0fbbda7298d06221d76172ce45ce1;b700280d6afe2a6283364207b2cc3d08;b5e0b194b586a1bcc4a2138bb40a2b12/node3;localhost;50002;d011ca1b33c932324a3c57ea4fb5f050;c2eaf9f2702027134eb1882ba42f9fac;b8d0fbbda7298d06221d76172ce45ce1;b700280d6afe2a6283364207b2cc3d08/node1;localhost;50000;d7d04aff478dee1237bb2321710efeda;d011ca1b33c932324a3c57ea4fb5f050;c2eaf9f2702027134eb1882ba42f9fac;b8d0fbbda7298d06221d76172ce45ce1/node4;localhost;50003;fcb845cea6fefb28669a597247836a0;d7d04aff478dee1237bb2321710efeda;d011ca1b33c932324a3c57ea4fb5f050;c2eaf9f2702027134eb1882ba42f9fac/
+2015-01-21 16:47:36,721 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-21 16:47:36,740 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-21 16:47:36,825 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-21 16:55:03,791 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-21 16:55:03,831 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node4;localhost;50003;18a593fadb48478752a7885447f44b93;fddadbfde8b0d17ea456f61dcbf592c3;d1e89465db53ec304da9b0a39c92a1e;d0c7ea5eb0e524645fb9c7fa754eae5e/node1;localhost;50000;23e8d1b5ea0ffdb587f0c931a3b2c4d9;18a593fadb48478752a7885447f44b93;fddadbfde8b0d17ea456f61dcbf592c3;d1e89465db53ec304da9b0a39c92a1e/node3;localhost;50002;2450f1a4806b69af5f37d6279eda1726;23e8d1b5ea0ffdb587f0c931a3b2c4d9;18a593fadb48478752a7885447f44b93;fddadbfde8b0d17ea456f61dcbf592c3/node2;localhost;50001;2bab19247e22fdbe9d816da7d3e5708;2450f1a4806b69af5f37d6279eda1726;23e8d1b5ea0ffdb587f0c931a3b2c4d9;18a593fadb48478752a7885447f44b93/node1;localhost;50000;2ecad712197f8d231b89943560815980;2bab19247e22fdbe9d816da7d3e5708;2450f1a4806b69af5f37d6279eda1726;23e8d1b5ea0ffdb587f0c931a3b2c4d9/node4;localhost;50003;413f06c973ed666e50331c34dd1577ba;2ecad712197f8d231b89943560815980;2bab19247e22fdbe9d816da7d3e5708;2450f1a4806b69af5f37d6279eda1726/node3;localhost;50002;58e62f52bfb93e008cf056a7d4a06d8;413f06c973ed666e50331c34dd1577ba;2ecad712197f8d231b89943560815980;2bab19247e22fdbe9d816da7d3e5708/node2;localhost;50001;64c5f7aca2f5c270793871f1297f9612;58e62f52bfb93e008cf056a7d4a06d8;413f06c973ed666e50331c34dd1577ba;2ecad712197f8d231b89943560815980/node1;localhost;50000;661fbd1c6f8937906851c7f4ecfcdc75;64c5f7aca2f5c270793871f1297f9612;58e62f52bfb93e008cf056a7d4a06d8;413f06c973ed666e50331c34dd1577ba/node4;localhost;50003;735b0fbd22872f254c28102c1fefc5ea;661fbd1c6f8937906851c7f4ecfcdc75;64c5f7aca2f5c270793871f1297f9612;58e62f52bfb93e008cf056a7d4a06d8/node3;localhost;50002;9098563b7129f5d8ff8e98a92b12bc6e;735b0fbd22872f254c28102c1fefc5ea;661fbd1c6f8937906851c7f4ecfcdc75;64c5f7aca2f5c270793871f1297f9612/node2;localhost;50001;b6b703d30fb788041b43f8e7f2884641;9098563b7129f5d8ff8e98a92b12bc6e;735b0fbd22872f254c28102c1fefc5ea;661fbd1c6f8937906851c7f4ecfcdc75/node1;localhost;50000;ce0a42fbbde818764c8df83185281c2a;b6b703d30fb788041b43f8e7f2884641;9098563b7129f5d8ff8e98a92b12bc6e;735b0fbd22872f254c28102c1fefc5ea/node4;localhost;50003;d0c7ea5eb0e524645fb9c7fa754eae5e;ce0a42fbbde818764c8df83185281c2a;b6b703d30fb788041b43f8e7f2884641;9098563b7129f5d8ff8e98a92b12bc6e/node3;localhost;50002;d1e89465db53ec304da9b0a39c92a1e;d0c7ea5eb0e524645fb9c7fa754eae5e;ce0a42fbbde818764c8df83185281c2a;b6b703d30fb788041b43f8e7f2884641/node2;localhost;50001;fddadbfde8b0d17ea456f61dcbf592c3;d1e89465db53ec304da9b0a39c92a1e;d0c7ea5eb0e524645fb9c7fa754eae5e;ce0a42fbbde818764c8df83185281c2a/
+2015-01-21 16:55:03,935 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-21 16:55:03,952 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-21 16:55:04,037 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-21 16:55:26,578 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-21 16:55:26,583 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS fre re
+2015-01-21 16:55:26,680 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS fre re

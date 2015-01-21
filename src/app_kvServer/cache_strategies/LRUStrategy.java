@@ -2,14 +2,6 @@ package app_kvServer.cache_strategies;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.concurrent.LinkedBlockingDeque;
-
-
-
-
-
-
-
 
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
@@ -24,7 +16,6 @@ public class LRUStrategy implements DataCache {
 		LRUCache = new LinkedList<Pair<String, String>>();
 		this.capacity = capacity;
 	}
-
 
 	/**
 	 * If cache already contains pair with same key, remove it

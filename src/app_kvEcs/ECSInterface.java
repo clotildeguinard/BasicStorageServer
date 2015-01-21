@@ -105,9 +105,11 @@ public class ECSInterface {
 					int nodesNumber = Integer.valueOf(input[1]);
 					int cacheSize = Integer.valueOf(input[2]);
 					Strategy strategy = Strategy.valueOf(input[3]);
-					if (cacheSize < 0 || nodesNumber < 1) {
-						printError("Cache size must be greater than -1 and node"
-								+ "number must be greater than 0.\nPlease try again.");
+					if (cacheSize < 0 || nodesNumber < 3) {
+						printError("Arguments do not match the following requirements : \n"
+								+ "\t Cache size >= 0 \n"
+								+ "\t Node number >= 3 \n"
+								+ "\t Please try again.");
 						break;
 					}
 					int initNodes = ecsClient.initService(nodesNumber, cacheSize, strategy);
@@ -145,7 +147,7 @@ public class ECSInterface {
 					break;
 				}
 
-				if(input.length != 3) {
+				if (input.length != 3) {
 					printError("Invalid number of arguments! "
 							+ "\n\t Usage: ADDNODE <cacheSize> <cacheStrategy> !");
 				} else {
@@ -183,9 +185,8 @@ public class ECSInterface {
 							+ "\n\t There are " + remainingNodes + " remaining nodes"
 									+ " in the system.");
 				} catch (IllegalArgumentException e) {
-					System.out.println("\t There is only one node currently."
-							+ "\n\t If you delete it your data will be lost."
-							+ "\n\t Please use SHUTDOWN if you really want to delete it.");
+					System.out.println("\t There are only three nodes currently."
+							+ "\n\t REMOVENODE refused.");
 				}
 					break;
 
@@ -199,7 +200,11 @@ public class ECSInterface {
 			}
 
 		} catch (NumberFormatException e) {
-			printError("Numerical argument could not be parsed; please try again.");
+			printError("Numerical argument could not be parsed."
+					+ "\n\t" + "Please try again.");
+		} catch (NoSuchElementException e) {
+			printError("Strategy could not be parsed."
+					+ "\n\t" + "Please try again and choose among <LRU|LFU|FIFO>.");
 		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
 			appStopped = true;
 			printError("A fatal error occurred - Application terminated");

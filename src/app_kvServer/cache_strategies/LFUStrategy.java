@@ -2,7 +2,6 @@ package app_kvServer.cache_strategies;
 
 import java.util.Iterator;
 import java.util.PriorityQueue;
-import java.util.concurrent.PriorityBlockingQueue;
 
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
@@ -17,7 +16,6 @@ public class LFUStrategy implements DataCache {
 		LFUCache = new PriorityQueue<>(capacity);
 		this.capacity = capacity;
 	}
-
 
 	/**
 	 * If pair is in cache, re-insert with higher priority

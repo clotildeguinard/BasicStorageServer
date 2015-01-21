@@ -16,6 +16,7 @@ import common.metadata.MetadataHandlerServer;
 import common.metadata.NodeData;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -44,6 +45,10 @@ public class ClientConnection implements Runnable {
 		this.heartbeatHandler = heartbeatHandler;
 	}
 
+	/**
+	 * Receive and answer one request,
+	 * then tear down connection
+	 */
 	@Override
 	public void run() {
 		try {
@@ -53,11 +58,12 @@ public class ClientConnection implements Runnable {
 			} catch (IllegalStateException e) {
 				logger.warn(e.getMessage());
 				commModule.sendKVMessage(new KVMessageImpl("error", null, request.getStatus()));
+				tearDownConnection();
 				return;
 			}
-			
+
 			handleRequest(request);
-			
+
 		} catch (IOException e) {
 			logger.error("A connection error occurred - Connection terminated "
 					+ e);
@@ -66,26 +72,36 @@ public class ClientConnection implements Runnable {
 					+ e);
 		}
 	}
-	
-	public void catchUpRequest(KVMessage request) throws NoSuchAlgorithmException, SocketException, IOException {
-		handleRequest(request);
-		tearDownConnection();
-	}
-	
-	private void handleRequest(KVMessage request) throws NoSuchAlgorithmException, SocketException, IOException {
-		KVMessage serverAnswer = null;
 
+	//	public void catchUpRequest(KVMessage request) throws NoSuchAlgorithmException, SocketException, IOException {
+	//		handleRequest(request);
+	//		tearDownConnection();
+	//	}
+
+	/**
+	 * Transfer to hearbeatHandler if is heartbeat,
+	 * else if stopped send "stopped" flag,
+	 * else execute request
+	 * @param request
+	 * @throws NoSuchAlgorithmException
+	 * @throws SocketException
+	 * @throws IOException
+	 */
+	private void handleRequest(KVMessage request) throws NoSuchAlgorithmException, SocketException, IOException {
 		String key = request.getKey();
 		String value = request.getValue();
 		StatusType status = request.getStatus();
 		logger.info("Requested from client : "
 				+ request);
-		
+
 		if (status == StatusType.HEARTBEAT && heartbeatHandler != null) {
 			heartbeatHandler.handleReceivedHeartBeat(new KVMessageImpl(key, value, StatusType.HEARTBEAT));
 			return;
-			
-		} else if (stopped) {
+		}
+
+		KVMessage serverAnswer = null;
+
+		if (stopped) {
 			serverAnswer = new KVMessageImpl(key, value,
 					StatusType.SERVER_STOPPED);
 		} else {
@@ -94,58 +110,63 @@ public class ClientConnection implements Runnable {
 		}
 		logger.info("Answer to client : "
 				+ serverAnswer);
+		commModule.sendKVMessage(serverAnswer);
+		tearDownConnection();
 
-		if (serverAnswer != null) {
-			commModule.sendKVMessage(serverAnswer);
-		} else {
-			logger.error("Null answer to request !");
-		}
-
-		try {
-			tearDownConnection();
-		} catch (IOException e) {
-			logger.error("An error occurred when tearing down the connection \n" + e );
-		}
-
-		if (serverAnswer != null && status == StatusType.PUT_PROPAGATE
-				&& hasToPropagateRequest(serverAnswer.getStatus())) {
-			propagateToReplicas(key, value);
+		if (status == StatusType.PUT_PROPAGATE
+				&& hasToPropagateWriteRequest(serverAnswer.getStatus())) {
+			propagateWriteToReplicas(key, value);
 		}
 	}
 
-	private boolean hasToPropagateRequest(StatusType answerStatus) {
+	/**
+	 * @param answerStatus
+	 * @return true if request was executed successfully locally
+	 */
+	private boolean hasToPropagateWriteRequest(StatusType answerStatus) {
 		return answerStatus != StatusType.SERVER_NOT_RESPONSIBLE
 				&& answerStatus != StatusType.SERVER_WRITE_LOCK
 				&& answerStatus != StatusType.DELETE_ERROR
 				&& answerStatus != StatusType.PUT_ERROR;
 	}
 
-	private void propagateToReplicas(String key, String value) throws UnknownHostException, IOException, NoSuchAlgorithmException {
-		NodeData rep1 = metadataHandler.getReplica1();
-		KVStore kvStore = new KVStoreServer(rep1.getAddress());
-		try {
-			kvStore.connect();
-			kvStore.put(key, value);
+	/**
+	 * Propagate write request to all virtual nodes being read responsible for the key,
+	 * except to virtual nodes corresponding to same server (hence, same storage)
+	 * @param key
+	 * @param value
+	 * @throws UnknownHostException
+	 * @throws NoSuchAlgorithmException
+	 * @throws UnsupportedEncodingException 
+	 */
+	private void propagateWriteToReplicas(String key, String value) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
+		List<NodeData> replicas = metadataHandler.getReplicas(key);
+		
+		for (NodeData r : replicas) {
+			KVStore kvStore = new KVStoreServer(r.getAddress());
+			try {
+				kvStore.connect();
+				kvStore.put(key, value);
 
-		} catch (InterruptedException e) {
-			logger.error("An error occurred during connection to other server", e);
-		} finally {
-			kvStore.disconnect();
-		}
-
-		NodeData rep2 = metadataHandler.getReplica2();
-		kvStore = new KVStoreServer(rep2.getAddress());
-		try {
-			kvStore.connect();
-			kvStore.put(key, value);
-
-		} catch (InterruptedException e) {
-			logger.error("An error occurred during connection to other server", e);
-		} finally {
-			kvStore.disconnect();
+			} catch (InterruptedException e) {
+				logger.error("Could not receive answer of replica because of : " + e.getMessage());
+			} catch (IOException e) {
+				logger.error("An error occurred during connection to replica because of : " + e.getMessage());
+			} finally {
+				kvStore.disconnect();
+			}
 		}
 	}
 
+	/**
+	 * 
+	 * @param key
+	 * @param value
+	 * @param requestStatus
+	 * @return answer of cacheManager if node is responsible, "not_responsible" flag else
+	 * @throws NoSuchAlgorithmException
+	 * @throws UnsupportedEncodingException
+	 */
 	private KVMessage executeCommand(String key, String value,
 			StatusType requestStatus) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		switch (requestStatus) {
@@ -175,18 +196,21 @@ public class ClientConnection implements Runnable {
 			} else {
 				return sharedCacheManager.put(key, value);
 			}
-			
+
 		default:
 			return null;
 		}
 	}
 
 	private void tearDownConnection() throws IOException {
-		if (clientSocket != null) {
-			commModule.closeStreams();
-			clientSocket.close();
-			clientSocket = null;
-			logger.debug("Connection closed.");
+		try {
+			if (clientSocket != null) {
+				commModule.closeStreams();
+				clientSocket.close();
+				clientSocket = null;
+			}
+		} catch (IOException e) {
+			logger.error("An error occurred when tearing down the connection \n" + e );
 		}
 	}
 }

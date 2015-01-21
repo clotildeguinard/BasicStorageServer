@@ -1,5 +1,7 @@
 package common.metadata;
 
+import common.messages.KVMessage;
+
 public class NodeData {
 	private Address address;
 	private String maxHashKey;
@@ -42,6 +44,18 @@ public class NodeData {
 
 	public String getName() {
 		return name;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(name).append(";");
+		sb.append(address).append(";");
+		sb.append(maxHashKey).append(";");
+		sb.append(minWriteHashKey).append(";");
+		sb.append(maxR2minR1HashKey).append(";");
+		sb.append(minR2HashKey);
+		return sb.toString();
 	}
 	
 

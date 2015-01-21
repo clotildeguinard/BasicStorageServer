@@ -15,11 +15,6 @@ public class ConnectionTest extends TestCase {
 
 	
 	public void testConnectionSuccess() {
-//		try {
-//			new LogSetup("testing/test.log", Level.DEBUG);
-//		} catch (IOException e1) {
-//			e1.printStackTrace();
-//		}
 		
 		Exception ex1 = null;
 		
@@ -35,32 +30,32 @@ public class ConnectionTest extends TestCase {
 	}
 	
 	
-//	public void testUnknownHost() {
-//		Exception ex = null;
-//		KVStore kvClient = new KVStoreClient("unknown", 50000);
-//		
-//		try {
-//			kvClient.connect();
-//		} catch (Exception e) {
-//			ex = e; 
-//		}
-//
-//		assertTrue(ex instanceof UnknownHostException);
-//	}
-//	
-//	
-//	public void testIllegalPort() {
-//		Exception ex = null;
-//		KVStore kvClient = new KVStoreClient("localhost", 123456789);
-//		
-//		try {
-//			kvClient.connect();
-//		} catch (Exception e) {
-//			ex = e; 
-//		}
-//
-//		assertTrue(ex instanceof IllegalArgumentException);
-//	}
+	public void testUnknownHost() {
+		Exception ex = null;
+		KVStore kvClient = new KVStoreClient("unknown", 50000);
+		
+		try {
+			kvClient.connect();
+		} catch (Exception e) {
+			ex = e; 
+		}
+
+		assertTrue(ex instanceof UnknownHostException);
+	}
+	
+	
+	public void testIllegalPort() {
+		Exception ex = null;
+		KVStore kvClient = new KVStoreClient("localhost", 123456789);
+		
+		try {
+			kvClient.connect();
+		} catch (Exception e) {
+			ex = e; 
+		}
+
+		assertTrue(ex instanceof IllegalArgumentException);
+	}
 	
 	
 

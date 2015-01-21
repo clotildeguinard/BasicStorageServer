@@ -2,7 +2,6 @@ package app_kvServer.cache_strategies;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.concurrent.LinkedBlockingDeque;
 
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
@@ -17,7 +16,7 @@ public class FIFOStrategy implements DataCache{
 		FIFOCache = new LinkedList<>();
 		this.capacity = capacity;
 	}
-	
+
 	/**
 	 * @return kvmessage if key is in cache, null otherwise
 	 */
@@ -40,13 +39,14 @@ public class FIFOStrategy implements DataCache{
 	public KVMessage put(String key, String value) {
 		StatusType status = StatusType.PUT_SUCCESS;
 		Pair<String, String> p = getPairIfKeyInCache(key);
+		Pair<String, String> rejected = new Pair<>();
 		if (p != null) {
 			FIFOCache.remove(p);
 			status = StatusType.PUT_UPDATE;
-		}
-		Pair<String, String> rejected = new Pair<>();
-		if (FIFOCache.size() == capacity) {
-			rejected = FIFOCache.removeLast();
+		} else {
+			if (FIFOCache.size() == capacity) {
+				rejected = FIFOCache.removeLast();
+			}
 		}
 		FIFOCache.addFirst(new Pair<String, String>(key, value));
 		return new KVMessageImpl(rejected.getKey(), rejected.getValue(), status);
@@ -60,7 +60,7 @@ public class FIFOStrategy implements DataCache{
 		}
 		return null;
 	}
-	
+
 
 	@Override
 	public String toString() {

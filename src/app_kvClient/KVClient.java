@@ -43,17 +43,6 @@ public class KVClient implements SocketListener {
 				printError("CLI does not respond - Application terminated ");
 			}
 		}
-
-		if (kvStore.connection != null) {
-			System.out.println("waiting connection...");
-			try {
-				kvStore.connection.join();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println("connection joined!");
-		}
 	}
 
 	public void handleCommand(String command) {
@@ -177,7 +166,6 @@ public class KVClient implements SocketListener {
 	@Override
 	public void handleNewMessage(TextMessage msg) {
 		System.out.println("Got new message in client");
-
 	}
 
 	private void printError(String error){
@@ -194,7 +182,6 @@ public class KVClient implements SocketListener {
 			new LogSetup("logs/client.log", Level.ALL);
 			KVClient app = new KVClient();
 			app.run();
-			System.out.println("finished to run");
 		} catch (IOException e) {
 			System.out.println("Error! Unable to initialize logger!");
 			e.printStackTrace();

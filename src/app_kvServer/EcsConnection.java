@@ -56,17 +56,17 @@ public class EcsConnection extends Thread {
 				}
 			}
 
-		} catch (IllegalStateException e) {
-			logger.warn(e.getMessage());
-			try {
-				kvServer.transferRequestToClient(ecsSocket,
-						KVMessageImpl.unmarshal(commModule.getLatestXmlTxt()));
-			} catch (IOException e1) {
-				logger.warn("Client request could not be transferred"
-						+ " from ecsCommModule to clientCommModule.");
-			}
-			hasToKeepConnectionAlive = true;
-			hasToStartOtherEcsConnection = true;
+//		} catch (IllegalStateException e) {
+//			logger.warn(e.getMessage());
+//			try {
+//				kvServer.transferRequestToClient(ecsSocket,
+//						KVMessageImpl.unmarshal(commModule.getLatestXmlTxt()));
+//			} catch (IOException e1) {
+//				logger.warn("Client request could not be transferred"
+//						+ " from ecsCommModule to clientCommModule.");
+//			}
+//			hasToKeepConnectionAlive = true;
+//			hasToStartOtherEcsConnection = true;
 		} catch (IOException e){
 			logger.fatal("Must shut down the server because of IOException : " + e.getMessage());
 			hasToShutdownServer = true;
