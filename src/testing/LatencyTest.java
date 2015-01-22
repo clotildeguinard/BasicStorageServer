@@ -2,23 +2,20 @@ package testing;
 
 import java.io.IOException;
 
-import org.apache.log4j.Level;
 import org.junit.Test;
 
 import app_kvClient.KVClient;
 import app_kvEcs.ECSInterface;
 import app_kvServer.KVServer;
 import junit.framework.TestCase;
-import logger.LogSetup;
 
 
 public class LatencyTest extends TestCase {
 	private static ECSInterface ecs;
 	private static KVClient kvclient;
 
-	public void before(int cacheSize, int nbNodes) {	
-
-		for (int i = 0; i < nbNodes; i++) {
+	public void before(int cacheSize, int nbNodes) throws IOException {	
+		for (int i = 0; i < nbNodes; i ++) {
 			new KVServer(50000 + i);
 		}
 
@@ -50,10 +47,12 @@ public class LatencyTest extends TestCase {
 	}
 
 	private void task(int nbRequests, int cacheSize, int nbNodes) {
-		before(cacheSize, nbNodes);
 		Exception ex = null;
 
 		try {
+
+			before(cacheSize, nbNodes);
+			
 			long startTime = System.currentTimeMillis();
 
 			// Task1

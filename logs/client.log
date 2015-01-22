@@ -2196,3 +2196,46 @@
 2015-01-22 14:23:19,088 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
 2015-01-22 14:23:19,094 DEBUG [Thread-10] common.communication.KVCommModule: New received message : PUT_SUCCESS l l
 2015-01-22 14:23:19,190 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS l l
+2015-01-22 15:50:39,683 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-22 15:50:41,628 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node1;localhost;50000;43b77c91fb38f9cab30b9f0f9a189582;f2a9c9e65cd66b485189bbfcca49fafa;d73a27982c6716ddf7fb81524fc5bb3b;c75f38130942e823513398a9ca6a5fc0/node4;localhost;50003;85eb63ebaaf66ede855e222130be3f9d;43b77c91fb38f9cab30b9f0f9a189582;f2a9c9e65cd66b485189bbfcca49fafa;d73a27982c6716ddf7fb81524fc5bb3b/node3;localhost;50002;90f548a801bf36579905f72baee85c40;85eb63ebaaf66ede855e222130be3f9d;43b77c91fb38f9cab30b9f0f9a189582;f2a9c9e65cd66b485189bbfcca49fafa/node1;localhost;50000;983c038bb858e2efff95944cf32a593a;90f548a801bf36579905f72baee85c40;85eb63ebaaf66ede855e222130be3f9d;43b77c91fb38f9cab30b9f0f9a189582/node2;localhost;50001;a360d6e17fd48c94cfb5a12d76641606;983c038bb858e2efff95944cf32a593a;90f548a801bf36579905f72baee85c40;85eb63ebaaf66ede855e222130be3f9d/node3;localhost;50002;b899457855bd1f853efa7e7ece65d0de;a360d6e17fd48c94cfb5a12d76641606;983c038bb858e2efff95944cf32a593a;90f548a801bf36579905f72baee85c40/node1;localhost;50000;c75f38130942e823513398a9ca6a5fc0;b899457855bd1f853efa7e7ece65d0de;a360d6e17fd48c94cfb5a12d76641606;983c038bb858e2efff95944cf32a593a/node2;localhost;50001;d73a27982c6716ddf7fb81524fc5bb3b;c75f38130942e823513398a9ca6a5fc0;b899457855bd1f853efa7e7ece65d0de;a360d6e17fd48c94cfb5a12d76641606/node4;localhost;50003;f2a9c9e65cd66b485189bbfcca49fafa;d73a27982c6716ddf7fb81524fc5bb3b;c75f38130942e823513398a9ca6a5fc0;b899457855bd1f853efa7e7ece65d0de/
+2015-01-22 15:50:42,023 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-22 15:50:42,687 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-22 15:50:43,075 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-22 15:50:50,348 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-22 15:50:51,857 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS ya he
+2015-01-22 15:50:52,233 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS ya he
+2015-01-22 15:51:00,956 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-22 15:51:02,874 DEBUG [Thread-4] common.communication.KVCommModule: New received message : PUT_SUCCESS kre kre
+2015-01-22 15:51:02,939 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS kre kre
+2015-01-22 20:31:51,076 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-22 20:31:51,113 DEBUG [Thread-1] common.communication.KVCommModule: New received message : SERVER_NOT_RESPONSIBLE foo node2;localhost;50001;3014982f2375edb41f458835dbf653c7;f2a9c9e65cd66b485189bbfcca49fafa;d73a27982c6716ddf7fb81524fc5bb3b;c75f38130942e823513398a9ca6a5fc0/node1;localhost;50000;43b77c91fb38f9cab30b9f0f9a189582;3014982f2375edb41f458835dbf653c7;f2a9c9e65cd66b485189bbfcca49fafa;d73a27982c6716ddf7fb81524fc5bb3b/node3;localhost;50002;6e06beca767c5b4e0adaf940e1517d52;43b77c91fb38f9cab30b9f0f9a189582;3014982f2375edb41f458835dbf653c7;f2a9c9e65cd66b485189bbfcca49fafa/node4;localhost;50003;85eb63ebaaf66ede855e222130be3f9d;6e06beca767c5b4e0adaf940e1517d52;43b77c91fb38f9cab30b9f0f9a189582;3014982f2375edb41f458835dbf653c7/node3;localhost;50002;90f548a801bf36579905f72baee85c40;85eb63ebaaf66ede855e222130be3f9d;6e06beca767c5b4e0adaf940e1517d52;43b77c91fb38f9cab30b9f0f9a189582/node1;localhost;50000;983c038bb858e2efff95944cf32a593a;90f548a801bf36579905f72baee85c40;85eb63ebaaf66ede855e222130be3f9d;6e06beca767c5b4e0adaf940e1517d52/node2;localhost;50001;a360d6e17fd48c94cfb5a12d76641606;983c038bb858e2efff95944cf32a593a;90f548a801bf36579905f72baee85c40;85eb63ebaaf66ede855e222130be3f9d/node3;localhost;50002;b899457855bd1f853efa7e7ece65d0de;a360d6e17fd48c94cfb5a12d76641606;983c038bb858e2efff95944cf32a593a;90f548a801bf36579905f72baee85c40/node1;localhost;50000;c75f38130942e823513398a9ca6a5fc0;b899457855bd1f853efa7e7ece65d0de;a360d6e17fd48c94cfb5a12d76641606;983c038bb858e2efff95944cf32a593a/node2;localhost;50001;d73a27982c6716ddf7fb81524fc5bb3b;c75f38130942e823513398a9ca6a5fc0;b899457855bd1f853efa7e7ece65d0de;a360d6e17fd48c94cfb5a12d76641606/node4;localhost;50003;f2a9c9e65cd66b485189bbfcca49fafa;d73a27982c6716ddf7fb81524fc5bb3b;c75f38130942e823513398a9ca6a5fc0;b899457855bd1f853efa7e7ece65d0de/
+2015-01-22 20:31:51,204 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-22 20:31:51,217 DEBUG [Thread-2] common.communication.KVCommModule: New received message : PUT_SUCCESS foo bar
+2015-01-22 20:31:51,306 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS foo bar
+2015-01-22 20:31:53,485 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-22 20:31:53,489 DEBUG [Thread-3] common.communication.KVCommModule: New received message : PUT_SUCCESS h h
+2015-01-22 20:31:53,588 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS h h
+2015-01-22 20:31:55,676 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-22 20:31:55,679 DEBUG [Thread-4] common.communication.KVCommModule: New received message : PUT_SUCCESS j j
+2015-01-22 20:31:55,778 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS j j
+2015-01-22 20:31:58,019 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-22 20:31:58,022 DEBUG [Thread-5] common.communication.KVCommModule: New received message : PUT_SUCCESS k k
+2015-01-22 20:31:58,121 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS k k
+2015-01-22 20:32:00,114 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50001
+2015-01-22 20:32:00,117 DEBUG [Thread-6] common.communication.KVCommModule: New received message : PUT_SUCCESS l l
+2015-01-22 20:32:00,216 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS l l
+2015-01-22 20:32:02,127 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-22 20:32:02,131 DEBUG [Thread-7] common.communication.KVCommModule: New received message : PUT_SUCCESS m m
+2015-01-22 20:32:02,229 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS m m
+2015-01-22 20:32:04,125 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-22 20:32:04,128 DEBUG [Thread-8] common.communication.KVCommModule: New received message : PUT_SUCCESS n n
+2015-01-22 20:32:04,226 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_SUCCESS n n
+2015-01-22 20:32:06,451 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50002
+2015-01-22 20:32:06,454 DEBUG [Thread-9] common.communication.KVCommModule: New received message : GET_SUCCESS n n
+2015-01-22 20:32:08,618 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50003
+2015-01-22 20:32:08,621 DEBUG [Thread-10] common.communication.KVCommModule: New received message : PUT_UPDATE n j
+2015-01-22 20:32:08,719 DEBUG [main] app_kvApi.KVStore: Answer to put : PUT_UPDATE n j
+2015-01-22 22:10:04,698 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-22 22:10:07,735 DEBUG [main] app_kvApi.KVStore: Answer to put : null
+2015-01-22 22:10:19,389 DEBUG [main] app_kvApi.KVStore: Connecting to localhost:50000
+2015-01-22 22:10:22,402 DEBUG [main] app_kvApi.KVStore: Answer to put : null

@@ -2,7 +2,6 @@ package testing;
 
 import java.io.IOException;
 
-import org.apache.log4j.Level;
 import org.junit.Test;
 
 import app_kvClient.KVClient;
@@ -15,15 +14,15 @@ public class ManyClientsTest extends TestCase {
 	private static ECSInterface ecs;
 	private static KVClient[] kvclients;
 	private static Thread[] clientThreads;
+	private static final int nbServers = 4;
 
-	private void before(int nbConcurrentClients) {
-		new KVServer(50000);
-		new KVServer(50001);
-		new KVServer(50002);
-		new KVServer(50003);
+	private void before(int nbConcurrentClients) throws IOException {
+		for (int i = 0; i < nbServers; i ++) {
+			new KVServer(50000 + i);
+		}
 
 		ecs = new ECSInterface("./testing/ecs.config.txt");
-		ecs.handleCommand("init 4 5 LRU");
+		ecs.handleCommand("init " + nbServers + " 5 LRU");
 		ecs.handleCommand("start");
 
 		kvclients = new KVClient[nbConcurrentClients];
@@ -43,10 +42,12 @@ public class ManyClientsTest extends TestCase {
 	}
 
 	private void task(int nbConcurrentClients) {
-		before(nbConcurrentClients);
 		Exception ex = null;
 
 		try {
+
+			before(nbConcurrentClients);
+			
 			long startTime = System.currentTimeMillis();
 
 			// Task1

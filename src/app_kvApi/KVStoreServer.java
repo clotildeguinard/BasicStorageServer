@@ -31,15 +31,8 @@ public class KVStoreServer extends KVStore {
 
 	@Override
 	public KVMessage get(String key) throws IOException, InterruptedException,
-			NoSuchAlgorithmException {
+	NoSuchAlgorithmException {
 		return null;
-	}
-
-	public void heartbeat(Address myAddress) throws IOException, InterruptedException {
-		connect();
-		sendAndWaitAnswer(new KVMessageImpl(myAddress.getIp(), Integer.toString(myAddress.getPort()),
-				common.messages.KVMessage.StatusType.HEARTBEAT));
-		disconnect();
 	}
 
 }

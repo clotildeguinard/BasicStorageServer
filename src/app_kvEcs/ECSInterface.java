@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
 import java.security.NoSuchAlgorithmException;
 import java.util.NoSuchElementException;
 
@@ -11,6 +12,7 @@ import logger.LogSetup;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+
 
 
 
@@ -48,11 +50,11 @@ public class ECSInterface {
 	private boolean appStopped = false;
 	private boolean initialized = false;
 
-	public ECSInterface() {
+	public ECSInterface() throws IOException {
 		this.ecsClient = new ECSClient("./src/app_kvEcs/ecs.config.txt");
 	}
 
-	public ECSInterface(String configLocation) {
+	public ECSInterface(String configLocation) throws IOException {
 		this.ecsClient = new ECSClient(configLocation);
 	}
 
@@ -121,9 +123,15 @@ public class ECSInterface {
 								+ "\t Please try again.");
 						break;
 					}
-					int initNodes = ecsClient.initService(nodesNumber, cacheSize, strategy);
-					System.out.println("\t System initialized with " + initNodes + " nodes.");
-					initialized = true;
+					int initNodes;
+					try {
+						initNodes = ecsClient.initService(nodesNumber, cacheSize, strategy);
+						System.out.println("\t System initialized with " + initNodes + " nodes.");
+						initialized = true;
+					} catch (URISyntaxException e) {
+						printError("Fatal error when launching node, must exit.");
+						appStopped = true;
+					}
 				}
 				break;
 
@@ -169,7 +177,7 @@ public class ECSInterface {
 
 					Strategy strat = null;
 					try {
-						strat = Strategy.valueOf(input[3]);
+						strat = Strategy.valueOf(input[2]);
 					} catch (IllegalArgumentException e) {
 						printError("Strategy could not be parsed."
 								+ "\n\t" + "Please try again and choose among <LRU|LFU|FIFO>.");
@@ -186,6 +194,9 @@ public class ECSInterface {
 					} catch (IOException e) {
 						System.out.println("\t Adding failed."
 								+ "\n\t Please try again.");
+					} catch (URISyntaxException e) {
+						printError("Fatal error when launching new node, must exit.");
+						appStopped = true;
 					}
 				}
 				break;
@@ -227,6 +238,7 @@ public class ECSInterface {
 		} catch (IOException e) {
 			appStopped = true;
 			printError("CLI does not respond - Application terminated ");
+			System.out.println(e);
 		}
 	}
 

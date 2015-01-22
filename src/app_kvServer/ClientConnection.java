@@ -14,10 +14,8 @@ import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
 import common.metadata.Address;
 import common.metadata.MetadataHandlerServer;
-import common.metadata.NodeData;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -82,11 +80,6 @@ public class ClientConnection implements Runnable {
 		}
 	}
 
-	//	public void catchUpRequest(KVMessage request) throws NoSuchAlgorithmException, SocketException, IOException {
-	//		handleRequest(request);
-	//		tearDownConnection();
-	//	}
-
 	/**
 	 * Transfer to hearbeatHandler if is heartbeat,
 	 * else if stopped send "stopped" flag,
@@ -103,8 +96,10 @@ public class ClientConnection implements Runnable {
 		logger.info("Requested from client : "
 				+ request);
 
-		if (status == StatusType.HEARTBEAT && heartbeatHandler != null) {
-			heartbeatHandler.handleReceivedHeartBeat(new KVMessageImpl(key, value, StatusType.HEARTBEAT));
+		if (status == StatusType.HEARTBEAT) {
+			if (heartbeatHandler != null) {
+				heartbeatHandler.handleReceivedHeartBeat(key, value);
+			}
 			tearDownConnection();
 			return;
 		}

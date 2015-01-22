@@ -1,6 +1,7 @@
 package app_kvEcs;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +39,7 @@ public class ECSClient extends ECSUtils implements SocketListener {
 	private int nbUsedNodes = 0;
 	private MetadataHandler metadataHandler;
 
-	public ECSClient(String configLocation) {
+	public ECSClient(String configLocation) throws IOException {
 		readConfigFile(configLocation);
 	}
 
@@ -50,9 +51,10 @@ public class ECSClient extends ECSUtils implements SocketListener {
 	 * @return number of nodes participating in the service
 	 * @throws NoSuchAlgorithmException
 	 * @throws IOException
+	 * @throws URISyntaxException 
 	 */
 	public int initService(int numberOfNodes, int cacheSize, Strategy displacementStrategy)
-			throws NoSuchAlgorithmException, IOException {
+			throws NoSuchAlgorithmException, IOException, URISyntaxException {
 		this.defaultCacheSize = cacheSize;
 		this.defaultDisplacementStrategy = displacementStrategy;
 
@@ -71,7 +73,19 @@ public class ECSClient extends ECSUtils implements SocketListener {
 			String ip = newNodeParams[1];
 			int port = Integer.valueOf(newNodeParams[2]);
 
-			addNodeToLists(nodeName, ip, port);
+			try {
+				launchSSH(ip, Integer.toString(port));
+				addNodeToLists(nodeName, ip, port);
+			} catch (IllegalArgumentException e1) {
+				possibleRemainingNodes.add(newNodeParams);
+				logger.error("ECS config file may contain an error", e1);
+			} catch (IOException e1) {
+				possibleRemainingNodes.add(newNodeParams);
+				logger.error("Could not add node", e1);
+			} catch (URISyntaxException e) {
+				logger.fatal("Cannot launch node, must abort addnode. \n", e);
+				throw(e);
+			}
 		}
 		sortNodeLists();
 		mergeAdjacentVirtualNodes();
@@ -209,10 +223,10 @@ public class ECSClient extends ECSUtils implements SocketListener {
 	 * @throws NoSuchElementException
 	 * @throws NoSuchAlgorithmException
 	 * @throws IOException 
+	 * @throws URISyntaxException 
 	 */
-	// TODO check
 	protected int addNode(int cacheSize, Strategy displacementStrategy)
-			throws NoSuchElementException, NoSuchAlgorithmException, IOException{
+			throws NoSuchElementException, NoSuchAlgorithmException, IOException, URISyntaxException{
 
 		int size = possibleRemainingNodes.size(); 
 		if (size < 1) {
@@ -232,6 +246,7 @@ public class ECSClient extends ECSUtils implements SocketListener {
 			logger.debug("Adding node " + addedNodeAddress);
 
 			try {
+				launchSSH(ip, Integer.toString(port));
 				addNodeToLists(nodeName, ip, port);
 			} catch (IllegalArgumentException e1) {
 				possibleRemainingNodes.add(newNodeParams);
@@ -241,12 +256,18 @@ public class ECSClient extends ECSUtils implements SocketListener {
 				possibleRemainingNodes.add(newNodeParams);
 				logger.error("Could not add node", e1);
 				throw(e1);
+			} catch (URISyntaxException e) {
+				logger.error("Cannot launch node, must abort addnode. \n", e);
+				throw(e);
 			}
 			sortNodeLists();
+			System.out.println("hey");
 			mergeAdjacentVirtualNodes();
+			System.out.println("ho");
 
 			ConfigCommInterface newNodeCS = uniqueConfigStores.get(uniqueConfigStores.size()-1);
 			((ConfigStore) newNodeCS).connect();
+			System.out.println("ha");
 			((ConfigStore) newNodeCS).addListener(this);
 
 			metadataHandler = new MetadataHandler(getMetadataFromSortedList());
@@ -373,10 +394,7 @@ public class ECSClient extends ECSUtils implements SocketListener {
 
 			List<Integer> indexesOfSuccessors = removeNodeFromLists(removedAddress);
 			List<NodeData> removedVNList = metadataHandler.getNodeDataList(removedAddress);
-			if (removedVNList.size() != indexesOfSuccessors.size()) {
-				logger.fatal("problem!!!");
-			}
-
+			
 			metadataHandler = new MetadataHandler(getMetadataFromSortedList());
 
 			removedNodeCS.lockWrite();
@@ -511,18 +529,14 @@ public class ECSClient extends ECSUtils implements SocketListener {
 				break;
 			}
 		}
+		suspNodeCS.shutdown();
 
 		List<NodeData> suspNodeDataList = metadataHandler.getNodeDataList(new Address(ip, port));
 		List<Integer> indexesOfSuccessors = removeNodeFromLists(suspAddress);
-		if (suspNodeDataList.size() != indexesOfSuccessors.size()) {
-			logger.fatal("problem!!!!!");
-		}
-
+		
 		stopHeartbeats();
 
 		metadataHandler = new MetadataHandler(getMetadataFromSortedList());
-
-		suspNodeCS.lockWrite();
 
 		try {
 
@@ -540,10 +554,6 @@ public class ECSClient extends ECSUtils implements SocketListener {
 				k++;
 			}
 
-			if (!suspNodeCS.shutdown()) {
-				logger.error("The removed node may not have been shut down correctly.");
-			}
-
 			mergeAdjacentVirtualNodes();
 			updateAllMetadata();
 
@@ -558,11 +568,17 @@ public class ECSClient extends ECSUtils implements SocketListener {
 			logger.debug("Possible nodes : \n" + printPossible());
 			logger.debug("Used nodes : \n" + printNodes());
 
-			addNode(defaultCacheSize, defaultDisplacementStrategy);
+			try {
+				addNode(defaultCacheSize, defaultDisplacementStrategy);
+			} catch (URISyntaxException e) {
+				logger.error("Could not replace suspicious node, fatal error when trying to launch new node. \n", e);
+			}
 		} finally {
 			startHeartbeats();
-			logger.info("Remaining " + possibleRemainingNodes.size() + " unused nodes : \n" + printPossible());
-			logger.info(uniqueConfigStores.size() + " used nodes with " + sortedConfigStores.size() + " virtual nodes : \n" + printNodes());
+			logger.info("Remaining " + possibleRemainingNodes.size() 
+					+ " unused nodes : \n" + printPossible());
+			logger.info(uniqueConfigStores.size() + " used nodes with " 
+					+ sortedConfigStores.size() + " virtual nodes : \n" + printNodes());
 
 		}
 	}
@@ -628,74 +644,6 @@ public class ECSClient extends ECSUtils implements SocketListener {
 		}
 	}
 
-	/**
-	 * COPY r2 range of SUSP from PHYSICAL PREVIOUS to PHYSICAL SUCCESSOR
-	 * COPY r1 range of SUSP from PHYSICAL PREVIOUS to PHYSICAL AFTER-SUCCESSOR
-	 * @param suspIndex
-	 * @param suspNodeData
-	 * @param previousNodeCS
-	 * @throws IOException
-	 */
-	private void redistributeDataSuspicious(int suspIndex, NodeData suspNodeData,  ConfigCommInterface beforePreviousNodeCS, ConfigCommInterface nextNodeCS) throws IOException {		
-		ConfigCommInterface previousNodeCS =
-				sortedConfigStores.get((suspIndex - 1) % sortedConfigStores.size());
-		ConfigCommInterface nextnextNodeCS =
-				sortedConfigStores.get((suspIndex + 1) % sortedConfigStores.size());
-		String newMetadata = metadataHandler.toString();
-
-		try {
-			if (!nextNodeCS.updateMetadata(newMetadata)) {
-				logger.error("The metadata may not have been updated correctly on successor node " + nextNodeCS.getServerAddress());
-			} else {
-				logger.info("Metadata updated on successor node " + nextNodeCS.getServerAddress());
-			}
-		} catch (InterruptedException e) {
-			logger.error("The metadata may not have been updated correctly on successor node " + nextNodeCS.getServerAddress());
-		}
-
-		if (!beforePreviousNodeCS.lockWrite()) {
-			logger.error("The before-previous node may not have been write-locked correctly.");
-		} else {
-			logger.debug("Before-previous node write-locked.");
-		}
-
-		// COPY r2 range of SUSP from PHYSICAL BEFORE-PREVIOUS to PHYSICAL SUCCESSOR
-
-		if (!beforePreviousNodeCS.copyData(nextNodeCS.getServerAddress(),
-				suspNodeData.getMinR2HashKey(), suspNodeData.getMaxR2minR1HashKey())) {
-			logger.error("The R2 data of suspicious node may not have been copied correctly from previous node " + previousNodeCS.getServerAddress() + " to next node.");
-		} else {
-			logger.info("R2 data of suspicious node copied from previous node " + beforePreviousNodeCS.getServerAddress() + " to next node.");
-		}
-
-		try {
-			if (!nextnextNodeCS.updateMetadata(newMetadata)) {
-				logger.error("The metadata may not have been updated correctly on after-successor node " + nextnextNodeCS.getServerAddress());
-			} else {
-				logger.info("Metadata updated on after-successor node " + nextnextNodeCS.getServerAddress());
-			}
-
-		} catch (InterruptedException e) {
-			logger.error("The metadata may not have been updated correctly on after-successor node " + nextnextNodeCS.getServerAddress());
-		}
-
-		if (!nextNodeCS.lockWrite()) {
-			logger.error("The successor node may not have been write-locked correctly.");
-		} else {
-			logger.debug("Successor node write-locked.");
-		}
-
-		// COPY r1 range of SUSP from PHYSICAL SUCCESSOR to  PHYSICAL AFTER-SUCCESSOR
-
-		if (!nextNodeCS.copyData(nextnextNodeCS.getServerAddress(),
-				suspNodeData.getMaxR2minR1HashKey(), suspNodeData.getMinWriteHashKey())) {
-			logger.error("The R1 data of suspicious node may not have been copied correctly from successor node " + nextNodeCS.getServerAddress() + " to after-successor node.");
-		} else {
-			logger.info("R1 data of suspicious node copied from successor node " + nextNodeCS.getServerAddress() + " to after-successor node.");
-		}
-	}
-
-
 
 	@Override
 	public void handleStatus(SocketStatus status) {
@@ -731,19 +679,27 @@ public class ECSClient extends ECSUtils implements SocketListener {
 	 * @throws NoSuchAlgorithmException 
 	 */
 	public static void main(String[] args) {
-		try {
-			if(args.length != 1) {
-				System.out.println("Error! Invalid number of arguments!");
-				System.out.println("Usage: ECS <loglevel> !");
-			} else {
+
+		if(args.length != 1) {
+			System.out.println("Error! Invalid number of arguments!");
+			System.out.println("Usage: ECS <loglevel> !");
+
+		} else {
+			try {
 				new LogSetup("logs/ecs.log", Level.toLevel(args[0]));
-				ECSInterface app = new ECSInterface();
-				app.run();
+			} catch (IOException e) {
+				System.out.println("Error! Unable to initialize logger!");
+				e.printStackTrace();
+				return;
 			}
-		} catch (IOException e) {
-			System.out.println("Error! Unable to initialize logger!");
-			e.printStackTrace();
-			System.exit(1);
+
+			ECSInterface app = null;
+			try {
+				app = new ECSInterface();
+			} catch (IOException e) {
+				return;
+			}
+			app.run();
 		}
 	}
 

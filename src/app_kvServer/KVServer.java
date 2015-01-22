@@ -37,7 +37,6 @@ public class KVServer {
 	private boolean shutdown = false;
 	private boolean writeLocked = false;
 	private boolean initialized = false;
-
 	/**
 	 * Launch KVServer at given port,
 	 * wait for ECS to connect to it
@@ -49,8 +48,7 @@ public class KVServer {
 	}
 
 	public void startEcsConnection() {
-		Thread ecsWaitingThread = new Thread(new ECSWaitingThread());
-		ecsWaitingThread.start();
+		new Thread(new ECSWaitingThread()).start();
 	}
 
 	/**
@@ -205,16 +203,6 @@ public class KVServer {
 		}
 	}
 
-	//	public void transferRequestToClient(Socket socket, KVMessage latestMsg) throws IOException {
-	//		ClientConnection clientConnection = 
-	//				new ClientConnection(port, socket, cacheManager, metadataHandler, writeLocked, isStopped, heartBeatHandler);
-	//		try {
-	//			clientConnection.catchUpRequest(latestMsg);
-	//			logger.debug("Request transferred from ecsCommModule to clientCommModule.");
-	//		} catch (NoSuchAlgorithmException | IOException e) {
-	//		}
-	//	}
-
 
 	/**
 	 * Copy to given node all data having key-hash between minHash and maxHash
@@ -311,14 +299,7 @@ public class KVServer {
 	public void stopHeartbeat() {
 		if (heartBeatHandler != null) {
 			heartBeatHandler.shutdown();
-			try {
-				heartBeatHandler.join();
-				heartBeatHandler = null;
-			} catch (InterruptedException e) {
-				logger.error("Interrupted when trying to join heartbeat thread");
-			}
 		}
-
 	}
 
 

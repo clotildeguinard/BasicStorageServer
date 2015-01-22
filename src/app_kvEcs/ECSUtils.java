@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
+import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -27,12 +28,13 @@ public class ECSUtils {
 
 	private final static Logger logger = Logger.getLogger(ECSUtils.class);
 	private final static String hashingAlgorithm = "MD5";
+	private final static String serverLogLevel = "DEBUG";
 	private final static int nbVirtualNodes = 4;
 	private static int seed = 0;
 
 	protected ECSUtils() {}
 
-	protected void readConfigFile(String configLocation) {
+	protected void readConfigFile(String configLocation) throws IOException {
 		possibleRemainingNodes = new ArrayList<String[]>();
 		InputStream fis;
 		BufferedReader br = null;
@@ -49,7 +51,7 @@ public class ECSUtils {
 					+ "- Application terminated.");
 			logger.fatal("An error occurred when trying to read from config file"
 					+ "- Application terminated.", e);
-			System.exit(1);
+			throw(e);
 		} finally {
 			try {
 				if (br != null) {
@@ -63,51 +65,41 @@ public class ECSUtils {
 		}
 	}
 
-	protected void launchSSH(String hostIp, String port, String logLevel) {
-		Process proc;
+	protected void launchSSH(String ip, String port) throws URISyntaxException {
 
-		//		String script = "ssh -n " + hostIp + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
-		//					+ portNumber + " " + logLevel.toUpperCase() + " & ";
-
-
-
-		//
-		//		String script = "java -jar /Users/nadiastraton/git/BasicStorageServer/ms3-server.jar "
-		//
-		//				+ port + " " + logLevel.toUpperCase();
-
-
-		String currentPath = ClassLoader.getSystemResource("").toString();
-		System.out.println(currentPath);
-		String serverJarPath = currentPath.replace("/bin/", "/").substring(6);
-
-		String script = "java -jar " + serverJarPath + "ms3-server.jar "
-				+ port + " " + logLevel.toUpperCase();
-
-		System.out.println(script);
-
-		//		script = "java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
-		//				+ port + " " + logLevel.toUpperCase();
-
-
-		Runtime run = Runtime.getRuntime();
-		try {
-			proc = run.exec(script);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		String sshScript = "ssh -n " + ip + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
+//				+ port + " " + serverLogLevel + " & ";
+//
+//
+//		String currentPath = getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath().toString();
+//
+//		String serverJarPath = currentPath.substring(1, 42) + "ms3-server.jar";
+//		String script = "java -jar " + serverJarPath + " " + port + " " + serverLogLevel;
+//		System.out.println(script);
+//
+//		//		script = "java -jar " + "C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar" 
+//		//				+ " " + port + " " + serverLogLevel;
+//		//		String script = "java -jar /Users/nadiastraton/git/BasicStorageServer/ms3-server.jar"
+//		//		+ " " + port + " " + serverLogLevel;
+//
+//		try {
+//			Runtime run = Runtime.getRuntime();
+//			run.exec(script);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
-	
+
 	protected void mergeAdjacentVirtualNodes() {
 		int i = 0;
-		
+
 		while (i < sortedConfigStores.size()) {
 			ConfigCommInterface cs = sortedConfigStores.get(i);
 			int iNext = (i + 1) % sortedConfigStores.size();
-			
+
 			if (cs.equals(sortedConfigStores.get(iNext))) {
 				sortedConfigStores.remove(i);
-				
+
 				int j = Math.min(i, iNext) * 4;
 				sortedNodeHashes.remove(j);
 				sortedNodeHashes.remove(j);
@@ -127,7 +119,7 @@ public class ECSUtils {
 				break;
 			}
 		}
-		
+
 		ConfigStore cs = new ConfigStore(ip, port);
 		uniqueConfigStores.add(cs);
 
@@ -149,12 +141,12 @@ public class ECSUtils {
 
 	}
 
-	protected boolean sortNodeLists(){
+	protected void sortNodeLists(){
 		logger.debug("Sorting the nodes...");
 		int size = sortedNodeHashes.size();
 		if (size <= 4) {
-			logger.debug("No sorting: only one node.");
-			return true;
+			// no sorting : only one node
+			return;
 		}
 		String current;
 
@@ -177,24 +169,6 @@ public class ECSUtils {
 
 			Collections.swap(sortedConfigStores, indexOfMax/4, (size-4-i)/4);
 		}
-
-		return checkVirtualNodesAdjacency();
-	}
-
-	private boolean checkVirtualNodesAdjacency() {
-		int MAX = sortedConfigStores.size();
-		if (MAX <= 2) {
-			//	TODO	launchSSH(nodeData[1], nodeData[2], "DEBUG");
-			return true;
-		}
-		for (int i = 0; i < MAX; i++) {
-			if (sortedConfigStores.get(i).equals(sortedConfigStores.get((i + 1) % MAX))
-					|| sortedConfigStores.get(i).equals(sortedConfigStores.get((i + 2) % MAX))) {
-				return false;
-			}
-		}
-		//	TODO	launchSSH(nodeData[1], nodeData[2], "DEBUG");
-		return true;
 	}
 
 	protected java.util.List<NodeData> getMetadataFromSortedList() {
@@ -241,7 +215,7 @@ public class ECSUtils {
 		}
 
 		String name = null;
-		
+
 		for (int i : indexesTmp) {
 			int j = i * 4;
 			name = sortedNodeHashes.remove(j); // remove name
@@ -249,7 +223,7 @@ public class ECSUtils {
 			sortedNodeHashes.remove(j); // remove port
 			sortedNodeHashes.remove(j); // remove hash
 		}
-		
+
 		possibleRemainingNodes.add(new String[] {name, toRemoveAddress.getIp(),
 				Integer.toString(toRemoveAddress.getPort())});
 
@@ -259,7 +233,7 @@ public class ECSUtils {
 				break;
 			}
 		}
-		
+
 		List<Integer> indexes = new ArrayList<>();
 		int MAX = uniqueConfigStores.size();
 		for (int i : indexesTmp) {

@@ -81,6 +81,10 @@ public abstract class KVStore extends Thread implements KVCommInterface {
 		listeners = new HashSet<SocketListener>();
 		addListener(commModule);
 
+		startListening();
+	}
+	
+	protected void startListening() {
 		(new KVStoreConnectionThread()).start();
 	}
 

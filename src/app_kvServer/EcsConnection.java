@@ -9,7 +9,6 @@ import common.communication.AdminCommModule;
 import common.messages.AdminMessage;
 import common.messages.AdminMessageImpl;
 import common.messages.AdminMessage.StatusType;
-import common.messages.KVMessageImpl;
 import common.metadata.Address;
 
 public class EcsConnection extends Thread {
@@ -31,12 +30,13 @@ public class EcsConnection extends Thread {
 		try {
 			commModule.sendKVAdminMessage(suspicionMsg);
 		} catch (IOException e) {
+			if (!stopECSConnection) {
+				tearDownConnection();
+			}
 		}
 	}
 
 	public void run() {
-		boolean hasToStartOtherEcsConnection = false;
-		boolean hasToKeepConnectionAlive = false;
 
 		try {
 
@@ -56,34 +56,16 @@ public class EcsConnection extends Thread {
 				}
 			}
 
-//		} catch (IllegalStateException e) {
-//			logger.warn(e.getMessage());
-//			try {
-//				kvServer.transferRequestToClient(ecsSocket,
-//						KVMessageImpl.unmarshal(commModule.getLatestXmlTxt()));
-//			} catch (IOException e1) {
-//				logger.warn("Client request could not be transferred"
-//						+ " from ecsCommModule to clientCommModule.");
-//			}
-//			hasToKeepConnectionAlive = true;
-//			hasToStartOtherEcsConnection = true;
 		} catch (IOException e){
 			logger.fatal("Must shut down the server because of IOException : " + e.getMessage());
 			hasToShutdownServer = true;
 		}
 		finally {
-			try {
-				if (!hasToKeepConnectionAlive) {
-					tearDownConnection();
-				}
-			} catch (IOException e) {
-				logger.error("An error occurred when tearing down the connection \n" + e );
-			}
+			tearDownConnection();
 			if (hasToShutdownServer) {
 				kvServer.shutdown();
-			} else if (hasToStartOtherEcsConnection) {
-				kvServer.startEcsConnection();
 			}
+			logger.debug("End of connection with ECS.");
 		}
 	}
 
@@ -167,14 +149,20 @@ public class EcsConnection extends Thread {
 		return new AdminMessageImpl("ok", null, StatusType.MOVE_DATA);
 	}
 
-	private void tearDownConnection() throws IOException {
+	private void tearDownConnection() {
 		stopECSConnection = true;
 
 		if (ecsSocket != null) {
-			commModule.closeStreams();
-			ecsSocket.close();
-			ecsSocket = null;
-			logger.info("Connection closed with ECS.");
+			try {
+				commModule.closeStreams();
+			} catch (IOException e) {
+				logger.error("An error occurred when tearing down the connection \n" + e );
+			} try {
+				ecsSocket.close();
+				ecsSocket = null;
+			} catch (IOException e) {
+				logger.error("An error occurred when tearing down the connection \n" + e );
+			}
 		}
 	}
 }
