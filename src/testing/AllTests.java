@@ -11,18 +11,11 @@ import logger.LogSetup;
 
 
 public class AllTests {
-	static KVServer kvserver0;
-	static KVServer kvserver1;
-	static KVServer kvserver2;
 	static ECSInterface ecsInterface;
 
 	static {
 		try {
 			new LogSetup("testing/test.log", Level.DEBUG);
-
-			kvserver0 = new KVServer(50000);
-			kvserver1 = new KVServer(50001);
-			kvserver2 = new KVServer(50002);
 
 			ecsInterface = new ECSInterface("./testing/ecs.config.txt");
 			ecsInterface.handleCommand("init 3 5 LRU");
