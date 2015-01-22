@@ -12,11 +12,13 @@ import common.communication.KVCommModule;
 import common.messages.KVMessage;
 import common.messages.KVMessage.StatusType;
 import common.messages.KVMessageImpl;
+import common.metadata.Address;
 import common.metadata.MetadataHandlerServer;
 import common.metadata.NodeData;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
@@ -57,17 +59,24 @@ public class ClientConnection implements Runnable {
 				request = commModule.receiveKVMessage();
 			} catch (IllegalStateException e) {
 				logger.warn(e.getMessage());
-				commModule.sendKVMessage(new KVMessageImpl("error", null, request.getStatus()));
 				tearDownConnection();
 				return;
+			} catch (IOException e) {
+				logger.info("Connection closed by client.");
+				tearDownConnection();
 			}
 
 			handleRequest(request);
 
+		} catch (SocketException e) {
+			logger.error("Connection closed by client.");
+			tearDownConnection();
 		} catch (IOException e) {
+			tearDownConnection();
 			logger.error("A connection error occurred - Connection terminated "
 					+ e);
 		} catch (NoSuchAlgorithmException e) {
+			tearDownConnection();
 			logger.fatal("A hashing error occurred - Connection terminated "
 					+ e);
 		}
@@ -96,6 +105,7 @@ public class ClientConnection implements Runnable {
 
 		if (status == StatusType.HEARTBEAT && heartbeatHandler != null) {
 			heartbeatHandler.handleReceivedHeartBeat(new KVMessageImpl(key, value, StatusType.HEARTBEAT));
+			tearDownConnection();
 			return;
 		}
 
@@ -140,10 +150,10 @@ public class ClientConnection implements Runnable {
 	 * @throws UnsupportedEncodingException 
 	 */
 	private void propagateWriteToReplicas(String key, String value) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
-		List<NodeData> replicas = metadataHandler.getReplicas(key);
-		
-		for (NodeData r : replicas) {
-			KVStore kvStore = new KVStoreServer(r.getAddress());
+		Set<Address> replicas = metadataHandler.getReplicas(key);
+
+		for (Address a : replicas) {
+			KVStore kvStore = new KVStoreServer(a);
 			try {
 				kvStore.connect();
 				kvStore.put(key, value);
@@ -202,7 +212,7 @@ public class ClientConnection implements Runnable {
 		}
 	}
 
-	private void tearDownConnection() throws IOException {
+	private void tearDownConnection() {
 		try {
 			if (clientSocket != null) {
 				commModule.closeStreams();

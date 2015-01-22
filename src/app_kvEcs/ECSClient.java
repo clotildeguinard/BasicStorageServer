@@ -73,22 +73,8 @@ public class ECSClient extends ECSUtils implements SocketListener {
 
 			addNodeToLists(nodeName, ip, port);
 		}
-
-		while (!sortNodeLists()) {
-
-			int random = (int) (Math.random() * (uniqueConfigStores.size() - 1));
-			ConfigCommInterface removedNodeCS = uniqueConfigStores.get(random);
-			Address removedAddress = removedNodeCS.getServerAddress();
-
-			metadataHandler = new MetadataHandler(getMetadataFromSortedList());
-			List<NodeData> removedVirtualNodeList = metadataHandler.getNodeDataList(removedAddress);
-
-			removeNodeFromLists(removedAddress);
-
-
-			addNodeToLists(removedVirtualNodeList.get(0).getName(),
-					removedAddress.getIp(), removedAddress.getPort());
-		}
+		sortNodeLists();
+		mergeAdjacentVirtualNodes();
 
 		metadataHandler = new MetadataHandler(getMetadataFromSortedList());
 		String metadata = metadataHandler.toString();
@@ -98,8 +84,10 @@ public class ECSClient extends ECSUtils implements SocketListener {
 			cs.initKVServer(metadata, cacheSize, displacementStrategy);
 		}
 
+
 		logger.info("Remaining " + possibleRemainingNodes.size() + " unused nodes : \n" + printPossible());
-		logger.info(uniqueConfigStores.size() + " used nodes : \n" + printNodes());
+		logger.info(uniqueConfigStores.size() + " used nodes with " + sortedConfigStores.size() + " virtual nodes : \n" + printNodes());
+
 
 		startHeartbeats();
 		nbUsedNodes = numberOfNodes;
@@ -185,13 +173,13 @@ public class ECSClient extends ECSUtils implements SocketListener {
 	 */
 	protected void startHeartbeats(){
 		suspicionHandlingLocked = false;
-		//		logger.info("Starting heartbeat on all used nodes");
-		//		for (ConfigCommInterface cs : uniqueConfigStores) {
-		//			if (!cs.startHeartbeat()) {
-		//				logger.error("Server " + cs.getServerAddress() + " may not have been"
-		//						+ " started to heartbeat correctly.");
-		//			}
-		//		}
+		logger.info("Starting heartbeat on all used nodes.");
+		for (ConfigCommInterface cs : uniqueConfigStores) {
+			if (!cs.startHeartbeat()) {
+				logger.error("Server " + cs.getServerAddress() + " may not have been"
+						+ " started to heartbeat correctly.");
+			}
+		}
 	}
 
 	/**
@@ -254,13 +242,8 @@ public class ECSClient extends ECSUtils implements SocketListener {
 				logger.error("Could not add node", e1);
 				throw(e1);
 			}
-
-			while (!sortNodeLists()) {
-				logger.debug("Too many adjacent virtual nodes corresponding to same server. "
-						+ "Trying another seed.");
-				removeNodeFromLists(addedNodeAddress);
-				addNodeToLists(nodeName, ip, port);
-			}
+			sortNodeLists();
+			mergeAdjacentVirtualNodes();
 
 			ConfigCommInterface newNodeCS = uniqueConfigStores.get(uniqueConfigStores.size()-1);
 			((ConfigStore) newNodeCS).connect();
@@ -281,23 +264,25 @@ public class ECSClient extends ECSUtils implements SocketListener {
 				}
 			}
 
-			// TODO
 			Set<ConfigCommInterface> toUnlock = new HashSet<ConfigCommInterface>();
 			Address newNodeAddress = newNodeCS.getServerAddress();
 			List<Integer> indexes = findVirtualNodeIndexes(newNodeAddress);
-			List<NodeData> newNodeDataList = metadataHandler.getNodeDataList(newNodeAddress);
+			List<NodeData> newVNodeDataList = metadataHandler.getNodeDataList(newNodeAddress);
 
 			int k = 0;
 			int MAX = sortedConfigStores.size();
-			for (NodeData newNodeData : newNodeDataList) {
+			for (NodeData newNodeData : newVNodeDataList) {
 				int index = indexes.get(k);
-				ConfigCommInterface nextNodeCS = sortedConfigStores.get((index + 1) % MAX);
-				ConfigCommInterface nextnextNodeCS = sortedConfigStores.get((index + 2) % MAX);
+				ConfigCommInterface nextPhysNodeCS = sortedConfigStores.get((index + 1) % MAX);
+				ConfigCommInterface nextnextPhysNodeCS = sortedConfigStores.get((index + 2) % MAX);
+				if (nextnextPhysNodeCS.getServerAddress().isSameAddress(newNodeAddress)) {
+					nextnextPhysNodeCS = sortedConfigStores.get((index + 3) % MAX);
+				}
 
-				redistributeDataAdd(newNodeAddress, newNodeData, nextNodeCS, nextnextNodeCS);
+				redistributeDataAdd(newNodeAddress, newNodeData, nextPhysNodeCS, nextnextPhysNodeCS);
 
-				toUnlock.add(nextNodeCS);
-				toUnlock.add(nextnextNodeCS);
+				toUnlock.add(nextPhysNodeCS);
+				toUnlock.add(nextnextPhysNodeCS);
 				k++;
 			}
 
@@ -311,8 +296,9 @@ public class ECSClient extends ECSUtils implements SocketListener {
 				}
 			}
 
-			logger.debug("Possible nodes : \n" + printPossible());
-			logger.debug("Used nodes : \n" + printNodes());
+			logger.info("Remaining " + possibleRemainingNodes.size() + " unused nodes : \n" + printPossible());
+			logger.info(uniqueConfigStores.size() + " used nodes with " + sortedConfigStores.size() + " virtual nodes : \n" + printNodes());
+
 
 			return ++nbUsedNodes; 
 
@@ -401,11 +387,12 @@ public class ECSClient extends ECSUtils implements SocketListener {
 				k++;
 			}
 
-			updateAllMetadata();
-
 			if (!removedNodeCS.shutdown()) {
 				logger.error("The removed node may not have been shut down correctly.");
 			}
+
+			mergeAdjacentVirtualNodes();
+			updateAllMetadata();
 
 			logger.debug("Possible nodes : \n" + printPossible());
 			logger.debug("Used nodes : \n" + printNodes());
@@ -414,6 +401,9 @@ public class ECSClient extends ECSUtils implements SocketListener {
 
 		} finally {
 			startHeartbeats();
+			logger.info("Remaining " + possibleRemainingNodes.size() + " unused nodes : \n" + printPossible());
+			logger.info(uniqueConfigStores.size() + " used nodes with " + sortedConfigStores.size() + " virtual nodes : \n" + printNodes());
+
 		}
 	}
 
@@ -510,7 +500,6 @@ public class ECSClient extends ECSUtils implements SocketListener {
 	 * @throws NoSuchAlgorithmException
 	 * @throws IOException
 	 */
-	// TODO improve recover data for all configs of lost nodes
 	protected void removeSuspiciousNode(String ip, int port)
 			throws NoSuchAlgorithmException, IOException {
 
@@ -540,24 +529,22 @@ public class ECSClient extends ECSUtils implements SocketListener {
 			Set<ConfigCommInterface> toUnlock = new HashSet<ConfigCommInterface>();
 			int k=0;
 			for (NodeData suspNode : suspNodeDataList) {
+
 				int suspIndex = indexesOfSuccessors.get(k);
 				int MAX = sortedConfigStores.size();
-				
-				// if previous virtual node not down
-				if (indexesOfSuccessors.get((k - 1) % indexesOfSuccessors.size()) != suspIndex) {
-					ConfigCommInterface previousNodeCS = sortedConfigStores.get((suspIndex - 1 + MAX) % MAX);
-					redistributeDataSuspicious(suspIndex, suspNode, previousNodeCS);
-					toUnlock.add(previousNodeCS);
-				} else {
-					ConfigCommInterface beforePreviousNodeCS = sortedConfigStores.get((suspIndex - 2 + 2 * MAX) % MAX);;
-					ConfigCommInterface nextNodeCS = sortedConfigStores.get(suspIndex);
-					redistributeDataSuspicious(suspIndex, suspNode, beforePreviousNodeCS, nextNodeCS);
-					toUnlock.add(nextNodeCS);
-					toUnlock.add(beforePreviousNodeCS);
-				}
+
+				ConfigCommInterface previousNodeCS = sortedConfigStores.get((suspIndex - 1 + MAX) % MAX);
+				redistributeDataSuspicious(suspIndex, suspNode, previousNodeCS);
+				toUnlock.add(previousNodeCS);
+
 				k++;
 			}
 
+			if (!suspNodeCS.shutdown()) {
+				logger.error("The removed node may not have been shut down correctly.");
+			}
+
+			mergeAdjacentVirtualNodes();
 			updateAllMetadata();
 
 			for (ConfigCommInterface cs : toUnlock) {
@@ -568,16 +555,15 @@ public class ECSClient extends ECSUtils implements SocketListener {
 				}
 			}
 
-			if (!suspNodeCS.shutdown()) {
-				logger.error("The removed node may not have been shut down correctly.");
-			}
-
 			logger.debug("Possible nodes : \n" + printPossible());
 			logger.debug("Used nodes : \n" + printNodes());
 
 			addNode(defaultCacheSize, defaultDisplacementStrategy);
 		} finally {
 			startHeartbeats();
+			logger.info("Remaining " + possibleRemainingNodes.size() + " unused nodes : \n" + printPossible());
+			logger.info(uniqueConfigStores.size() + " used nodes with " + sortedConfigStores.size() + " virtual nodes : \n" + printNodes());
+
 		}
 	}
 
@@ -651,10 +637,10 @@ public class ECSClient extends ECSUtils implements SocketListener {
 	 * @throws IOException
 	 */
 	private void redistributeDataSuspicious(int suspIndex, NodeData suspNodeData,  ConfigCommInterface beforePreviousNodeCS, ConfigCommInterface nextNodeCS) throws IOException {		
-				ConfigCommInterface previousNodeCS =
-						sortedConfigStores.get((suspIndex - 1) % sortedConfigStores.size());
-				ConfigCommInterface nextnextNodeCS =
-						sortedConfigStores.get((suspIndex + 1) % sortedConfigStores.size());
+		ConfigCommInterface previousNodeCS =
+				sortedConfigStores.get((suspIndex - 1) % sortedConfigStores.size());
+		ConfigCommInterface nextnextNodeCS =
+				sortedConfigStores.get((suspIndex + 1) % sortedConfigStores.size());
 		String newMetadata = metadataHandler.toString();
 
 		try {

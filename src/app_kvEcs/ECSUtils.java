@@ -97,6 +97,27 @@ public class ECSUtils {
 			e.printStackTrace();
 		}
 	}
+	
+	protected void mergeAdjacentVirtualNodes() {
+		int i = 0;
+		
+		while (i < sortedConfigStores.size()) {
+			ConfigCommInterface cs = sortedConfigStores.get(i);
+			int iNext = (i + 1) % sortedConfigStores.size();
+			
+			if (cs.equals(sortedConfigStores.get(iNext))) {
+				sortedConfigStores.remove(i);
+				
+				int j = Math.min(i, iNext) * 4;
+				sortedNodeHashes.remove(j);
+				sortedNodeHashes.remove(j);
+				sortedNodeHashes.remove(j);
+				sortedNodeHashes.remove(j);
+			} else {
+				i ++;
+			}
+		}
+	}
 
 	protected void addNodeToLists(String name, String ip, int port)
 			throws NoSuchAlgorithmException, IllegalArgumentException, IOException {

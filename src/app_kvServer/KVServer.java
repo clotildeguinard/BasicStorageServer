@@ -183,7 +183,7 @@ public class KVServer {
 			}
 
 			try {
-				
+
 				while (!shutdown){
 					Socket client = serverSocket.accept();
 					logger.debug("Connected to client " 
@@ -194,7 +194,7 @@ public class KVServer {
 							new ClientConnection(port, client, cacheManager, metadataHandler, writeLocked, isStopped, heartBeatHandler);
 					new Thread(clientConnection).start();
 				}
-				
+
 			} catch (IOException e) {
 				if (!shutdown) {
 					logger.error("Unable to establish connection with a client because of : " + e.getMessage());
@@ -205,15 +205,15 @@ public class KVServer {
 		}
 	}
 
-//	public void transferRequestToClient(Socket socket, KVMessage latestMsg) throws IOException {
-//		ClientConnection clientConnection = 
-//				new ClientConnection(port, socket, cacheManager, metadataHandler, writeLocked, isStopped, heartBeatHandler);
-//		try {
-//			clientConnection.catchUpRequest(latestMsg);
-//			logger.debug("Request transferred from ecsCommModule to clientCommModule.");
-//		} catch (NoSuchAlgorithmException | IOException e) {
-//		}
-//	}
+	//	public void transferRequestToClient(Socket socket, KVMessage latestMsg) throws IOException {
+	//		ClientConnection clientConnection = 
+	//				new ClientConnection(port, socket, cacheManager, metadataHandler, writeLocked, isStopped, heartBeatHandler);
+	//		try {
+	//			clientConnection.catchUpRequest(latestMsg);
+	//			logger.debug("Request transferred from ecsCommModule to clientCommModule.");
+	//		} catch (NoSuchAlgorithmException | IOException e) {
+	//		}
+	//	}
 
 
 	/**
@@ -226,27 +226,32 @@ public class KVServer {
 	 */
 	public void copyData(String minHashValue, String maxHashValue, Address destinationServer)
 			throws IOException {
-		cacheManager.flushCacheToStorage();
-		KVStore kvStore = new KVStoreServer(destinationServer);
+		KVStore kvStore = null;
 		try {
-			kvStore.connect();
-			
+			cacheManager.flushCacheToStorage();
+
 			int copied = 0;
 			for (Pair<String, String> pair : cacheManager) {
 				if (metadataHandler.isInRange(pair.getKey(), minHashValue, maxHashValue)) {
 					copied++;
+
+					kvStore = new KVStoreServer(destinationServer);
+					kvStore.connect();
 					kvStore.put(pair.getKey(), pair.getValue());
-					cacheManager.put(pair.getKey(), "null");
+					kvStore.disconnect();
+					kvStore = null;
 				}
 			}
 			logger.info("Copied " + copied + " pairs.");
-			
+
 		} catch (InterruptedException e) {
 			logger.error("An error occurred during connection to other server", e);
 		} catch (NoSuchAlgorithmException e) {
 			logger.fatal("An error occurred during hashing", e);
 		} finally {
-			kvStore.disconnect();
+			if (kvStore != null) {
+				kvStore.disconnect();
+			}
 		}
 	}
 
@@ -258,18 +263,18 @@ public class KVServer {
 	 * @throws IOException
 	 */
 	public void deleteData(String minHash, String maxHash) throws IOException {
-		cacheManager.flushCacheToStorage();
-		logger.debug("Cache flushed.");
 		try {
+			cacheManager.flushCacheToStorage();
+			int deleted = 0;
+
 			for (Pair<String, String> pair : cacheManager) {
 				if (metadataHandler.isInRange(pair.getKey(), minHash, maxHash)) {
-					logger.debug("Erase key " + pair.getKey() + ", value " + pair.getValue());
 					cacheManager.put(pair.getKey(), "null");
-				}
-				else {
-					logger.debug("Keep key " + pair.getKey() + ", value " + pair.getValue());
+					deleted ++;
 				}
 			}
+			logger.info("Deleted " + deleted + " pairs.");
+
 		} catch (NoSuchAlgorithmException e) {
 			logger.fatal("An error occurred during hashing", e);
 			stop();

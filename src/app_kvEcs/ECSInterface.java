@@ -104,7 +104,16 @@ public class ECSInterface {
 				} else {
 					int nodesNumber = Integer.valueOf(input[1]);
 					int cacheSize = Integer.valueOf(input[2]);
-					Strategy strategy = Strategy.valueOf(input[3]);
+
+					Strategy strategy = null;
+					try {
+						strategy = Strategy.valueOf(input[3]);
+					} catch (IllegalArgumentException e) {
+						printError("Strategy could not be parsed."
+								+ "\n\t" + "Please try again and choose among <LRU|LFU|FIFO>.");
+						return;
+					}
+
 					if (cacheSize < 0 || nodesNumber < 3) {
 						printError("Arguments do not match the following requirements : \n"
 								+ "\t Cache size >= 0 \n"
@@ -152,12 +161,21 @@ public class ECSInterface {
 							+ "\n\t Usage: ADDNODE <cacheSize> <cacheStrategy> !");
 				} else {
 					int sizeCache = Integer.valueOf(input[1]);
-					Strategy strat = Strategy.valueOf(input[2]);
 					if (sizeCache < 0) {
 						printError("Cache size must be greater than -1."
 								+ "\n\t Please try again.");
 						break;
 					}
+
+					Strategy strat = null;
+					try {
+						strat = Strategy.valueOf(input[3]);
+					} catch (IllegalArgumentException e) {
+						printError("Strategy could not be parsed."
+								+ "\n\t" + "Please try again and choose among <LRU|LFU|FIFO>.");
+						return;
+					}
+
 					try {
 						int nb = ecsClient.addNode(sizeCache, strat);
 						System.out.println("\t Node added successfully."
@@ -183,12 +201,12 @@ public class ECSInterface {
 					remainingNodes = ecsClient.removeNode();
 					System.out.println("\t Node removed successfully."
 							+ "\n\t There are " + remainingNodes + " remaining nodes"
-									+ " in the system.");
+							+ " in the system.");
 				} catch (IllegalArgumentException e) {
 					System.out.println("\t There are only three nodes currently."
 							+ "\n\t REMOVENODE refused.");
 				}
-					break;
+				break;
 
 			case QUIT:	
 				appStopped = true;
@@ -202,9 +220,6 @@ public class ECSInterface {
 		} catch (NumberFormatException e) {
 			printError("Numerical argument could not be parsed."
 					+ "\n\t" + "Please try again.");
-		} catch (NoSuchElementException e) {
-			printError("Strategy could not be parsed."
-					+ "\n\t" + "Please try again and choose among <LRU|LFU|FIFO>.");
 		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
 			appStopped = true;
 			printError("A fatal error occurred - Application terminated");
