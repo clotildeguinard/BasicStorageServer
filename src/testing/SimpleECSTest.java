@@ -11,11 +11,11 @@ import junit.framework.TestCase;
 
 public class SimpleECSTest extends TestCase {
 	
-	static {
-		new KVServer(50000);
-		new KVServer(50001);
-		new KVServer(50002);
-	}
+//	static {
+//		new KVServer(50000);
+//		new KVServer(50001);
+//		new KVServer(50002);
+//	}
 
 
 	@Test

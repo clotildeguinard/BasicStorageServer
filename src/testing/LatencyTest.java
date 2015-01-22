@@ -15,9 +15,9 @@ public class LatencyTest extends TestCase {
 	private static KVClient kvclient;
 
 	public void before(int cacheSize, int nbNodes) throws IOException {	
-		for (int i = 0; i < nbNodes; i ++) {
-			new KVServer(50000 + i);
-		}
+//		for (int i = 0; i < nbNodes; i ++) {
+//			new KVServer(50000 + i);
+//		}
 
 		ecs = new ECSInterface("./testing/ecs.config.txt");
 		ecs.handleCommand("init "+ nbNodes + " " + cacheSize + " FIFO");

@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import app_kvServer.KVServer;
 import common.metadata.Address;
 import common.metadata.NodeData;
 
@@ -66,25 +67,13 @@ public class ECSUtils {
 	}
 
 	protected void launchSSH(String ip, String port) throws URISyntaxException {
-
+		new KVServer(Integer.valueOf(port));
 //		String sshScript = "ssh -n " + ip + " nohup java -jar C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar "
 //				+ port + " " + serverLogLevel + " & ";
 //
-//
-//		String currentPath = getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath().toString();
-//
-//		String serverJarPath = currentPath.substring(1, 42) + "ms3-server.jar";
-//		String script = "java -jar " + serverJarPath + " " + port + " " + serverLogLevel;
-//		System.out.println(script);
-//
-//		//		script = "java -jar " + "C:/Users/Clotilde/git/BasicStorageServer/ms3-server.jar" 
-//		//				+ " " + port + " " + serverLogLevel;
-//		//		String script = "java -jar /Users/nadiastraton/git/BasicStorageServer/ms3-server.jar"
-//		//		+ " " + port + " " + serverLogLevel;
-//
 //		try {
 //			Runtime run = Runtime.getRuntime();
-//			run.exec(script);
+//			run.exec(sshScript);
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}

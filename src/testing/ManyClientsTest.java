@@ -17,9 +17,9 @@ public class ManyClientsTest extends TestCase {
 	private static final int nbServers = 4;
 
 	private void before(int nbConcurrentClients) throws IOException {
-		for (int i = 0; i < nbServers; i ++) {
-			new KVServer(50000 + i);
-		}
+//		for (int i = 0; i < nbServers; i ++) {
+//			new KVServer(50000 + i);
+//		}
 
 		ecs = new ECSInterface("./testing/ecs.config.txt");
 		ecs.handleCommand("init " + nbServers + " 5 LRU");
